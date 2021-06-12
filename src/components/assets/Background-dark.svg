@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+    <defs>
+        <style>.a{fill:#5d7586;}.b{fill-opacity:0.09;fill:url(#a);}.c{fill-opacity:0.18;fill:url(#b);}</style>
+            <linearGradient id="a" x1="6656.27" y1="7984.97" x2="6661.14" y2="7195.01" gradientTransform="matrix(1, 0, 0, -1, 539.01, 14643.4)" gradientUnits="userSpaceOnUse"><stop offset="0"/><stop offset="1" stop-opacity="0"/>
+            </linearGradient><linearGradient id="b" x1="6660.49" y1="7487.48" x2="6660.49" y2="6903.9" gradientTransform="matrix(1, 0, 0, -1, 539.01, 14643.4)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-opacity="0.2"/> <stop offset="1"/>
+            </linearGradient></defs><rect class="a" width="1920" height="1080"/>
+        <path class="b" d="M8159.5,6947.06c-468.86-189.14-985.09-287.56-1508.4-287.56H6239.5v1080h1920Z" transform="translate(-6239.5 -6659.5)"/><path class="c" d="M6239.5,7311.31c473.17-103.15,960.91-155.39,1450.76-155.39H8159.5V7739.5H6286.06c-25.71,0-46.56-17-46.56-37.89Z" transform="translate(-6239.5 -6659.5)"/>
+</svg>
