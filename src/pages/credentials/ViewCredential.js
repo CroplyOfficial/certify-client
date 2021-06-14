@@ -100,7 +100,7 @@ const ViewCredential = ({theme}) => {
     const [credentialData] = useState({
         credentialName: "XYZ",
         credentialRefCode: "13131313",
-        credentialType: "idk",
+        credentialType: "ABCD",
         credentialDuration: "29",
         credentialDurationPeriod: "Day(s)",
         customFields: [

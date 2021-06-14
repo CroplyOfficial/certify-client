@@ -12,6 +12,7 @@ import InputText from "./InputText"
 import LongInput from "./LongInput"
 import Menu from "./Menu"
 import PageTop from "./PageTop"
+import ProfilePic from "./ProfilePic"
 import PageContentContainer from "./PageContentContainer"
 import MainContent from "./MainContent"
 import MainContentContainer from "./MainContentContainer"
@@ -21,6 +22,7 @@ import RecoveryPhraseElement from "./RecoveryPhraseElement"
 import Select from "./Select"
 import TangleHistory from "./TangleHistory"
 import Table from "./Table"
+import Textarea from "./Textarea"
 
 
 export {
@@ -41,10 +43,12 @@ export {
     MainContentContainer,
     MainContent,
     PageTop,
+    ProfilePic,
     PWStrengthMeter,
     RecordOptions,
     RecoveryPhraseElement,
     Select,
     TangleHistory,
-    Table
+    Table,
+    Textarea
 }

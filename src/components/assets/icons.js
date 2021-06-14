@@ -345,6 +345,12 @@ const DoubleChevronBoxed = ({width, id, onClick}) => {
    )
 }
 
+const PinDeleteDigit = ({width, id, stroke, onClick}) => {
+   return (
+      <svg width={width ? width : "23"}  onClick={onClick} id={id} stroke={stroke ? stroke : "black"} viewBox="0 0 23 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.68971 2.88921C6.25227 2.0962 7.16426 1.625 8.13655 1.625H18.125C19.7819 1.625 21.125 2.96815 21.125 4.625V14.375C21.125 16.0319 19.7819 17.375 18.125 17.375H8.13655C7.16426 17.375 6.25227 16.9038 5.68971 16.1108L1.41046 10.0786C1.16461 9.73204 1.16461 9.26796 1.41046 8.9214L5.68971 2.88921Z"  strokeOpacity="0.2" strokeWidth="2"/><path d="M9.75 6.875L15 12.125"  strokeOpacity="0.2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M9.75 12.125L15 6.875" strokeOpacity="0.2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+   )
+}
+
 export {
    BellHollow,
    BellFilled,
@@ -394,5 +400,6 @@ export {
    LockClosed,
    LockOpen,
    DiscSave,
-   DoubleChevronBoxed
+   DoubleChevronBoxed,
+   PinDeleteDigit
 }

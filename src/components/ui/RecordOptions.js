@@ -52,8 +52,10 @@ const Option = styled.div`
 `;
 
 const RecordOptions = ({theme, optionList}) => {
-    let options = []
-    let numOfOptions = 1;
+    let options = [] // Array to hold the Option components
+    let numOfOptions = 1; // Variable to record number of options
+
+    /* Converting all the options in optionList to Option components and pushing them to the options array */
     for(let option in optionList) {
         options.push(
             <Option key={numOfOptions} onClick={optionList[option]}>

@@ -65,8 +65,15 @@ const ProfilePicture = styled.div`
 
 const PageTop = ({theme}) => {
     const menuCollapsed = useSelector(state => state.menuCollapsed)
-    const menuCollapsedClass = menuCollapsed ? "menuCollapsed" : ""
-    var notifExists = false
+
+    /*
+    Varibale to contain the text "menuCollapsed" when the menu is collapsed and an empty string
+    when it isn't. This wil be used to provide elements the menuCollapsed class when it the menu is
+    collapsed.
+    */
+    let menuCollapsedClass = menuCollapsed ? "menuCollapsed" : ""
+
+    let notifExists = false // Variable to determine whether the user has any notifications or not.
     return (
         <Container className={menuCollapsedClass}>
             <SearchBar placeholder="Search for a Credential or Application" btnText="SEARCH" />

@@ -1,7 +1,12 @@
 // Contains code for the password strength meter
 
-import React, {useEffect} from 'react'
-import zxcvbn from "zxcvbn" // For password strength meter
+/*
+props:
+confidInfoFieldRef -> reference to the input field to which this component is linked.
+*/
+
+import React, {useEffect, useRef} from 'react'
+import zxcvbn from "zxcvbn" // Password strength determiner
 import styled, {withTheme} from "styled-components"
 
 const Div = styled.div`
@@ -27,7 +32,8 @@ const Score = styled.span`
 `;
 
 
-const PWStrengthMeter = ({theme, confidInfoFieldRef, strengthMeterRef}) => {
+const PWStrengthMeter = ({theme, confidInfoFieldRef}) => {
+    const strengthMeterRef = useRef(null) // Reference to the span element which contains the strength score for the entered password
     const strength = {
         0: "-",
         1: "--",

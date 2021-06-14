@@ -1,10 +1,8 @@
-// Contains code for the base of the InputPIN, InputText and InputConfidInfo components
+// Contains code for the Textarea components
 /* 
 props:
-value, defaultValue, className, maxLength, placeholder, id, autoComplete, required have the same meaning as they do in standard jsx for an input field.
-strengthMeter -> indicates whether or not the component should contain the PWStrengthMeter to determine the strength of the entered password (mainly meant for InputConfidInfo component).
-confidInfo -> indicates whether or not the component deals with confidential info or not.
-inputRef -> specifies the ref prop for the input element which is part of this component.
+value, defaultValue, className, maxLength, placeholder, id, required have the same meaning as they do in standard jsx for an input field.
+inputRef -> specifies the ref prop for the textarea element which is part of this component.
 errRef -> specifies the ref prop for the div in the InputError component contained in this component.
 */
 
@@ -12,9 +10,8 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types';
 import styled, {withTheme} from 'styled-components'
 
-import {View} from "../assets/icons"
-import {PWStrengthMeter} from "./"
 import InputError from "./InputError"
+
 
 const Fieldset = styled.fieldset`
     margin: 0;
@@ -25,19 +22,20 @@ const Fieldset = styled.fieldset`
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    width: 18rem;
-    height: ${props => props.strengthMeter ? "6.5rem" : "4rem"};
+    width: 20rem;
+    height: 20rem;
 `;
 
-const Input = styled.input`
+const TextareaBase = styled.textarea`
     box-sizing: border-box;
     font-size: 1rem;
     font-family: "Open Sans";
     font-weight: normal;
     color: ${props => props.theme.mainColors.black};
+    resize: none;
     width: 100%;
-    height: 3rem;
-    padding: ${props => props.confidInfo ? "0rem 2.5rem 0rem 1rem" : "0rem 1rem 0rem 1rem"};
+    height: 100%;
+    padding: 1rem 1rem 0rem 1rem;
     border-radius: 30px;
     box-shadow: none;
     border: 1px solid ${props => props.theme.pastelColors.grey};
@@ -63,9 +61,38 @@ const Input = styled.input`
         color: ${props => props.theme.mainColors.darkBlue};
         width: max-content;
     }
+      /**********************
+    For the custom scrollbar 
+    ***********************/
+
+    &::-webkit-scrollbar {
+        background: none;
+        width:8px;
+        padding-left:10px;
+
+    }
+
+    /* background of the scrollbar except button or resizer */
+    &::-webkit-scrollbar-track {
+        background: none;
+        border-radius: 30px;
+        margin:20px;
+        //border: 2px solid black;
+    }
+
+    /* scrollbar itself */
+    &::-webkit-scrollbar-thumb {
+        background-color:#babac0;
+        border-radius:16px;
+    }
+
+    /* set button(top and bottom of the scrollbar) */
+    &::-webkit-scrollbar-button {
+        display:none;
+    }
 `;
 const Label = styled.label`
-    position:absolute;
+    position: absolute;
     font-family: "Open Sans";
     font-weight: normal;
     font-size: 1rem !important;
@@ -87,26 +114,15 @@ const Label = styled.label`
 
 `;
 
-const ToggleShow = styled.div`
-    position: absolute;
-    right: 1rem;
-    cursor: pointer;
-    top: 0.7rem;
-    height: fit-content;
-    width: fit-content;
-    background-color: ${props => props.theme.mainColors.white};
-`;
-
 const Error = styled(InputError)`
     position: absolute;
     margin-left: 1rem;
-    margin-top: ${props => props.strengthMeter ? "4.8rem" : "3.2rem"};
+    margin-top: 3.2rem;
 `;
 
-const InputBase = ({theme, value, defaultValue, className, strengthMeter, maxLength, confidInfo, placeholder, id, autoComplete, required, err, inputRef}) => {
+const Textarea = ({theme, value, defaultValue, className, maxLength, placeholder, id, required, errRef, inputRef}) => {
 
     const [isInputFilled, setIsInputFilled] = useState(defaultValue || value ? true : false); // State to determine whether the input field has a value in it or not
-    const [isConfidInfoVisible, setIsConfidInfoVisible] = useState(false); // State to determine whether the text in the input field is masked or not. This is needed for the Show/Hide Password functionality
 
     /* 
     Checks if the Input element has any value in it and changes the state isInputFilled according to that. This is 
@@ -119,65 +135,41 @@ const InputBase = ({theme, value, defaultValue, className, strengthMeter, maxLen
             setIsInputFilled(false);
     }
 
-    /* Changes the state isConfidInfoVisible to show or hide (mask) the info in the input field */
-    const toggleShowConfidInfo = (e) => {
-        if (!isConfidInfoVisible) 
-            setIsConfidInfoVisible(true)
-        else if (isConfidInfoVisible)
-            setIsConfidInfoVisible(false)
-    }
-
     return (
-        <Fieldset className={className} strengthMeter={strengthMeter}>
-            <Input
+        <Fieldset className={className}>
+            <TextareaBase
                 maxLength={maxLength} 
-                type={(confidInfo ? (isConfidInfoVisible ? "text" : "password") : "text")}
+                type="text"
                 ref={inputRef}
                 id={id}
                 defaultValue={defaultValue ? defaultValue : undefined}
                 onChange={isInputFilledCheck}
-                confidInfo={confidInfo}
-                autoComplete={autoComplete}
                 required={required}
-                value={value ? value : undefined}
+                value={value}
             />
             <Label htmlFor={id} className={isInputFilled ? 'inputFilled' : ''}>{placeholder}</Label>
-            {
-                confidInfo ?
-                <ToggleShow onClick={toggleShowConfidInfo} >
-                    {
-                        isConfidInfoVisible ? 
-                        <View stroke={theme.mainColors.darkBlue} /> : 
-                        <View  stroke={theme.mainColors.grey} />
-                    }
-                </ToggleShow> : 
-                ""
-            }
-            {
-                strengthMeter ? 
-                <PWStrengthMeter confidInfoFieldRef={inputRef} /> :
-                ""
-            }
-            <Error strengthMeter={strengthMeter}>{err}</Error>
+            <Error 
+                errRef={errRef}
+            ></Error>
         </Fieldset>
     )
 }
 
-InputBase.propTypes = {
+Textarea.propTypes = {
     placeholder: PropTypes.string,
     inputRef: PropTypes.oneOfType([
         PropTypes.object,
         PropTypes.func
     ]),
     id: PropTypes.string,
-    autoComplete: PropTypes.bool,
     maxLength: PropTypes.string,
     required: PropTypes.bool, 
-    confidInfo: PropTypes.bool,
-    strengthMeter: PropTypes.bool,
     defaultValue: PropTypes.string,
     className: PropTypes.string,
-    err: PropTypes.string
+    errRef: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.func
+    ])
 }
 
-export default withTheme(InputBase)
+export default withTheme(Textarea)

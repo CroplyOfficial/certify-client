@@ -16,26 +16,23 @@ import {
 const CustomMainContent = styled(MainContent)`
     .inputFields {
         display: grid;
-        grid-template: repeat(3, 1fr) / repeat(9, 1fr);
+        grid-template: repeat(3, 1fr) / repeat(9, 1fr) ;
         grid-row-gap: 2rem;
-        fieldset:nth-of-type(1) {
+        fieldset {
             width: 100%;
-            grid-column: 1 / span 9;
             max-width: none;
+        }
+        fieldset:nth-of-type(1) {
+            grid-column: 1 / span 9;
         }
 
         fieldset:nth-of-type(2) {
-            width: 100%;
-            grid-row: 2 / span 1;
             grid-column: 1 / span 4;
         }
 
         fieldset:nth-of-type(3) {
-            width: 100%;
-            grid-row: 2 / span 1;
             grid-column: 6 / span 4;
-            display: flex;
-            justify-self: right;
+
         }
         .durationInput {
             grid-row: 3 / span 1;

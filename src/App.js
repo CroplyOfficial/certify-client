@@ -9,8 +9,11 @@ import Dashboard from './pages/Dashboard'
 import Applications from './pages/applications/Applications'
 import NewApplication from './pages/applications/NewApplication'
 import ViewApplication from './pages/applications/ViewApplication'
-import History from './pages/History'
-import Users from './pages/Users'
+import History from './pages/credentialHistory/History'
+import ViewTransactionTangle from './pages/credentialHistory/ViewTransactionTangle'
+import Users from './pages/users/Users'
+import ViewUser from './pages/users/ViewUser'
+import NewUser from './pages/users/NewUser'
 import Identity from './pages/Identity'
 import Credentials from './pages/credentials/Credentials'
 import NewCredential from './pages/credentials/NewCredential'
@@ -28,17 +31,20 @@ const App = () => {
           <Route exact component={Login} path="/" title="Login" />
           <Route component={Onboarding} path="/onboarding" />
           <Route component={Dashboard} path="/dashboard" />
-          <Route component={Users} path="/users" />
           <Route component={Applications} exact path="/applications" />
           <Route component={NewApplication} path="/applications/new" />
           <Route component={ViewApplication} path="/applications/view" />
-          <Route component={History} path="/history" />
+          <Route component={History} exact path="/history" />
+          <Route component={ViewTransactionTangle} path="/history/view" />
           <Route component={Identity} path="/identity" />
           <Route component={Settings} path="/settings" />
           <Route component={Credentials} exact path="/credentials" />
           <Route component={NewCredential} path="/credentials/new" />
           <Route component={ViewCredential} path="/credentials/view" />
           <Route component={IssueCredential} path="/credentials/issue" />
+          <Route component={Users} exact path="/users" />
+          <Route component={NewUser} path="/users/new" />
+          <Route component={ViewUser} path="/users/view" />
         </Switch>
 
       </div>

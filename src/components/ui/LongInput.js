@@ -33,7 +33,7 @@ const Input = styled.input`
     outline: none;
     float: left;
     &::placeholder {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     &:hover { 
         border-color: ${props => props.theme.mainColors.darkBlue};

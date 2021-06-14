@@ -3,7 +3,8 @@
 props: 
 placeholder, id, autoComplete, required have the same meaning as they do in standard jsx for an input field.
 strengthMeter -> indicates whether or not the component should contain the PWStrengthMeter to determine the strength of the entered password.
-errElementId -> specifies the id prop for the InputError component contained in the InputBase component. 
+inputRef -> specifies the ref prop for the input element which is part of this component.
+errRef -> specifies the ref prop for the div in the InputError component contained in this component.
 */
 
 import React from 'react'
@@ -12,7 +13,7 @@ import PropTypes from 'prop-types';
 
 import InputBase from "./InputBase"
 
-const InputConfidInfo = ({placeholder, id, inputRef, autoComplete, required, strengthMeter, className, errElementRef}) => {
+const InputConfidInfo = ({placeholder, id, inputRef, autoComplete, required, strengthMeter, className, err}) => {
     return (
             <InputBase 
                 placeholder={placeholder}
@@ -23,21 +24,23 @@ const InputConfidInfo = ({placeholder, id, inputRef, autoComplete, required, str
                 confidInfo
                 strengthMeter={strengthMeter}
                 className={className}
-                errElementRef={errElementRef}
+                err={err}
             />
     )
 }
 
 InputConfidInfo.propTypes = {
     placeholder: PropTypes.string,
-    inputRef: PropTypes.func,
+    inputRef: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.func
+    ]),    
     id: PropTypes.string,
     autoComplete: PropTypes.bool,
     required: PropTypes.bool, 
     strengthMeter: PropTypes.bool,
     className: PropTypes.string,
-    errElementRef: PropTypes.object
-
+    err: PropTypes.string
 }
 
 

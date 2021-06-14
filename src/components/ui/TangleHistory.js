@@ -24,7 +24,7 @@ const TangleHistoryTable = styled(Table)`
 `;
 
 const TangleHistory = ({theme}) => {
-    var history = ['Jake', 'Jon', 'Thruster','John']
+    let history = ['Jake', 'Jon', 'Thruster','John']
     return (
         <Div>
             <H1>Tangle History</H1>

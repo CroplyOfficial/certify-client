@@ -194,11 +194,16 @@ const LogoutDiv = styled.div`
 
 const Menu = ({theme, active}) => {
     const menuCollapsed = useSelector(state => state.menuCollapsed)
-    const menuCollapsedClass = menuCollapsed ? "menuCollapsed" : ""
+
+    let menuCollapsedClass = menuCollapsed ? "menuCollapsed" : "" 
+
     const dispatch = useDispatch()
+
+    /* Function to expand/collapse the menu */
     const toggleMenu = () => {
         dispatch(toggleMenuState())
     }
+
     return (
         <MenuBase className={menuCollapsedClass}>
             <LogoDiv className={menuCollapsedClass}>

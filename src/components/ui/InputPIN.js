@@ -1,19 +1,11 @@
 // Input component to accept numbers like PINs
 /*
 props:
-All prop names except errElementId have the same meaning as they do in standard jsx for an input field.
-errElementId -> specifies the id prop for the InputError component contained in the InputBase component. 
-*/
-
-
-// Contains code for the base of the InputPIN, InputText and InputConfidInfo components
-/* 
-props:
-placeholder, id, value, autoComplete, maxLength, required have the same meaning as they do in standard jsx for an input field.
-strengthMeter -> indicates whether or not the component should contain the PWStrengthMeter to determine the strength of the entered password (mainly meant for InputConfidInfo component).
-confidInfo -> indicates whether or not the component deals with confidential info or not.
-numsOnly -> specifies whether only numbers are to be accepted as input.
-errElementId -> specifies the id prop for the InputError component contained in the InputBase component. 
+className, placeholder, id, autoComplete, required, autoFocus have the same meaning as they do in standard jsx for an input field.
+inputRef -> specifies the ref prop for the swd-pin-field element which is part of this component.
+errRef -> specifies the ref prop for the div in the InputError component contained in this component.
+maskColor -> specifies the colour of the text mask for the field in the input field.
+inputUnderlineColor-> specified the colour of the underline under each input for this component. 
 */
 
 import React, {useState, useRef} from 'react'
@@ -22,8 +14,7 @@ import styled, {withTheme} from 'styled-components'
 import ReactPinField from "react-pin-field"
 
 import InputError from "./InputError"
-
-
+import { PinDeleteDigit } from '../assets/icons';
 
 const Fieldset = styled.fieldset`
     padding: 0;
@@ -86,8 +77,16 @@ const Label = styled.label`
     color: ${props => props.theme.mainColors.darkBlue};
     width: max-content;
 `;
+const DeleteDigit = styled.div`
+    margin-left: 15.5rem;
+    position: absolute;
+    margin-top: 0.9rem;
+    svg {
+        cursor: pointer;
+    }
+`;
 
-const PINContainer = styled.div`
+const PinContainer = styled.div`
     position: absolute;
     margin-top: 0.8rem;
     margin-left: 1.5rem;
@@ -120,14 +119,30 @@ const Error = styled(InputError)`
     margin-top: 3.2rem;
 `;
 
-const InputPIN = ({theme, className, placeholder, id, inputRef, autoComplete, required, errElementRef, autoFocus, maskColor, inputUnderlineColor}) => {
+const InputPIN = ({theme, className, placeholder, id, inputRef, autoComplete, required, err, autoFocus, maskColor, inputUnderlineColor, deleteDigitColor}) => {
 
-    const [pin, setPin] = useState("")
-    const [inputFocused, setInputFocused] = useState(autoFocus ? true : false)
-    const pinInputRef = useRef(null)
+    const [pin, setPin] = useState("") // State to hold the entered PIN value
+    const [inputFocused, setInputFocused] = useState(autoFocus ? true : false) // State to determine whether the input fields are focused or blurred
+    const pinInputRef = useRef(null) // Reference to the ReactPinField component's swd-pin-field element
+    /* 
+    NOTE: pinInputRef is different to inputRef. The latter is the reference to a hidden input field from 
+    which the value entered in the actual input fields can be accessed using inputRef.current.value . 
+    */
+
+
+    const deleteDigitHandler = () => {
+        let arr = pinInputRef.current.inputs.slice().reverse()
+        for(let input of arr) {
+            if(input.value.length > 0) {
+                input.focus()
+                input.dispatchEvent(new KeyboardEvent('keydown',{'key':'Backspace'}));
+                break
+            }
+        }
+    }
 
     const pinHandler = async (e) => {
-            setPin(e)  
+            setPin(e) // Sets the pin state to the new value in the input fields
             new Promise(() => {
                 setTimeout(() => {
                     if( pinInputRef.current) {
@@ -147,7 +162,6 @@ const InputPIN = ({theme, className, placeholder, id, inputRef, autoComplete, re
                 })
             }
     }
-
     return (
         <Fieldset className={className}>
             <InputForShow
@@ -159,32 +173,37 @@ const InputPIN = ({theme, className, placeholder, id, inputRef, autoComplete, re
             />
             <Label className="inputFilled">{placeholder}</Label>
             <HiddenInput id={id} ref={inputRef} style={{display: "none"}} defaultValue={pin} />
-            <PINContainer inputUnderlineColor={inputUnderlineColor} maskColor={maskColor}>
+            <DeleteDigit>
+                <PinDeleteDigit stroke={deleteDigitColor} width="1.5rem" onClick={deleteDigitHandler} />
+            </DeleteDigit>
+            <PinContainer inputUnderlineColor={inputUnderlineColor} maskColor={maskColor}>
                 <ReactPinField 
                     ref={pinInputRef}
                     className="pinDigitContainer" 
                     validate="0123456789" 
                     onChange={pinHandler}
                     onFocus={() => setInputFocused(true)}
+                    onBlur={() => setInputFocused(false)}
                     length="6"
                     autoFocus={autoFocus ? autoFocus : undefined}
                 />
-            </PINContainer>
-            <Error 
-                errElementRef={errElementRef}
-            ></Error>
+            </PinContainer>
+            <Error>{err}</Error>
         </Fieldset>
     )
 }
 
 InputPIN.propTypes = {
     placeholder: PropTypes.string,
-    inputRef: PropTypes.func,
+    inputRef: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.func
+    ]),    
     id: PropTypes.string,
     autoComplete: PropTypes.string,
     required: PropTypes.bool, 
     className: PropTypes.string,
-    errElementRef: PropTypes.object,
+    err: PropTypes.string,
     autoFocus: PropTypes.bool
 }
 

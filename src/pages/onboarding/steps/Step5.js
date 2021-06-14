@@ -1,15 +1,15 @@
-import React, {useRef} from 'react'
+import React, {useState} from 'react'
 import {Step} from "./"
 import {
     InputPIN,
     Button,
 } from "../../../components/ui" 
-const Step5 = ({userInput, confirmPINRef, nextStepFunc}) => {
-    const confirmPINErrRef = useRef(null)
+const Step5 = ({userInput, confirmPinRef, nextStepFunc}) => {
+    const [confirmPinErr, setConfirmPinErr] = useState("")
     
     const checkInput = () => {
-        if(confirmPINRef.current.value !== userInput.pin) {
-            confirmPINErrRef.current.innerHTML = "The input does not match your entered PIN. Please try again."
+        if(confirmPinRef.current.value !== userInput.pin) {
+            setConfirmPinErr("The input does not match your entered PIN. Please try again.")
         }
         else {
             nextStepFunc()
@@ -29,7 +29,7 @@ const Step5 = ({userInput, confirmPINRef, nextStepFunc}) => {
                 <p>
                     Re-Enter your PIN to continue
                 </p>
-                <InputPIN id="PINConfirm" inputRef={confirmPINRef} errElementRef={confirmPINErrRef} placeholder="Confirm PIN" maskColor="#89C7F3" inputUnderlineColor="#A1A1A1" required />
+                <InputPIN id="pinConfirm" inputRef={confirmPinRef} err={confirmPinErr} placeholder="Confirm PIN" maskColor="#89C7F3" inputUnderlineColor="#A1A1A1" deleteDigitColor="#FFFFFF" required />
             </div>
             <div className="div3">
                 <Button primary btnColor="#6D97B5" onClick={checkInput}>CONFIRM PIN CODE</Button>

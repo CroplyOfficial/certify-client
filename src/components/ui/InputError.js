@@ -12,9 +12,9 @@ const Div = styled.div`
     height: 1rem;
 `;
 
-const InputError = ({theme, id, errElementRef, className, children}) => {
+const InputError = ({theme, id, className, children}) => {
     return (
-        <Div ref={errElementRef} id={id} className={className}>
+        <Div id={id} className={className}>
             {children}
         </Div>
     )
@@ -22,8 +22,7 @@ const InputError = ({theme, id, errElementRef, className, children}) => {
 
 InputError.propTypes ={
     id: PropTypes.string,
-    className: PropTypes.string,
-    errElementRef: PropTypes.object
+    className: PropTypes.string
 }
 
 export default withTheme(InputError)

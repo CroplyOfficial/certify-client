@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import styled, { withTheme } from 'styled-components';
 import {Link} from "react-router-dom"
 
@@ -60,14 +60,15 @@ const ContentContainer = styled.div`
     .buttons {
         margin-left: 0.5rem;
         position: relative;
-        a {
-            font-family: "Open Sans";
-            text-decoration: none;
-            color: #000;
-            float: left;
-            left: 9.5rem;
-            top: 3.5rem;
-            position: absolute;
+        div {
+            margin-top: 0.5rem;
+            display: grid;
+            place-items: center;
+            a {
+                font-family: "Open Sans";
+                text-decoration: none;
+                color: #000;
+            }
         }
         button {
             margin: 0 auto;
@@ -82,19 +83,28 @@ const ContentContainer = styled.div`
 `;
 
 const Login = () => {
-    const loginUsernameRef = useRef(null)
-    const loginPINRef = useRef(null)
-    const loginUsernameErrRef = useRef(null)
-    const loginPINErrRef = useRef(null)
+    const usernameRef = useRef(null)
+    const pinRef = useState(null)
+    const [usernameErr, setUsernameErr] = useState("")
+    const [pinErr, setPinErr] = useState("")
     useEffect(() => {
         document.title="Login"
     })
     const checkInput = () => {
-        if(loginUsernameRef.current.value === "") {
-            loginUsernameErrRef.current.innerHTML = "Please enter your username." 
+        if(usernameRef.current.value === "") {
+            setUsernameErr("Please enter your username.") 
         }
-        if(loginPINRef.current.value === "") {
-            loginPINErrRef.current.innerHTML = "Please enter your PIN." 
+        else {
+            setUsernameErr("")
+        }
+        if(pinRef.current.value === "") {
+            setPinErr("Please enter your PIN.") 
+        }
+        else if(pinRef.current.value.length < 6) {
+            setPinErr("Your PIN must consist of 6 digits.")
+        }
+        else {
+            setPinErr("")
         }
     }
     return (
@@ -111,12 +121,14 @@ const Login = () => {
                 </LogoDiv>
                 <form>
                     <div className="inputFields">
-                        <InputText  id="loginUsername" inputRef={loginUsernameRef} errElementRef={loginUsernameErrRef} placeholder="Username" />
-                        <InputPIN id="loginPIN" inputRef={loginPINRef} errElementRef={loginPINErrRef} placeholder="PIN" inputUnderlineColor="#C4C4C4" maskColor="#89C7F3" required />
+                        <InputText  id="loginUsername" inputRef={usernameRef} err={usernameErr} placeholder="Username" />
+                        <InputPIN id="loginPIN" inputRef={el => pinRef.current = el} err={pinErr} placeholder="PIN" inputUnderlineColor="#C4C4C4" maskColor="#89C7F3" deleteDigitColor="#000000" required />
                     </div>
                     <div className="buttons">
                         <Button type="button" primary onClick={checkInput} btnColor="#5D7586">LOGIN</Button>
-                        <Link to="">Forgot PIN?</Link>
+                        <div>
+                            <Link to="">Forgot PIN?</Link>
+                        </div>
                         <Button type="button" primary onClick={() => {window.location.href = "/onboarding"}} btnColor={colorLightLevel("#BECFDB", -5)}>CREATE NEW IDENTITY</Button>
                     </div>
                 </form>

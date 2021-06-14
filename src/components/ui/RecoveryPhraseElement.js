@@ -56,20 +56,22 @@ const BtnDiv = styled.div`
 `;
 
 const RecoveryPhraseElement = () => {
-    var words = [
+    let recoveryPhraseWords = [
         "hello","hello","hello","hello","hello","hello","hello","hello",
         "hello","hello","hello","hello","hello","hello","hello","hello",
         "hello","hello","hello","hello","hello","hello","hello","hello"
-    ] // This is the array containing words for the recovery phrase
-    var rows = []
-    var textBoxes = []
+    ]
+    let rows = []
+    let textBoxes = []
 
-    /* 3 TextBox components are pushed to the array textBoxes and as soon as textBoxes contains 3 elements, 
+    /*
+    3 TextBox components are pushed to the array textBoxes and as soon as textBoxes contains 3 elements, 
     it is wrapped in the Row component and pushed to another array, rows. The array textBoxes is then emptied
     and the loop goes on. So, every element of the array rows contains a Row component with 3 TextBox elements 
-    as children */
-    for(const [index, word] of words.entries()) {
-        var num = index+1
+    as children 
+    */
+    for(const [index, word] of recoveryPhraseWords.entries()) {
+        let num = index+1
         textBoxes.push(
             <TextBox key={num}>
                 <Number>{num+'.'}</Number>

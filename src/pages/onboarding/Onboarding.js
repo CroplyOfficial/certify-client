@@ -80,8 +80,8 @@ const Onboarding = () => {
     const profileNameRef = useRef(null)
     const passwordRef = useRef(null)
     const confirmPasswordRef = useRef(null)
-    const PINRef = useRef(null)
-    const confirmPINRef = useRef(null)
+    const pinRef = useRef(null)
+    const confirmPinRef = useRef(null)
 
 
     const nextStep = () => {
@@ -100,10 +100,9 @@ const Onboarding = () => {
         // If user is on Step4 (the step where they have to enter the pin)
         if(activeStep === 3) {
             let newUserInput = {...userInput}
-            newUserInput["pin"] = PINRef.current.value
+            newUserInput["pin"] = pinRef.current.value
             setUserInput(newUserInput)
         }
-        console.log(userInput)
         setActiveStep(activeStep => activeStep+1)
     }
     const prevStep = () => {
@@ -113,8 +112,8 @@ const Onboarding = () => {
         <Step1 profileNameRef={profileNameRef} nextStepFunc={nextStep} />, 
         <Step2 nextStepFunc={nextStep} />,
         <Step3 passwordRef={passwordRef} confirmPasswordRef={confirmPasswordRef} nextStepFunc={nextStep} />, 
-        <Step4 PINRef={PINRef} nextStepFunc={nextStep} />,
-        <Step5 userInput={userInput} confirmPINRef={confirmPINRef} nextStepFunc={nextStep} />, 
+        <Step4 pinRef={pinRef} nextStepFunc={nextStep} />,
+        <Step5 userInput={userInput} confirmPinRef={confirmPinRef} nextStepFunc={nextStep} />, 
         <Step6 nextStepFunc={nextStep} />,
         <Step7 nextStepFunc={nextStep} />, 
         <Step8 nextStepFunc={nextStep} />

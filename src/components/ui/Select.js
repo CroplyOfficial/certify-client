@@ -95,7 +95,9 @@ const Label = styled.label`
 `;
 
 const Select = ({theme, id, inputRef, required, defaultValue, placeholder, optionList}) => {
-    const [isOptSelected, setIsOptSelected] = useState(defaultValue ? true : false);
+    const [isOptSelected, setIsOptSelected] = useState(defaultValue ? true : false) // State to determine whether an option is selected or not.
+    let optList = [] // Array which will contain all the option elements
+
     /* 
     Checks if the SelectBase element has any value in it and changes the state isOptSelected according to that. This is 
     needed for making the label float over the element when the latter is clicked. 
@@ -106,7 +108,7 @@ const Select = ({theme, id, inputRef, required, defaultValue, placeholder, optio
         else if (e.target.value === "")
             setIsOptSelected(false);
     }
-    var optList = []
+    /* Converting all values in optionList to option elements and pushing them to optList */
     for (const [index, value] of optionList.entries()) {
         optList.push(<option key={index}>{value}</option>)
       }

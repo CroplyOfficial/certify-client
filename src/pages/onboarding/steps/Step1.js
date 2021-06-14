@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useState} from 'react'
 import {Step} from "./"
 import {
     InputText, 
@@ -6,11 +6,11 @@ import {
 } from "../../../components/ui" 
 
 const Step1 = ({profileNameRef, nextStepFunc}) => {
-    const profileNameErrRef = useRef(null)
+    const [profileNameErr, setProfileNameErr] = useState("")
 
     const checkInput = () => {
         if(profileNameRef.current.value === "") {
-            profileNameErrRef.current.innerHTML = "Please enter a valid profile name."
+            setProfileNameErr("Please enter a valid profile name.")
         }
         else {
             nextStepFunc()
@@ -33,7 +33,7 @@ const Step1 = ({profileNameRef, nextStepFunc}) => {
                 </p>
             </div>
             <div className="div2">
-                <InputText id="profileName" inputRef={profileNameRef} placeholder="Profile Name" errElementRef={profileNameErrRef} required />
+                <InputText id="profileName" inputRef={profileNameRef} placeholder="Profile Name" err={profileNameErr} required />
             </div>
             <div className="div3">
                 <Button primary btnColor="#6D97B5" onClick={checkInput}>CREATE NEW IDENTITY</Button>
