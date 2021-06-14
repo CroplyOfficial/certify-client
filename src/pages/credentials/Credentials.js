@@ -11,7 +11,8 @@ import {
     Checkbox,
     Button,
     RecordOptions,
-    DuplicateCredentialPopup
+    DuplicateCredentialPopup,
+    IssueCredentialPopup
 } from "../../components/ui"
 import {Filters} from "../../components/assets/icons"
 
@@ -57,15 +58,23 @@ const Credentials = ({theme}) => {
     let rows = [];
     let rowIndex = 1;
 
+    let credentialNames = [];
+
     const [credentialToDuplicate, setCredentialToDuplicate] = useState({})
 
-    const [popupVisible, setPopupVisible] = useState(false)
-    const togglePopup = (credential) => {
-        setPopupVisible(!popupVisible)
+    const [duplicateCredentialPopupVisible, setDuplicateCredentialPopupVisible] = useState(false)
+    const toggleDuplicateCredentialPopup = (credential) => {
+        setDuplicateCredentialPopupVisible(!duplicateCredentialPopupVisible)
         setCredentialToDuplicate(credential)
     }
 
+    const [issueCredentialPopupVisible, setIssueCredentialPopupVisible] = useState(false)
+    const toggleIssueCredentialPopup = () => {
+        setIssueCredentialPopupVisible(!issueCredentialPopupVisible)
+    }
+
     for(let entry of entries) {
+        credentialNames.push(entry.name)
         rows.push(
             <tr key={rowIndex}>
                 <td>
@@ -94,7 +103,7 @@ const Credentials = ({theme}) => {
                     }
                 </td>
                 <td>
-                    <RecordOptions optionList={{"Duplicate": () => togglePopup(entry)}} />
+                    <RecordOptions optionList={{"Duplicate": () => toggleDuplicateCredentialPopup(entry)}} />
                 </td>
             </tr>
         )
@@ -103,7 +112,7 @@ const Credentials = ({theme}) => {
     const buttons = (
         <>
         <Button btnColor={theme.mainColors.darkBlue} onClick={() => window.location = "/credentials/new"}>+ NEW CREDENTIAL</Button>
-        <Button primary btnColor={theme.mainColors.darkBlue} onClick={() => window.location = "/credentials/issue"}>+ ISSUE CREDENTIAL</Button>
+        <Button primary btnColor={theme.mainColors.darkBlue} onClick={toggleIssueCredentialPopup}>+ ISSUE CREDENTIAL</Button>
         </>
     )
     return (
@@ -132,8 +141,13 @@ const Credentials = ({theme}) => {
             <TangleHistory />
         </PageContentContainer>
         {
-            popupVisible ? 
-            <DuplicateCredentialPopup closePopupFunc={togglePopup} credential={credentialToDuplicate} /> :
+            duplicateCredentialPopupVisible ? 
+            <DuplicateCredentialPopup closePopupFunc={toggleDuplicateCredentialPopup} credential={credentialToDuplicate} /> :
+            null
+        }
+        {
+            issueCredentialPopupVisible ?
+            <IssueCredentialPopup closePopupFunc={toggleIssueCredentialPopup} credentialNames={credentialNames} /> :
             null
         }
         </>

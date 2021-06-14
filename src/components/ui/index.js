@@ -9,6 +9,7 @@ import InputConfidInfo from "./InputConfidInfo"
 import InputError from "./InputError"
 import InputPIN from "./InputPIN"
 import InputText from "./InputText"
+import IssueCredentialPopup from "./IssueCredentialPopup"
 import LongInput from "./LongInput"
 import Menu from "./Menu"
 import PageTop from "./PageTop"
@@ -37,6 +38,7 @@ export {
     InputError,
     InputPIN,
     InputText,
+    IssueCredentialPopup,
     LongInput,
     Menu,
     PageContentContainer,

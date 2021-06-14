@@ -69,7 +69,7 @@ const NewApplication = ({theme}) => {
         <PageTop />
         <PageContentContainer>
             <MainContentContainer>
-                <CustomMainContent contentTitle="View Application" componentRight={saveAppBtn}>
+                <CustomMainContent contentTitle="New Application" componentRight={saveAppBtn}>
                     <IDScan placeholder="License Applicant ID" btnText="SCAN" />
                     <Select inputRef={el => userInputRefs.current.credentialName = el} placeholder="Credential" optionList={["Animal Agriculture License"]} />
                     <InputText inputRef={el => userInputRefs.current.appFirstName = el} placeholder="Applicant First Name" />

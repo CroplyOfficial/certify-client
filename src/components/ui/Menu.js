@@ -56,10 +56,11 @@ const LogoDiv = styled.div`
     font-family: 'Poppins';
     font-size: 1.4rem;
     color: ${props => props.theme.mainColors.darkBlue};
-    margin: 0.5rem 1.5rem;
+    margin: 3vh 2vw;
     margin-bottom: 0;
     height: 3.5rem;
     display: flex;
+
     svg {
         min-width: 40px;
         max-width: 2rem;
@@ -70,7 +71,9 @@ const LogoDiv = styled.div`
     }
 
     &.menuCollapsed {
-        margin: 0.5rem 1rem;
+        display: grid;
+        place-items: center;
+        margin: 3vh 1vw;
     }
     div.menuCollapsed {
         display: none;
@@ -78,14 +81,21 @@ const LogoDiv = styled.div`
 `;
 
 const MenuChevron = styled.div`
-    margin: 1rem auto;
+    display: grid;
+    margin: 2vh auto;
+    margin-bottom: 7vh;
     margin-right: 2rem;
     cursor: pointer;
     width: fit-content;
     transition: all 0.5s;
     &.menuCollapsed {
+        margin-right: 0;
+        svg {
+            margin-bottom: -0.5rem;
+        }
+        width: 100%;
+        place-content: center;
         transform: rotate(180deg);
-        margin-left: 1.2rem;
         transition: all 0.5s;
     }
 `;
@@ -131,16 +141,21 @@ const MenuItem = styled.div`
         }
     }
     &.menuCollapsed {
+        display: grid;
         a {
-            margin-left: 1.2rem;
+            display: grid;
+            place-items: center;
+            margin: 0;
             svg {
-                width: 1.3rem;
+                width: 1.5rem;
                 transition: all 0.3s ease-in;
             }
             div {
                 visibility: hidden;
                 opacity: 0;
                 transition: visibility 0.1s, opacity 0.5s linear;
+                display: none;
+
             }
         }
     }
@@ -158,35 +173,48 @@ const ActivePageMarker = styled.div`
 
 const LogoutDiv = styled.div`
     font-family: 'Open Sans';
-    font-weight: bold;
+    font-weight: normal;
     font-size: 1rem;
-    margin-left: 1.4rem;
-    color: ${props => props.theme.mainColors.grey};
-    bottom: 3vh;
-    position: absolute;
+    bottom: 6vh;  
     cursor: pointer;
+    height: 1.8rem;
     display: flex;
-    div {
-        margin: 0.1rem 0;
-        margin-left: 0.5rem;
-        visibility: visible;
-        opacity: 1;
-        transition: visibility 0.1s, opacity 0.5s linear;
-
-    }
-    svg {
-        transition: width 0.3s;
-    }
-    &.menuCollapsed {
-        margin-left: 1.4rem;
+    text-decoration: none;
+    position: absolute;
+    a {
+        text-decoration: none;
+        margin-left: 1rem;
+        color: ${props => props.theme.mainColors.grey};
+        display: flex;
         svg {
-            width: 2rem;
-            transition: width 0.3s;
+            width: 1.2rem;
+            transition: all 0.3s ease-out;
         }
         div {
-            visibility: hidden;
-            opacity: 0;
+            display: grid;
+            place-items: center;
+            margin-left: 0.5rem;
+            background: none !important;
             transition: visibility 0.1s, opacity 0.5s linear;
+        }
+    }
+    &.menuCollapsed {
+        display: grid;
+        width: 100%;
+        a {
+            display: grid;
+            place-items: center;
+            margin: 0;
+            svg {
+                width: 1.5rem;
+                transition: all 0.3s ease-in;
+            }
+            div {
+                visibility: hidden;
+                opacity: 0;
+                transition: visibility 0.1s, opacity 0.5s linear;
+                display: none;
+            }
         }
     }
 `;
@@ -263,8 +291,10 @@ const Menu = ({theme, active}) => {
                 </Link>
             </MenuItem>
             <LogoutDiv className={menuCollapsedClass}>
-                <Logout />
-                <div>LOG OUT</div>
+                <a>
+                    <Logout />
+                    <div>LOG OUT</div>
+                </a>
             </LogoutDiv>
         </MenuBase>
     )

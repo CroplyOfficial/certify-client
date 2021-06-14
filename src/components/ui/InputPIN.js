@@ -95,6 +95,7 @@ const PinContainer = styled.div`
         grid-template-columns: repeat(6, 1fr);
         grid-column-gap: 0.3rem; 
         .pinDigitContainer {
+            text-align: center;
             box-sizing: border-box;
             background: none;
             font-size: 1.2rem;
@@ -108,6 +109,12 @@ const PinContainer = styled.div`
                 font-size: 5rem;
                 color: ${props => props.maskColor};
                 border-bottom: none;
+                @-moz-document url-prefix() {
+                    & {
+                        font-size: 3rem;
+                        padding-bottom: 0.5rem;
+                    }
+                }
             }
         }
     }

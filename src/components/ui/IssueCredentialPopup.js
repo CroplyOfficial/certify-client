@@ -4,7 +4,6 @@ import {hexToRgb} from "../functions/componentFunctions"
 import {
     Button,
     H1,
-    InputText,
     Select,
     Hr,
 } from "."
@@ -24,7 +23,7 @@ const BlurredBg = styled.div`
 
 const Popup = styled.div`
     display: grid;
-    grid-template-rows: repeat(5, auto);
+    grid-template-rows: repeat(3, auto);
     grid-row-gap: 1rem;
     background-color: ${props => props.theme.mainColors.white};
     border-radius: 30px;
@@ -35,7 +34,6 @@ const Popup = styled.div`
     hr {
         width: 100%;
         margin: 0.5rem 0;
-
     }
 `;
 
@@ -60,31 +58,11 @@ const Note = styled.div`
     color: ${props => props.theme.mainColors.black};
 `;
 
-const CredentialName = styled.div`
-    font-weight: bold;
-`;
+const InputDiv = styled.div`
+    margin: 1rem 1rem;
 
-const Inputs = styled.div`
-    display: grid;
-    grid-template: repeat(2, 1fr) / repeat(5, 1fr) ;
-    grid-row-gap: 1rem; 
-    margin: 0 1rem;
-
-    fieldset:nth-last-of-type(1) {
+    fieldset {
         width: 100%;
-        grid-column: 1 / span 5;
-    }
-
-    fieldset:nth-last-of-type(2) {
-        width: 100%;
-        grid-row: 2 / span 1;
-        grid-column: 1 / span 2;
-    }
-
-    fieldset:nth-last-of-type(3) {
-        width: 100%;
-        grid-row: 2 / span 1;
-        grid-column: 4 / span 2;
     }
 `;
 
@@ -99,7 +77,7 @@ const BtnDiv = styled.div`
     }
 `;
 
-const DuplicateCredentialPopup = ({theme, closePopupFunc, credential}) => {
+const IssueCredentialPopup = ({theme, closePopupFunc, credentialNames}) => {
     return (
         <BlurredBg>
             <Popup>
@@ -107,24 +85,21 @@ const DuplicateCredentialPopup = ({theme, closePopupFunc, credential}) => {
                     <ClosePopup>
                         <ArrowLeft stroke={theme.mainColors.grey} width="2rem" onClick={closePopupFunc} />
                     </ClosePopup>
-                    <H1>Duplicate Credential Template</H1>
+                    <H1>Select Credential</H1>
                 </BreadcrumbHeader>
                 <Note>
-                    You are about to duplicate the following Credential Template:<br />
-                    <CredentialName>{credential.name}</CredentialName>
+                    Please select the credential to issue:<br />
                 </Note>
                 <Hr />
-                <Inputs>
-                    <InputText placeholder="New Credential Name" />
-                    <InputText placeholder="Credential Reference Code" />
-                    <Select placeholder="Credential Type" optionList={["License"]} />
-                </Inputs>
+                <InputDiv>
+                    <Select placeholder="Credential Name" optionList={credentialNames} />
+                </InputDiv>
                 <BtnDiv>
-                    <Button primary btnColor={theme.mainColors.darkBlue}>SAVE NEW TEMPLATE</Button>
+                    <Button primary btnColor={theme.mainColors.darkBlue}>SELECT CREDENTIAL</Button>
                 </BtnDiv>
             </Popup>
         </BlurredBg>
     )
 }
 
-export default withTheme(DuplicateCredentialPopup)
+export default withTheme(IssueCredentialPopup)

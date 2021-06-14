@@ -10,7 +10,7 @@ import {
     Button,
     LongInput,
     Select,
-    InputText
+    InputText,
 } from "../../components/ui"
 
 const CustomMainContent = styled(MainContent)`
@@ -67,7 +67,7 @@ const NewCredential = ({theme}) => {
     )
     return (
         <>
-        <Menu active="Applications" />
+        <Menu active="Credentials" />
         <PageTop />
         <PageContentContainer>
             <MainContentContainer>
@@ -86,7 +86,6 @@ const NewCredential = ({theme}) => {
             </MainContentContainer>
             <TangleHistory />
         </PageContentContainer>
-        
         </>
     )
 }
