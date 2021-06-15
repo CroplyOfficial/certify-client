@@ -115,6 +115,7 @@ const Credentials = ({theme}) => {
         <Button primary btnColor={theme.mainColors.darkBlue} onClick={toggleIssueCredentialPopup}>+ ISSUE CREDENTIAL</Button>
         </>
     )
+
     return (
         <>
         <Menu active="Credentials" />

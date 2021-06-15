@@ -181,7 +181,7 @@ const LogoutDiv = styled.div`
     display: flex;
     text-decoration: none;
     position: absolute;
-    a {
+    span {
         text-decoration: none;
         margin-left: 1rem;
         color: ${props => props.theme.mainColors.grey};
@@ -201,7 +201,7 @@ const LogoutDiv = styled.div`
     &.menuCollapsed {
         display: grid;
         width: 100%;
-        a {
+        span {
             display: grid;
             place-items: center;
             margin: 0;
@@ -291,10 +291,10 @@ const Menu = ({theme, active}) => {
                 </Link>
             </MenuItem>
             <LogoutDiv className={menuCollapsedClass}>
-                <a>
+                <span>
                     <Logout />
                     <div>LOG OUT</div>
-                </a>
+                </span>
             </LogoutDiv>
         </MenuBase>
     )

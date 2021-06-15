@@ -75,7 +75,7 @@ const NewCredential = ({theme}) => {
                     <IDSearch placeholder="License Applicant ID" btnText="SCAN" />
                     <Select inputRef={el => userInputRefs.current.credentialName = el} placeholder="Credential" optionList={["Animal Agriculture License"]} />
                     <InputText inputRef={el => userInputRefs.current.appFirstName = el} placeholder="Applicant First Name" />
-                    <InputText  inputRef={el => userInputRefs.current.appLastName = el} placeholder="Applicant Last Name" />
+                    <InputText inputRef={el => userInputRefs.current.appLastName = el} placeholder="Applicant Last Name" />
                     <InputText inputRef={el => userInputRefs.current.appBusinessName = el} placeholder="Applicant Business Name" />
                     <InputText inputRef={el => userInputRefs.current.appAddress1 = el} placeholder="Applicant Address 1" />
                     <InputText inputRef={el => userInputRefs.current.appAddress2 = el} placeholder="Applicant Address 2" />

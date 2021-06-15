@@ -1,6 +1,7 @@
 import Button from "./Button"
 import Checkbox from "./Checkbox"
 import DuplicateCredentialPopup from "./DuplicateCredentialPopup"
+import DynamicSearch from "./DynamicSearch"
 import ConfirmDenyAppPopup from "./ConfirmDenyAppPopup"
 import H1 from "./H1"
 import Hr from "./Hr"
@@ -30,6 +31,7 @@ export {
     Button,
     Checkbox,
     DuplicateCredentialPopup,
+    DynamicSearch,
     ConfirmDenyAppPopup,
     H1,
     Hr,

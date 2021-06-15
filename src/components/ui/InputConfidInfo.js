@@ -6,8 +6,6 @@ strengthMeter -> indicates whether or not the component should contain the PWStr
 inputRef -> specifies the ref prop for the input element which is part of this component.
 errRef -> specifies the ref prop for the div in the InputError component contained in this component.
 */
-
-import React from 'react'
 import {withTheme} from 'styled-components'
 import PropTypes from 'prop-types';
 

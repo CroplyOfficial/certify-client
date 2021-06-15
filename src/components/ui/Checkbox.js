@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 const Input = styled.input`
   height: 0;
@@ -13,17 +13,6 @@ const Label = styled.label`
   display: inline-block;
   cursor: ${props => (props.disabled ? "not-allowed" : "pointer")};
   margin: 0.6rem 1rem;
-`;
-
-const rotate = keyframes`
- from {
-    opacity: 0;
-    transform: rotate(0deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(45deg);
-  }
 `;
 
 const Indicator = styled.div`

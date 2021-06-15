@@ -8,7 +8,7 @@ inputRef -> specifies the ref prop for the input element which is part of this c
 errRef -> specifies the ref prop for the div in the InputError component contained in this component.
 */
 
-import React, {useState} from 'react'
+import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types';
 import styled, {withTheme} from 'styled-components'
 
@@ -65,7 +65,7 @@ const Input = styled.input`
     }
 `;
 const Label = styled.label`
-    position:absolute;
+    position: absolute;
     font-family: "Open Sans";
     font-weight: normal;
     font-size: 1rem !important;
@@ -103,7 +103,7 @@ const Error = styled(InputError)`
     margin-top: ${props => props.strengthMeter ? "4.8rem" : "3.2rem"};
 `;
 
-const InputBase = ({theme, value, defaultValue, className, strengthMeter, maxLength, confidInfo, placeholder, id, autoComplete, required, err, inputRef}) => {
+const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, className, strengthMeter, maxLength, confidInfo, placeholder, id, autoComplete, required, err, inputRef}) => {
 
     const [isInputFilled, setIsInputFilled] = useState(defaultValue || value ? true : false); // State to determine whether the input field has a value in it or not
     const [isConfidInfoVisible, setIsConfidInfoVisible] = useState(false); // State to determine whether the text in the input field is masked or not. This is needed for the Show/Hide Password functionality
@@ -135,7 +135,15 @@ const InputBase = ({theme, value, defaultValue, className, strengthMeter, maxLen
                 ref={inputRef}
                 id={id}
                 defaultValue={defaultValue ? defaultValue : undefined}
-                onChange={isInputFilledCheck}
+                onChange={(e) => {
+                        isInputFilledCheck(e);
+                        if(typeof onChange !== "undefined") {
+                            onChange(e)
+                        }
+                    }
+                }
+                onFocus={onFocus}
+                onBlur={onBlur}
                 confidInfo={confidInfo}
                 autoComplete={autoComplete}
                 required={required}
@@ -148,7 +156,7 @@ const InputBase = ({theme, value, defaultValue, className, strengthMeter, maxLen
                     {
                         isConfidInfoVisible ? 
                         <View stroke={theme.mainColors.darkBlue} /> : 
-                        <View  stroke={theme.mainColors.grey} />
+                        <View stroke={theme.mainColors.grey} />
                     }
                 </ToggleShow> : 
                 ""
@@ -172,6 +180,9 @@ InputBase.propTypes = {
     id: PropTypes.string,
     autoComplete: PropTypes.bool,
     maxLength: PropTypes.string,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
     required: PropTypes.bool, 
     confidInfo: PropTypes.bool,
     strengthMeter: PropTypes.bool,

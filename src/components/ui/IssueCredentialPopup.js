@@ -6,6 +6,7 @@ import {
     H1,
     Select,
     Hr,
+    DynamicSearch
 } from "."
 import {ArrowLeft} from "../assets/icons"
 
@@ -92,7 +93,7 @@ const IssueCredentialPopup = ({theme, closePopupFunc, credentialNames}) => {
                 </Note>
                 <Hr />
                 <InputDiv>
-                    <Select placeholder="Credential Name" optionList={credentialNames} />
+                    <DynamicSearch credentialNames={credentialNames} />
                 </InputDiv>
                 <BtnDiv>
                     <Button primary btnColor={theme.mainColors.darkBlue}>SELECT CREDENTIAL</Button>
