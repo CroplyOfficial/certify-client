@@ -1,6 +1,7 @@
 import Button from "./Button"
 import Checkbox from "./Checkbox"
 import DuplicateCredentialPopup from "./DuplicateCredentialPopup"
+import DynamicSearch from "./DynamicSearch"
 import ConfirmDenyAppPopup from "./ConfirmDenyAppPopup"
 import H1 from "./H1"
 import Hr from "./Hr"
@@ -9,6 +10,7 @@ import InputConfidInfo from "./InputConfidInfo"
 import InputError from "./InputError"
 import InputPIN from "./InputPIN"
 import InputText from "./InputText"
+import IssueCredentialPopup from "./IssueCredentialPopup"
 import LongInput from "./LongInput"
 import Menu from "./Menu"
 import PageTop from "./PageTop"
@@ -29,6 +31,7 @@ export {
     Button,
     Checkbox,
     DuplicateCredentialPopup,
+    DynamicSearch,
     ConfirmDenyAppPopup,
     H1,
     Hr,
@@ -37,6 +40,7 @@ export {
     InputError,
     InputPIN,
     InputText,
+    IssueCredentialPopup,
     LongInput,
     Menu,
     PageContentContainer,

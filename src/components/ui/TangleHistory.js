@@ -20,6 +20,9 @@ const TangleHistoryTable = styled(Table)`
             float: right;
             cursor: pointer;
         }
+        td {
+            padding: 1rem;
+        }
     }
 `;
 

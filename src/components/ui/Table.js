@@ -24,6 +24,14 @@ const Table = styled.table`
         background-color: #DFE3E7;
         font-family: "Poppins";
         color: #666666;
+        @-moz-document url-prefix() {
+            & {
+                background: none;
+                td {
+                    background-color: #DFE3E7;
+                }
+            }
+        }
     }
     & tr:first-child td:last-child  {
         border-top-right-radius: 30px;
