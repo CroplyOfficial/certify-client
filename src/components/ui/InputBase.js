@@ -8,7 +8,7 @@ inputRef -> specifies the ref prop for the input element which is part of this c
 errRef -> specifies the ref prop for the div in the InputError component contained in this component.
 */
 
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types';
 import styled, {withTheme} from 'styled-components'
 

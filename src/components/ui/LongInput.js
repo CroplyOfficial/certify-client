@@ -34,6 +34,8 @@ const Input = styled.input`
     float: left;
     &::placeholder {
         font-size: 1rem;
+        color: ${props => props.theme.mainColors.grey};
+        opacity: 1;
     }
     &:hover { 
         border-color: ${props => props.theme.mainColors.darkBlue};
