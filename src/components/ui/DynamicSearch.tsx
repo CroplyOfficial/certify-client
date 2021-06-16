@@ -124,7 +124,7 @@ const DynamicSearch = ({credentialNames}) => {
         inputRef={el => inputRef.current = el} 
         onFocus={() => searchResultsContainerRef.current.style.display = "block"}
         onChange={(e) => {
-            setInputValue(e.target.value);
+            setInputValue(e.target.value || "");
             filterData(e.target.value);
           }
         } 

@@ -45,7 +45,6 @@ const ContentLeft = styled.div`
     grid-template-rows: 15rem 35rem;
 `;
 const ContentRight = styled.div`
-
 `;
 
 const GoBack = styled.div`
