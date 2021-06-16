@@ -167,7 +167,7 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
                     {
                         isConfidInfoVisible ? 
                         <View width="1.5rem" stroke={theme.mainColors.grey} /> : 
-                        <Hide width="1.5rem" fill={theme.mainColors.grey} stroke={theme.mainColors.grey} />
+                        <Hide width="1.5rem" stroke={theme.mainColors.grey} />
                     }
                 </ToggleShow> : 
                 ""
