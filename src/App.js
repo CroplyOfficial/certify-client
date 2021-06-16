@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom' // For 
 
 import GlobalFonts from './components/fonts/fonts' // importing the fonts
 
-import Login from './pages/org/Login'
+// importing org pages
+import LoginOrg from './pages/org/LoginOrg'
 import Onboarding from './pages/org/onboarding/Onboarding'
 import Dashboard from './pages/org/Dashboard'
 import Applications from './pages/org/applications/Applications'
@@ -19,7 +20,11 @@ import Credentials from './pages/org/credentials/Credentials'
 import NewCredential from './pages/org/credentials/NewCredential'
 import ViewCredential from './pages/org/credentials/ViewCredential'
 import IssueCredential from './pages/org/credentials/IssueCredential'
-import Settings from './pages/org/Settings'
+import SettingsOrg from './pages/org/SettingsOrg'
+
+// importing user pages
+import LoginUser from './pages/user/LoginUser'
+
 
 const App = () => {
   return (
@@ -28,23 +33,27 @@ const App = () => {
       <GlobalFonts />
 
         <Switch>
-          <Route exact component={Login} path="/org" title="Login" />
-          <Route component={Onboarding} path="/org/onboarding" />
-          <Route component={Dashboard} path="/org/dashboard" />
-          <Route component={Applications} exact path="/org/applications" />
-          <Route component={NewApplication} path="/org/applications/new" />
-          <Route component={ViewApplication} path="/org/applications/view" />
-          <Route component={History} exact path="/org/history" />
-          <Route component={ViewTransactionTangle} path="/org/history/view" />
-          <Route component={Identity} path="/org/identity" />
-          <Route component={Settings} path="/org/settings" />
-          <Route component={Credentials} exact path="/org/credentials" />
-          <Route component={NewCredential} path="/org/credentials/new" />
-          <Route component={ViewCredential} path="/org/credentials/view" />
-          <Route component={IssueCredential} path="/org/credentials/issue" />
-          <Route component={Users} exact path="/org/users" />
-          <Route component={NewUser} path="/org/users/new" />
-          <Route component={ViewUser} path="/org/users/view" />
+          {/* routing org pages */}
+          <Route exact component={LoginOrg} path="/org" title="Login" />
+          <Route component={Onboarding} path="/org/onboarding" title="Onboarding" />
+          <Route component={Dashboard} path="/org/dashboard" title="Dashboard" />
+          <Route component={Applications} exact path="/org/applications" title="Applications" />
+          <Route component={NewApplication} path="/org/applications/new" title="New Application" />
+          <Route component={ViewApplication} path="/org/applications/view" title="View Application" />
+          <Route component={History} exact path="/org/history" title="History" />
+          <Route component={ViewTransactionTangle} path="/org/history/view" title="View Transaction Tangle" />
+          <Route component={Identity} path="/org/identity" title="Identity" />
+          <Route component={SettingsOrg} path="/org/settings" title="Settings" />
+          <Route component={Credentials} exact path="/org/credentials" title="Credentials" />
+          <Route component={NewCredential} path="/org/credentials/new" title="New Credential" />
+          <Route component={ViewCredential} path="/org/credentials/view" title="View Credential" />
+          <Route component={IssueCredential} path="/org/credentials/issue" title="Issue Credential" />
+          <Route component={Users} exact path="/org/users" title="Users" />
+          <Route component={NewUser} path="/org/users/new" title="New User" />
+          <Route component={ViewUser} path="/org/users/view" title="View User" />
+
+          {/* routing org pages */}
+          <Route exact component={LoginUser} path="/user" title="Login" />
         </Switch>
 
       </div>

@@ -103,7 +103,7 @@ const Error = styled(InputError)`
     margin-top: ${props => props.strengthMeter ? "5.6rem" : "3.2rem"};
 `;
 
-const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, className, strengthMeter, maxLength, confidInfo, placeholder, id, autoComplete, required, err, inputRef}) => {
+const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, className, strengthMeter, maxLength, confidInfo, placeholder, autoComplete, required, err, inputRef, showHideColor}) => {
 
     const [isInputFilled, setIsInputFilled] = useState(defaultValue || value ? true : false); // State to determine whether the input field has a value in it or not
     const [isConfidInfoVisible, setIsConfidInfoVisible] = useState(false); // State to determine whether the text in the input field is masked or not. This is needed for the Show/Hide Password functionality
@@ -138,7 +138,6 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
                 maxLength={maxLength} 
                 type={(confidInfo ? (isConfidInfoVisible ? "text" : "password") : "text")}
                 ref={inputRef}
-                id={id}
                 defaultValue={defaultValue ? defaultValue : undefined}
                 onChange={(e) => {
                         isInputFilledCheck(e);
@@ -166,8 +165,8 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
                 <ToggleShow strengthMeter={strengthMeter} onClick={toggleShowConfidInfo} >
                     {
                         isConfidInfoVisible ? 
-                        <View width="1.5rem" stroke={theme.mainColors.grey} /> : 
-                        <Hide width="1.5rem" stroke={theme.mainColors.grey} />
+                        <View width="1.5rem" stroke={showHideColor} /> : 
+                        <Hide width="1.5rem" stroke={showHideColor} />
                     }
                 </ToggleShow> : 
                 ""
@@ -183,7 +182,6 @@ InputBase.propTypes = {
         PropTypes.object,
         PropTypes.func
     ]),
-    id: PropTypes.string,
     autoComplete: PropTypes.bool,
     maxLength: PropTypes.string,
     onFocus: PropTypes.func,
@@ -194,7 +192,8 @@ InputBase.propTypes = {
     strengthMeter: PropTypes.bool,
     defaultValue: PropTypes.string,
     className: PropTypes.string,
-    err: PropTypes.string
+    err: PropTypes.string,
+    showHideColor: PropTypes.string
 }
 
 export default withTheme(InputBase)

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Settings = () => {
+const SettingsOrg = () => {
     return (
         <div>
             settings
@@ -8,4 +8,4 @@ const Settings = () => {
     )
 }
 
-export default Settings
+export default SettingsOrg

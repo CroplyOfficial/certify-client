@@ -11,13 +11,12 @@ import {withTheme} from 'styled-components'
 
 import InputBase from "./InputBase"
 
-const InputText = ({placeholder, value, maxLength, onChange, onFocus, onBlur, id, inputRef, defaultValue, autoComplete, required, className, err}) => {
+const InputText = ({placeholder, value, maxLength, onChange, onFocus, onBlur, inputRef, defaultValue, autoComplete, required, className, err}) => {
     return (
         <InputBase 
             placeholder={placeholder} 
             maxLength={maxLength}
             inputRef={inputRef}
-            id={id}
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
@@ -41,7 +40,6 @@ InputText.propTypes = {
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
-    id: PropTypes.string,
     autoComplete: PropTypes.bool,
     maxLength: PropTypes.string,
     required: PropTypes.bool,
