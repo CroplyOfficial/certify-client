@@ -243,49 +243,49 @@ const Menu = ({theme, active}) => {
             </MenuChevron>
             <MenuItem className={`${ menuCollapsedClass} ${active === "Dashboard" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/dashboard">
+                <Link to="/org/dashboard">
                     {active === "Dashboard" ? <DashboardFilled /> : <DashboardHollow />}
                     <div>Dashboard</div>
                 </Link>
             </MenuItem>
             <MenuItem className={`${menuCollapsedClass} ${active === "Credentials" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/credentials">
+                <Link to="/org/credentials">
                     {active === "Credentials" ? <CredentialsFilled /> : <CredentialsHollow />}                    
                     <div>Credentials</div>
                 </Link>
             </MenuItem>
             <MenuItem className={`${menuCollapsedClass} ${active === "Applications" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/applications">
+                <Link to="/org/applications">
                     {active === "Applications" ? <ApplicationsFilled /> : <ApplicationsHollow />}
                     <div>Applications</div>
                 </Link>
             </MenuItem>
             <MenuItem className={`${menuCollapsedClass} ${active === "History" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/history">
+                <Link to="/org/history">
                     {active === "History" ? <HistoryFilled /> : <HistoryHollow />}
                     <div>History</div>
                 </Link>
             </MenuItem>
             <MenuItem className={`${menuCollapsedClass} ${active === "Identity" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/identity">
+                <Link to="/org/identity">
                     {active === "Identity" ? <IdFilled /> : <IdHollow />}
                     <div>Identity</div>
                 </Link>
             </MenuItem>
             <MenuItem className={`${menuCollapsedClass} ${active === "Users" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/users">
+                <Link to="/org/users">
                     {active === "Users" ? <UsersFilled /> : <UsersHollow />}
                     <div>Users</div>
                 </Link>
             </MenuItem>
             <MenuItem className={`${menuCollapsedClass} ${active === "Settings" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/settings">
+                <Link to="/org/settings">
                     {active === "Settings" ? <SettingsFilled /> : <SettingsHollow />}
                     <div>Settings</div>
                 </Link>

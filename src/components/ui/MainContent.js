@@ -30,7 +30,7 @@ const GoBack = styled.div`
 
 const MainContentDiv = styled.div`
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: calc(100% - 20vh);
     border-radius: 30px;
     border: 1px solid ${props => props.theme.pastelColors.grey};
@@ -51,6 +51,8 @@ const MainContentDiv = styled.div`
     For the custom scrollbar 
     ***********************/
 
+    scrollbar-width: thin;     // for Firefox
+
     &::-webkit-scrollbar {
         background: none;
         width:8px;
@@ -63,7 +65,6 @@ const MainContentDiv = styled.div`
         background: none;
         border-radius: 30px;
         margin:20px;
-        //border: 2px solid black;
     }
 
     /* scrollbar itself */
