@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react'
+import { useState, useRef} from 'react'
 import styled, {withTheme} from "styled-components"
 
 import backgroundDark from "../../../components/assets/Background-dark.svg"
@@ -72,9 +72,7 @@ const Onboarding = () => {
         "pin" : "",
         "password" : ""
     })
-    useEffect(() => {
-        document.title="Onboarding"
-    })
+
     const [activeStep, setActiveStep] = useState(0)
     const profileNameRef = useRef(null)
     const passwordRef = useRef(null)

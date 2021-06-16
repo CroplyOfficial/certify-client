@@ -126,7 +126,7 @@ const Error = styled(InputError)`
     margin-top: 3.2rem;
 `;
 
-const InputPIN = ({theme, className, placeholder, id, inputRef, autoComplete, required, err, autoFocus, maskColor, inputUnderlineColor, deleteDigitColor}) => {
+const InputPIN = ({theme, className, placeholder, inputRef, autoComplete, required, err, autoFocus, maskColor, inputUnderlineColor, deleteDigitColor}) => {
 
     const [pin, setPin] = useState("") // State to hold the entered PIN value
     const [inputFocused, setInputFocused] = useState(autoFocus ? true : false) // State to determine whether the input fields are focused or blurred
@@ -179,7 +179,7 @@ const InputPIN = ({theme, className, placeholder, id, inputRef, autoComplete, re
                 className={inputFocused ? "active" : ""}
             />
             <Label className="inputFilled">{placeholder}</Label>
-            <HiddenInput id={id} ref={inputRef} style={{display: "none"}} defaultValue={pin} />
+            <HiddenInput ref={inputRef} style={{display: "none"}} defaultValue={pin} />
             <DeleteDigit>
                 <PinDeleteDigit stroke={deleteDigitColor} width="1.5rem" onClick={deleteDigitHandler} />
             </DeleteDigit>
@@ -206,7 +206,6 @@ InputPIN.propTypes = {
         PropTypes.object,
         PropTypes.func
     ]),    
-    id: PropTypes.string,
     autoComplete: PropTypes.string,
     required: PropTypes.bool, 
     className: PropTypes.string,

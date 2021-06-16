@@ -29,6 +29,7 @@ import {
     IdHollow,
     Logout
 } from "../assets/icons"
+import { RootState } from '../../reducers'
 
 const MenuBase = styled.div`
     position: fixed;
@@ -220,7 +221,7 @@ const LogoutDiv = styled.div`
 
 
 const MenuOrg = ({theme, active}) => {
-    const menuCollapsed = useSelector(state => state.menuCollapsed)
+    const menuCollapsed = useSelector((state: RootState) => state.menuCollapsed)
 
     let menuCollapsedClass = menuCollapsed ? "menuCollapsed" : "" 
 

@@ -11,18 +11,18 @@ import PropTypes from 'prop-types';
 
 import InputBase from "./InputBase"
 
-const InputConfidInfo = ({placeholder, id, inputRef, autoComplete, required, strengthMeter, className, err}) => {
+const InputConfidInfo = ({placeholder, inputRef, autoComplete, required, strengthMeter, className, err, showHideColor}) => {
     return (
             <InputBase 
                 placeholder={placeholder}
                 inputRef={inputRef}
-                id={id} 
                 autoComplete={autoComplete} 
                 required={required}
                 confidInfo
                 strengthMeter={strengthMeter}
                 className={className}
                 err={err}
+                showHideColor={showHideColor}
             />
     )
 }
@@ -33,12 +33,12 @@ InputConfidInfo.propTypes = {
         PropTypes.object,
         PropTypes.func
     ]),    
-    id: PropTypes.string,
     autoComplete: PropTypes.bool,
     required: PropTypes.bool, 
     strengthMeter: PropTypes.bool,
     className: PropTypes.string,
-    err: PropTypes.string
+    err: PropTypes.string,
+    showHideColor: PropTypes.string
 }
 
 
