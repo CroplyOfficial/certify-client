@@ -40,6 +40,9 @@ const Div = styled.div`
         /**********************
         For the custom scrollbar 
         ***********************/
+
+        scrollbar-width: thin; //for Firefox
+        scrollbar-color: red black;
         /* background of the scrollbar except button or resizer */
         &::-webkit-scrollbar-track {
             background: none;

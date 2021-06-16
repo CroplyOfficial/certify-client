@@ -10,9 +10,7 @@ import zxcvbn from "zxcvbn" // Password strength determiner
 import styled, {withTheme} from "styled-components"
 
 const Div = styled.div`
-    bottom: 1.2rem;
-    position: absolute;
-    left: 0.5rem;
+    margin-left: 0.5rem;
 `;
 
 const Pre = styled.pre`

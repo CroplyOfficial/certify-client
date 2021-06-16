@@ -12,7 +12,7 @@ import {useState} from 'react'
 import PropTypes from 'prop-types';
 import styled, {withTheme} from 'styled-components'
 
-import {View} from "../assets/icons"
+import {View, Hide} from "../assets/icons"
 import {PWStrengthMeter} from "./"
 import InputError from "./InputError"
 
@@ -26,7 +26,7 @@ const Fieldset = styled.fieldset`
     justify-content: flex-start;
     flex-direction: column;
     width: 18rem;
-    height: ${props => props.strengthMeter ? "6.5rem" : "4rem"};
+    height: ${props => props.strengthMeter ? "6.8rem" : "4rem"};
 `;
 
 const Input = styled.input`
@@ -58,8 +58,8 @@ const Input = styled.input`
         transform: scale(0.5);
         background-color: white;
         padding: 0 0.5rem;
-        top: 1rem;
-        font-size: 1.7rem !important;
+        top: ${props => props.strengthMeter ? "3.5rem" : "1rem"};
+        font-size: 1.7rem;
         color: ${props => props.theme.mainColors.darkBlue};
         width: max-content;
     }
@@ -68,8 +68,8 @@ const Label = styled.label`
     position: absolute;
     font-family: "Open Sans";
     font-weight: normal;
-    font-size: 1rem !important;
-    top: 0.7rem;
+    font-size: 1rem;
+    top: ${props => props.strengthMeter ? "3.2rem" : "0.7rem"};
     left: 1rem;
     color: ${props => props.theme.mainColors.grey};
     transform-origin: 7% -130%;
@@ -79,8 +79,8 @@ const Label = styled.label`
         transform: scale(0.5);
         background-color: white;
         padding: 0 0.5rem;
-        top: 1rem;
-        font-size: 1.7rem !important;
+        top: ${props => props.strengthMeter ? "3.5rem" : "1rem"};
+        font-size: 1.7rem;
         color: ${props => props.theme.mainColors.darkBlue};
         width: max-content;
     }
@@ -91,7 +91,7 @@ const ToggleShow = styled.div`
     position: absolute;
     right: 1rem;
     cursor: pointer;
-    top: 0.7rem;
+    top: ${props => props.strengthMeter ? "3.2rem" : "0.7rem"};
     height: fit-content;
     width: fit-content;
     background-color: ${props => props.theme.mainColors.white};
@@ -100,7 +100,7 @@ const ToggleShow = styled.div`
 const Error = styled(InputError)`
     position: absolute;
     margin-left: 1rem;
-    margin-top: ${props => props.strengthMeter ? "4.8rem" : "3.2rem"};
+    margin-top: ${props => props.strengthMeter ? "5.6rem" : "3.2rem"};
 `;
 
 const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, className, strengthMeter, maxLength, confidInfo, placeholder, id, autoComplete, required, err, inputRef}) => {
@@ -129,6 +129,11 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
 
     return (
         <Fieldset className={className} strengthMeter={strengthMeter}>
+             {
+                strengthMeter ? 
+                <PWStrengthMeter confidInfoFieldRef={inputRef} /> :
+                ""
+            }
             <Input
                 maxLength={maxLength} 
                 type={(confidInfo ? (isConfidInfoVisible ? "text" : "password") : "text")}
@@ -142,6 +147,7 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
                         }
                     }
                 }
+                strengthMeter={strengthMeter}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 confidInfo={confidInfo}
@@ -149,21 +155,21 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
                 required={required}
                 value={value ? value : undefined}
             />
-            <Label htmlFor={id} className={isInputFilled ? 'inputFilled' : ''}>{placeholder}</Label>
+            <Label 
+                strengthMeter={strengthMeter}
+                className={isInputFilled ? 'inputFilled' : ''}
+            >
+                {placeholder}
+            </Label>
             {
                 confidInfo ?
-                <ToggleShow onClick={toggleShowConfidInfo} >
+                <ToggleShow strengthMeter={strengthMeter} onClick={toggleShowConfidInfo} >
                     {
                         isConfidInfoVisible ? 
-                        <View stroke={theme.mainColors.darkBlue} /> : 
-                        <View stroke={theme.mainColors.grey} />
+                        <View width="1.5rem" stroke={theme.mainColors.grey} /> : 
+                        <Hide width="1.5rem" stroke={theme.mainColors.grey} />
                     }
                 </ToggleShow> : 
-                ""
-            }
-            {
-                strengthMeter ? 
-                <PWStrengthMeter confidInfoFieldRef={inputRef} /> :
                 ""
             }
             <Error strengthMeter={strengthMeter}>{err}</Error>
