@@ -1,10 +1,9 @@
-// Contains code for the menu
+// Contains code for the org dashboard menu
 /*
 props:
 active -> The name of the menu item which should be marked active. e.g. on the dashboard page, the Menu component should be typed this way: <Menu active="Dashboard" />
 */
 
-import React from 'react'
 import styled, {withTheme} from 'styled-components'
 import PropTypes from "prop-types"
 import {useSelector, useDispatch} from "react-redux"
@@ -220,7 +219,7 @@ const LogoutDiv = styled.div`
 `;
 
 
-const Menu = ({theme, active}) => {
+const MenuOrg = ({theme, active}) => {
     const menuCollapsed = useSelector(state => state.menuCollapsed)
 
     let menuCollapsedClass = menuCollapsed ? "menuCollapsed" : "" 
@@ -300,8 +299,8 @@ const Menu = ({theme, active}) => {
     )
 }
 
-Menu.propTypes = {
+MenuOrg.propTypes = {
     active: PropTypes.string.isRequired
 }
 
-export default withTheme(Menu)
+export default withTheme(MenuOrg)

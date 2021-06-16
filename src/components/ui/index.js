@@ -9,7 +9,7 @@ import InputError from "./InputError"
 import InputPIN from "./InputPIN"
 import InputText from "./InputText"
 import LongInput from "./LongInput"
-import Menu from "./Menu"
+import MenuOrg from "./MenuOrg"
 import PageTop from "./PageTop"
 import ProfilePic from "./ProfilePic"
 import PageContentContainer from "./PageContentContainer"
@@ -36,7 +36,7 @@ export {
     InputPIN,
     InputText,
     LongInput,
-    Menu,
+    MenuOrg,
     PageContentContainer,
     MainContentContainer,
     MainContent,

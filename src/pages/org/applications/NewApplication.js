@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react'
 import styled, { withTheme } from 'styled-components'
 import {
-    Menu, 
+    MenuOrg, 
     PageTop,
     TangleHistory,
     PageContentContainer,
@@ -65,7 +65,7 @@ const NewApplication = ({theme}) => {
     )
     return (
         <>
-        <Menu active="Applications" />
+        <MenuOrg active="Applications" />
         <PageTop />
         <PageContentContainer>
             <MainContentContainer>

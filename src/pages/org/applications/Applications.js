@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {useSelector} from "react-redux"
 import styled, { withTheme } from 'styled-components'
 import {
-    Menu, 
+    MenuOrg, 
     PageTop,
     TangleHistory,
     PageContentContainer,
@@ -97,7 +97,7 @@ const Applications = ({theme}) => {
     const newAppBtn = <Button primary btnColor={theme.mainColors.darkBlue} onClick={() => window.location.href="/org/applications/new"}>+ NEW APPLICATION</Button>
     return (
         <>
-        <Menu active="Applications" />
+        <MenuOrg active="Applications" />
         <PageTop />
         <PageContentContainer>
             <MainContentContainer>

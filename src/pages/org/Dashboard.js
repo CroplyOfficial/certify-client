@@ -1,6 +1,6 @@
 import styled, { withTheme } from 'styled-components'
 import {
-    Menu, 
+    MenuOrg, 
     PageTop,
     TangleHistory,
     PageContentContainer,
@@ -29,7 +29,7 @@ const DashboardElement = ({elementTitle, children}) => {
 const Dashboard = () => {
     return (
         <>
-        <Menu active="Dashboard" />
+        <MenuOrg active="Dashboard" />
         <PageTop />
         <PageContentContainer>
             <MainContentContainer className="dashboard">

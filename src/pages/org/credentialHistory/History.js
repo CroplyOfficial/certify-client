@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useSelector} from "react-redux"
 import styled, { withTheme } from 'styled-components'
 import {
-    Menu, 
+    MenuOrg, 
     PageTop,
     TangleHistory,
     PageContentContainer,
@@ -88,7 +88,7 @@ const History = ({theme}) => {
     }
     return (
         <>
-        <Menu active="History" />
+        <MenuOrg active="History" />
         <PageTop />
         <PageContentContainer>
             <MainContentContainer>

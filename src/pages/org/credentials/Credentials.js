@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import styled, { withTheme } from 'styled-components'
 import {
-    Menu, 
+    MenuOrg, 
     PageTop,
     TangleHistory,
     PageContentContainer,
@@ -118,7 +118,7 @@ const Credentials = ({theme}) => {
 
     return (
         <>
-        <Menu active="Credentials" />
+        <MenuOrg active="Credentials" />
         <PageTop />
         <PageContentContainer>
             <MainContentContainer>

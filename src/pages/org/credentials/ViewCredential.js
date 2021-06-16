@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react'
 import styled, { withTheme } from 'styled-components'
 import {
-    Menu, 
+    MenuOrg, 
     PageTop,
     TangleHistory,
     PageContentContainer,
@@ -156,7 +156,7 @@ const ViewCredential = ({theme}) => {
     )
     return (
         <>
-        <Menu active="Credentials" />
+        <MenuOrg active="Credentials" />
         <PageTop />
         <PageContentContainer>
             <MainContentContainer>

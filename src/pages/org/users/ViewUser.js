@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import styled, {withTheme} from 'styled-components'
 import {
-    Menu, 
+    MenuOrg, 
     PageTop,
     TangleHistory,
     PageContentContainer,
@@ -67,7 +67,7 @@ const ViewUser = ({theme}) => {
     const newUserBtn = <Button primary btnColor={theme.mainColors.darkBlue} onClick={() => window.location.href = "/org/users/new"}>+ NEW USER</Button>
     return (
         <>
-        <Menu active="Users" />
+        <MenuOrg active="Users" />
         <PageTop />
         <PageContentContainer>
             <MainContentContainer>

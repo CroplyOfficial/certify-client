@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import styled, {withTheme} from 'styled-components'
 import {
-    Menu, 
+    MenuOrg, 
     PageTop,
     TangleHistory,
     PageContentContainer,
@@ -71,7 +71,7 @@ const ViewTransactionTangle = ({theme}) => {
     })
     return (
         <>
-        <Menu active="History" />
+        <MenuOrg active="History" />
         <PageTop />
         <PageContentContainer>
             <MainContentContainer>
