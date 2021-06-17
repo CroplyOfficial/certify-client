@@ -158,7 +158,6 @@ const PublicProfile = ({theme}) => {
                     </div>
                 </CustomMainContent>
             </MainContentContainer>
-            <TangleHistory />
         </PageContentContainer>
         </>
     )

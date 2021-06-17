@@ -26,6 +26,7 @@ import SettingsOrg from './pages/org/SettingsOrg'
 import LoginUser from './pages/user/LoginUser'
 import RegisterUser from './pages/user/RegisterUser'
 import PublicProfile from './pages/user/publicProfile/PublicProfile'
+import ViewPublicProfile from './pages/user/publicProfile/ViewPublicProfile'
 
 
 const App = () => {
@@ -58,7 +59,7 @@ const App = () => {
           <Route component={LoginUser} exact path="/user" title="Login" />
           <Route component={RegisterUser} path="/user/register" title="Register" />
           <Route component={PublicProfile} exact path="/user/publicProfile" title="Public Profile" />
-          <Route component={PublicProfile} path="/user/publicProfile/view" title="View Public Profile" />
+          <Route component={ViewPublicProfile} path="/user/publicProfile/view" title="View Public Profile" />
 
 
         </Switch>
