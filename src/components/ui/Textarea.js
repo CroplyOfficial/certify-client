@@ -6,7 +6,7 @@ inputRef -> specifies the ref prop for the textarea element which is part of thi
 errRef -> specifies the ref prop for the div in the InputError component contained in this component.
 */
 
-import React, {useState} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types';
 import styled, {withTheme} from 'styled-components'
 
@@ -120,7 +120,7 @@ const Error = styled(InputError)`
     margin-top: 3.2rem;
 `;
 
-const Textarea = ({theme, value, defaultValue, className, maxLength, placeholder, id, required, errRef, inputRef}) => {
+const Textarea = ({theme, value, defaultValue, onChange, className, maxLength, placeholder, id, required, errRef, inputRef}) => {
 
     const [isInputFilled, setIsInputFilled] = useState(defaultValue || value ? true : false); // State to determine whether the input field has a value in it or not
 
@@ -143,7 +143,13 @@ const Textarea = ({theme, value, defaultValue, className, maxLength, placeholder
                 ref={inputRef}
                 id={id}
                 defaultValue={defaultValue ? defaultValue : undefined}
-                onChange={isInputFilledCheck}
+                onChange={(e) => {
+                        isInputFilledCheck(e);
+                        if(typeof onChange !== "undefined") {
+                            onChange(e)
+                        }
+                    }
+                }
                 required={required}
                 value={value}
             />
@@ -163,6 +169,7 @@ Textarea.propTypes = {
     ]),
     id: PropTypes.string,
     maxLength: PropTypes.string,
+    onChange: PropTypes.func,
     required: PropTypes.bool, 
     defaultValue: PropTypes.string,
     className: PropTypes.string,

@@ -17,16 +17,10 @@ import {
     DashboardHollow,
     ApplicationsFilled,
     ApplicationsHollow,
-    CredentialsFilled,
-    CredentialsHollow,
-    UsersFilled,
-    UsersHollow,
-    HistoryFilled,
-    HistoryHollow,
     SettingsFilled,
     SettingsHollow,
-    IdFilled,
-    IdHollow,
+    UserFilled,
+    UserHollow,
     Logout
 } from "../assets/icons"
 import { RootState } from '../../reducers'
@@ -254,6 +248,13 @@ const MenuOrg = ({theme, active}) => {
                 <Link to="/user/applications">
                     {active === "Applications" ? <ApplicationsFilled /> : <ApplicationsHollow />}
                     <div>Applications</div>
+                </Link>
+            </MenuItem>
+            <MenuItem className={`${menuCollapsedClass} ${active === "Public Profile" ? "active" : ""}`}>
+                <ActivePageMarker className="activePageMarker" />
+                <Link to="/user/publicProfile">
+                    {active === "Public Profile" ? <UserFilled /> : <UserHollow />}
+                    <div>Public Profile</div>
                 </Link>
             </MenuItem>
             <MenuItem className={`${menuCollapsedClass} ${active === "Settings" ? "active" : ""}`}>

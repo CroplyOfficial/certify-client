@@ -3,9 +3,9 @@
 props:
 placeholder -> placeholder for the input bar
 btnText -> text for the button
+defaultValue -> default value for the input bar
 */
 
-import React from 'react'
 import PropTypes from "prop-types"
 import styled, { withTheme } from 'styled-components'
 
@@ -60,10 +60,10 @@ const SearchButton = styled(Button)`
     height: 3rem;
 `;
 
-const LongInput = ({theme, className, placeholder, btnText}) => {
+const LongInput = ({theme, className, placeholder, btnText, defaultValue, inputRef}) => {
     return (
         <Container className={className ? className : ""}>
-            <Input placeholder={placeholder} />
+            <Input defaultValue={defaultValue} placeholder={placeholder} ref={inputRef} />
             <SearchButton btnColor={theme.mainColors.darkBlue}>{btnText}</SearchButton>
         </Container>
     )
@@ -74,7 +74,12 @@ const LongInput = ({theme, className, placeholder, btnText}) => {
 LongInput.propTypes = {
     className: PropTypes.string,
     placeholder: PropTypes.string.isRequired,
-    btnText: PropTypes.string.isRequired
+    btnText: PropTypes.string.isRequired,
+    defaultValue: PropTypes.string,
+    inputRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.object
+    ])
 }
 
 

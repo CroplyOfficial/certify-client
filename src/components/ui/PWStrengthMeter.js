@@ -5,7 +5,7 @@ props:
 confidInfoFieldRef -> reference to the input field to which this component is linked.
 */
 
-import React, {useEffect, useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import zxcvbn from "zxcvbn" // Password strength determiner
 import styled, {withTheme} from "styled-components"
 
@@ -19,6 +19,8 @@ const Pre = styled.pre`
     font-family: "Open Sans";
     font-weight: "normal";
     font-size: 1rem;
+    color: ${props => props.theme.mainColors.black};
+    margin-top: 0;
 
 `;
 
