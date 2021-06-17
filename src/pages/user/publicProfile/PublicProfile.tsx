@@ -3,7 +3,6 @@ import styled, {withTheme} from 'styled-components'
 import {
     MenuUser, 
     PageTop,
-    TangleHistory,
     PageContentContainer,
     ProfilePic,
     MainContentContainer,
@@ -60,6 +59,7 @@ const CustomMainContent = styled(MainContent)`
 `;
 
 const PublicProfile = ({theme}) => {
+
     const userInputRefs = useRef({});
     userInputRefs.current = {
         userProfileDesc: null,
@@ -84,29 +84,15 @@ const PublicProfile = ({theme}) => {
     })
     
     const allFieldsFilledCheck = (): any => {
-        if(
-            userInputRefs.current['userProfileDesc'] &&
-            userInputRefs.current['licenseHolderID'] &&
-            userInputRefs.current['userBusinessName'] &&
-            userInputRefs.current['userBusinessType'] &&
-            userInputRefs.current['userCity'] &&
-            userInputRefs.current['userCountry'] &&
-            userInputRefs.current['userProfileURL']
-        ) {
-            if(
-                userInputRefs.current['userProfileDesc'].value !== "" &&
-                userInputRefs.current['licenseHolderID'].value !== "" &&
-                userInputRefs.current['userBusinessName'].value !== "" &&
-                userInputRefs.current['userBusinessType'].value !== "" &&
-                userInputRefs.current['userCity'].value !== "" &&
-                userInputRefs.current['userCountry'].value !== "" &&
-                userInputRefs.current['userProfileURL'].value !== ""
-            ) {
+        const fields = ["userProfileDesc", "licenseHolderID", "userBusinessName", "userBusinessType", "userCity", "userCountry", "userProfileURL"];
+        const allFieldsExist = fields.every((p)=>userInputRefs.current[p]);
+        if(allFieldsExist) {
+            const allFieldsAreFilled = fields.every((p)=>userInputRefs.current[p].value !== "");
+            if(allFieldsAreFilled) {
                 setAllFieldsFilled(true)
             }
             else {
                 setAllFieldsFilled(false)
-
             }
         }
         else {
@@ -115,15 +101,10 @@ const PublicProfile = ({theme}) => {
     }
 
     useEffect((): any => {
-        document.querySelectorAll("input, textarea").forEach(item => {
-            item.addEventListener('input', (): any => {
-                allFieldsFilledCheck();
-            })
-        })
         window.onload = (): any => {
             allFieldsFilledCheck();
         }
-    })
+    }, [])
 
     const buttons = (
         <>
@@ -141,15 +122,15 @@ const PublicProfile = ({theme}) => {
                 <CustomMainContent contentTitle="Public Profile" componentRight={buttons}>
                     <div className="profileImageAndDesc">
                         <ProfilePic />
-                        <Textarea defaultValue={userData['userProfileDesc']} placeholder="User Profile Description" inputRef={el => userInputRefs.current['userProfileDesc'] = el} />
+                        <Textarea onChange={allFieldsFilledCheck} defaultValue={userData['userProfileDesc']} placeholder="User Profile Description" inputRef={el => userInputRefs.current['userProfileDesc'] = el} />
                     </div>
                     <div className="inputFieldsandBtn">
-                        <LongInput defaultValue={userData['licenseHolderID']} placeholder="License Holder ID" inputRef={el => userInputRefs.current['licenseHolderID'] = el} btnText="SCAN" />
-                        <InputText defaultValue={userData['userBusinessName']} placeholder="User Business Name" inputRef={el => userInputRefs.current['userBusinessName'] = el} />
-                        <InputText defaultValue={userData['userBusinessType']} placeholder="User Business Type" inputRef={el => userInputRefs.current['userBusinessType'] = el} />
-                        <InputText defaultValue={userData['userCity']} placeholder="User City" inputRef={el => userInputRefs.current['userCity'] = el} />
-                        <InputText defaultValue={userData['userCountry']} placeholder="User Country" inputRef={el => userInputRefs.current['userCountry'] = el} />
-                        <InputText defaultValue={userData['userProfileURL']} placeholder="User Profile URL" inputRef={el => userInputRefs.current['userProfileURL'] = el} />
+                        <LongInput onChange={allFieldsFilledCheck} defaultValue={userData['licenseHolderID']} placeholder="License Holder ID" inputRef={el => userInputRefs.current['licenseHolderID'] = el} btnText="SCAN" />
+                        <InputText onChange={allFieldsFilledCheck} defaultValue={userData['userBusinessName']} placeholder="User Business Name" inputRef={el => userInputRefs.current['userBusinessName'] = el} />
+                        <InputText onChange={allFieldsFilledCheck} defaultValue={userData['userBusinessType']} placeholder="User Business Type" inputRef={el => userInputRefs.current['userBusinessType'] = el} />
+                        <InputText onChange={allFieldsFilledCheck} defaultValue={userData['userCity']} placeholder="User City" inputRef={el => userInputRefs.current['userCity'] = el} />
+                        <InputText onChange={allFieldsFilledCheck} defaultValue={userData['userCountry']} placeholder="User Country" inputRef={el => userInputRefs.current['userCountry'] = el} />
+                        <InputText onChange={allFieldsFilledCheck} defaultValue={userData['userProfileURL']} placeholder="User Profile URL" inputRef={el => userInputRefs.current['userProfileURL'] = el} />
                         {
                             allFieldsFilled ?
                             <Button primary btnColor={theme.mainColors.darkBlue}>CONNECT IDENTITY TO URL</Button>:
