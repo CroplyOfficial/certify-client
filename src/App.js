@@ -24,6 +24,8 @@ import SettingsOrg from './pages/org/SettingsOrg'
 
 // importing user pages
 import LoginUser from './pages/user/LoginUser'
+import RegisterUser from './pages/user/RegisterUser'
+import PublicProfile from './pages/user/publicProfile/PublicProfile'
 
 
 const App = () => {
@@ -34,7 +36,7 @@ const App = () => {
 
         <Switch>
           {/* routing org pages */}
-          <Route exact component={LoginOrg} path="/org" title="Login" />
+          <Route component={LoginOrg} exact path="/org" title="Login" />
           <Route component={Onboarding} path="/org/onboarding" title="Onboarding" />
           <Route component={Dashboard} path="/org/dashboard" title="Dashboard" />
           <Route component={Applications} exact path="/org/applications" title="Applications" />
@@ -53,7 +55,12 @@ const App = () => {
           <Route component={ViewUser} path="/org/users/view" title="View User" />
 
           {/* routing org pages */}
-          <Route exact component={LoginUser} path="/user" title="Login" />
+          <Route component={LoginUser} exact path="/user" title="Login" />
+          <Route component={RegisterUser} path="/user/register" title="Register" />
+          <Route component={PublicProfile} exact path="/user/publicProfile" title="Public Profile" />
+          <Route component={PublicProfile} path="/user/publicProfile/view" title="View Public Profile" />
+
+
         </Switch>
 
       </div>

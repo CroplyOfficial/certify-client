@@ -6,7 +6,7 @@ inputRef -> specifies the ref prop for the textarea element which is part of thi
 errRef -> specifies the ref prop for the div in the InputError component contained in this component.
 */
 
-import React, {useState} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types';
 import styled, {withTheme} from 'styled-components'
 

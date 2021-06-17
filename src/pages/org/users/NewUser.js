@@ -91,8 +91,8 @@ const NewUser = ({theme}) => {
                         <InputText placeholder="User Business Name" inputRef={el => userInputRefs.current.userBusinessName = el} />
                         <InputText placeholder="User Business Type" inputRef={el => userInputRefs.current.userBusinessType = el} />
                         <InputText placeholder="User City" inputRef={el => userInputRefs.current.userCity = el} />
-                        <InputText placeholder="User Country" inputRef={el => userInputRefs.current.userCity = el} />
-                        <InputText placeholder="User Profile URL" elinputRef={el => userInputRefs.current.userCity = el} />
+                        <InputText placeholder="User Country" inputRef={el => userInputRefs.current.userCountry = el} />
+                        <InputText placeholder="User Profile URL" inputRef={el => userInputRefs.current.userProfileURL = el} />
                     </div>
                 </CustomMainContent>
             </MainContentContainer>

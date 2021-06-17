@@ -58,7 +58,7 @@ const Input = styled.input`
         transform: scale(0.5);
         background-color: white;
         padding: 0 0.5rem;
-        top: ${props => props.strengthMeter ? "3.5rem" : "1rem"};
+        top: ${props => props.strengthMeter ? "3rem" : "1rem"};
         font-size: 1.7rem;
         color: ${props => props.theme.mainColors.darkBlue};
         width: max-content;
@@ -69,7 +69,7 @@ const Label = styled.label`
     font-family: "Open Sans";
     font-weight: normal;
     font-size: 1rem;
-    top: ${props => props.strengthMeter ? "3.2rem" : "0.7rem"};
+    top: ${props => props.strengthMeter ? "2.7rem" : "0.7rem"};
     left: 1rem;
     color: ${props => props.theme.mainColors.grey};
     transform-origin: 7% -130%;
@@ -79,7 +79,7 @@ const Label = styled.label`
         transform: scale(0.5);
         background-color: white;
         padding: 0 0.5rem;
-        top: ${props => props.strengthMeter ? "3.5rem" : "1rem"};
+        top: ${props => props.strengthMeter ? "3rem" : "1rem"};
         font-size: 1.7rem;
         color: ${props => props.theme.mainColors.darkBlue};
         width: max-content;
@@ -91,7 +91,7 @@ const ToggleShow = styled.div`
     position: absolute;
     right: 1rem;
     cursor: pointer;
-    top: ${props => props.strengthMeter ? "3.2rem" : "0.7rem"};
+    top: ${props => props.strengthMeter ? "2.7rem" : "0.7rem"};
     height: fit-content;
     width: fit-content;
     background-color: ${props => props.theme.mainColors.white};
@@ -100,7 +100,7 @@ const ToggleShow = styled.div`
 const Error = styled(InputError)`
     position: absolute;
     margin-left: 1rem;
-    margin-top: ${props => props.strengthMeter ? "5.6rem" : "3.2rem"};
+    margin-top: ${props => props.strengthMeter ? "5.2rem" : "3.2rem"};
 `;
 
 const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, className, strengthMeter, maxLength, confidInfo, placeholder, autoComplete, required, err, inputRef, showHideColor}) => {
