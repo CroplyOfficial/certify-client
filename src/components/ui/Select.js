@@ -24,7 +24,6 @@ const SelectBase = styled.select`
     box-sizing: border-box;
     font-family: "Open Sans";
     font-weight: normal;
-    font-size: 1rem;
     width: 100%;
     height: 3rem;
     padding: 0rem 2.5rem 0.2rem 1rem;

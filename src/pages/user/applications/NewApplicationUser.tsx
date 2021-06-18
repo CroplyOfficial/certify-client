@@ -92,8 +92,8 @@ const NewApplicationUser = ({theme}) => {
             <MainContentContainer>
                 <CustomMainContent contentTitle="New Application" componentRight={submitAppBtn}>
                     <Div1>
-                        <Select inputRef={el => userInputRefs.current['appType'] = el} placeholder="Application Type" optionList={["Opt 1"]} />
-                        <Select inputRef={el => userInputRefs.current['appName'] = el} placeholder="Application Name" optionList={["Opt 1"]} />  
+                        <Select inputRef={el => userInputRefs.current['appType'] = el} placeholder="Application Type" optionList={["License"]} />
+                        <Select inputRef={el => userInputRefs.current['appName'] = el} placeholder="Application Name" optionList={["Animal Agriculture License"]} />  
                     </Div1>
                     <Hr />
                     <Div2>
