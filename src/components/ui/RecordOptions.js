@@ -12,11 +12,15 @@ const Ellipsis = styled.div`
     display: grid;
     place-items: center;
     width: fit-content;
+    position: relative;
     svg {
         cursor: pointer;
     }
     &:hover + div {
+        margin-top: 0;
         display: block;
+        z-index: 1;
+
     }
 `;
 
@@ -31,7 +35,9 @@ const OptionList = styled.div`
     border: 1px solid ${props => props.theme.pastelColors.grey};
 
     &:hover {
+        margin-top: 0;
         display: block;
+        z-index: 1;
     }
 `;
 
@@ -65,14 +71,14 @@ const RecordOptions = ({theme, optionList}) => {
         numOfOptions++
     }
     return (
-        <>
-        <Ellipsis>
-            <MenuDots fill={theme.mainColors.grey} width="1.2rem" />
-        </Ellipsis>
-        <OptionList>
-            {options}
-        </OptionList>
-        </>
+        <div>
+            <Ellipsis>
+                <MenuDots fill={theme.mainColors.grey} width="1.2rem" />
+            </Ellipsis>
+            <OptionList>
+                {options}
+            </OptionList>
+        </div>
     )
 }
 

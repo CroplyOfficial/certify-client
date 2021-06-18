@@ -38,7 +38,7 @@ const IDSearch = styled(LongInput)`
     grid-column: 1 / span 7;
 `;
 
-const ViewApplication = ({theme}) => {
+const ViewApplicationOrg = ({theme}) => {
 
     const userInputRefs = useRef({})
     userInputRefs.current = {
@@ -118,4 +118,4 @@ const ViewApplication = ({theme}) => {
     )
 }
 
-export default withTheme(ViewApplication)
+export default withTheme(ViewApplicationOrg)

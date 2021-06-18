@@ -6,7 +6,6 @@ componentRight -> a ReactJS component that should be aligned to the right of the
 tablePage -> add this prop if the page contains a table of records
 */
 
-import React from 'react'
 import PropTypes from "prop-types"
 import styled, {withTheme} from 'styled-components'
 import { useHistory } from "react-router-dom";
@@ -31,7 +30,7 @@ const GoBack = styled.div`
 const MainContentDiv = styled.div`
     width: 100%;
     overflow-y: auto;
-    height: calc(100% - 20vh);
+    height: calc(100% - 16vh);
     border-radius: 30px;
     border: 1px solid ${props => props.theme.pastelColors.grey};
     background-color: ${props => props.theme.mainColors.white};

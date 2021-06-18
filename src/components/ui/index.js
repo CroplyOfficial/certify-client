@@ -23,6 +23,7 @@ import Select from "./Select"
 import TangleHistory from "./TangleHistory"
 import Table from "./Table"
 import Textarea from "./Textarea"
+import UserAppDataHolder from "./UserAppDataHolder"
 
 
 export {
@@ -50,5 +51,6 @@ export {
     Select,
     TangleHistory,
     Table,
-    Textarea
+    Textarea,
+    UserAppDataHolder
 }

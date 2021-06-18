@@ -7,9 +7,9 @@ import GlobalFonts from './components/fonts/fonts' // importing the fonts
 import LoginOrg from './pages/org/LoginOrg'
 import Onboarding from './pages/org/onboarding/Onboarding'
 import Dashboard from './pages/org/Dashboard'
-import Applications from './pages/org/applications/Applications'
-import NewApplication from './pages/org/applications/NewApplication'
-import ViewApplication from './pages/org/applications/ViewApplication'
+import ApplicationsOrg from './pages/org/applications/ApplicationsOrg'
+import NewApplicationOrg from './pages/org/applications/NewApplicationOrg'
+import ViewApplicationOrg from './pages/org/applications/ViewApplicationOrg'
 import History from './pages/org/credentialHistory/History'
 import ViewTransactionTangle from './pages/org/credentialHistory/ViewTransactionTangle'
 import Users from './pages/org/users/Users'
@@ -27,7 +27,9 @@ import LoginUser from './pages/user/LoginUser'
 import RegisterUser from './pages/user/RegisterUser'
 import PublicProfile from './pages/user/publicProfile/PublicProfile'
 import ViewPublicProfile from './pages/user/publicProfile/ViewPublicProfile'
-
+import ApplicationsUser from './pages/user/applications/ApplicationsUser'
+import NewApplicationUser from './pages/user/applications/NewApplicationUser'
+import ViewApplicationUser from './pages/user/applications/ViewApplicationUser'
 
 const App = () => {
   return (
@@ -40,9 +42,9 @@ const App = () => {
           <Route component={LoginOrg} exact path="/org" title="Login" />
           <Route component={Onboarding} path="/org/onboarding" title="Onboarding" />
           <Route component={Dashboard} path="/org/dashboard" title="Dashboard" />
-          <Route component={Applications} exact path="/org/applications" title="Applications" />
-          <Route component={NewApplication} path="/org/applications/new" title="New Application" />
-          <Route component={ViewApplication} path="/org/applications/view" title="View Application" />
+          <Route component={ApplicationsOrg} exact path="/org/applications" title="Applications" />
+          <Route component={NewApplicationOrg} path="/org/applications/new" title="New Application" />
+          <Route component={ViewApplicationOrg} path="/org/applications/view" title="View Application" />
           <Route component={History} exact path="/org/history" title="History" />
           <Route component={ViewTransactionTangle} path="/org/history/view" title="View Transaction Tangle" />
           <Route component={Identity} path="/org/identity" title="Identity" />
@@ -60,6 +62,9 @@ const App = () => {
           <Route component={RegisterUser} path="/user/register" title="Register" />
           <Route component={PublicProfile} exact path="/user/publicProfile" title="Public Profile" />
           <Route component={ViewPublicProfile} path="/user/publicProfile/view" title="View Public Profile" />
+          <Route component={ApplicationsUser} exact path="/user/applications" title="Applications" />
+          <Route component={NewApplicationUser} path="/user/applications/new" title="New Application" />
+          <Route component={ViewApplicationUser} path="/user/applications/view" title="View Application" />
 
 
         </Switch>
