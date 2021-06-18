@@ -43,7 +43,7 @@ const EditColHeading = styled.div`
     margin-top: 0.5rem;
 `;
 
-const Applications = ({theme}) => {
+const ApplicationsOrg = ({theme}) => {
     const sidebarCollapsed = useSelector(state => state.sidebarCollapsed)
     const [checkboxState, setCheckboxState] = useState([entries.map((a) => false)]) // sets initial value of all elements of the state to false
     const handleCheckboxChange = (e) => {
@@ -124,4 +124,4 @@ const Applications = ({theme}) => {
     )
 }
 
-export default withTheme(Applications)
+export default withTheme(ApplicationsOrg)
