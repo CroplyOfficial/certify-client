@@ -84,7 +84,6 @@ const Right = styled.div`
 
 const SettingsUser = ({theme}) => {
     const themeToggler = useThemeUpdate();
-    console.log(themeToggler);  
     const inputRefs = useRef(null);
     inputRefs.current = {
         sysLang: null,
