@@ -64,7 +64,7 @@ const NewApplicationUser = ({theme}) => {
         regAuthority: null
     };
 
-    const [userInput] = useState({
+    const [userInput, setUserInput] = useState({
         appType: userInputRefs.current['appType'] ? userInputRefs.current['appType'].value : "",
         appName: userInputRefs.current['appName'] ? userInputRefs.current['appName'].value : "",
         firstName: userInputRefs.current['firstName'] ? userInputRefs.current['firstName'].value : "",

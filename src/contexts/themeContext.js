@@ -46,7 +46,6 @@ const CustomThemeProvider = ({children}) => {
         const pastelColors = themeState.mode === "light" ? pastelColorsLight : pastelColorsDark
         setThemeState({ mode: mode, mainColors: mainColors, pastelColors: pastelColors })
     }
-    console.log()
 
     return (
             <ThemeUpdateContext.Provider value={{ toggle: toggle }}>
