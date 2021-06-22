@@ -11,12 +11,13 @@ import InputText from "./InputText"
 import LongInput from "./LongInput"
 import MenuOrg from "./MenuOrg"
 import MenuUser from "./MenuUser"
-import PageTop from "./PageTop"
-import ProfilePic from "./ProfilePic"
 import PageContentContainer from "./PageContentContainer"
+import PageTop from "./PageTop"
+import PageTopPublic from "./PageTopPublic"
+import ProfilePic from "./ProfilePic"
+import PWStrengthMeter from "./PWStrengthMeter"
 import MainContent from "./MainContent"
 import MainContentContainer from "./MainContentContainer"
-import PWStrengthMeter from "./PWStrengthMeter"
 import RecordOptions from "./RecordOptions"
 import RecoveryPhraseElement from "./RecoveryPhraseElement"
 import Select from "./Select"
@@ -41,10 +42,11 @@ export {
     LongInput,
     MenuOrg,
     MenuUser,
-    PageContentContainer,
     MainContentContainer,
     MainContent,
+    PageContentContainer,
     PageTop,
+    PageTopPublic,
     ProfilePic,
     PWStrengthMeter,
     RecordOptions,

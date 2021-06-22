@@ -32,9 +32,9 @@ const Div = styled.div`
     }
 `;
 
-const ProfilePic = ({noUploadImgPic}) => {
+const ProfilePic = ({noUploadImgPic, className}) => {
     return (
-        <Div>
+        <Div className={className}>
             {
                 noUploadImgPic ? 
                 "" :
