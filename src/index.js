@@ -4,9 +4,9 @@ import App from './App';
 
 import {createStore} from "redux";
 import {Provider} from "react-redux"; // For accessing the store globally
-import allReducers from "./reducers"
+import allReducers from "./reducers";
 
-import {CustomThemeProvider} from "./contexts/themeContext"
+import {CustomThemeProvider} from "./contexts/themeContext";
 
 const store = createStore(
   allReducers,

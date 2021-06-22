@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom' // For routing
 
-
 import GlobalFonts from './components/fonts/fonts' // importing the fonts
 
 // importing org pages
@@ -30,6 +29,7 @@ import ViewPublicProfile from './pages/user/publicProfile/ViewPublicProfile'
 import ApplicationsUser from './pages/user/applications/ApplicationsUser'
 import NewApplicationUser from './pages/user/applications/NewApplicationUser'
 import ViewApplicationUser from './pages/user/applications/ViewApplicationUser'
+import SettingsUser from './pages/user/SettingsUser'
 
 const App = () => {
   return (
@@ -65,10 +65,10 @@ const App = () => {
           <Route component={ApplicationsUser} exact path="/user/applications" title="Applications" />
           <Route component={NewApplicationUser} path="/user/applications/new" title="New Application" />
           <Route component={ViewApplicationUser} path="/user/applications/view" title="View Application" />
+          <Route component={SettingsUser} path="/user/settings" title="Settings" />
 
 
         </Switch>
-
       </div>
     </Router>
   );

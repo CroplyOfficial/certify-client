@@ -23,6 +23,7 @@ import Select from "./Select"
 import TangleHistory from "./TangleHistory"
 import Table from "./Table"
 import Textarea from "./Textarea"
+import ToggleSwitch from "./ToggleSwitch"
 import UserAppDataHolder from "./UserAppDataHolder"
 
 
@@ -52,5 +53,6 @@ export {
     TangleHistory,
     Table,
     Textarea,
+    ToggleSwitch,
     UserAppDataHolder
 }

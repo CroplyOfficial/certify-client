@@ -16,7 +16,7 @@ const Fieldset = styled.fieldset`
     overflow: visible;
     display: flex;
     justify-content: flex-start;
-    height: 3.5rem;
+    height: 3rem;
     width: 18rem;
 `;
 
