@@ -155,29 +155,6 @@ const ViewPublicProfile = () => {
         ]
     });
 
-    let credentialData = [];
-
-    for(let credential of userData.userCredentials) {
-        credentialData.push(
-            <CredentialInfoHolder>
-                <div>
-                    <h3>{credential.credentialName}</h3>
-                    {credential.verified ?
-                        <>
-                            <h5>Verified by</h5>
-                            <h4>{credential.verifier}</h4>
-                        </>: 
-                        <h5>Not verified</h5>
-
-                    }
-                </div>
-                <div>
-                    {credential.verified ? <TickBadge width="2.5rem" /> : <CrossBadge width="2.5rem" />}
-                </div>
-            </CredentialInfoHolder>
-        )
-    }
-
     return (
         <PageContainer>
             <PageTopPublic />
@@ -206,7 +183,26 @@ const ViewPublicProfile = () => {
                     </InfoContainer>
                 </div>
                 <div>
-                    {credentialData}
+                    {userData.userCredentials.map((credential, index) => {
+                       return ( 
+                            <CredentialInfoHolder key={index}>
+                                <div>
+                                    <h3>{credential.credentialName}</h3>
+                                    {credential.verified ?
+                                        <>
+                                            <h5>Verified by</h5>
+                                            <h4>{credential.verifier}</h4>
+                                        </>: 
+                                        <h5>Not verified</h5>
+
+                                    }
+                                </div>
+                                <div>
+                                    {credential.verified ? <TickBadge width="2.5rem" /> : <CrossBadge width="2.5rem" />}
+                                </div>
+                            </CredentialInfoHolder>
+                       )
+                    })}
                 </div>
             </DetailedInfoDiv>
         </PageContainer>
