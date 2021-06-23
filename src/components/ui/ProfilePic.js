@@ -1,8 +1,7 @@
-import React from 'react'
 import styled, {withTheme} from 'styled-components'
 import PropTypes from "prop-types"
 
-import {ReactComponent as UploadPic} from "../assets/uploadProfilePic.svg"
+import {ReactComponent as UploadPic} from "../assets/upload-profile-pic.svg"
 
 const Div = styled.div`
     width: 20rem;

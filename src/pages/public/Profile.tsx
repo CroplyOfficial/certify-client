@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import styled, {withTheme} from 'styled-components';
+import styled from 'styled-components';
 
-import backgroundLight from "../../../components/assets/Background-light.svg";
+import backgroundLight from "../../components/assets/Background-light.svg";
 import { 
-    PageTopPublicProfileUser,
-} from '../../../components/ui';
-import ProfilePic from '../../../components/ui/ProfilePic';
+    PageTopPublic,
+} from '../../components/ui';
+import ProfilePic from '../../components/ui/ProfilePic';
 import {
     TickBadge,
     CrossBadge 
-} from '../../../components/assets/icons';
+} from '../../components/assets/icons';
 
 const PageContainer = styled.div`
     height: 100%;
@@ -123,7 +123,7 @@ const CredentialInfoHolder = styled.div`
     }
 `;
 
-const ViewPublicProfile = () => {
+const Profile = () => {
     const [userData] = useState({
         userProfileDesc: "Nestled on the beautiful hillsides of the Brecon Beacons National Park, Wales, Brecon Mountain Farm are an award winning upland sheep farm specialising in traditional all natural wool produce. With almost 100 years in the business, the fourth generation farm still operate traditional, natural farming methods, to help preserve the natural Welsh landscape through organic and regenerative farming practices. ",
         licenseHolderID: "did:iota:abcd12243434",
@@ -158,7 +158,7 @@ const ViewPublicProfile = () => {
 
     return (
         <PageContainer>
-            <PageTopPublicProfileUser />
+            <PageTopPublic />
             <GeneralInfoDiv>
                 <div className="generalInfo">
                     <ProfileImg noUploadImgPic />
@@ -210,4 +210,4 @@ const ViewPublicProfile = () => {
     )
 }
 
-export default withTheme(ViewPublicProfile)
+export default Profile
