@@ -1,5 +1,6 @@
 import Button from "./Button";
 import Checkbox from "./Checkbox";
+import DirProfileHolder from "./DirProfileHolder";
 import DynamicSearch from "./DynamicSearch";
 import H1 from "./H1";
 import Hr from "./Hr";
@@ -32,6 +33,7 @@ import UserAppDataHolder from "./UserAppDataHolder";
 export {
     Button,
     Checkbox,
+    DirProfileHolder,
     DynamicSearch,
     H1,
     Hr,

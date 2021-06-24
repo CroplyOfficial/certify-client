@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-import backgroundLight from "../../components/assets/Background-light.svg";
-import cropCollectingWomen from "../../components/assets/crop-collecting-women.jpg";
-import oldWoman from "../../components/assets/old-woman.jpg";
-import identityMap from "../../components/assets/identity-map.jpg";
+import cropCollectingWomen from "../../../components/assets/crop-collecting-women.jpg";
+import oldWoman from "../../../components/assets/old-woman.jpg";
+import identityMap from "../../../components/assets/identity-map.jpg";
+import ContactFormPopup from './ContactFormPopup';
 import { 
     PageTopPublic,
     H1,
     Button
-} from '../../components/ui';
-import { IotaLogo } from '../../components/assets/icons';
+} from '../../../components/ui';
+import { IotaLogo } from '../../../components/assets/icons';
 
 const PageContainer = styled.div`
     height: 100%;
@@ -18,9 +18,9 @@ const PageContainer = styled.div`
     overflow-y: auto;
     overflow-x: hidden;    
     display: grid;
-    background: url( ${backgroundLight}) no-repeat;
-    background-size: 105%;
     font-family: "Open Sans";
+    z-index: 3;
+
 `;
 
 const PicBgDiv = styled.div`
@@ -52,7 +52,6 @@ const CropCollectionBgDiv = styled(PicBgDiv)`
 const OldWomanDiv = styled(PicBgDiv)`
     background: url( ${oldWoman}) center no-repeat;
     background-size: 120%;
-
 `;
 
 const IdentityMap = styled.div`
@@ -94,6 +93,8 @@ const Footer = styled.footer`
 
 const Home = () => {
     return (
+        <>
+        <ContactFormPopup />
         <PageContainer>
             <PageTopPublic />
             <CropCollectionBgDiv>
@@ -149,6 +150,7 @@ const Home = () => {
                 </div>
             </Footer>
         </PageContainer>
+        </>
     )
 }
 
