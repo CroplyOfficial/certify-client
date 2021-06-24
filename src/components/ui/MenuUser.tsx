@@ -10,6 +10,7 @@ import {useSelector, useDispatch} from "react-redux"
 import {Link} from "react-router-dom"
 
 import {toggleMenuState} from "../../actions"
+import { colorLightLevel } from '../functions/componentFunctions'
 import {ReactComponent as CertifyLogo} from "../assets/logo.svg"
 import {
     DoubleChevronBoxed,
@@ -98,9 +99,9 @@ const MenuItem = styled.div`
     font-family: 'Open Sans';
     font-weight: normal;
     font-size: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     cursor: pointer;
-    height: 1.8rem;
+    height: 2.5rem;
     display: flex;
     text-decoration: none;
     position: relative;
@@ -133,6 +134,9 @@ const MenuItem = styled.div`
         .activePageMarker {
             background-color: ${props => props.theme.mainColors.blue};
         }
+    }
+    &:hover {
+        background-color: ${props => colorLightLevel(props.theme.pastelColors.grey, 10)};
     }
     &.menuCollapsed {
         display: grid;

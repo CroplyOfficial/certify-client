@@ -1,4 +1,3 @@
-import React from 'react'
 import styled, {withTheme} from 'styled-components'
 import {useSelector} from "react-redux"
 import backgroundLight from "../assets/Background-light.svg"

@@ -88,7 +88,7 @@ function useOutsideAlerter(containerRef, searchResultsContainerRef) {
           // Unbind the event listener on clean up
           document.removeEventListener("mousedown", handleClickOutside);
       };
-  }, [containerRef]);
+  });
 }
 
 
@@ -109,6 +109,9 @@ const DynamicSearch = ({credentialNames}) => {
         credentialNames.filter((item) => {
           if(search.test(item) ){
             return item;
+          }
+          else {
+            return "";
           }
         })
       );
