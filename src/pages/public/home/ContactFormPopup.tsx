@@ -25,7 +25,6 @@ const BlurredBg = styled.div`
 const Popup = styled.div`
     display: grid;
     grid-template-rows: repeat(3, auto);
-    grid-row-gap: 1rem;
     background-color: #fff;
     border-radius: 30px;
     height: fit-content;
@@ -71,7 +70,7 @@ const BtnDiv = styled.div`
     display: flex;
     justify-content: space-between; 
     margin: 0 1rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
     button {
         max-width: 250px;
     }
@@ -90,7 +89,7 @@ const ContactFormPopup = () => {
                 <Inputs>
                     <div className="senderDetails">
                         <InputText className="formTextInput" placeholder="Name" />
-                        <InputText className="formTextInput" placeholder="Email ID" />
+                        <InputText className="formTextInput" placeholder="Email Address" />
                     </div>
 
                     <InputText className="formTextInput" placeholder="Subject" />
