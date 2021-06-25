@@ -65,6 +65,8 @@ const TextareaBase = styled.textarea`
     For the custom scrollbar 
     ***********************/
 
+    scrollbar-width: thin;     // for Firefox
+
     &::-webkit-scrollbar {
         background: none;
         width:8px;

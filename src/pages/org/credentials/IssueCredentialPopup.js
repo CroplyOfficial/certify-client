@@ -1,10 +1,8 @@
-import React from 'react'
 import styled, {withTheme} from "styled-components"
 import {hexToRgb} from "../../../components/functions/componentFunctions"
 import {
     Button,
     H1,
-    Select,
     Hr,
     DynamicSearch
 } from "../../../components/ui"

@@ -24,7 +24,7 @@ const Label = styled.label`
     border-radius: 30px;
     position: relative;
     transition: background-color .2s;
-    border: 6px solid ${props => props.theme.mainColors.grey};
+    border: 4px solid ${props => props.theme.mainColors.grey};
     &:active ${SwitchButton} {
         width: 2.5rem;
     }

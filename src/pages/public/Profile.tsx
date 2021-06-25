@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import backgroundLight from "../../components/assets/Background-light.svg";
 import { 
-    PageTopPublic,
+    CommonElementsPublic,
 } from '../../components/ui';
 import ProfilePic from '../../components/ui/ProfilePic';
 import {
@@ -158,7 +158,7 @@ const Profile = () => {
 
     return (
         <PageContainer>
-            <PageTopPublic />
+            <CommonElementsPublic />
             <GeneralInfoDiv>
                 <div className="generalInfo">
                     <ProfileImg noUploadImgPic />

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import cropCollectingWomen from "../../../components/assets/crop-collecting-women.jpg";
@@ -5,9 +6,9 @@ import oldWoman from "../../../components/assets/old-woman.jpg";
 import identityMap from "../../../components/assets/identity-map.jpg";
 import ContactFormPopup from './ContactFormPopup';
 import { 
-    PageTopPublic,
     H1,
-    Button
+    Button,
+    CommonElementsPublic
 } from '../../../components/ui';
 import { IotaLogo } from '../../../components/assets/icons';
 
@@ -19,8 +20,6 @@ const PageContainer = styled.div`
     overflow-x: hidden;    
     display: grid;
     font-family: "Open Sans";
-    z-index: 3;
-
 `;
 
 const PicBgDiv = styled.div`
@@ -92,11 +91,22 @@ const Footer = styled.footer`
 `;
 
 const Home = () => {
+    const [contactModalVisible, setContactModalVisible] = useState(false);
+    const toggleContactModal = () => {
+        if(contactModalVisible)
+            setContactModalVisible(false);
+        else
+            setContactModalVisible(true);
+    }
     return (
         <>
-        <ContactFormPopup />
+        {
+            contactModalVisible ? 
+            <ContactFormPopup closeModal={toggleContactModal} />: 
+            ""
+        }
         <PageContainer>
-            <PageTopPublic />
+            <CommonElementsPublic toggleModal={toggleContactModal} menuActive="Home" />
             <CropCollectionBgDiv>
                 <div>
                     <div className="heading">
@@ -136,7 +146,7 @@ const Home = () => {
                 <H1>A Global Identity Network</H1>
             </DivHeading>
             <IdentityMap>
-                <img src={identityMap} />
+                <img src={identityMap} alt="Identity Map" />
                 <Button primary btnColor="#B1975C">GET VERIFIED NOW</Button>
             </IdentityMap>
             <Footer>

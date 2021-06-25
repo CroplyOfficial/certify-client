@@ -101,7 +101,8 @@ const MenuChevron = styled.div`
     }
 `;
 
-const MenuItem = styled.div` 
+const MenuItem = styled(Link)` 
+text-decoration: none;
     font-family: 'Open Sans';
     font-weight: normal;
     font-size: 1rem;
@@ -111,7 +112,7 @@ const MenuItem = styled.div`
     display: flex;
     text-decoration: none;
     position: relative;
-    a {
+    span {
         text-decoration: none;
         margin-left: 1rem;
         color: ${props => props.theme.mainColors.grey};
@@ -129,7 +130,7 @@ const MenuItem = styled.div`
         }
     }
     &.active {
-        a {
+        span {
             color: ${props => props.theme.mainColors.blue};
             font-weight: bold;
             div {
@@ -146,7 +147,7 @@ const MenuItem = styled.div`
     }
     &.menuCollapsed {
         display: grid;
-        a {
+        span {
             display: grid;
             place-items: center;
             margin: 0;
@@ -186,7 +187,6 @@ const LogoutDiv = styled.div`
     text-decoration: none;
     position: absolute;
     span {
-        text-decoration: none;
         margin-left: 1rem;
         color: ${props => props.theme.mainColors.grey};
         display: flex;
@@ -245,54 +245,54 @@ const MenuOrg = ({theme, active}) => {
             <MenuChevron className={menuCollapsedClass} onClick={toggleMenu}>
                 <DoubleChevronBoxed width="24" />
             </MenuChevron>
-            <MenuItem className={`${ menuCollapsedClass} ${active === "Dashboard" ? "active" : ""}`}>
+            <MenuItem to="/org/dashboard" className={`${ menuCollapsedClass} ${active === "Dashboard" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/org/dashboard">
+                <span>
                     {active === "Dashboard" ? <DashboardFilled /> : <DashboardHollow />}
                     <div>Dashboard</div>
-                </Link>
+                </span>
             </MenuItem>
-            <MenuItem className={`${menuCollapsedClass} ${active === "Credentials" ? "active" : ""}`}>
+            <MenuItem to="/org/credentials" className={`${menuCollapsedClass} ${active === "Credentials" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/org/credentials">
+                <span>
                     {active === "Credentials" ? <CredentialsFilled /> : <CredentialsHollow />}                    
                     <div>Credentials</div>
-                </Link>
+                </span>
             </MenuItem>
-            <MenuItem className={`${menuCollapsedClass} ${active === "Applications" ? "active" : ""}`}>
+            <MenuItem to="/org/applications" className={`${menuCollapsedClass} ${active === "Applications" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/org/applications">
+                <span>
                     {active === "Applications" ? <ApplicationsFilled /> : <ApplicationsHollow />}
                     <div>Applications</div>
-                </Link>
+                </span>
             </MenuItem>
-            <MenuItem className={`${menuCollapsedClass} ${active === "History" ? "active" : ""}`}>
+            <MenuItem to="/org/history" className={`${menuCollapsedClass} ${active === "History" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/org/history">
+                <span>
                     {active === "History" ? <HistoryFilled /> : <HistoryHollow />}
                     <div>History</div>
-                </Link>
+                </span>
             </MenuItem>
-            <MenuItem className={`${menuCollapsedClass} ${active === "Identity" ? "active" : ""}`}>
+            <MenuItem to="/org/identity" className={`${menuCollapsedClass} ${active === "Identity" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/org/identity">
+                <span>
                     {active === "Identity" ? <IdFilled /> : <IdHollow />}
                     <div>Identity</div>
-                </Link>
+                </span>
             </MenuItem>
-            <MenuItem className={`${menuCollapsedClass} ${active === "Users" ? "active" : ""}`}>
+            <MenuItem to="/org/users" className={`${menuCollapsedClass} ${active === "Users" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/org/users">
+                <span>
                     {active === "Users" ? <UsersFilled /> : <UsersHollow />}
                     <div>Users</div>
-                </Link>
+                </span>
             </MenuItem>
-            <MenuItem className={`${menuCollapsedClass} ${active === "Settings" ? "active" : ""}`}>
+            <MenuItem to="/org/settings" className={`${menuCollapsedClass} ${active === "Settings" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
-                <Link to="/org/settings">
+                <span>
                     {active === "Settings" ? <SettingsFilled /> : <SettingsHollow />}
                     <div>Settings</div>
-                </Link>
+                </span>
             </MenuItem>
             <LogoutDiv className={menuCollapsedClass}>
                 <span>

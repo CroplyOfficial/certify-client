@@ -51,6 +51,7 @@ const Left = styled.div`
     .appThemeChanger {
         width: 80%;
         margin: 0 auto;
+        padding-bottom: 3rem;
         div {
             display: grid;
             place-items: center;

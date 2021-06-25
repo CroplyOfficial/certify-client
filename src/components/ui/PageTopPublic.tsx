@@ -1,8 +1,9 @@
-import styled, {withTheme} from "styled-components"
+import styled from "styled-components"
 import {LongInput} from "."
 import {ReactComponent as CertifyLogo} from "../assets/logo.svg"
 import {
-    HamburgerMenuLines
+    HamburgerMenuLines,
+    Cross
 } from "../assets/icons"
 import Button from "./Button"
 
@@ -18,7 +19,8 @@ const Container = styled.div`
     transition: width 0.5s;
     display: grid;
     grid-template-columns: auto 20fr 5fr 2fr;
-    grid-column-gap: 1rem;
+    grid-column-gap: 2rem;
+    z-index: 2;
 `;
 
 const LogoDiv = styled.div`
@@ -55,7 +57,7 @@ const LoginBtn = styled(Button)`
 
 const MenuToggle = styled.div`
     display: flex;
-    justify-self: center;
+    justify-self: flex-start;
     align-self: center;
     width: fit-content;
     svg {
@@ -63,8 +65,7 @@ const MenuToggle = styled.div`
     }
 `;
 
-const PageTopPublic = () => {
-
+const PageTopPublic = ({toggleMenu, menuOpen}) => {
      return (
         <Container>
             <LogoDiv>
@@ -74,10 +75,14 @@ const PageTopPublic = () => {
             <SearchBar placeholder="Search for a Credential or Application" btnText="SEARCH" />
             <LoginBtn primary btnColor="#8295A2" onClick={() => window.location.href="/user/register"}>LOGIN</LoginBtn>
             <MenuToggle>
-                <HamburgerMenuLines width="2.5rem" />
+                {
+                    menuOpen ?
+                    <Cross width="3.5rem" onClick={toggleMenu} fill="#8295A2" /> :
+                    <HamburgerMenuLines width="2.5rem" onClick={toggleMenu} />
+                }
             </MenuToggle>
         </Container>
     )
 }
 
-export default withTheme(PageTopPublic)
+export default PageTopPublic

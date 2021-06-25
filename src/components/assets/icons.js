@@ -369,9 +369,9 @@ const CrossBadge = ({width="1.5rem", id=""}) => {
    )
 }
 
-const HamburgerMenuLines = ({width="1.5rem", id=""}) => {
+const HamburgerMenuLines = ({width="1.5rem", id="", onClick=() => {}}) => {
    return (
-      <svg width={width} id={id} viewBox="0 0 36 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width={width} id={id} onClick={onClick} viewBox="0 0 36 27" fill="none" xmlns="http://www.w3.org/2000/svg">
          <path d="M2.25 0C1.00736 0 0 1.20883 0 2.7C0 4.19117 1.00736 5.4 2.25 5.4H33.75C34.9926 5.4 36 4.19117 36 2.7C36 1.20883 34.9926 0 33.75 0H2.25Z" fill="#8295A2" /><path d="M0 13.5C0 12.0088 1.00736 10.8 2.25 10.8H33.75C34.9926 10.8 36 12.0088 36 13.5C36 14.9912 34.9926 16.2 33.75 16.2H2.25C1.00736 16.2 0 14.9912 0 13.5Z" fill="#8295A2" /><path d="M2.25 21.6C1.00736 21.6 0 22.8088 0 24.3C0 25.7912 1.00736 27 2.25 27H33.75C34.9926 27 36 25.7912 36 24.3C36 22.8088 34.9926 21.6 33.75 21.6H2.25Z" fill="#8295A2" />
       </svg>
    );

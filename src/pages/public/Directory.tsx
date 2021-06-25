@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import backgroundLight from "../../components/assets/Background-light.svg";
 import { 
-    PageTopPublic,
-    DirProfileHolder
+    DirProfileHolder,
+    CommonElementsPublic
 } from '../../components/ui';
 
 const PageContainer = styled.div`
@@ -67,11 +66,11 @@ const Directory = () => {
 
     return (
         <PageContainer>
-            <PageTopPublic />
+            <CommonElementsPublic menuActive="Directory" />
             <ProfilesHolder>
                 {
-                    profiles.map(profileData => (
-                            <DirProfileHolder profileData={profileData} />
+                    profiles.map((profileData, index) => (
+                            <DirProfileHolder key={index} profileData={profileData} />
                         )
                     )
                 }

@@ -1,5 +1,6 @@
 import Button from "./Button";
 import Checkbox from "./Checkbox";
+import CommonElementsPublic from "./CommonElementsPublic";
 import DirProfileHolder from "./DirProfileHolder";
 import DynamicSearch from "./DynamicSearch";
 import H1 from "./H1";
@@ -12,6 +13,7 @@ import InputText from "./InputText";
 import LongInput from "./LongInput";
 import MenuOrg from "./MenuOrg";
 import MenuUser from "./MenuUser";
+import MenuPublic from "./MenuPublic";
 import PageContentContainer from "./PageContentContainer";
 import PageTop from "./PageTop";
 import PageTopPublic from "./PageTopPublic";
@@ -33,6 +35,7 @@ import UserAppDataHolder from "./UserAppDataHolder";
 export {
     Button,
     Checkbox,
+    CommonElementsPublic,
     DirProfileHolder,
     DynamicSearch,
     H1,
@@ -45,6 +48,7 @@ export {
     LongInput,
     MenuOrg,
     MenuUser,
+    MenuPublic,
     MainContentContainer,
     MainContent,
     PageContentContainer,

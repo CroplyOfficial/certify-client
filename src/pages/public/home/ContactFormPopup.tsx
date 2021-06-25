@@ -4,7 +4,6 @@ import {
     Button,
     H1,
     InputText,
-    Select,
     Textarea,
 } from "../../../components/ui"
 import {ArrowLeft} from "../../../components/assets/icons"
@@ -15,11 +14,11 @@ const BlurredBg = styled.div`
     margin: 0;
     padding: 0;
     backdrop-filter: blur(5px);
-    background-color: ${props => "rgba("+hexToRgb('#5D7586')+", 0.5)"};
+    background-color: ${"rgba("+hexToRgb('#5D7586')+", 0.5)"};
     position: fixed;
     display: grid;
     place-items: center;
-    z-index: 1;
+    z-index: 4;
 `;
 
 const Popup = styled.div`
@@ -76,13 +75,13 @@ const BtnDiv = styled.div`
     }
 `;
 
-const ContactFormPopup = () => {
+const ContactFormPopup = ({closeModal}) => {
     return (
         <BlurredBg>
             <Popup>
                 <BreadcrumbHeader>
                     <ClosePopup>
-                        <ArrowLeft stroke='#A1A1A1' width="2rem"  />
+                        <ArrowLeft stroke='#A1A1A1' width="2rem" onClick={closeModal} />
                     </ClosePopup>
                     <H1>Contact Form</H1>
                 </BreadcrumbHeader>
@@ -96,7 +95,7 @@ const ContactFormPopup = () => {
                     <Textarea className="formTextareaInput" placeholder="Message" />
                 </Inputs>
                 <BtnDiv>
-                    <Button primary btnColor='#ED8A8A'>CANCEL</Button>
+                    <Button primary btnColor='#ED8A8A' onClick={closeModal}>CANCEL</Button>
                     <Button primary btnColor='#5D7586'>SEND</Button>
                 </BtnDiv>
             </Popup>
