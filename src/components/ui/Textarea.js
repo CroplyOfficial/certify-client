@@ -35,7 +35,7 @@ const TextareaBase = styled.textarea`
     resize: none;
     width: 100%;
     height: 100%;
-    padding: 1rem 1rem 0rem 1rem;
+    padding: 1rem;
     border-radius: 30px;
     box-shadow: none;
     border: 1px solid ${props => props.theme.pastelColors.grey};
@@ -64,6 +64,8 @@ const TextareaBase = styled.textarea`
       /**********************
     For the custom scrollbar 
     ***********************/
+
+    scrollbar-width: thin;     // for Firefox
 
     &::-webkit-scrollbar {
         background: none;

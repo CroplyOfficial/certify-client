@@ -1,10 +1,11 @@
-import styled, {withTheme} from "styled-components"
-import {LongInput} from "./"
+import styled from "styled-components"
+import {LongInput} from "."
 import {ReactComponent as CertifyLogo} from "../assets/logo.svg"
 import {
-    BellHollow,
-    BellFilled
+    HamburgerMenuLines,
+    Cross
 } from "../assets/icons"
+import Button from "./Button"
 
 const Container = styled.div`
     padding: 0.75rem 0;
@@ -16,6 +17,10 @@ const Container = styled.div`
     position: relative;
     box-shadow: 10px 12px 33px -22px rgb(0 0 0 / 24%);
     transition: width 0.5s;
+    display: grid;
+    grid-template-columns: auto 20fr 5fr 2fr;
+    grid-column-gap: 2rem;
+    z-index: 2;
 `;
 
 const LogoDiv = styled.div`
@@ -25,9 +30,6 @@ const LogoDiv = styled.div`
     margin: 0 2vw;
     height: 3.5rem;
     display: flex;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
 
     svg {
         min-width: 40px;
@@ -39,70 +41,48 @@ const LogoDiv = styled.div`
     }
 `;
 
-
 const SearchBar = styled(LongInput)`
-    margin-left: 20vw;
-    width: 60%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
 `;
 
-const NotifBell = styled.div`
-    position: absolute;
-    right: 8rem;
-    top: 50%;
-    transform: translateY(-50%);
+const LoginBtn = styled(Button)`
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    max-width: 180px;
+`;
+
+const MenuToggle = styled.div`
+    display: flex;
+    justify-self: flex-start;
+    align-self: center;
+    width: fit-content;
     svg {
-        margin-top: 0.1rem;
-        width: 2rem;
         cursor: pointer;
     }
 `;
 
-const ProfilePicture = styled.div`
-    border-radius: 50%;
-    box-sizing: border-box;
-    padding: 0.2rem 0;
-    width: 3.5rem;
-    height: 3.5rem;
-    right: 2rem;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #E0E0E0;
-    color: #A1A1A1;
-    font-family: "Open Sans";
-    font-weight: 600;
-    font-size: 2rem;
-    text-align: center;
-`;
-
-const PageTopPublic = () => {
-
-    /*
-    Varibale to contain the text "menuCollapsed" when the menu is collapsed and an empty string
-    when it isn't. This wil be used to provide elements the menuCollapsed class when it the menu is
-    collapsed.
-    */
-    let notifExists = false // Variable to determine whether the user has any notifications or not.
-    return (
+const PageTopPublic = ({toggleMenu, menuOpen}) => {
+     return (
         <Container>
             <LogoDiv>
                 <CertifyLogo />
                 <div>CERTIFY</div>
             </LogoDiv>
             <SearchBar placeholder="Search for a Credential or Application" btnText="SEARCH" />
-            <NotifBell>
+            <LoginBtn primary btnColor="#8295A2" onClick={() => window.location.href="/user/register"}>LOGIN</LoginBtn>
+            <MenuToggle>
                 {
-                    notifExists ?
-                    <BellFilled fill="#A1A1A1" /> :
-                    <BellHollow fill="#A1A1A1" />
+                    menuOpen ?
+                    <Cross width="3.5rem" onClick={toggleMenu} fill="#8295A2" /> :
+                    <HamburgerMenuLines width="2.5rem" onClick={toggleMenu} />
                 }
-            </NotifBell>
-            <ProfilePicture>A</ProfilePicture>
+            </MenuToggle>
         </Container>
     )
 }
 
-export default withTheme(PageTopPublic)
+export default PageTopPublic

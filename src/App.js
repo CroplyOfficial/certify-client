@@ -3,33 +3,38 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom' // For 
 import GlobalFonts from './components/fonts/fonts' // importing the fonts
 
 // importing org pages
-import LoginOrg from './pages/org/LoginOrg'
-import Onboarding from './pages/org/onboarding/Onboarding'
-import Dashboard from './pages/org/Dashboard'
-import ApplicationsOrg from './pages/org/applications/ApplicationsOrg'
-import NewApplicationOrg from './pages/org/applications/NewApplicationOrg'
-import ViewApplicationOrg from './pages/org/applications/ViewApplicationOrg'
-import History from './pages/org/credentialHistory/History'
-import ViewTransactionTangle from './pages/org/credentialHistory/ViewTransactionTangle'
-import Users from './pages/org/users/Users'
-import ViewUser from './pages/org/users/ViewUser'
-import NewUser from './pages/org/users/NewUser'
-import Identity from './pages/org/Identity'
-import Credentials from './pages/org/credentials/Credentials'
-import NewCredential from './pages/org/credentials/NewCredential'
-import ViewCredential from './pages/org/credentials/ViewCredential'
-import IssueCredential from './pages/org/credentials/IssueCredential'
-import SettingsOrg from './pages/org/SettingsOrg'
+import LoginOrg from './pages/org/LoginOrg';
+import Onboarding from './pages/org/onboarding/Onboarding';
+import Dashboard from './pages/org/Dashboard';
+import ApplicationsOrg from './pages/org/applications/ApplicationsOrg';
+import NewApplicationOrg from './pages/org/applications/NewApplicationOrg';
+import ViewApplicationOrg from './pages/org/applications/ViewApplicationOrg';
+import History from './pages/org/credentialHistory/History';
+import ViewTransactionTangle from './pages/org/credentialHistory/ViewTransactionTangle';
+import Users from './pages/org/users/Users';
+import ViewUser from './pages/org/users/ViewUser';
+import NewUser from './pages/org/users/NewUser';
+import Identity from './pages/org/Identity';
+import Credentials from './pages/org/credentials/Credentials';
+import NewCredential from './pages/org/credentials/NewCredential';
+import ViewCredential from './pages/org/credentials/ViewCredential';
+import IssueCredential from './pages/org/credentials/IssueCredential';
+import SettingsOrg from './pages/org/SettingsOrg';
 
 // importing user pages
-import LoginUser from './pages/user/LoginUser'
-import RegisterUser from './pages/user/RegisterUser'
-import PublicProfile from './pages/user/publicProfile/PublicProfile'
-import ViewPublicProfile from './pages/user/publicProfile/ViewPublicProfile'
-import ApplicationsUser from './pages/user/applications/ApplicationsUser'
-import NewApplicationUser from './pages/user/applications/NewApplicationUser'
-import ViewApplicationUser from './pages/user/applications/ViewApplicationUser'
-import SettingsUser from './pages/user/SettingsUser'
+import LoginUser from './pages/user/LoginUser';
+import RegisterUser from './pages/user/RegisterUser';
+import PublicProfile from './pages/user/publicProfile/PublicProfile';
+import ViewPublicProfile from './pages/user/publicProfile/ViewPublicProfile';
+import ApplicationsUser from './pages/user/applications/ApplicationsUser';
+import NewApplicationUser from './pages/user/applications/NewApplicationUser';
+import ViewApplicationUser from './pages/user/applications/ViewApplicationUser';
+import SettingsUser from './pages/user/SettingsUser';
+
+// importing public pages
+import Home from './pages/public/home/Home';
+import Directory from './pages/public/Directory';
+import Profile from './pages/public/Profile';
 
 const App = () => {
   return (
@@ -66,6 +71,11 @@ const App = () => {
           <Route component={NewApplicationUser} path="/user/applications/new" title="New Application" />
           <Route component={ViewApplicationUser} path="/user/applications/view" title="View Application" />
           <Route component={SettingsUser} path="/user/settings" title="Settings" />
+
+          {/* routing public pages */}
+          <Route component={Home} exact path="/public" title="Home" />
+          <Route component={Directory} path="/public/directory" title="Directory" />
+          <Route component={Profile} path="/public/profile" title="Profile" />
 
 
         </Switch>

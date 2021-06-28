@@ -1,7 +1,6 @@
 import styled, {withTheme} from "styled-components"
-import {useSelector} from "react-redux"
-
-import {LongInput} from "./"
+import {LongInput} from "."
+import {ReactComponent as CertifyLogo} from "../assets/logo.svg"
 import {
     BellHollow,
     BellFilled
@@ -9,7 +8,7 @@ import {
 
 const Container = styled.div`
     padding: 0.75rem 0;
-    width: 85%;
+    width: 100%;
     float: right;
     height: calc(6vh + 20px);
     background-color: ${props => props.theme.mainColors.white};
@@ -17,16 +16,33 @@ const Container = styled.div`
     position: relative;
     box-shadow: 10px 12px 33px -22px rgb(0 0 0 / 24%);
     transition: width 0.5s;
+`;
 
-    &.menuCollapsed {
-        width: 95vw;
-        transition: width 0.5s;
+const LogoDiv = styled.div`
+    font-family: 'Poppins';
+    font-size: 1.4rem;
+    color: ${props => props.theme.mainColors.darkBlue};
+    margin: 0 2vw;
+    height: 3.5rem;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    svg {
+        min-width: 40px;
+        max-width: 2rem;
+    }
+    div {
+        margin: 0.7rem auto;
+        margin-left: 0.5rem;
     }
 `;
 
+
 const SearchBar = styled(LongInput)`
-    margin: 0 2rem;
-    width: 75%;
+    margin-left: 20vw;
+    width: 60%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -54,33 +70,34 @@ const ProfilePicture = styled.div`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: ${props => props.theme.pastelColors.grey};
-    color: ${props => props.theme.mainColors.grey};
+    background-color: #E0E0E0;
+    color: #A1A1A1;
     font-family: "Open Sans";
     font-weight: 600;
     font-size: 2rem;
     text-align: center;
 `;
 
-const PageTop = ({theme}) => {
-    const menuCollapsed = useSelector(state => state.menuCollapsed)
+const PageTopPublic = () => {
 
     /*
     Varibale to contain the text "menuCollapsed" when the menu is collapsed and an empty string
     when it isn't. This wil be used to provide elements the menuCollapsed class when it the menu is
     collapsed.
     */
-    let menuCollapsedClass = menuCollapsed ? "menuCollapsed" : ""
-
     let notifExists = false // Variable to determine whether the user has any notifications or not.
     return (
-        <Container className={menuCollapsedClass}>
+        <Container>
+            <LogoDiv>
+                <CertifyLogo />
+                <div>CERTIFY</div>
+            </LogoDiv>
             <SearchBar placeholder="Search for a Credential or Application" btnText="SEARCH" />
             <NotifBell>
                 {
                     notifExists ?
-                    <BellFilled fill={theme.mainColors.grey} /> :
-                    <BellHollow fill={theme.mainColors.grey} />
+                    <BellFilled fill="#A1A1A1" /> :
+                    <BellHollow fill="#A1A1A1" />
                 }
             </NotifBell>
             <ProfilePicture>A</ProfilePicture>
@@ -88,4 +105,4 @@ const PageTop = ({theme}) => {
     )
 }
 
-export default withTheme(PageTop)
+export default withTheme(PageTopPublic)
