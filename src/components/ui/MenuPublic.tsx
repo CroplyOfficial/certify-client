@@ -10,14 +10,10 @@ import {Link} from "react-router-dom"
 
 import { colorLightLevel } from '../functions/componentFunctions'
 import {
-    DashboardFilled,
-    DashboardHollow,
-    ApplicationsFilled,
-    ApplicationsHollow,
-    CredentialsFilled,
-    CredentialsHollow,
-    HistoryFilled,
-    HistoryHollow,
+    Home,
+    Directory,
+    Contact,
+    Register
 } from "../assets/icons"
 
 const MenuBase = styled.div`
@@ -74,7 +70,7 @@ const MenuItem = styled(Link)`
     }
     &.active {
         a, span {
-            color: ${props => props.theme.mainColors.blue};
+            color: #89C7F3;
             font-weight: 800;
             div {
                 visibility: visible;
@@ -82,11 +78,11 @@ const MenuItem = styled(Link)`
             }
         }
         .activePageMarker {
-            background-color: ${props => props.theme.mainColors.blue};
+            background-color: #89C7F3;
         }
     }
     &:hover {
-        background-color: ${props => colorLightLevel(props.theme.pastelColors.grey, 10)};
+        background-color: ${colorLightLevel("#E0E0E0", 10)};
     }
 `;
 
@@ -106,28 +102,28 @@ const MenuPublic = ({menuRef, toggleModal, active}) => {
             <MenuItem to="/public" className={`${active === "Home" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
                 <span>
-                    {active === "Dashboard" ? <DashboardFilled /> : <DashboardHollow />}
+                    {active === "Dashboard" ? <Home width="1.3rem" fill="#89C7F3" /> : <Home />}
                     <div>Home</div>
                 </span>
             </MenuItem>
             <MenuItem to="/public/directory" className={`${active === "Directory" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
                 <span>
-                    {active === "Directory" ? <CredentialsFilled /> : <CredentialsHollow />}                    
+                    {active === "Directory" ? <Directory width="1.3rem" fill="#89C7F3" /> : <Directory />}                    
                     <div>Directory</div>
                 </span>
             </MenuItem>
             <MenuItem to="/user/register" className={`${active === "Register" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
                 <span>
-                    {active === "Register" ? <ApplicationsFilled /> : <ApplicationsHollow />}
+                    {active === "Register" ? <Register width="1.3rem" fill="#89C7F3" /> : <Register />}
                     <div>Register</div>
                 </span>
             </MenuItem>
             <MenuItem className={`${active === "Contact" ? "active" : ""}`} onClick={toggleModal}>
                 <ActivePageMarker className="activePageMarker" />
                 <span>
-                    {active === "Contact" ? <HistoryFilled /> : <HistoryHollow />}
+                    {active === "Contact" ? <Contact width="1.3rem" fill="#89C7F3" /> : <Contact />}
                     <div>Contact</div>
                 </span>
             </MenuItem>
