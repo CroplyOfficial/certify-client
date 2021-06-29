@@ -74,7 +74,7 @@ const NoCredentialsFound = styled.div`
   color: ${props => props.theme.mainColors.black};
 `;
 
-function useOutsideAlerter(containerRef, searchResultsContainerRef) {
+const useOutsideHandler = (containerRef, searchResultsContainerRef) => {
   useEffect(() => {
       const handleClickOutside = e => {
           if (containerRef.current && !containerRef.current.contains(e.target)) {
@@ -99,7 +99,7 @@ const DynamicSearch = ({credentialNames}) => {
   const containerRef = useRef(null);
   const inputRef = useRef(null);
   const searchResultsContainerRef = useRef(null);
-  useOutsideAlerter(containerRef, searchResultsContainerRef);
+  useOutsideHandler(containerRef, searchResultsContainerRef);
 
   const filterData = (keyword: any) => {
     let search;
