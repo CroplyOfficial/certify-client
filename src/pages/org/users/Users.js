@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import styled, { withTheme } from 'styled-components'
 import {
     MenuOrg, 
@@ -10,7 +10,8 @@ import {
     Table,
     Checkbox,
     Button,
-    RecordOptions
+    RecordOptions,
+    CommonElementsOrg
 } from "../../../components/ui/"
 import {Filters} from "../../../components/assets/icons"
 
@@ -97,8 +98,7 @@ const Users = ({theme}) => {
     const newUserBtn = <Button primary btnColor={theme.mainColors.darkBlue} onClick={() => window.location.href = "/org/users/new"}>+ NEW USER</Button>
     return (
         <>
-        <MenuOrg active="Users" />
-        <PageTop />
+        <CommonElementsOrg menuActive="Users" />
         <PageContentContainer>
             <MainContentContainer>
                 <MainContent tablePage contentTitle="Users" componentRight={newUserBtn}>

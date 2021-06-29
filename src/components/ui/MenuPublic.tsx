@@ -102,7 +102,7 @@ const MenuPublic = ({menuRef, toggleModal, active}) => {
             <MenuItem to="/public" className={`${active === "Home" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
                 <span>
-                    {active === "Dashboard" ? <Home width="1.3rem" fill="#89C7F3" /> : <Home />}
+                    {active === "Home" ? <Home width="1.3rem" fill="#89C7F3" /> : <Home />}
                     <div>Home</div>
                 </span>
             </MenuItem>

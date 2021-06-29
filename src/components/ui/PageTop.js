@@ -17,6 +17,7 @@ const Container = styled.div`
     position: relative;
     box-shadow: 10px 12px 33px -22px rgb(0 0 0 / 24%);
     transition: width 0.5s;
+    z-index: 2;
 
     &.menuCollapsed {
         width: 95vw;

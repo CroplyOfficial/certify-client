@@ -32,7 +32,7 @@ import ViewApplicationUser from './pages/user/applications/ViewApplicationUser';
 import SettingsUser from './pages/user/SettingsUser';
 
 // importing public pages
-import Home from './pages/public/home/Home';
+import Home from './pages/public/Home';
 import Directory from './pages/public/Directory';
 import Profile from './pages/public/Profile';
 

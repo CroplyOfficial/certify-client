@@ -1,9 +1,8 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {useSelector} from "react-redux"
 import styled, { withTheme } from 'styled-components'
 import {
-    MenuOrg, 
-    PageTop,
+    CommonElementsOrg,
     TangleHistory,
     PageContentContainer,
     MainContentContainer,
@@ -88,8 +87,7 @@ const History = ({theme}) => {
     }
     return (
         <>
-        <MenuOrg active="History" />
-        <PageTop />
+        <CommonElementsOrg menuActive="History" />
         <PageContentContainer>
             <MainContentContainer>
                 <MainContent tablePage contentTitle="Credential History">

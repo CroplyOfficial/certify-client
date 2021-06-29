@@ -3,7 +3,7 @@ import {
     PageTopPublic,
     MenuPublic
 } from "."
-import ContactFormPopup from '../../pages/public/home/ContactFormPopup';
+import ContactFormPopup from '../../pages/public/ContactFormPopup';
 
 const CommonElementsPublic = ({menuActive=""}) => {
     const [menuOpen, setMenuOpen] = useState(false);

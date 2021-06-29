@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import {hexToRgb} from "../../../components/functions/componentFunctions";
+import {hexToRgb} from "../../components/functions/componentFunctions";
 import {
     Button,
     H1,
     InputText,
     Textarea,
-} from "../../../components/ui";
-import { Cross } from "../../../components/assets/icons";
+} from "../../components/ui";
+import { Cross } from "../../components/assets/icons";
 
 const BlurredBg = styled.div`
     height: 100%;

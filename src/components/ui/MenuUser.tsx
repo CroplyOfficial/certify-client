@@ -238,15 +238,7 @@ const MenuOrg = ({theme, active}) => {
             </LogoDiv>
             <MenuChevron className={menuCollapsedClass} onClick={toggleMenu}>
                 <DoubleChevronBoxed width="24" />
-            </MenuChevron>
-            <MenuItem  to="/user/dashboard" className={`${ menuCollapsedClass} ${active === "Dashboard" ? "active" : ""}`}>
-                <ActivePageMarker className="activePageMarker" />
-                <span>
-                    {active === "Dashboard" ? <DashboardFilled /> : <DashboardHollow />}
-                    <div>Dashboard</div>
-                </span>
-            </MenuItem>
-            
+            </MenuChevron>           
             <MenuItem to="/user/applications" className={`${menuCollapsedClass} ${active === "Applications" ? "active" : ""}`}>
                 <ActivePageMarker className="activePageMarker" />
                 <span>

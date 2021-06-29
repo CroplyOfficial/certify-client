@@ -1,8 +1,7 @@
-import React, {useState, useRef} from 'react'
+import {useState, useRef} from 'react'
 import styled, { withTheme } from 'styled-components'
 import {
-    MenuUser, 
-    PageTop,
+    CommonElementsUser,
     PageContentContainer,
     MainContentContainer,
     MainContent,
@@ -86,8 +85,7 @@ const NewApplicationUser = ({theme}) => {
     );
     return (
         <>
-        <MenuUser active="Applications" />
-        <PageTop />
+        <CommonElementsUser menuActive="Applications" />
         <PageContentContainer>
             <MainContentContainer>
                 <CustomMainContent contentTitle="New Application" componentRight={submitAppBtn}>

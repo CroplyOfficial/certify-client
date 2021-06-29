@@ -1,13 +1,13 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import styled, {withTheme} from 'styled-components'
 import {
-    MenuOrg, 
-    PageTop,
+    CommonElementsOrg,
     TangleHistory,
     PageContentContainer,
     MainContentContainer,
     MainContent,
-    Hr
+    Hr,
+    CommonElementsPublic
 } from "../../../components/ui"
 
 const CustomMainContent = styled(MainContent)`
@@ -71,8 +71,7 @@ const ViewTransactionTangle = ({theme}) => {
     })
     return (
         <>
-        <MenuOrg active="History" />
-        <PageTop />
+        <CommonElementsOrg menuActive="History" />
         <PageContentContainer>
             <MainContentContainer>
                 <CustomMainContent contentTitle="Credential History">

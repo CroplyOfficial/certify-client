@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-import cropCollectingWomen from "../../../components/assets/crop-collecting-women.jpg";
-import oldWoman from "../../../components/assets/old-woman.jpg";
-import identityMap from "../../../components/assets/identity-map.jpg";
+import cropCollectingWomen from "../../components/assets/crop-collecting-women.jpg";
+import oldWoman from "../../components/assets/old-woman.jpg";
+import identityMap from "../../components/assets/identity-map.jpg";
 import { 
     H1,
     Button,
     CommonElementsPublic
-} from '../../../components/ui';
-import { IotaLogo } from '../../../components/assets/icons';
+} from '../../components/ui';
+import { IotaLogo } from '../../components/assets/icons';
 
 const PageContainer = styled.div`
     height: 100%;
