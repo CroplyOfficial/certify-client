@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react'
+import {useState} from 'react'
 import styled, { withTheme } from 'styled-components'
 import {
     CommonElementsOrg,
@@ -7,7 +7,7 @@ import {
     MainContentContainer,
     MainContent,
     VerifiableCredentialHolder
-} from "../../../components/ui"
+} from "../../../../components/ui"
 
 const DataHolder = styled.div`
     display: grid;
@@ -17,7 +17,7 @@ const DataHolder = styled.div`
 `;
 
 
-const Identity = ({theme}) => {
+const IdentityDashboard = ({theme}) => {
     const [credentials] = useState([
         {
             credentialName: 'Animal Agriculture License',
@@ -41,7 +41,7 @@ const Identity = ({theme}) => {
         <CommonElementsOrg menuActive="Identity" />
         <PageContentContainer>
             <MainContentContainer>
-                <MainContent contentTitle="Identity" identityActive="Dashboard">
+                <MainContent contentTitle="Identity Dashboard" identityActive="Dashboard">
                 <DataHolder>
                         {
                             credentials.map(credentialData => (
@@ -54,9 +54,8 @@ const Identity = ({theme}) => {
             </MainContentContainer>
             <TangleHistory />
         </PageContentContainer>
-        
         </>
     )
 }
 
-export default withTheme(Identity)
+export default withTheme(IdentityDashboard)

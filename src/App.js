@@ -14,7 +14,7 @@ import ViewTransactionTangle from './pages/org/credentialHistory/ViewTransaction
 import Users from './pages/org/users/Users';
 import ViewUser from './pages/org/users/ViewUser';
 import NewUser from './pages/org/users/NewUser';
-import Identity from './pages/org/identity/Identity';
+import IdentityDashboard from './pages/org/identity/dashboard/IdentityDashboard';
 import Credentials from './pages/org/credentials/Credentials';
 import NewCredential from './pages/org/credentials/NewCredential';
 import ViewCredential from './pages/org/credentials/ViewCredential';
@@ -56,7 +56,7 @@ const App = () => {
           <Route component={History} exact path="/org/history" title="History" />
           <Route component={ViewTransactionTangle} path="/org/history/view" title="View Transaction Tangle" />
 
-          <Route component={Identity} path="/org/identity" title="Identity" />
+          <Route component={IdentityDashboard} path="/org/identity/dashboard" title="Identity Dashboard" />
 
           <Route component={SettingsOrg} path="/org/settings" title="Settings" />
 
