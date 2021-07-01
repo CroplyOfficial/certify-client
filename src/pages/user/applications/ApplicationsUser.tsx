@@ -6,7 +6,7 @@ import {
     MainContentContainer,
     MainContent,
     Button,
-    UserAppDataHolder
+    UserApplicationHolder
 } from "../../../components/ui"
 
 const DataHolder = styled.div`
@@ -51,7 +51,7 @@ const ApplicationsUser = ({theme}) => {
                     <DataHolder>
                         {
                             apps.map(appData => (
-                                    <UserAppDataHolder appData={appData} />
+                                    <UserApplicationHolder appData={appData} />
                                 )
                             )
                         }

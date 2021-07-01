@@ -1,12 +1,17 @@
-import React from 'react'
-import styled, {withTheme} from 'styled-components'
-import {useSelector} from "react-redux"
+// Contains code for the container div for the main content div on a page.
+/*
+props:
+dashboard -> specifies if the container is supposed to behave as it does on the dashboard page.
+*/
 
+import PropTypes from "prop-types";
+import styled, {css, withTheme} from 'styled-components';
+import {useSelector} from "react-redux";
 
 const Div = styled.div`
     width: 75%;
     padding: 0 2rem;
-    &.dashboard {
+    ${props => props.dashboard && css`
         overflow-y: auto;
         overflow-x: hidden;
         margin-bottom: 0.5rem;
@@ -60,17 +65,23 @@ const Div = styled.div`
         &::-webkit-scrollbar-button {
             display:none
         }
-    }
+    `}
 `;
 
-const MainContentContainer = ({className, children}) => {
+const MainContentContainer = ({className, dashboard, children}) => {
     const menuCollapsed = useSelector(state => state.menuCollapsed)
     const menuCollapsedClass = menuCollapsed ? "menuCollapsed" : ""
     return (
-        <Div className={className ? (className + " " + menuCollapsedClass) : menuCollapsedClass}>
+        <Div dashboard={dashboard} className={className ? (className + " " + menuCollapsedClass) : menuCollapsedClass}>
             {children}
         </Div>
     )
+}
+
+
+MainContentContainer.propTypes = {
+    dashboard: PropTypes.bool,
+    className: PropTypes.string
 }
 
 export default withTheme(MainContentContainer)

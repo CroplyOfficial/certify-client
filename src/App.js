@@ -14,7 +14,7 @@ import ViewTransactionTangle from './pages/org/credentialHistory/ViewTransaction
 import Users from './pages/org/users/Users';
 import ViewUser from './pages/org/users/ViewUser';
 import NewUser from './pages/org/users/NewUser';
-import Identity from './pages/org/Identity';
+import Identity from './pages/org/identity/Identity';
 import Credentials from './pages/org/credentials/Credentials';
 import NewCredential from './pages/org/credentials/NewCredential';
 import ViewCredential from './pages/org/credentials/ViewCredential';
@@ -46,30 +46,40 @@ const App = () => {
           {/* routing org pages */}
           <Route component={LoginOrg} exact path="/org" title="Login" />
           <Route component={Onboarding} path="/org/onboarding" title="Onboarding" />
+
           <Route component={Dashboard} path="/org/dashboard" title="Dashboard" />
+
           <Route component={ApplicationsOrg} exact path="/org/applications" title="Applications" />
           <Route component={NewApplicationOrg} path="/org/applications/new" title="New Application" />
           <Route component={ViewApplicationOrg} path="/org/applications/view" title="View Application" />
+
           <Route component={History} exact path="/org/history" title="History" />
           <Route component={ViewTransactionTangle} path="/org/history/view" title="View Transaction Tangle" />
+
           <Route component={Identity} path="/org/identity" title="Identity" />
+
           <Route component={SettingsOrg} path="/org/settings" title="Settings" />
+
           <Route component={Credentials} exact path="/org/credentials" title="Credentials" />
           <Route component={NewCredential} path="/org/credentials/new" title="New Credential" />
           <Route component={ViewCredential} path="/org/credentials/view" title="View Credential" />
           <Route component={IssueCredential} path="/org/credentials/issue" title="Issue Credential" />
+
           <Route component={Users} exact path="/org/users" title="Users" />
           <Route component={NewUser} path="/org/users/new" title="New User" />
           <Route component={ViewUser} path="/org/users/view" title="View User" />
 
-          {/* routing org pages */}
+          {/* routing user pages */}
           <Route component={LoginUser} exact path="/user" title="Login" />
           <Route component={RegisterUser} path="/user/register" title="Register" />
-          <Route component={PublicProfile} exact path="/user/publicProfile" title="Public Profile" />
-          <Route component={ViewPublicProfile} path="/user/publicProfile/view" title="View Public Profile" />
+
           <Route component={ApplicationsUser} exact path="/user/applications" title="Applications" />
           <Route component={NewApplicationUser} path="/user/applications/new" title="New Application" />
           <Route component={ViewApplicationUser} path="/user/applications/view" title="View Application" />
+
+          <Route component={PublicProfile} exact path="/user/publicProfile" title="Public Profile" />
+          <Route component={ViewPublicProfile} path="/user/publicProfile/view" title="View Public Profile" />
+
           <Route component={SettingsUser} path="/user/settings" title="Settings" />
 
           {/* routing public pages */}

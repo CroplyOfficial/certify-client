@@ -101,8 +101,17 @@ const MenuChevron = styled.div`
     }
 `;
 
+const ActivePageMarker = styled.div`
+    position: absolute;
+    width: 0.5rem;
+    height: 1.5rem;
+    border-radius: 0 3px 3px 0;
+    height: 100%;
+    margin: 0;
+`;
+
 const MenuItem = styled(Link)` 
-text-decoration: none;
+    text-decoration: none;
     font-family: 'Open Sans';
     font-weight: normal;
     font-size: 1rem;
@@ -138,7 +147,7 @@ text-decoration: none;
                 opacity: 1;
             }
         }
-        .activePageMarker {
+        ${ActivePageMarker} {
             background-color: ${props => props.theme.mainColors.blue};
         }
     }
@@ -164,16 +173,6 @@ text-decoration: none;
             }
         }
     }
-`;
-
-const ActivePageMarker = styled.div`
-    position: absolute;
-    width: 0.5rem;
-    height: 1.5rem;
-    border-radius: 0 3px 3px 0;
-    height: 100%;
-    margin: 0;
-
 `;
 
 const LogoutDiv = styled.div`
@@ -246,49 +245,49 @@ const MenuOrg = ({theme, active}) => {
                 <DoubleChevronBoxed width="24" />
             </MenuChevron>
             <MenuItem to="/org/dashboard" className={`${ menuCollapsedClass} ${active === "Dashboard" ? "active" : ""}`}>
-                <ActivePageMarker className="activePageMarker" />
+                <ActivePageMarker/>
                 <span>
                     {active === "Dashboard" ? <DashboardFilled /> : <DashboardHollow />}
                     <div>Dashboard</div>
                 </span>
             </MenuItem>
             <MenuItem to="/org/credentials" className={`${menuCollapsedClass} ${active === "Credentials" ? "active" : ""}`}>
-                <ActivePageMarker className="activePageMarker" />
+                <ActivePageMarker/>
                 <span>
                     {active === "Credentials" ? <CredentialsFilled /> : <CredentialsHollow />}                    
                     <div>Credentials</div>
                 </span>
             </MenuItem>
             <MenuItem to="/org/applications" className={`${menuCollapsedClass} ${active === "Applications" ? "active" : ""}`}>
-                <ActivePageMarker className="activePageMarker" />
+                <ActivePageMarker/>
                 <span>
                     {active === "Applications" ? <ApplicationsFilled /> : <ApplicationsHollow />}
                     <div>Applications</div>
                 </span>
             </MenuItem>
             <MenuItem to="/org/history" className={`${menuCollapsedClass} ${active === "History" ? "active" : ""}`}>
-                <ActivePageMarker className="activePageMarker" />
+                <ActivePageMarker/>
                 <span>
                     {active === "History" ? <HistoryFilled /> : <HistoryHollow />}
                     <div>History</div>
                 </span>
             </MenuItem>
             <MenuItem to="/org/identity" className={`${menuCollapsedClass} ${active === "Identity" ? "active" : ""}`}>
-                <ActivePageMarker className="activePageMarker" />
+                <ActivePageMarker/>
                 <span>
                     {active === "Identity" ? <IdFilled /> : <IdHollow />}
                     <div>Identity</div>
                 </span>
             </MenuItem>
             <MenuItem to="/org/users" className={`${menuCollapsedClass} ${active === "Users" ? "active" : ""}`}>
-                <ActivePageMarker className="activePageMarker" />
+                <ActivePageMarker/>
                 <span>
                     {active === "Users" ? <UsersFilled /> : <UsersHollow />}
                     <div>Users</div>
                 </span>
             </MenuItem>
             <MenuItem to="/org/settings" className={`${menuCollapsedClass} ${active === "Settings" ? "active" : ""}`}>
-                <ActivePageMarker className="activePageMarker" />
+                <ActivePageMarker/>
                 <span>
                     {active === "Settings" ? <SettingsFilled /> : <SettingsHollow />}
                     <div>Settings</div>

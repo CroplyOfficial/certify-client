@@ -31,7 +31,8 @@ import TangleHistory from "./TangleHistory";
 import Table from "./Table";
 import Textarea from "./Textarea";
 import ToggleSwitch from "./ToggleSwitch";
-import UserAppDataHolder from "./UserAppDataHolder";
+import UserApplicationHolder from "./UserApplicationHolder";
+import VerifiableCredentialHolder from "./VerifiableCredentialHolder";
 
 
 export {
@@ -68,5 +69,6 @@ export {
     Table,
     Textarea,
     ToggleSwitch,
-    UserAppDataHolder
+    UserApplicationHolder,
+    VerifiableCredentialHolder
 }
