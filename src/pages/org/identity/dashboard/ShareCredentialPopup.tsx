@@ -88,6 +88,12 @@ const ChooseMethod = styled.div`
     .instructions {
         font-size: 1.3rem;
     }
+    .inactive {
+        color: ${props => props.theme.mainColors.grey};
+    }
+    .active {
+        color: ${props => props.theme.mainColors.black};
+    }
     .switch {
         margin-top: 1rem;
         display: flex;
@@ -164,7 +170,7 @@ const ShareCredentialPopup = ({theme, closePopupFunc, goBackFunc, credential, sh
                         Choose your sharing method.
                    </div>
                    <div className="switch">
-                       <div>
+                       <div className={shareMethod === "QR" ? "active" : "inactive"}>
                            QR
                        </div>
                        <div>
@@ -177,7 +183,7 @@ const ShareCredentialPopup = ({theme, closePopupFunc, goBackFunc, credential, sh
                                 onToggle={toggleShareMethod}
                             />
                        </div>
-                       <div>
+                       <div className={shareMethod === "NFC" ? "active" : "inactive"}>
                            NFC
                        </div>
                    </div>

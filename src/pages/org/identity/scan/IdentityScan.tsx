@@ -41,10 +41,10 @@ const IdentityScan = ({theme}) => {
         <CommonElementsOrg menuActive="Identity" />
         <PageContentContainer>
             <MainContentContainer>
-                <MainContent contentTitle="Identity Scan" identityActive="Scan">
+                <MainContent contentTitle="Scan Credential" identityActive="Scan">
                 <DataHolder>
 
-                    </DataHolder> 
+                </DataHolder> 
                 </MainContent>
             </MainContentContainer>
             <TangleHistory />
