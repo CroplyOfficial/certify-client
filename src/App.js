@@ -5,30 +5,41 @@ import GlobalFonts from './components/fonts/fonts' // importing the fonts
 // importing org pages
 import LoginOrg from './pages/org/LoginOrg';
 import Onboarding from './pages/org/onboarding/Onboarding';
+
 import Dashboard from './pages/org/Dashboard';
+
 import ApplicationsOrg from './pages/org/applications/ApplicationsOrg';
 import NewApplicationOrg from './pages/org/applications/NewApplicationOrg';
 import ViewApplicationOrg from './pages/org/applications/ViewApplicationOrg';
+
 import History from './pages/org/credentialHistory/History';
 import ViewTransactionTangle from './pages/org/credentialHistory/ViewTransactionTangle';
+
 import Users from './pages/org/users/Users';
 import ViewUser from './pages/org/users/ViewUser';
 import NewUser from './pages/org/users/NewUser';
+
 import IdentityDashboard from './pages/org/identity/dashboard/IdentityDashboard';
+import IdentityScan from './pages/org/identity/scan/IdentityScan';
+
 import Credentials from './pages/org/credentials/Credentials';
 import NewCredential from './pages/org/credentials/NewCredential';
 import ViewCredential from './pages/org/credentials/ViewCredential';
 import IssueCredential from './pages/org/credentials/IssueCredential';
+
 import SettingsOrg from './pages/org/SettingsOrg';
 
 // importing user pages
 import LoginUser from './pages/user/LoginUser';
 import RegisterUser from './pages/user/RegisterUser';
+
 import PublicProfile from './pages/user/publicProfile/PublicProfile';
 import ViewPublicProfile from './pages/user/publicProfile/ViewPublicProfile';
+
 import ApplicationsUser from './pages/user/applications/ApplicationsUser';
 import NewApplicationUser from './pages/user/applications/NewApplicationUser';
 import ViewApplicationUser from './pages/user/applications/ViewApplicationUser';
+
 import SettingsUser from './pages/user/SettingsUser';
 
 // importing public pages
@@ -57,6 +68,8 @@ const App = () => {
           <Route component={ViewTransactionTangle} path="/org/history/view" title="View Transaction Tangle" />
 
           <Route component={IdentityDashboard} path="/org/identity/dashboard" title="Identity Dashboard" />
+          <Route component={IdentityScan} path="/org/identity/scan" title="Identity Scan" />
+
 
           <Route component={SettingsOrg} path="/org/settings" title="Settings" />
 

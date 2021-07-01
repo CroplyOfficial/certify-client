@@ -32,7 +32,7 @@ import Table from "./Table";
 import Textarea from "./Textarea";
 import ToggleSwitch from "./ToggleSwitch";
 import UserApplicationHolder from "./UserApplicationHolder";
-import VerifiableCredentialHolder from "./VerifiableCredentialHolder";
+import VerifiedCredentialHolder from "./VerifiedCredentialHolder";
 
 
 export {
@@ -70,5 +70,5 @@ export {
     Textarea,
     ToggleSwitch,
     UserApplicationHolder,
-    VerifiableCredentialHolder
+    VerifiedCredentialHolder
 }

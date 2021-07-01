@@ -10,7 +10,7 @@ const SwitchButton = styled.span`
     height: 2rem;
     border-radius: 50%;
     transition: 0.2s;
-    background: ${props => props.theme.pastelColors.grey};
+    background: ${props => props.btnColorOff ? props.btnColorOff : props.theme.pastelColors.grey};
 `;
 
 const Label = styled.label`
@@ -20,7 +20,7 @@ const Label = styled.label`
     cursor: pointer;
     width: 4rem;
     height: 2rem;
-    background: ${props => props.isOn ? props.colorOn : props.colorOff};
+    background: ${props => props.isOn ? props.bgColorOn : props.bgColorOff};
     border-radius: 30px;
     position: relative;
     transition: background-color .2s;
@@ -34,26 +34,29 @@ const SwitchCheckbox = styled.input.attrs({ type: 'checkbox' })`
     height: 0;
     width: 0;
     visibility: hidden;
-    &:checked + span {
+    &:checked + ${SwitchButton} {
         left: 100%;
         transform: translateX(-100%);
-        background: #fff;
+        background: ${props => props.btnColorOn ? props.btnColorOn : '#fff'};
     }
 `;
 
-const ToggleSwitch = ({ isOn, onToggle, colorOn, colorOff }) => {
+const ToggleSwitch = ({ isOn, onToggle, bgColorOn, bgColorOff, btnColorOn, btnColorOff }) => {
     return (
         <>  
             <Label 
                 isOn={isOn}
-                colorOn={colorOn}
-                colorOff={colorOff}
+                bgColorOn={bgColorOn}
+                bgColorOff={bgColorOff}
             >
                 <SwitchCheckbox
                     checked={isOn}
                     onChange={onToggle}
+                    btnColorOn={btnColorOn}
                 />
-                <SwitchButton />
+                <SwitchButton 
+                    btnColorOff={btnColorOff}
+                />
             </Label>
         </>
     );

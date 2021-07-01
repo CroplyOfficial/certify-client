@@ -272,7 +272,7 @@ const MenuOrg = ({theme, active}) => {
                     <div>History</div>
                 </span>
             </MenuItem>
-            <MenuItem to="/org/identity" className={`${menuCollapsedClass} ${active === "Identity" ? "active" : ""}`}>
+            <MenuItem to="/org/identity/dashboard" className={`${menuCollapsedClass} ${active === "Identity" ? "active" : ""}`}>
                 <ActivePageMarker/>
                 <span>
                     {active === "Identity" ? <IdFilled /> : <IdHollow />}

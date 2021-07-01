@@ -161,18 +161,21 @@ const MainContent = ({theme, componentRight, className, contentTitle, tablePage,
                 <IdentityContentContainer>
                     <IdentityNavbar>
                         <IdentityNavbarItem
+                            to="/org/identity/dashboard"
                             className={identityActive === "Dashboard" ? "active" : ""}
                         >
                             <span>Dashboard</span>
                             <ActivePageMarker />
                         </IdentityNavbarItem>
                         <IdentityNavbarItem
+                            to="/org/identity/scan"
                             className={identityActive === "Scan" ? "active" : ""}
                         >
                             <span>Scan</span>
                             <ActivePageMarker />
                         </IdentityNavbarItem>
                         <IdentityNavbarItem 
+                            to="/org/identity/profilesList"
                             className={identityActive === "Profiles List" ? "active" : ""}
                         >
                             <span>Profiles List</span>

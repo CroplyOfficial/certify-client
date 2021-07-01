@@ -173,8 +173,8 @@ const SettingsUser = ({theme}) => {
                                 </div>
                                 <div>
                                     <ToggleSwitch
-                                        colorOn={theme.mainColors.blue}
-                                        colorOff='none'
+                                        bgColorOn={theme.mainColors.blue}
+                                        bgColorOff='none'
                                         isOn={inputValues.appTheme}
                                         onToggle={() => {
                                                 stateChanger('appTheme', !inputValues.appTheme);
@@ -201,8 +201,8 @@ const SettingsUser = ({theme}) => {
                             </div>
                             <div>
                                     <ToggleSwitch
-                                        colorOn={theme.mainColors.blue}
-                                        colorOff='none'
+                                        bgColorOn={theme.mainColors.blue}
+                                        bgColorOff='none'
                                         isOn={inputValues.toggleAllNotifs}
                                         onToggle={() => stateChanger('toggleAllNotifs', !inputValues.toggleAllNotifs)}
                                     />
@@ -215,8 +215,8 @@ const SettingsUser = ({theme}) => {
                             </div>
                             <div>
                                     <ToggleSwitch
-                                        colorOn={theme.mainColors.blue}
-                                        colorOff='none'
+                                        bgColorOn={theme.mainColors.blue}
+                                        bgColorOff='none'
                                         isOn={inputValues.newCredentialsNotifs}
                                         onToggle={() => stateChanger('newCredentialsNotifs', !inputValues.newCredentialsNotifs)}
                                     />
@@ -229,8 +229,8 @@ const SettingsUser = ({theme}) => {
                             </div>
                             <div>
                                     <ToggleSwitch
-                                        colorOn={theme.mainColors.blue}
-                                        colorOff='none'
+                                        bgColorOn={theme.mainColors.blue}
+                                        bgColorOff='none'
                                         isOn={inputValues.domainNotifs}
                                         onToggle={() => stateChanger('domainNotifs', !inputValues.domainNotifs)}
                                     />
@@ -243,8 +243,8 @@ const SettingsUser = ({theme}) => {
                             </div>
                             <div>
                                     <ToggleSwitch
-                                        colorOn={theme.mainColors.blue}
-                                        colorOff='none'
+                                        bgColorOn={theme.mainColors.blue}
+                                        bgColorOff='none'
                                         isOn={inputValues.sysNotifs}
                                         onToggle={() => stateChanger('sysNotifs', !inputValues.sysNotifs)}
                                     />
