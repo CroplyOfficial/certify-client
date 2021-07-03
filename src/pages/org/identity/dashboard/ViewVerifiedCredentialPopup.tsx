@@ -23,6 +23,7 @@ const BlurredBg = styled.div`
     display: grid;
     place-items: center;
     z-index: 3;
+    overflow-y: auto;
 `;
 
 const Popup = styled.div`
@@ -37,6 +38,7 @@ const Popup = styled.div`
     padding: 0 2rem 2rem 2rem;
     font-family: 'Open Sans';
     color: ${props => props.theme.mainColors.black};
+
     hr {
         width: 100%;
         margin: 0.5rem 0;
@@ -105,6 +107,13 @@ const DataContainer = styled.div`
             cursor: pointer;
         }
     }
+    span:nth-of-type(2) {
+        font-weight: bold;
+        a {
+            text-decoration: none;
+            color: ${props => props.shareData ? props.theme.mainColors.black : props.theme.mainColors.grey};
+        }
+    }
     hr {
         grid-column-end: span 2;
     }
@@ -121,13 +130,17 @@ const BtnDiv = styled.div`
 
 `;
 
-const Data = ({theme, dataName, dataValue}) => {
+const Data = ({theme, dataName, dataValue, link=false}) => {
     const [shareData, setShareData] = useState(true);
     return (
         <DataContainer shareData={shareData}>
             <div>
                 <span>{dataName}:</span><br />
-                {dataValue}
+                {
+                    link ?
+                    <span><a href={"https://"+dataValue}>{dataValue}</a></span>:
+                    <span>{dataValue}</span>
+                }
             </div>
             <div>
                 {
@@ -183,7 +196,7 @@ const ViewVerifiedCredentialPopup = ({theme, closePopupFunc, credential, showSha
                     <Data theme={theme} dataName="Date of Issue" dataValue={credential.issueDate} />
                     <Data theme={theme} dataName="Expiry Date" dataValue={credential.expiryDate} />
                     <Data theme={theme} dataName="Business Name" dataValue={credential.businessName} />
-                    <Data theme={theme} dataName="Issuer Identity Confirmation" dataValue={credential.issuerIdConfirmation} />
+                    <Data theme={theme} dataName="Issuer Identity Confirmation" dataValue={credential.issuerIdConfirmation} link />
 
                 </CredentialData>
                 <Hr />

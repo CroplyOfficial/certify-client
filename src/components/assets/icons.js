@@ -409,6 +409,18 @@ const Home = ({width="1.5rem", id="", fill=""}) => {
     );
 }
 
+const TickInCircle = ({width="6rem", id="", stroke=""}) => {
+   return (
+      <svg width={width} id={id} stroke={stroke} viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25.4893 49.5107L40.4704 64.4919L70.4328 34.5296" strokeWidth={8} strokeLinecap="round" /><circle cx="47.5" cy="47.5" r="43.5" strokeWidth={8} /></svg>
+   );
+}
+
+const CrossInCircle = ({width="6rem", id="", stroke=""}) => {
+   return (
+      <svg width={width} id={id} stroke={stroke} viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35.4131 35.752L59.9084 60.2472" strokeWidth={8} strokeLinecap="round" strokeLinejoin="round" /><path d="M35.4131 60.248L59.9084 35.7528" strokeWidth={8} strokeLinecap="round" strokeLinejoin="round" /><circle cx="47.5" cy="47.5" r="43.5" strokeWidth={8} /></svg>
+   )
+}
+
 export {
    BellHollow,
    BellFilled,
@@ -468,5 +480,7 @@ export {
    Register,
    Contact,
    Directory,
-   Home
+   Home,
+   TickInCircle,
+   CrossInCircle
 }

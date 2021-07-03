@@ -20,6 +20,8 @@ const BlurredBg = styled.div`
     display: grid;
     place-items: center;
     z-index: 4;
+    overflow-y: auto;
+
 `;
 
 const Popup = styled.div`

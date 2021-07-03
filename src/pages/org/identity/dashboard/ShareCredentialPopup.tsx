@@ -22,6 +22,8 @@ const BlurredBg = styled.div`
     display: grid;
     place-items: center;
     z-index: 3;
+    overflow-y: auto;
+
 `;
 
 const Popup = styled.div`
@@ -122,7 +124,7 @@ const BtnDiv = styled.div`
 
 const ShareCredentialPopup = ({theme, closePopupFunc, goBackFunc, credential, showShareQrPopupFunc, showShareNfcPopupFunc}) => {
     const popupRef = useRef(null);
-    const [shareMethod, setShareMethod] = useState('NFC')
+    const [shareMethod, setShareMethod] = useState('QR')
     const toggleShareMethod = () => {
         if(shareMethod === "QR")
             setShareMethod("NFC");

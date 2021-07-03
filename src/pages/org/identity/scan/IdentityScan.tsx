@@ -6,23 +6,62 @@ import {
     PageContentContainer,
     MainContentContainer,
     MainContent,
+    ToggleSwitch
 } from "../../../../components/ui"
+import ConfirmationPopup from './ConfirmationPopup';
 
-const DataHolder = styled.div`
+const ChooseMethod = styled.div`
+    font-family: 'Open Sans';
     display: grid;
-    grid-template-rows: repeat(3, auto);
-    grid-row-gap: 2rem;
-    margin-bottom: 1rem;
+    place-items: center;
+    .inactive {
+        color: ${props => props.theme.mainColors.grey};
+    }
+    .active {
+        color: ${props => props.theme.mainColors.black};
+    }
+    .switch {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        div {
+            display: grid;
+            place-items: center;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+`;
+const ScanCode = styled.div`
+    display: grid;
+    place-items: center;
+    margin: 3.5rem 0;
 `;
 
+const Instructions = styled.div`
+    font-family: 'Open Sans';
+    font-size: 1.3rem;
+    font-weight: 600; 
+    color: ${props => props.theme.mainColors.black};
+    display: grid;
+    place-items: center;
+`;
 
 const IdentityScan = ({theme}) => {
-    const [verifiedCredentialPopupVisible, setVerifiedCredentialPopupVisible] = useState(false);
-    const toggleVerifiedCredentialPopupVisible = () => {
-        setVerifiedCredentialPopupVisible(!verifiedCredentialPopupVisible);
+    const [confirmationPopupVisible, setConfirmationPopupVisible] = useState(false);
+    const toggleConfirmationPopupVisible = () => {
+        setConfirmationPopupVisible(!confirmationPopupVisible);
+    }
+    const [scanMethod, setScanMethod] = useState('QR')
+    const toggleShareMethod = () => {
+        if(scanMethod === "QR")
+            setScanMethod("NFC");
+        else
+            setScanMethod("QR");
     }
 
-    const [credentials] = useState([
+    const [credential] = useState(
         {
             credentialName: 'Animal Agriculture License',
             issueDate: '11/01/2021',
@@ -31,20 +70,59 @@ const IdentityScan = ({theme}) => {
             issuerIdConfirmation: 'www.welshagriculture.gov.uk',
             regAuthority: 'WELSH DEPT. OF AGRICULTURE',
             licenseNo: 'AAL-675-298-253',
-            licenseHolder: 'Tom Jones'
+            licenseHolder: 'Tom Jones',
+            verified: true
         },
-    ]);
-    const [selectedVerifiedCredential, setSelectedVerifiedCredential] = useState({});
+    );
 
     return (
         <>
+        {
+            confirmationPopupVisible ?
+            <ConfirmationPopup 
+                closePopupFunc={toggleConfirmationPopupVisible} 
+                credential={credential}
+            />:
+            ""
+        }
         <CommonElementsOrg menuActive="Identity" />
         <PageContentContainer>
             <MainContentContainer>
                 <MainContent contentTitle="Scan Credential" identityActive="Scan">
-                <DataHolder>
-
-                </DataHolder> 
+                    <ChooseMethod>
+                        <div className="switch">
+                            <div className={scanMethod === "QR" ? "active" : "inactive"}>
+                                QR
+                            </div>
+                            <div>
+                                    <ToggleSwitch
+                                        bgColorOn={theme.mainColors.blue}
+                                        bgColorOff={theme.mainColors.blue}
+                                        btnColorOn={theme.mainColors.white}
+                                        btnColorOff={theme.mainColors.white}
+                                        isOn={scanMethod === "NFC"}
+                                        onToggle={toggleShareMethod}
+                                    />
+                            </div>
+                            <div className={scanMethod === "NFC" ? "active" : "inactive"}>
+                                NFC
+                            </div>
+                        </div>
+                    </ChooseMethod>
+                    <ScanCode>
+                        {
+                            scanMethod === "QR" ?
+                            "Put QR scanner here" :
+                            "Put NFC code here"
+                        }
+                    </ScanCode>
+                    <Instructions>
+                        {
+                            scanMethod === "QR" ?
+                            "Centre QR Code in frame to verify Credentiall" :
+                            "Hold device over an NFC enabled Credential to Verify"
+                        }
+                    </Instructions>
                 </MainContent>
             </MainContentContainer>
             <TangleHistory />
