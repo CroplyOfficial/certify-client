@@ -1,7 +1,7 @@
 // Contains code for the user dashboard menu
 /*
 props:
-active -> The name of the menu item which should be marked active. e.g. on the dashboard page, the Menu component should be typed this way: <Menu active="Dashboard" />
+active -> The name of the menu item which should be marked active. e.g. on the dashboard page, the Menu component should be typed this way: <MenuUser active="Applications" />
 */
 
 import styled, {withTheme} from 'styled-components'
@@ -265,6 +265,10 @@ const MenuOrg = ({theme, active}) => {
             </LogoutDiv>
         </MenuBase>
     )
+}
+
+MenuOrg.propTypes = {
+    active: PropTypes.string.isRequired
 }
 
 export default withTheme(MenuOrg)

@@ -88,7 +88,7 @@ const LoginUser = () => {
     const [usernameErr, setUsernameErr] = useState("")
     const [passwordErr, setPasswordErr] = useState("")
 
-    const checkInput = () => {
+    const inputValidation = () => {
         if(usernameRef.current.value === "") {
             setUsernameErr("Please enter your username.") 
         }
@@ -120,7 +120,7 @@ const LoginUser = () => {
                         <InputConfidInfo inputRef={passwordRef} err={passwordErr} placeholder="Password" inputUnderlineColor="#C4C4C4" maskColor="#89C7F3" showHideColor="#CCCCCC" required />
                     </div>
                     <div className="buttons">
-                        <Button type="button" primary onClick={checkInput} btnColor="#5D7586">LOGIN</Button>
+                        <Button type="button" primary onClick={inputValidation} btnColor="#5D7586">LOGIN</Button>
                         <div>
                             <Link to="">Forgot PIN?</Link>
                         </div>

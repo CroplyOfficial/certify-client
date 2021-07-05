@@ -91,7 +91,7 @@ const ComponentRight = styled.div`
     }
 `;
 
-const IdentityContentContainer = styled(MainContentDiv)`
+const IdentityContentDiv = styled(MainContentDiv)`
     padding: 0;
 `;
 
@@ -158,7 +158,7 @@ const MainContent = ({theme, componentRight, className, contentTitle, tablePage,
             </MainContentHead>
             {
                 identityActive ? 
-                <IdentityContentContainer>
+                <IdentityContentDiv>
                     <IdentityNavbar>
                         <IdentityNavbarItem
                             to="/org/identity/dashboard"
@@ -185,7 +185,7 @@ const MainContent = ({theme, componentRight, className, contentTitle, tablePage,
                     <IdentityContent className={className}>
                         {children}
                     </IdentityContent>
-                </IdentityContentContainer>:
+                </IdentityContentDiv>:
                 <MainContentDiv className={className} tablePage={tablePage}>
                     {children}
                 </MainContentDiv>

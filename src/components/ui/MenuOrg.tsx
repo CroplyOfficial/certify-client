@@ -1,7 +1,7 @@
 // Contains code for the org dashboard menu
 /*
 props:
-active -> The name of the menu item which should be marked active. e.g. on the dashboard page, the Menu component should be typed this way: <Menu active="Dashboard" />
+active -> The name of the menu item which should be marked active. e.g. on the dashboard page, the Menu component should be typed this way: <MenuOrg active="Dashboard" />
 */
 
 import styled, {withTheme} from 'styled-components'

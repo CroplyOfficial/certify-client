@@ -7,6 +7,7 @@ import DirProfileHolder from "./DirProfileHolder";
 import DynamicSearch from "./DynamicSearch";
 import H1 from "./H1";
 import Hr from "./Hr";
+import IdentityProfileHolder from "./IdentityProfileHolder";
 import InputBase from "./InputBase";
 import InputConfidInfo from "./InputConfidInfo";
 import InputError from "./InputError";
@@ -45,6 +46,7 @@ export {
     DynamicSearch,
     H1,
     Hr,
+    IdentityProfileHolder,
     InputBase,
     InputConfidInfo,
     InputError,

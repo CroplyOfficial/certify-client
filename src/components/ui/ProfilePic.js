@@ -1,4 +1,4 @@
-import styled, {withTheme} from 'styled-components'
+import styled, {css, withTheme} from 'styled-components'
 import PropTypes from "prop-types"
 
 import {ReactComponent as UploadPic} from "../assets/upload-profile-pic.svg"
@@ -19,8 +19,9 @@ const Div = styled.div`
         svg {
             width: 5rem;
             height: 5rem;
-            fill: white;
-            margin-bottom: 1rem;
+            ${props => props.noText && css`
+                margin-bottom: 1rem;
+            `}
         }
         div {
             color: white;
@@ -31,15 +32,19 @@ const Div = styled.div`
     }
 `;
 
-const ProfilePic = ({noUploadImgPic, className}) => {
+const ProfilePic = ({noUploadImgPic, noText, className}) => {
     return (
         <Div className={className}>
             {
                 noUploadImgPic ? 
                 "" :
                 <div>
-                    <UploadPic />
-                    <div>UPLOAD PROFILE IMAGE</div>
+                    <UploadPic fill="white"/>
+                    {
+                        noText ?
+                        "":
+                        <div>UPLOAD PROFILE IMAGE</div>
+                    }
                 </div>
             }
         </Div>
@@ -47,7 +52,8 @@ const ProfilePic = ({noUploadImgPic, className}) => {
 }
 
 ProfilePic.propTypes = {
-    noUploadImgPic: PropTypes.bool
+    noUploadImgPic: PropTypes.bool,
+    noText: PropTypes.bool
 }
 
 export default withTheme(ProfilePic)
