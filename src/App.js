@@ -23,6 +23,8 @@ import IdentityDashboard from './pages/org/identity/dashboard/IdentityDashboard'
 import IdentityScan from './pages/org/identity/scan/IdentityScan';
 import IdentityProfilesList from './pages/org/identity/profilesList/IdentityProfilesList';
 import ViewProfile from './pages/org/identity/profilesList/ViewProfile';
+import AddCredentials from './pages/org/identity/profilesList/AddCredentials';
+import ProfileDomainSettings from './pages/org/identity/profilesList/ProfileDomainSettings';
 
 import Credentials from './pages/org/credentials/Credentials';
 import NewCredential from './pages/org/credentials/NewCredential';
@@ -73,6 +75,8 @@ const App = () => {
           <Route component={IdentityScan} path="/org/identity/scan" title="Identity Scan" />
           <Route component={IdentityProfilesList} exact path="/org/identity/profilesList" title="Identity Profiles List" />
           <Route component={ViewProfile} path="/org/identity/profilesList/view" title="View Profile" />
+          <Route component={AddCredentials} path="/org/identity/profilesList/addCredentials" title="Add Credentials" />
+          <Route component={ProfileDomainSettings} path="/org/identity/profilesList/domainSettings" title="Profile Domain Settings" />
 
           <Route component={SettingsOrg} path="/org/settings" title="Settings" />
 

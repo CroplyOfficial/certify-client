@@ -10,7 +10,7 @@ import {
     Table,
     Checkbox,
     Button,
-    RecordOptions,
+    ShowOptions,
 } from "../../../components/ui"
 import {Filters} from "../../../components/assets/icons"
 
@@ -87,7 +87,7 @@ const ApplicationsOrg = ({theme}) => {
                     }
                 </td>
                 <td>
-                    <RecordOptions optionList={{"Edit": hello}} />
+                    <ShowOptions options={{"Edit": hello}} />
                 </td>
             </tr>
         )

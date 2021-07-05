@@ -9,7 +9,7 @@ import {
     MainContent,
     Table,
     Checkbox,
-    RecordOptions
+    ShowOptions
 } from "../../../components/ui/"
 import {Filters} from "../../../components/assets/icons"
 
@@ -79,7 +79,7 @@ const History = ({theme}) => {
                     {entry.tangleId}
                 </td>
                 <td>
-                    <RecordOptions optionList={{"Edit": hello}} />
+                    <ShowOptions options={{"Edit": hello}} />
                 </td>
             </tr>
         )

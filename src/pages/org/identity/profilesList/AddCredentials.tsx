@@ -7,16 +7,8 @@ import {
     MainContentContainer,
     MainContent,
     Button,
-    CredentialHolder,
-    ShowOptions
+    CredentialHolder
 } from "../../../../components/ui"
-import EditProfileCredentialPermissionsPopup from './EditProfileCredentialPermissionsPopup';
-
-const Menu = styled.div`
-    position: absolute;
-    top: 0;
-    right: 0;
-`;
 
 const Header = styled.div`
     display: grid;
@@ -54,11 +46,7 @@ const CredentialsHolder = styled.div`
     margin-bottom: 1rem;
 `;
 
-const ViewProfile = ({theme}) => {
-    const [editCredentialPermsPopupVisible, setEditCredentialPermsPopupVisible] = useState(false);
-    const toggleEditCredentialPermsPopupVisible = () => {
-        setEditCredentialPermsPopupVisible(!editCredentialPermsPopupVisible);
-    }
+const AddCredentials = ({theme}) => {
     
     const [profileData] = useState({
         profileName: 'TomWork',
@@ -84,35 +72,22 @@ const ViewProfile = ({theme}) => {
                 licenseHolder: 'Tom Jones'
             },
         ]
-    });
-    const [selectedCredential, setSelectedCredential] = useState({});
-    
+    });    
     const menuOptions = {
         "Delete Profile": () => console.log("profile deleted"),
         "Domain Settings": () => window.location.href = "/org/identity/profileLists/domainSettings"
     }
 
-    const addCredentialsBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue} onClick={() => window.location.href="/org/identity/profilesList/addCredentials"}>+ ADD CREDENTIALS</Button>
+    const saveCredentialsBtn = (
+        <Button primary btnColor={theme.mainColors.darkBlue}>SAVE CREDENTIALS</Button>
     )
     return (
         <>
-        {
-            editCredentialPermsPopupVisible ?
-            <EditProfileCredentialPermissionsPopup 
-                closePopupFunc={toggleEditCredentialPermsPopupVisible} 
-                credential={selectedCredential}
-            />:
-            ""
-        }
         <CommonElementsOrg menuActive="Identity" />
         <PageContentContainer>
             <MainContentContainer>
-                <MainContent contentTitle="View Profile" identityActive="Profiles List" componentRight={addCredentialsBtn}>
+                <MainContent contentTitle="Add Credentials" identityActive="Profiles List" componentRight={saveCredentialsBtn}>
                     <Header>
-                        <Menu>
-                            <ShowOptions options={menuOptions} optionListStyling={'margin-left: -6.5rem;'} />
-                        </Menu>
                         <ProfilePicture>
                             {profileData.profileName[0]}
                         </ProfilePicture>
@@ -124,9 +99,8 @@ const ViewProfile = ({theme}) => {
                     {profileData.credentials.map((credentialData, index) => (
                             <CredentialHolder
                                 key={index}
-                                viewPopupFunc={toggleEditCredentialPermsPopupVisible}
                                 credentialData={credentialData}
-                                selectCredentialFunc={setSelectedCredential}
+                                selector
                             />
                         )
                     )}
@@ -139,4 +113,4 @@ const ViewProfile = ({theme}) => {
     )
 }
 
-export default withTheme(ViewProfile)
+export default withTheme(AddCredentials)

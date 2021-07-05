@@ -3,7 +3,9 @@ import Checkbox from "./Checkbox";
 import CommonElementsOrg from "./CommonElementsOrg";
 import CommonElementsPublic from "./CommonElementsPublic";
 import CommonElementsUser from "./CommonElementsUser";
+import CredentialHolder from "./CredentialHolder";
 import DirProfileHolder from "./DirProfileHolder";
+import DomainHolder from "./DomainHolder";
 import DynamicSearch from "./DynamicSearch";
 import H1 from "./H1";
 import Hr from "./Hr";
@@ -25,7 +27,7 @@ import ProfilePic from "./ProfilePic";
 import PWStrengthMeter from "./PWStrengthMeter";
 import MainContent from "./MainContent";
 import MainContentContainer from "./MainContentContainer";
-import RecordOptions from "./RecordOptions";
+import ShowOptions from "./ShowOptions";
 import RecoveryPhraseElement from "./RecoveryPhraseElement";
 import Select from "./Select";
 import TangleHistory from "./TangleHistory";
@@ -33,7 +35,6 @@ import Table from "./Table";
 import Textarea from "./Textarea";
 import ToggleSwitch from "./ToggleSwitch";
 import UserApplicationHolder from "./UserApplicationHolder";
-import CredentialHolder from "./CredentialHolder";
 
 export {
     Button,
@@ -41,8 +42,10 @@ export {
     CommonElementsOrg,
     CommonElementsPublic,
     CommonElementsUser,
+    CredentialHolder,
     DirProfileHolder,
     DynamicSearch,
+    DomainHolder,
     H1,
     Hr,
     IdentityProfileHolder,
@@ -63,7 +66,7 @@ export {
     PageTopPublicProfileUser,
     ProfilePic,
     PWStrengthMeter,
-    RecordOptions,
+    ShowOptions,
     RecoveryPhraseElement,
     Select,
     TangleHistory,
@@ -71,5 +74,4 @@ export {
     Textarea,
     ToggleSwitch,
     UserApplicationHolder,
-    CredentialHolder
 }

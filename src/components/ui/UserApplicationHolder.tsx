@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { colorLightLevel } from '../functions/componentFunctions';
 
 import {
-    RecordOptions
+    ShowOptions
 } from '.'
 
 const Container = styled.div`
@@ -113,7 +113,7 @@ const UserApplicationHolder = ({theme, appData}) => {
                 }
             </Div4>
             <Div5>
-                <RecordOptions optionList={{'View': () => console.log('View App')}} />
+                <ShowOptions options={{'View': () => console.log('View App')}} />
             </Div5>
         </Container>
     );

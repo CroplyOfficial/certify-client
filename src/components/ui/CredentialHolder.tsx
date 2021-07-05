@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import styled, {withTheme} from 'styled-components';
 import PropTypes from 'prop-types'
 import { colorLightLevel } from '../functions/componentFunctions';
 
+import { Checkbox } from '.';
 import {
     ChevronRight
 } from '../assets/icons'
@@ -72,10 +74,15 @@ const Div4 = styled.div`
     }
 `;
 
-const CredentialHolder = ({theme, credentialData, viewPopupFunc, selectCredentialFunc}) => {
+const CredentialHolder = ({theme, credentialData, selector, viewPopupFunc, selectCredentialFunc}) => {
     const showPopup = () => {
         selectCredentialFunc(credentialData);
         viewPopupFunc();
+    }
+
+    const [checkboxState, setCheckboxState] = useState(false) // sets initial value of all elements of the state to false
+    const handleCheckboxChange = (e) => {
+        setCheckboxState(!checkboxState)
     }
 
     return (
@@ -100,14 +107,19 @@ const CredentialHolder = ({theme, credentialData, viewPopupFunc, selectCredentia
                 </div>
             </Div3>
             <Div4>
-                <ChevronRight width="2rem" fill={theme.mainColors.grey} onClick={() => showPopup()} />
+                {
+                    selector ? 
+                    <Checkbox onChange={handleCheckboxChange} />:
+                    <ChevronRight width="2rem" fill={theme.mainColors.grey} onClick={() => showPopup()} />
+                }
             </Div4>
         </Container>
     );
 }
 
 CredentialHolder.propTypes = {
-    credentialData: PropTypes.object
+    credentialData: PropTypes.object,
+    selector: PropTypes.bool
 };
 
 export default withTheme(CredentialHolder)
