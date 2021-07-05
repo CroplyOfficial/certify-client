@@ -33,8 +33,7 @@ import Table from "./Table";
 import Textarea from "./Textarea";
 import ToggleSwitch from "./ToggleSwitch";
 import UserApplicationHolder from "./UserApplicationHolder";
-import VerifiedCredentialHolder from "./VerifiedCredentialHolder";
-
+import CredentialHolder from "./CredentialHolder";
 
 export {
     Button,
@@ -72,5 +71,5 @@ export {
     Textarea,
     ToggleSwitch,
     UserApplicationHolder,
-    VerifiedCredentialHolder
+    CredentialHolder
 }

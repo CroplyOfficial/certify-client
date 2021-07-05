@@ -6,7 +6,7 @@ import {
     PageContentContainer,
     MainContentContainer,
     MainContent,
-    VerifiedCredentialHolder
+    CredentialHolder
 } from "../../../../components/ui"
 import ViewVerifiedCredentialPopup from './ViewVerifiedCredentialPopup';
 import ShareCredentialPopup from './ShareCredentialPopup';
@@ -115,7 +115,7 @@ const IdentityDashboard = ({theme}) => {
                 <DataHolder>
                         {
                             credentials.map((credentialData, index) => (
-                                    <VerifiedCredentialHolder
+                                    <CredentialHolder
                                         key={index}
                                         viewPopupFunc={toggleVerifiedCredentialPopupVisible}
                                         credentialData={credentialData}

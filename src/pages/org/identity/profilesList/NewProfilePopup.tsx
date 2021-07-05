@@ -30,7 +30,7 @@ const Popup = styled.div`
     background-color: #fff;
     border-radius: 30px;
     height: fit-content;
-    width: 50%;
+    width: 30%;
     box-sizing: border-box;
     padding: 0 2rem 2rem 2rem;
     position: relative;
@@ -70,8 +70,8 @@ const ProfilePicContainer = styled.div`
 const Inputs = styled.div`
     margin: 0 1rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2rem;
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 1rem;
     ${InputText} {
         fieldset {
             width: 100%;
@@ -89,7 +89,7 @@ const Note = styled.div`
 
 const BtnDiv = styled.div`
     display: flex;
-    justify-content: flex-end; 
+    justify-content: center; 
     margin: 0 1rem;
     margin-top: 1rem;
     ${Button} {

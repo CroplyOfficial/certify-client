@@ -26,15 +26,17 @@ const IdentityProfilesList = ({theme}) => {
     const [profiles] = useState([
         {
             profileName: 'TomWork',
-            publicName: 'Tom Jones'
+            publicName: 'Tom Jones',
+            dateCreated: '12/07/2021'
         },
         {
             profileName: 'SocialTom',
-            publicName: 'Tom Jones'
+            publicName: 'Tom Jones',
+            dateCreated: '11/07/2021'
         },
     ]);
     const newProfileBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue}>+ ADD NEW PROFILE</Button>
+        <Button primary btnColor={theme.mainColors.darkBlue} onClick={toggleNewProfilePopupVisible}>+ ADD NEW PROFILE</Button>
     )
     return (
         <>

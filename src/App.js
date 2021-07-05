@@ -22,6 +22,7 @@ import NewUser from './pages/org/users/NewUser';
 import IdentityDashboard from './pages/org/identity/dashboard/IdentityDashboard';
 import IdentityScan from './pages/org/identity/scan/IdentityScan';
 import IdentityProfilesList from './pages/org/identity/profilesList/IdentityProfilesList';
+import ViewProfile from './pages/org/identity/profilesList/ViewProfile';
 
 import Credentials from './pages/org/credentials/Credentials';
 import NewCredential from './pages/org/credentials/NewCredential';
@@ -70,7 +71,8 @@ const App = () => {
 
           <Route component={IdentityDashboard} path="/org/identity/dashboard" title="Identity Dashboard" />
           <Route component={IdentityScan} path="/org/identity/scan" title="Identity Scan" />
-          <Route component={IdentityProfilesList} path="/org/identity/profilesList" title="Identity Profiles List" />
+          <Route component={IdentityProfilesList} exact path="/org/identity/profilesList" title="Identity Profiles List" />
+          <Route component={ViewProfile} path="/org/identity/profilesList/view" title="View Profile" />
 
           <Route component={SettingsOrg} path="/org/settings" title="Settings" />
 

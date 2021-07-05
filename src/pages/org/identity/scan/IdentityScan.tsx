@@ -119,7 +119,7 @@ const IdentityScan = ({theme}) => {
                     <Instructions>
                         {
                             scanMethod === "QR" ?
-                            "Centre QR Code in frame to verify Credentiall" :
+                            "Centre QR Code in frame to verify Credential" :
                             "Hold device over an NFC enabled Credential to Verify"
                         }
                     </Instructions>
