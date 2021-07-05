@@ -79,7 +79,7 @@ const BtnDiv = styled.div`
     }
 `;
 
-const AddDomainPopup = ({theme, closePopupFunc}) => {
+const EditDomainPopup = ({theme, selectedDomain, closePopupFunc}) => {
 
     const popupRef = useRef(null);
 
@@ -118,10 +118,10 @@ const AddDomainPopup = ({theme, closePopupFunc}) => {
                     <ClosePopup>
                         <ArrowLeft stroke={theme.mainColors.grey} onClick={closePopupFunc} width="2rem" />
                     </ClosePopup>
-                    <H1>Add Domain</H1>
+                    <H1>Edit Domain</H1>
                 </BreadcrumbHeader>
                 <InputDiv>
-                        <InputText err={domainErr} inputRef={domainRef} placeholder="Domain URL" />
+                        <InputText defaultValue={selectedDomain.url} err={domainErr} inputRef={domainRef} placeholder="Domain URL" />
                 </InputDiv>
                 <Note>
                     <div>
@@ -138,4 +138,4 @@ const AddDomainPopup = ({theme, closePopupFunc}) => {
     )
 }
 
-export default withTheme(AddDomainPopup)
+export default withTheme(EditDomainPopup)

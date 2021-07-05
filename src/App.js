@@ -31,7 +31,10 @@ import NewCredential from './pages/org/credentials/NewCredential';
 import ViewCredential from './pages/org/credentials/ViewCredential';
 import IssueCredential from './pages/org/credentials/IssueCredential';
 
-import SettingsOrg from './pages/org/SettingsOrg';
+import GeneralSettingsOrg from './pages/org/settings/GeneralSettingsOrg';
+import SecuritySettingsOrg from './pages/org/settings/SecuritySettingsOrg';
+import BackupRestoreSettingsOrg from './pages/org/settings/BackupRestoreSettings';
+import NotifsPermsSettingsOrg from './pages/org/settings/NotifsPermsSettingsOrg';
 
 // importing user pages
 import LoginUser from './pages/user/LoginUser';
@@ -78,8 +81,6 @@ const App = () => {
           <Route component={AddCredentials} path="/org/identity/profilesList/addCredentials" title="Add Credentials" />
           <Route component={ProfileDomainSettings} path="/org/identity/profilesList/domainSettings" title="Profile Domain Settings" />
 
-          <Route component={SettingsOrg} path="/org/settings" title="Settings" />
-
           <Route component={Credentials} exact path="/org/credentials" title="Credentials" />
           <Route component={NewCredential} path="/org/credentials/new" title="New Credential" />
           <Route component={ViewCredential} path="/org/credentials/view" title="View Credential" />
@@ -88,6 +89,12 @@ const App = () => {
           <Route component={Users} exact path="/org/users" title="Users" />
           <Route component={NewUser} path="/org/users/new" title="New User" />
           <Route component={ViewUser} path="/org/users/view" title="View User" />
+
+          <Route component={GeneralSettingsOrg} path="/org/settings/general" title="General Settings" />
+          <Route component={SecuritySettingsOrg} path="/org/settings/security" title="Security Settings" />
+          <Route component={BackupRestoreSettingsOrg} path="/org/settings/backupRestore" title="Backup/Restore" />
+          <Route component={NotifsPermsSettingsOrg} path="/org/settings/notifsPerms" title="Notifications/Permissions" />
+
 
           {/* routing user pages */}
           <Route component={LoginUser} exact path="/user" title="Login" />

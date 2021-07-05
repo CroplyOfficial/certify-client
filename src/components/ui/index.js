@@ -10,6 +10,7 @@ import DynamicSearch from "./DynamicSearch";
 import H1 from "./H1";
 import Hr from "./Hr";
 import IdentityProfileHolder from "./IdentityProfileHolder";
+import IdentityNavbar from "./IdentityNavbar";
 import InputBase from "./InputBase";
 import InputConfidInfo from "./InputConfidInfo";
 import InputError from "./InputError";
@@ -27,6 +28,7 @@ import ProfilePic from "./ProfilePic";
 import PWStrengthMeter from "./PWStrengthMeter";
 import MainContent from "./MainContent";
 import MainContentContainer from "./MainContentContainer";
+import SettingsNavbar from "./SettingsNavbar";
 import ShowOptions from "./ShowOptions";
 import RecoveryPhraseElement from "./RecoveryPhraseElement";
 import Select from "./Select";
@@ -49,6 +51,7 @@ export {
     H1,
     Hr,
     IdentityProfileHolder,
+    IdentityNavbar,
     InputBase,
     InputConfidInfo,
     InputError,
@@ -66,6 +69,7 @@ export {
     PageTopPublicProfileUser,
     ProfilePic,
     PWStrengthMeter,
+    SettingsNavbar,
     ShowOptions,
     RecoveryPhraseElement,
     Select,

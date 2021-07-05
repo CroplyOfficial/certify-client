@@ -286,7 +286,7 @@ const MenuOrg = ({theme, active}) => {
                     <div>Users</div>
                 </span>
             </MenuItem>
-            <MenuItem to="/org/settings" className={`${menuCollapsedClass} ${active === "Settings" ? "active" : ""}`}>
+            <MenuItem to="/org/settings/general" className={`${menuCollapsedClass} ${active === "Settings" ? "active" : ""}`}>
                 <ActivePageMarker/>
                 <span>
                     {active === "Settings" ? <SettingsFilled /> : <SettingsHollow />}

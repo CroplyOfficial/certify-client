@@ -7,13 +7,16 @@ tablePage -> Add this prop if the page contains a table of records
 identityActive -> Add this prop if you want to display the navbar for identity pages. Provide the name of the item which is supposed to be highlighted in the navbar.
 */
 
-import {Link} from "react-router-dom"
 import PropTypes from "prop-types";
 import styled, {css, withTheme} from 'styled-components';
 import { useHistory } from "react-router-dom";
 
 import {ArrowLeft} from "../assets/icons";
 import {H1} from "./";
+import {
+    IdentityNavbar,
+    SettingsNavbar
+} from "./";
 
 const MainContentHead = styled.div`
     display: grid;
@@ -29,7 +32,7 @@ const GoBack = styled.div`
     }
 `;
 
-const MainContentDiv = styled.div`
+const ContentWithoutNavbar = styled.div`
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -91,59 +94,18 @@ const ComponentRight = styled.div`
     }
 `;
 
-const IdentityContentDiv = styled(MainContentDiv)`
+const ContentWithNavbarContainer = styled(ContentWithoutNavbar)`
     padding: 0;
 `;
 
-const IdentityNavbar = styled.div`
-    height: 3rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 13%);
-`;
-
-const ActivePageMarker = styled.div`
-    height: 0.5rem;
-    border-radius: 3px 3px 0 0;
-    margin: 0;
-    width: 100%;
-    bottom: 0;
-`;
-
-const IdentityNavbarItem = styled(Link)`
-    position: relative;
-    height: 100%;
-    text-decoration: none;
-    font-family: 'Open Sans';
-    font-size: 1rem;
-    color: ${props => props.theme.mainColors.grey};
-    margin: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    span {
-        display: grid;
-        place-items: center;
-        height: 100%;
-    }
-    &.active {
-        font-weight: bold;
-        color: ${props => props.theme.mainColors.blue};
-        ${ActivePageMarker} {
-            background-color: ${props => props.theme.mainColors.blue};
-        }
-    }
-`;
-
-const IdentityContent = styled(MainContentDiv)`
+const ContentWithNavbar = styled(ContentWithoutNavbar)`
     border: none;
     background: none;
     height: calc(100% - 50px);
 `;
 
 
-const MainContent = ({theme, componentRight, className, contentTitle, tablePage, identityActive, children}) => {
+const MainContent = ({theme, componentRight, className, contentTitle, tablePage, identityActive, settingsActive, children}) => {
     let history = useHistory();
     return (
         <>
@@ -157,38 +119,22 @@ const MainContent = ({theme, componentRight, className, contentTitle, tablePage,
                 </ComponentRight>
             </MainContentHead>
             {
-                identityActive ? 
-                <IdentityContentDiv>
-                    <IdentityNavbar>
-                        <IdentityNavbarItem
-                            to="/org/identity/dashboard"
-                            className={identityActive === "Dashboard" ? "active" : ""}
-                        >
-                            <span>Dashboard</span>
-                            <ActivePageMarker />
-                        </IdentityNavbarItem>
-                        <IdentityNavbarItem
-                            to="/org/identity/scan"
-                            className={identityActive === "Scan" ? "active" : ""}
-                        >
-                            <span>Scan</span>
-                            <ActivePageMarker />
-                        </IdentityNavbarItem>
-                        <IdentityNavbarItem 
-                            to="/org/identity/profilesList"
-                            className={identityActive === "Profiles List" ? "active" : ""}
-                        >
-                            <span>Profiles List</span>
-                            <ActivePageMarker />
-                        </IdentityNavbarItem>
-                    </IdentityNavbar>
-                    <IdentityContent className={className}>
-                        {children}
-                    </IdentityContent>
-                </IdentityContentDiv>:
-                <MainContentDiv className={className} tablePage={tablePage}>
+                identityActive || settingsActive ? 
+                (
+                    <ContentWithNavbarContainer>
+                        {
+                            identityActive ?
+                            <IdentityNavbar identityActive={identityActive} /> :
+                            <SettingsNavbar settingsActive={settingsActive} />
+                        }
+                        <ContentWithNavbar className={className}>
+                            {children}
+                        </ContentWithNavbar>
+                    </ContentWithNavbarContainer> 
+                ) :
+                <ContentWithoutNavbar className={className} tablePage={tablePage}>
                     {children}
-                </MainContentDiv>
+                </ContentWithoutNavbar>
             }
         </>
     )
@@ -198,6 +144,8 @@ MainContent.propTypes = {
     contentTitle: PropTypes.string,
     componentRight: PropTypes.element,
     tablePage: PropTypes.bool,
+    identityActive: PropTypes.string,
+    settingsActive: PropTypes.string,
     className: PropTypes.string
 }
 

@@ -10,6 +10,7 @@ import {
     DomainHolder
 } from "../../../../components/ui"
 import AddDomainPopup from './AddDomainPopup';
+import EditDomainPopup from './EditDomainPopup';
 
 const Header = styled.div`
     display: grid;
@@ -47,16 +48,38 @@ const DomainsHolder = styled.div`
 `;
 
 const ProfileDomainSettings = ({theme}) => {
+    const [selectedDomain, setSelectedDomain] = useState({});
+
     const [addDomainPopupVisible, setAddDomainPopupVisible] = useState(false);
     const toggleAddDomainPopupVisible = () => {
         setAddDomainPopupVisible(!addDomainPopupVisible);
     }
+
+    const [editDomainPopupVisible, setEditDomainPopupVisible] = useState(false);
+    const toggleEditDomainPopupVisible = (domain) => {
+        setSelectedDomain(domain);
+        setEditDomainPopupVisible(!editDomainPopupVisible);
+    }
+
     const [profileData] = useState({
         profileName: 'TomWork',
         domains: [
-            'welshagriculture.gov.uk',
-            'thegovernment.com',
-            'businessregister.com'
+            {
+                url: 'welshagriculture.gov.uk',
+                creationStatus: 'ACTIVE'
+            },
+            {
+                url: 'welshagriculture.gov.uk',
+                creationStatus: 'ACTIVE'
+            },
+            {
+                url: 'thegovernment.com',
+                creationStatus: 'PAUSED'
+            },
+            {
+                url: 'businessregister.com',
+                creationStatus: 'PENDING'
+            },
         ]
     });
 
@@ -69,6 +92,14 @@ const ProfileDomainSettings = ({theme}) => {
             addDomainPopupVisible ?
             <AddDomainPopup
                 closePopupFunc={toggleAddDomainPopupVisible}
+            />:
+            ""
+        }
+        {
+            editDomainPopupVisible ?
+            <EditDomainPopup
+                closePopupFunc={toggleEditDomainPopupVisible}
+                selectedDomain={selectedDomain}
             />:
             ""
         }
@@ -89,6 +120,7 @@ const ProfileDomainSettings = ({theme}) => {
                                 <DomainHolder
                                     key={index}
                                     domain={domain}
+                                    toggleEditDomainPopupFunc={toggleEditDomainPopupVisible}
                                 />
                             )
                         )}
