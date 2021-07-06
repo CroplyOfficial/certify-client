@@ -9,6 +9,7 @@ import {
     Button,
     Select,
     Hr,
+    H6,
     ToggleSwitch,
     SettingToggleSwitch
 } from "../../components/ui"
@@ -24,14 +25,6 @@ const CustomMainContent = styled(MainContent)`
             padding-bottom: 2rem;
         }
     }
-    h6 {
-        margin-bottom: 1.5rem;
-        margin-top: 0;
-        font-family: "Open Sans";
-        font-size: 1rem;
-        color: ${props => props.theme.mainColors.darkBlue};
-    }
-
 `;
 
 const Left = styled.div`
@@ -122,9 +115,9 @@ const SettingsUser = ({theme}) => {
             <MainContentContainer>
                 <CustomMainContent contentTitle="Settings" componentRight={saveSettingsBtn}>
                     <Left>
-                        <h6>
+                        <H6>
                             General
-                        </h6>
+                        </H6>
                         <Select 
                             placeholder="Choose System Language" 
                             defaultValue='English' 
@@ -146,38 +139,36 @@ const SettingsUser = ({theme}) => {
                             onChange={() => settingsHandler('dateTimeDisplayFormat', settingsRefs.current['dateTimeDisplayFormat'].value)} 
                         />
                         <Hr />
-                        <div>
-                            <h6>
-                                Choose Application Theme
-                            </h6>
-                            <div className="appThemeChanger">
-                                <div>
-                                    DARK
-                                </div>
-                                <div>
-                                    <ToggleSwitch
-                                        bgColorOn={theme.mainColors.blue}
-                                        bgColorOff='none'
-                                        isOn={settings.appTheme}
-                                        onToggle={() => {
-                                                settingsHandler('appTheme', !settings.appTheme);
-                                                themeToggler.toggle();
+                        <H6>
+                            Choose Application Theme
+                        </H6>
+                        <div className="appThemeChanger">
+                            <div>
+                                DARK
+                            </div>
+                            <div>
+                                <ToggleSwitch
+                                    bgColorOn={theme.mainColors.blue}
+                                    bgColorOff='none'
+                                    isOn={settings.appTheme}
+                                    onToggle={() => {
+                                            settingsHandler('appTheme', !settings.appTheme);
+                                            themeToggler.toggle();
 
-                                            }
                                         }
-                                    />
-                                </div>
-                                <div>
-                                    LIGHT
-                                </div>
+                                    }
+                                />
+                            </div>
+                            <div>
+                                LIGHT
                             </div>
                         </div>
                         <Hr />
                     </Left>
                     <Right>
-                        <h6>
+                        <H6>
                             Notifications
-                        </h6>
+                        </H6>
                         <SettingToggleSwitch 
                             settingsObj={settings} 
                             changeHandlerFunc={settingsHandler}
