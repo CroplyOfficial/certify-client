@@ -8,6 +8,7 @@ import DirProfileHolder from "./DirProfileHolder";
 import DomainHolder from "./DomainHolder";
 import DynamicSearch from "./DynamicSearch";
 import H1 from "./H1";
+import H6 from "./H6";
 import Hr from "./Hr";
 import IdentityProfileHolder from "./IdentityProfileHolder";
 import IdentityNavbar from "./IdentityNavbar";
@@ -29,6 +30,7 @@ import PWStrengthMeter from "./PWStrengthMeter";
 import MainContent from "./MainContent";
 import MainContentContainer from "./MainContentContainer";
 import SettingsNavbar from "./SettingsNavbar";
+import SettingToggleSwitch from "./SettingToggleSwitch";
 import ShowOptions from "./ShowOptions";
 import RecoveryPhraseElement from "./RecoveryPhraseElement";
 import Select from "./Select";
@@ -49,6 +51,7 @@ export {
     DynamicSearch,
     DomainHolder,
     H1,
+    H6,
     Hr,
     IdentityProfileHolder,
     IdentityNavbar,
@@ -70,6 +73,7 @@ export {
     ProfilePic,
     PWStrengthMeter,
     SettingsNavbar,
+    SettingToggleSwitch,
     ShowOptions,
     RecoveryPhraseElement,
     Select,

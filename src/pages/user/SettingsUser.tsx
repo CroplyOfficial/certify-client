@@ -9,7 +9,8 @@ import {
     Button,
     Select,
     Hr,
-    ToggleSwitch
+    ToggleSwitch,
+    SettingToggleSwitch
 } from "../../components/ui"
 import { useThemeUpdate } from '../../contexts/themeContext';
 
@@ -19,6 +20,9 @@ const CustomMainContent = styled(MainContent)`
     padding-bottom: 4rem;
     hr {
         margin: 1.5rem 0;
+        &:last-of-type {
+            padding-bottom: 2rem;
+        }
     }
     h6 {
         margin-bottom: 1.5rem;
@@ -26,15 +30,6 @@ const CustomMainContent = styled(MainContent)`
         font-family: "Open Sans";
         font-size: 1rem;
         color: ${props => props.theme.mainColors.darkBlue};
-    }
-    .toggleSwitchContainer {
-        .toggleSwitch {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-row-gap: 1rem;
-            margin: 0 auto;
-            text-align:center;
-        }
     }
 
 `;
@@ -49,8 +44,9 @@ const Left = styled.div`
     }
     .appThemeChanger {
         width: 80%;
+        display: flex;
         margin: 0 auto;
-        padding-bottom: 3rem;
+        justify-content: space-between;
         div {
             display: grid;
             place-items: center;
@@ -67,31 +63,18 @@ const Right = styled.div`
     flex-direction: column;
     width: 40%;
     max-width: 350px;
-    .toggleSwitch {
-        display: flex;
-        justify-content: space-between;
-        div:nth-of-type(1) {
-            display: grid;
-            place-items: center;
-            font-family: 'Open Sans';
-            font-weight: 600;
-            color: ${props => props.theme.mainColors.black};
-            font-size: 1.2rem;
-            margin-right: 1rem;
-        }
-    }
 `;
 
 const SettingsUser = ({theme}) => {
     const themeToggler = useThemeUpdate();
-    const inputRefs = useRef(null);
-    inputRefs.current = {
+    const settingsRefs = useRef(null);
+    settingsRefs.current = {
         sysLang: null,
         localTimeZone: null,
         dateTimeDisplayFormat: null,
     };
 
-    const [inputValues, setInputValues] = useState(
+    const [settings, setSettings] = useState(
         {
             sysLang: null,
             localTimeZone: null,
@@ -104,8 +87,8 @@ const SettingsUser = ({theme}) => {
         }
     );
     
-    const stateChanger = (property: string, newValue: any) => {
-        let newState = {...inputValues};
+    const settingsHandler = (property: string, newValue: any) => {
+        let newState = {...settings};
         newState[property] = newValue;
         if(property === 'toggleAllNotifs') {
             if(newValue === true) {
@@ -126,7 +109,7 @@ const SettingsUser = ({theme}) => {
         else {
             newState['toggleAllNotifs'] = false;
         }
-        setInputValues(newState);
+        setSettings(newState);
     };
 
     const saveSettingsBtn = (
@@ -146,28 +129,28 @@ const SettingsUser = ({theme}) => {
                             placeholder="Choose System Language" 
                             defaultValue='English' 
                             optionList={['English', 'German', 'Dutch']} 
-                            inputRef={el => inputRefs.current['sysLang'] = el} 
-                            onChange={() => stateChanger('sysLang', inputRefs.current['sysLang'].value)} 
+                            inputRef={el => settingsRefs.current['sysLang'] = el} 
+                            onChange={() => settingsHandler('sysLang', settingsRefs.current['sysLang'].value)} 
                         />
                         <Hr />
                         <Select 
                             placeholder="Local Time Zone" 
                             optionList={['Time Zone']} 
-                            inputRef={el => inputRefs.current['localTimeZone'] = el} 
-                            onChange={() => stateChanger('localTimeZone', inputRefs.current['localTimeZone'].value)}  />
+                            inputRef={el => settingsRefs.current['localTimeZone'] = el} 
+                            onChange={() => settingsHandler('localTimeZone', settingsRefs.current['localTimeZone'].value)}  />
                         <Hr />
                         <Select 
                             placeholder="Time & Date Display Format" 
                             optionList={['Date Format']} 
-                            inputRef={el => inputRefs.current['dateTimeDisplayFormat'] = el} 
-                            onChange={() => stateChanger('dateTimeDisplayFormat', inputRefs.current['dateTimeDisplayFormat'].value)} 
+                            inputRef={el => settingsRefs.current['dateTimeDisplayFormat'] = el} 
+                            onChange={() => settingsHandler('dateTimeDisplayFormat', settingsRefs.current['dateTimeDisplayFormat'].value)} 
                         />
                         <Hr />
-                        <div className="toggleSwitchContainer">
+                        <div>
                             <h6>
                                 Choose Application Theme
                             </h6>
-                            <div className="toggleSwitch appThemeChanger">
+                            <div className="appThemeChanger">
                                 <div>
                                     DARK
                                 </div>
@@ -175,81 +158,53 @@ const SettingsUser = ({theme}) => {
                                     <ToggleSwitch
                                         bgColorOn={theme.mainColors.blue}
                                         bgColorOff='none'
-                                        isOn={inputValues.appTheme}
+                                        isOn={settings.appTheme}
                                         onToggle={() => {
-                                                stateChanger('appTheme', !inputValues.appTheme);
+                                                settingsHandler('appTheme', !settings.appTheme);
                                                 themeToggler.toggle();
 
                                             }
                                         }
                                     />
                                 </div>
-
                                 <div>
                                     LIGHT
                                 </div>
                             </div>
                         </div>
+                        <Hr />
                     </Left>
                     <Right>
                         <h6>
                             Notifications
                         </h6>
-                        <div className="toggleSwitch">
-                            <div>
-                                Toggle All
-                            </div>
-                            <div>
-                                    <ToggleSwitch
-                                        bgColorOn={theme.mainColors.blue}
-                                        bgColorOff='none'
-                                        isOn={inputValues.toggleAllNotifs}
-                                        onToggle={() => stateChanger('toggleAllNotifs', !inputValues.toggleAllNotifs)}
-                                    />
-                                </div>
-                        </div>
+                        <SettingToggleSwitch 
+                            settingsObj={settings} 
+                            changeHandlerFunc={settingsHandler}
+                            settingName="Toggle All"
+                            settingKey="toggleAllNotifs"
+                        />
                         <Hr />
-                        <div className="toggleSwitch">
-                            <div>
-                                New Credentials
-                            </div>
-                            <div>
-                                    <ToggleSwitch
-                                        bgColorOn={theme.mainColors.blue}
-                                        bgColorOff='none'
-                                        isOn={inputValues.newCredentialsNotifs}
-                                        onToggle={() => stateChanger('newCredentialsNotifs', !inputValues.newCredentialsNotifs)}
-                                    />
-                                </div>
-                        </div>
+                        <SettingToggleSwitch 
+                            settingsObj={settings} 
+                            changeHandlerFunc={settingsHandler}
+                            settingName="New Credentials"
+                            settingKey="newCredentialsNotifs"
+                        />
                         <Hr />
-                        <div className="toggleSwitch">
-                            <div>
-                                Domain Notifications
-                            </div>
-                            <div>
-                                    <ToggleSwitch
-                                        bgColorOn={theme.mainColors.blue}
-                                        bgColorOff='none'
-                                        isOn={inputValues.domainNotifs}
-                                        onToggle={() => stateChanger('domainNotifs', !inputValues.domainNotifs)}
-                                    />
-                                </div>
-                        </div>
+                        <SettingToggleSwitch 
+                            settingsObj={settings} 
+                            changeHandlerFunc={settingsHandler}
+                            settingName="Domain Notifications"
+                            settingKey="domainNotifs"
+                        />
                         <Hr />
-                        <div className="toggleSwitch">
-                            <div>
-                                System Notifications
-                            </div>
-                            <div>
-                                    <ToggleSwitch
-                                        bgColorOn={theme.mainColors.blue}
-                                        bgColorOff='none'
-                                        isOn={inputValues.sysNotifs}
-                                        onToggle={() => stateChanger('sysNotifs', !inputValues.sysNotifs)}
-                                    />
-                                </div>
-                        </div>
+                        <SettingToggleSwitch 
+                            settingsObj={settings} 
+                            changeHandlerFunc={settingsHandler}
+                            settingName="System Notifications"
+                            settingKey="sysNotifs"
+                        />
                         <Hr />
                     </Right>
                 </CustomMainContent>

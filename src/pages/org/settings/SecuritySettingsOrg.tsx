@@ -6,15 +6,24 @@ import {
     PageContentContainer,
     MainContentContainer,
     MainContent,
+    Button
 } from "../../../components/ui";
 
 const SecuritySettingsOrg = ({theme}) => {
+
+    const saveSettingsBtn = (
+        <Button primary btnColor={theme.mainColors.darkBlue}>SAVE SETTINGS</Button>
+    );
     return (
         <>
         <CommonElementsOrg menuActive="Settings" />
         <PageContentContainer>
             <MainContentContainer>
-                <MainContent contentTitle="Security Settings" settingsActive="Security">
+                <MainContent 
+                    contentTitle="Security Settings" 
+                    settingsActive="Security"
+                    componentRight={saveSettingsBtn}
+                >
                     security
                 </MainContent>
             </MainContentContainer>
