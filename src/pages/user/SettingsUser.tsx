@@ -181,6 +181,7 @@ const SettingsUser = ({theme}) => {
                         <SettingToggleSwitch 
                             settingsObj={settings} 
                             changeHandlerFunc={settingsHandler}
+                            newSettingValue={!settings.toggleAllNotifs}
                             settingName="Toggle All"
                             settingKey="toggleAllNotifs"
                         />
@@ -188,6 +189,7 @@ const SettingsUser = ({theme}) => {
                         <SettingToggleSwitch 
                             settingsObj={settings} 
                             changeHandlerFunc={settingsHandler}
+                            newSettingValue={!settings.newCredentialsNotifs}
                             settingName="New Credentials"
                             settingKey="newCredentialsNotifs"
                         />
@@ -195,6 +197,7 @@ const SettingsUser = ({theme}) => {
                         <SettingToggleSwitch 
                             settingsObj={settings} 
                             changeHandlerFunc={settingsHandler}
+                            newSettingValue={!settings.domainNotifs}
                             settingName="Domain Notifications"
                             settingKey="domainNotifs"
                         />
@@ -202,6 +205,7 @@ const SettingsUser = ({theme}) => {
                         <SettingToggleSwitch 
                             settingsObj={settings} 
                             changeHandlerFunc={settingsHandler}
+                            newSettingValue={!settings.sysNotifs}
                             settingName="System Notifications"
                             settingKey="sysNotifs"
                         />

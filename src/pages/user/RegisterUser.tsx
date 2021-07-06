@@ -93,7 +93,7 @@ const RegisterUser = () => {
     const [confirmPasswordErr, setConfirmPasswordErr] = useState("");
 
 
-    const checkInput = () => {
+    const inputValidation = () => {
         if(usernameRef.current.value === "") {
             setUsernameErr("Please enter your username.");
         }
@@ -127,7 +127,7 @@ const RegisterUser = () => {
                         <InputConfidInfo inputRef={confirmPasswordRef} err={confirmPasswordErr} placeholder="Confirm Password" inputUnderlineColor="#C4C4C4" maskColor="#89C7F3" showHideColor="#CCCCCC" required />
                     </div>
                     <div className="buttons">
-                        <Button type="button" primary onClick={checkInput} btnColor="#5D7586">REGISTER</Button>
+                        <Button type="button" primary onClick={inputValidation} btnColor="#5D7586">REGISTER</Button>
                         <Button type="button" primary onClick={() => {window.location.href = "/user"}} btnColor={colorLightLevel("#BECFDB", -5)}>LOGIN</Button>
                     </div>
                 </form>

@@ -35,8 +35,8 @@ const Div = styled.div`
 
         }
         &::-webkit-scrollbar {
-        background: none;
-        width:8px;
+            background: none;
+            width:8px;
         }
 
         &.menuCollapsed {

@@ -8,7 +8,7 @@ import {
 const Step1 = ({profileNameRef, nextStepFunc}) => {
     const [profileNameErr, setProfileNameErr] = useState("")
 
-    const checkInput = () => {
+    const inputValidation = () => {
         if(profileNameRef.current.value === "") {
             setProfileNameErr("Please enter a valid profile name.")
         }
@@ -36,7 +36,7 @@ const Step1 = ({profileNameRef, nextStepFunc}) => {
                 <InputText id="profileName" inputRef={profileNameRef} placeholder="Profile Name" err={profileNameErr} required />
             </div>
             <div className="div3">
-                <Button primary btnColor="#6D97B5" onClick={checkInput}>CREATE NEW IDENTITY</Button>
+                <Button primary btnColor="#6D97B5" onClick={inputValidation}>CREATE NEW IDENTITY</Button>
             </div>
         </Step>
     )

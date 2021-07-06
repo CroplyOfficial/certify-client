@@ -1,13 +1,14 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import styled, {withTheme} from "styled-components"
 import {hexToRgb} from "../../../components/functions/componentFunctions"
 import {
-    Button,
     H1,
     Hr,
-    DynamicSearch
+    Button
 } from "../../../components/ui"
-import {ArrowLeft} from "../../../components/assets/icons"
+import {
+    ArrowLeft,
+} from "../../../components/assets/icons"
 
 const BlurredBg = styled.div`
     height: 100%;
@@ -26,17 +27,16 @@ const BlurredBg = styled.div`
 
 const Popup = styled.div`
     display: grid;
-    grid-template-rows: repeat(3, auto);
-    grid-row-gap: 1rem;
     background-color: ${props => props.theme.mainColors.white};
     border-radius: 30px;
     height: fit-content;
-    width: 60%;
-    box-sizing: border-box;
-    padding: 0 2rem 2rem 2rem; 
+    width: 30%;
+    padding: 0 2rem 2rem 2rem;
+    font-family: 'Open Sans';
+    color: ${props => props.theme.mainColors.black};
     hr {
         width: 100%;
-        margin: 0.5rem 0;
+        margin: 1.5rem 0;
     }
 `;
 
@@ -54,33 +54,30 @@ const ClosePopup = styled.div`
     }
 `;
 
-const Note = styled.div`
-    padding: 0 1rem;
-    font-family: "Open Sans";
-    font-size: 1rem;
-    color: ${props => props.theme.mainColors.black};
-`;
-
-const InputDiv = styled.div`
-    margin: 1rem 1rem;
-
-    fieldset {
-        width: 100%;
+const Warning = styled.div`
+    color: ${props => props.theme.mainColors.red};
+    text-align: justify;
+    p:first-of-type {
+        font-weight: bold;
+        margin-top: 0;
+    }
+    p:last-of-type {
+        margin-bottom: 0;
     }
 `;
 
 const BtnDiv = styled.div`
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
     margin: 0 1rem;
+    justify-content: center;
     button {
-        max-width: none;
-        grid-column: 4 / span 2;
+        max-width: 300px;
         width: 100%;
     }
 `;
 
-const IssueCredentialPopup = ({theme, closePopupFunc, credentialNames}) => {
+
+const RestoreWarningPopup = ({theme, goBackFunc, closePopupFunc, showConfirmPinForRestorePopupFunc}) => {
     const popupRef = useRef(null);
 
     /* close modal when clicked outside of it */
@@ -90,10 +87,11 @@ const IssueCredentialPopup = ({theme, closePopupFunc, credentialNames}) => {
                 closePopupFunc();
             }
         }
-        // Bind the event listener
+
+        // Bind the event listeners
         window.addEventListener("mousedown", handleClickOutside);
         return () => {
-            // Unbind the event listener on clean up
+            // Unbind the event listeners on clean up
             window.removeEventListener("mousedown", handleClickOutside);
         };
     });
@@ -103,23 +101,38 @@ const IssueCredentialPopup = ({theme, closePopupFunc, credentialNames}) => {
             <Popup ref={popupRef}>
                 <BreadcrumbHeader>
                     <ClosePopup>
-                        <ArrowLeft stroke={theme.mainColors.grey} width="2rem" onClick={closePopupFunc} />
+                        <ArrowLeft 
+                            stroke={theme.mainColors.grey}
+                            onClick={goBackFunc} 
+                            width="2rem"
+                        />
                     </ClosePopup>
-                    <H1>Select Credential</H1>
+                    <H1>Confirm Restore</H1>
                 </BreadcrumbHeader>
-                <Note>
-                    Please select the credential to issue:<br />
-                </Note>
+                <Warning>
+                    <p>
+                        Warning!
+                    </p>
+                    <p>
+                        Backing-up the system will delete all current data and restore the backup data.
+                    </p>
+                    <p>
+                        Please click the button below to proceed.
+                    </p>
+                </Warning>
                 <Hr />
-                <InputDiv>
-                    <DynamicSearch credentialNames={credentialNames} />
-                </InputDiv>
                 <BtnDiv>
-                    <Button primary btnColor={theme.mainColors.darkBlue}>SELECT CREDENTIAL</Button>
+                    <Button 
+                        primary 
+                        btnColor={theme.mainColors.darkBlue}
+                        onClick={showConfirmPinForRestorePopupFunc}
+                    >
+                        CONFIRM
+                    </Button>
                 </BtnDiv>
             </Popup>
         </BlurredBg>
     )
 }
 
-export default withTheme(IssueCredentialPopup)
+export default withTheme(RestoreWarningPopup) 

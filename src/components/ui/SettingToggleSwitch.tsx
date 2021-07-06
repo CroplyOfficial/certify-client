@@ -29,7 +29,8 @@ const SettingToggleSwitch = ({theme, settingsObj, changeHandlerFunc, settingKey,
                     bgColorOff='none'
                     isOn={settingsObj[settingKey]}
                     onToggle={() => {
-                            if(newSettingValue)
+                            // Checks if the onClick prop has a value or no
+                            if(typeof newSettingValue !== "undefined")
                                 changeHandlerFunc(settingKey, newSettingValue);
                             else
                                 changeHandlerFunc(settingKey);

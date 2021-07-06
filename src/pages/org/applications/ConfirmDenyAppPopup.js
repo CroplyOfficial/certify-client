@@ -131,10 +131,10 @@ const ConfirmDenyAppPopup = ({theme, closePopupFunc, userData}) => {
             }
         }
         // Bind the event listener
-        document.addEventListener("mousedown", handleClickOutside);
+        window.addEventListener("mousedown", handleClickOutside);
         return () => {
             // Unbind the event listener on clean up
-            document.removeEventListener("mousedown", handleClickOutside);
+            window.removeEventListener("mousedown", handleClickOutside);
         };
     });
 

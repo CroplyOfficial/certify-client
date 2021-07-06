@@ -12,6 +12,9 @@ import {
     Select,
     ToggleSwitch
 } from "../../../components/ui";
+import SelectBackupFilePopup from './SelectBackupFilePopup';
+import RestoreWarningPopup from './RestoreWarningPopup';
+import ConfirmPinForRestorePopup from './ConfirmPinForRestorePopup';
 
 const CustomMainContent = styled(MainContent)`
     display: flex;
@@ -69,12 +72,14 @@ const BackupRestoreSettings = ({theme}) => {
     
     const [restoreWarningPopupVisible, setRestoreWarningPopupVisible] = useState(false);
     const toggleRestoreWarningPopupVisible = () => {
+        setSelectBackupFilePopupVisible(false);
         setRestoreWarningPopupVisible(!restoreWarningPopupVisible);
     }
 
-    const [pinConfirmPopupVisible, setPinConfirmPopupVisible] = useState(false);
-    const togglePinConfirmPopupVisible = () => {
-        setPinConfirmPopupVisible(!pinConfirmPopupVisible);
+    const [confirmPinForRestorePopupVisible, setConfirmPinForRestorePopupVisible] = useState(false);
+    const toggleConfirmPinForRestorePopupVisible = () => {
+        setRestoreWarningPopupVisible(false);
+        setConfirmPinForRestorePopupVisible(!confirmPinForRestorePopupVisible);
     }
 
     const [settings, setSettings] = useState(
@@ -92,10 +97,44 @@ const BackupRestoreSettings = ({theme}) => {
     }
 
     const saveSettingsBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue}>SAVE SETTINGS</Button>
+        <Button primary btnColor={theme.mainColors.darkBlue} onClick={toggleSelectBackupFilePopupVisible}>SAVE SETTINGS</Button>
     );
+
     return (
         <>
+        {
+            selectBackupFilePopupVisible ?
+            <SelectBackupFilePopup
+                closePopupFunc={toggleSelectBackupFilePopupVisible}
+                showRestoreWarningPopupFunc={toggleRestoreWarningPopupVisible}    
+            />:
+            ""
+        }
+        {
+            restoreWarningPopupVisible ?
+            <RestoreWarningPopup
+                closePopupFunc={toggleRestoreWarningPopupVisible}
+                showConfirmPinForRestorePopupFunc={toggleConfirmPinForRestorePopupVisible}
+                goBackFunc={() => {
+                        toggleRestoreWarningPopupVisible();
+                        toggleSelectBackupFilePopupVisible();
+                    }
+                }
+            />:
+            ""
+        }
+        {
+            confirmPinForRestorePopupVisible ?
+            <ConfirmPinForRestorePopup
+                closePopupFunc={toggleConfirmPinForRestorePopupVisible}
+                goBackFunc={() => {
+                        toggleConfirmPinForRestorePopupVisible();
+                        toggleRestoreWarningPopupVisible();
+                    }
+                }
+            />:
+            ""
+        }
         <CommonElementsOrg menuActive="Settings" />
         <PageContentContainer>
             <MainContentContainer>
@@ -114,7 +153,7 @@ const BackupRestoreSettings = ({theme}) => {
                             Last Backup Date
                         </H6>
                         <div className="lastBackupDate">
-                            21:17:35 - 16/03/2021
+                            {settings.lastBackupDate}
                         </div>
                         <Hr />
 
@@ -123,7 +162,7 @@ const BackupRestoreSettings = ({theme}) => {
                         <H6>
                            Restore From Backup
                         </H6>
-                        <Button btnColor={theme.mainColors.darkBlue}>UPLOAD BACKUP FILE</Button>
+                        <Button btnColor={theme.mainColors.darkBlue} onClick={toggleSelectBackupFilePopupVisible}>UPLOAD BACKUP FILE</Button>
                         <Hr />
                         <H6>
                             Auto Backup

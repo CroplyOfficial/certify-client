@@ -88,7 +88,7 @@ const LoginOrg = () => {
     const [usernameErr, setUsernameErr] = useState("")
     const [pinErr, setPinErr] = useState("")
 
-    const checkInput = () => {
+    const inputValidation = () => {
         if(usernameRef.current.value === "") {
             setUsernameErr("Please enter your username.") 
         }
@@ -123,7 +123,7 @@ const LoginOrg = () => {
                         <InputPIN inputRef={pinRef} err={pinErr} placeholder="PIN" inputUnderlineColor="#C4C4C4" maskColor="#89C7F3" deleteDigitColor="#000000" required />
                     </div>
                     <div className="buttons">
-                        <Button type="button" primary onClick={checkInput} btnColor="#5D7586">LOGIN</Button>
+                        <Button type="button" primary onClick={inputValidation} btnColor="#5D7586">LOGIN</Button>
                         <div>
                             <Link to="">Forgot PIN?</Link>
                         </div>
