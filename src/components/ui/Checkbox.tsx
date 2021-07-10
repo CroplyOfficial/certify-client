@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -48,7 +47,13 @@ const Indicator = styled.div`
   }
 `;
 
-const Checkbox = ({disabled=undefined, checked=undefined, onChange}) => {
+interface CheckboxProps {
+  disabled?: boolean,
+  checked?: boolean,
+  onChange: Function
+} 
+
+const Checkbox = ({disabled, checked, onChange}: CheckboxProps) => {
   return (
     <Label disabled={disabled}>
       <Input

@@ -1,8 +1,6 @@
 import {useState} from 'react'
 import styled, { withTheme } from 'styled-components'
 import {
-    MenuOrg, 
-    PageTop,
     TangleHistory,
     PageContentContainer,
     MainContentContainer,

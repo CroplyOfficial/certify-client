@@ -85,6 +85,10 @@ const CredentialHolder = ({theme, credentialData, selector, viewPopupFunc, selec
         setCheckboxState(!checkboxState)
     }
 
+    const checkboxProps = {
+        onChange: handleCheckboxChange
+    }
+
     return (
         <Container>
             <Div1>
@@ -109,7 +113,7 @@ const CredentialHolder = ({theme, credentialData, selector, viewPopupFunc, selec
             <Div4>
                 {
                     selector ? 
-                    <Checkbox onChange={handleCheckboxChange} />:
+                    <Checkbox {...checkboxProps} />:
                     <ChevronRight width="2rem" fill={theme.mainColors.grey} onClick={() => showPopup()} />
                 }
             </Div4>

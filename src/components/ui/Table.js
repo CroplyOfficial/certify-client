@@ -14,6 +14,9 @@ const Table = styled.table`
         padding: 0.5rem 2rem 0.5rem 1rem;
         text-align: left;
     }
+    & tr {
+        height: 3.5rem;
+    }
     & tr:nth-child(odd) {
         background-color: #F2F4F5;
     }

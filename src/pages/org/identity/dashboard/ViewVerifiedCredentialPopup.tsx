@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import styled, {withTheme} from "styled-components"
 import {hexToRgb} from "../../../../components/functions/componentFunctions"
 import {
@@ -159,22 +159,14 @@ const ViewVerifiedCredentialPopup = ({theme, closePopupFunc, credential, showSha
     const popupRef = useRef(null);
 
     /* close modal when clicked outside of it */
-    useEffect(() => {
-        const handleClickOutside = e => {
+    const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
-                closePopupFunc();
-            }
+            closePopupFunc();
         }
-        // Bind the event listener
-        window.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            // Unbind the event listener on clean up
-            window.removeEventListener("mousedown", handleClickOutside);
-        };
-    });
+    }
 
     return (
-        <BlurredBg>
+        <BlurredBg onMouseDown={handleClickOutside}>
             <Popup ref={popupRef}>
                 <BreadcrumbHeader>
                     <ClosePopup>

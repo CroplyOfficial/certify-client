@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState} from "react";
+import { useRef, useState} from "react";
 import styled from "styled-components";
 import {hexToRgb} from "../../components/functions/componentFunctions";
 import {
@@ -95,19 +95,11 @@ const ContactFormPopup = ({closeModal}) => {
     const [messageErr, setMessageErr] = useState("");
 
     /* close modal when clicked outside of it */
-    useEffect(() => {
-        const handleClickOutside = e => {
-            if (popupRef.current && !popupRef.current.contains(e.target)) {
-                closeModal();
-            }
+    const handleClickOutside = e => {
+        if (popupRef.current && !popupRef.current.contains(e.target)) {
+            closeModal();
         }
-        // Bind the event listener
-        window.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            // Unbind the event listener on clean up
-            window.removeEventListener("mousedown", handleClickOutside);
-        };
-    });
+    }
 
     const inputValidation = () => {
         setNameErr('');
@@ -128,7 +120,7 @@ const ContactFormPopup = ({closeModal}) => {
     }
 
     return (
-        <BlurredBg >
+        <BlurredBg onMouseDown={handleClickOutside}>
             <Popup ref={popupRef}>
                 <ClosePopup>
                     <Cross fill='#A1A1A1' width="3.5rem" onClick={closeModal} />

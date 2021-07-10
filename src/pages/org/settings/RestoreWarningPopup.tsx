@@ -81,23 +81,14 @@ const RestoreWarningPopup = ({theme, goBackFunc, closePopupFunc, showConfirmPinF
     const popupRef = useRef(null);
 
     /* close modal when clicked outside of it */
-    useEffect(() => {
-        const handleClickOutside = e => {
-            if (popupRef.current && !popupRef.current.contains(e.target)) {
-                closePopupFunc();
-            }
+    const handleClickOutside = e => {
+        if (popupRef.current && !popupRef.current.contains(e.target)) {
+            closePopupFunc();
         }
-
-        // Bind the event listeners
-        window.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            // Unbind the event listeners on clean up
-            window.removeEventListener("mousedown", handleClickOutside);
-        };
-    });
+    }
 
     return (
-        <BlurredBg>
+        <BlurredBg onMouseDown={handleClickOutside}>
             <Popup ref={popupRef}>
                 <BreadcrumbHeader>
                     <ClosePopup>

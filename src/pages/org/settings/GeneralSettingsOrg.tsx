@@ -10,8 +10,6 @@ import {
     Hr,
     Button,
     Select,
-    ToggleSwitch,
-    SettingToggleSwitchTextL,
     SettingToggleSwitchTextLR
 } from "../../../components/ui"
 import { useThemeUpdate } from '../../../contexts/themeContext';

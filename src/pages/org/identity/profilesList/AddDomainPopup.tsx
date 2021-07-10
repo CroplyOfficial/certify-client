@@ -1,11 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styled, {withTheme} from "styled-components";
 import {hexToRgb} from "../../../../components/functions/componentFunctions";
 import {
     Button,
     H1,
     InputText,
-    ProfilePic
 } from "../../../../components/ui";
 import { ArrowLeft } from "../../../../components/assets/icons";
 
@@ -88,19 +87,11 @@ const AddDomainPopup = ({theme, closePopupFunc}) => {
     const [domainErr, setDomainErr] = useState('');
 
     /* close modal when clicked outside of it */
-    useEffect(() => {
-        const handleClickOutside = e => {
+    const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
-                closePopupFunc();
-            }
+            closePopupFunc();
         }
-        // Bind the event listener
-        window.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            // Unbind the event listener on clean up
-            window.removeEventListener("mousedown", handleClickOutside);
-        };
-    });
+    }
 
     const inputValidation = () => {
         setDomainErr('');
@@ -112,7 +103,7 @@ const AddDomainPopup = ({theme, closePopupFunc}) => {
     }
 
     return (
-        <BlurredBg >
+        <BlurredBg onMouseDown={handleClickOutside}>
             <Popup ref={popupRef}>
                 <BreadcrumbHeader>
                     <ClosePopup>

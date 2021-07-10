@@ -101,7 +101,7 @@ const ContentWithNavbarContainer = styled(ContentWithoutNavbar)`
 const ContentWithNavbar = styled(ContentWithoutNavbar)`
     border: none;
     background: none;
-    height: calc(100% - 50px);
+    height: calc(100% - 70px);
 `;
 
 
