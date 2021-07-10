@@ -1,8 +1,7 @@
 import {useState, useRef, useEffect} from 'react'
 import styled, {withTheme} from 'styled-components'
 import {
-    MenuUser, 
-    PageTop,
+    CommonElementsUser,
     PageContentContainer,
     ProfilePic,
     MainContentContainer,
@@ -115,8 +114,7 @@ const PublicProfile = ({theme}) => {
 
     return (
         <>
-        <MenuUser active="Public Profile" />
-        <PageTop />
+        <CommonElementsUser menuActive="Public Profile" />
         <PageContentContainer>
             <MainContentContainer>
                 <CustomMainContent contentTitle="Public Profile" componentRight={buttons}>

@@ -65,6 +65,7 @@ const Directory = () => {
     ])
 
     return (
+        <>
         <PageContainer>
             <CommonElementsPublic menuActive="Directory" />
             <ProfilesHolder>
@@ -76,6 +77,7 @@ const Directory = () => {
                 }
             </ProfilesHolder>
         </PageContainer>
+        </>
     )
 }
 

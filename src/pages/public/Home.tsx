@@ -1,16 +1,14 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
-import cropCollectingWomen from "../../../components/assets/crop-collecting-women.jpg";
-import oldWoman from "../../../components/assets/old-woman.jpg";
-import identityMap from "../../../components/assets/identity-map.jpg";
-import ContactFormPopup from './ContactFormPopup';
+import cropCollectingWomen from "../../components/assets/crop-collecting-women.jpg";
+import oldWoman from "../../components/assets/old-woman.jpg";
+import identityMap from "../../components/assets/identity-map.jpg";
 import { 
     H1,
     Button,
     CommonElementsPublic
-} from '../../../components/ui';
-import { IotaLogo } from '../../../components/assets/icons';
+} from '../../components/ui';
+import { IotaLogo } from '../../components/assets/icons';
 
 const PageContainer = styled.div`
     height: 100%;
@@ -91,22 +89,9 @@ const Footer = styled.footer`
 `;
 
 const Home = () => {
-    const [contactModalVisible, setContactModalVisible] = useState(false);
-    const toggleContactModal = () => {
-        if(contactModalVisible)
-            setContactModalVisible(false);
-        else
-            setContactModalVisible(true);
-    }
     return (
-        <>
-        {
-            contactModalVisible ? 
-            <ContactFormPopup closeModal={toggleContactModal} />: 
-            ""
-        }
         <PageContainer>
-            <CommonElementsPublic toggleModal={toggleContactModal} menuActive="Home" />
+            <CommonElementsPublic menuActive="Home" />
             <CropCollectionBgDiv>
                 <div>
                     <div className="heading">
@@ -160,7 +145,6 @@ const Home = () => {
                 </div>
             </Footer>
         </PageContainer>
-        </>
     )
 }
 

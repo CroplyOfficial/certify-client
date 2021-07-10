@@ -1,8 +1,7 @@
 import {useState, useRef} from 'react'
 import styled, {withTheme} from 'styled-components'
 import {
-    MenuOrg, 
-    PageTop,
+    CommonElementsOrg,
     TangleHistory,
     PageContentContainer,
     ProfilePic,
@@ -77,8 +76,7 @@ const NewUser = ({theme}) => {
     const saveUserBtn = <Button primary btnColor={theme.mainColors.darkBlue}>SAVE USER</Button>
     return (
         <>
-        <MenuOrg active="Users" />
-        <PageTop />
+        <CommonElementsOrg menuActive="Users" />
         <PageContentContainer>
             <MainContentContainer>
                 <CustomMainContent contentTitle="New User" componentRight={saveUserBtn}>

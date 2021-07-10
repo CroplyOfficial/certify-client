@@ -1,8 +1,7 @@
 import {useState} from 'react'
 import styled, { withTheme } from 'styled-components'
 import {
-    MenuUser, 
-    PageTop,
+    CommonElementsUser,
     PageContentContainer,
     MainContentContainer,
     MainContent,
@@ -45,8 +44,7 @@ const ApplicationsUser = ({theme}) => {
     );
     return (
         <>
-        <MenuUser active="Applications" />
-        <PageTop />
+        <CommonElementsUser menuActive="Applications" />
         <PageContentContainer>
             <MainContentContainer>
                 <MainContent contentTitle="Applications" componentRight={newAppBtn}>

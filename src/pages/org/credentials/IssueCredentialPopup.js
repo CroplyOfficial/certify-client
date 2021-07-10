@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react"
 import styled, {withTheme} from "styled-components"
 import {hexToRgb} from "../../../components/functions/componentFunctions"
 import {
@@ -77,9 +78,26 @@ const BtnDiv = styled.div`
 `;
 
 const IssueCredentialPopup = ({theme, closePopupFunc, credentialNames}) => {
+    const popupRef = useRef(null);
+
+    /* close modal when clicked outside of it */
+    useEffect(() => {
+        const handleClickOutside = e => {
+            if (popupRef.current && !popupRef.current.contains(e.target)) {
+                closePopupFunc();
+            }
+        }
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    });
+
     return (
         <BlurredBg>
-            <Popup>
+            <Popup ref={popupRef}>
                 <BreadcrumbHeader>
                     <ClosePopup>
                         <ArrowLeft stroke={theme.mainColors.grey} width="2rem" onClick={closePopupFunc} />

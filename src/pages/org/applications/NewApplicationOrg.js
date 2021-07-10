@@ -1,8 +1,7 @@
 import {useState, useRef} from 'react'
 import styled, { withTheme } from 'styled-components'
 import {
-    MenuOrg, 
-    PageTop,
+    CommonElementsOrg,
     TangleHistory,
     PageContentContainer,
     MainContentContainer,
@@ -65,8 +64,7 @@ const NewApplicationOrg = ({theme}) => {
     )
     return (
         <>
-        <MenuOrg active="Applications" />
-        <PageTop />
+        <CommonElementsOrg menuActive="Applications" />
         <PageContentContainer>
             <MainContentContainer>
                 <CustomMainContent contentTitle="New Application" componentRight={saveAppBtn}>

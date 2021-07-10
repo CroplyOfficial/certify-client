@@ -1,12 +1,13 @@
-import styled from "styled-components"
-import {hexToRgb} from "../../../components/functions/componentFunctions"
+import { useEffect, useRef } from "react";
+import styled from "styled-components";
+import {hexToRgb} from "../../components/functions/componentFunctions";
 import {
     Button,
     H1,
     InputText,
     Textarea,
-} from "../../../components/ui"
-import {ArrowLeft} from "../../../components/assets/icons"
+} from "../../components/ui";
+import { Cross } from "../../components/assets/icons";
 
 const BlurredBg = styled.div`
     height: 100%;
@@ -30,18 +31,21 @@ const Popup = styled.div`
     width: 50%;
     box-sizing: border-box;
     padding: 0 2rem 2rem 2rem;
+    position: relative;
 `;
 
 const BreadcrumbHeader = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 17fr;
+    margin-left: 1rem;
 `;
 
 const ClosePopup = styled.div`
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    margin: 0;
     svg {
-        margin-right: 1rem;
+        margin:  0.5rem 0.5rem 0 0;
         cursor: pointer;
     }
 `;
@@ -67,7 +71,7 @@ const Inputs = styled.div`
 
 const BtnDiv = styled.div`
     display: flex;
-    justify-content: space-between; 
+    justify-content: flex-end; 
     margin: 0 1rem;
     margin-top: 2rem;
     button {
@@ -76,13 +80,31 @@ const BtnDiv = styled.div`
 `;
 
 const ContactFormPopup = ({closeModal}) => {
+
+    const popupRef = useRef(null);
+
+    /* close modal when clicked outside of it */
+    useEffect(() => {
+        const handleClickOutside = e => {
+            if (popupRef.current && !popupRef.current.contains(e.target)) {
+                closeModal();
+            }
+        }
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    });
+
     return (
-        <BlurredBg>
-            <Popup>
+        <BlurredBg >
+            <Popup ref={popupRef}>
+                <ClosePopup>
+                    <Cross fill='#A1A1A1' width="3.5rem" onClick={closeModal} />
+                </ClosePopup>
                 <BreadcrumbHeader>
-                    <ClosePopup>
-                        <ArrowLeft stroke='#A1A1A1' width="2rem" onClick={closeModal} />
-                    </ClosePopup>
                     <H1>Contact Form</H1>
                 </BreadcrumbHeader>
                 <Inputs>
@@ -95,7 +117,6 @@ const ContactFormPopup = ({closeModal}) => {
                     <Textarea className="formTextareaInput" placeholder="Message" />
                 </Inputs>
                 <BtnDiv>
-                    <Button primary btnColor='#ED8A8A' onClick={closeModal}>CANCEL</Button>
                     <Button primary btnColor='#5D7586'>SEND</Button>
                 </BtnDiv>
             </Popup>

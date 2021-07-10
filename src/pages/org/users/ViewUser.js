@@ -1,8 +1,7 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import styled, {withTheme} from 'styled-components'
 import {
-    MenuOrg, 
-    PageTop,
+    CommonElementsOrg,
     TangleHistory,
     PageContentContainer,
     ProfilePic,
@@ -10,7 +9,7 @@ import {
     MainContent,
     Button,
     InputText,
-    Textarea
+    Textarea,
 } from "../../../components/ui/"
 
 
@@ -67,8 +66,7 @@ const ViewUser = ({theme}) => {
     const newUserBtn = <Button primary btnColor={theme.mainColors.darkBlue} onClick={() => window.location.href = "/org/users/new"}>+ NEW USER</Button>
     return (
         <>
-        <MenuOrg active="Users" />
-        <PageTop />
+        <CommonElementsOrg menuActive="Users" />
         <PageContentContainer>
             <MainContentContainer>
                 <CustomMainContent contentTitle="View User" componentRight={newUserBtn}>

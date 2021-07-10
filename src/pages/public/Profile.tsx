@@ -156,9 +156,12 @@ const Profile = () => {
         ]
     });
 
+    
+
     return (
+        <>
         <PageContainer>
-            <CommonElementsPublic />
+        <CommonElementsPublic menuActive="Profile" />
             <GeneralInfoDiv>
                 <div className="generalInfo">
                     <ProfileImg noUploadImgPic />
@@ -207,6 +210,7 @@ const Profile = () => {
                 </div>
             </DetailedInfoDiv>
         </PageContainer>
+        </>
     )
 }
 

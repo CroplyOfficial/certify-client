@@ -1,8 +1,7 @@
-import React, {useState, useRef} from 'react'
+import {useState, useRef} from 'react'
 import styled, { withTheme } from 'styled-components'
 import {
-    MenuOrg, 
-    PageTop,
+    CommonElementsOrg,
     TangleHistory,
     PageContentContainer,
     MainContentContainer,
@@ -67,8 +66,7 @@ const NewCredential = ({theme}) => {
     )
     return (
         <>
-        <MenuOrg active="Credentials" />
-        <PageTop />
+        <CommonElementsOrg menuActive="Credentials" />
         <PageContentContainer>
             <MainContentContainer>
                 <CustomMainContent contentTitle="New Credential Application" componentRight={issueCredentialBtn}>

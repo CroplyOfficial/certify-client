@@ -2,8 +2,7 @@ import {useState, useRef} from 'react'
 
 import styled, { withTheme } from 'styled-components'
 import {
-    MenuUser, 
-    PageTop,
+    CommonElementsUser,
     PageContentContainer,
     MainContentContainer,
     MainContent,
@@ -135,8 +134,7 @@ const SettingsUser = ({theme}) => {
     );
     return (
         <>
-        <MenuUser active="Settings" />
-        <PageTop />
+        <CommonElementsUser menuActive="Settings" />
         <PageContentContainer>
             <MainContentContainer>
                 <CustomMainContent contentTitle="Settings" componentRight={saveSettingsBtn}>
