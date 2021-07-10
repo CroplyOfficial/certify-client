@@ -17,7 +17,7 @@ const Container = styled.div`
     }
 `;
 
-const SettingToggleSwitch = ({theme, settingsObj, changeHandlerFunc, settingKey, settingName, newSettingValue=undefined}) => {
+const SettingToggleSwitchTextL = ({theme, settingsObj, changeHandlerFunc, settingKey, settingName, newSettingValue=undefined}) => {
     return (
         <Container
             isOn={settingsObj[settingKey]}
@@ -44,4 +44,4 @@ const SettingToggleSwitch = ({theme, settingsObj, changeHandlerFunc, settingKey,
     );
 };
 
-export default withTheme(SettingToggleSwitch);
+export default withTheme(SettingToggleSwitchTextL);

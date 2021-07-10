@@ -9,7 +9,7 @@ import {
     Hr,
     H6,
     Button,
-    SettingToggleSwitch
+    SettingToggleSwitchTextL
 } from "../../../components/ui";
 
 const CustomMainContent = styled(MainContent)`
@@ -131,28 +131,28 @@ const NotifsPermsSettingsOrg = ({theme}) => {
                     <H6>
                         Notifications
                     </H6>
-                    <SettingToggleSwitch 
+                    <SettingToggleSwitchTextL 
                         settingsObj={notifSettings} 
                         changeHandlerFunc={notifSettingsHandler}
                         settingName="Toggle All"
                         settingKey="toggleAllNotifs"
                     />
                     <Hr />
-                    <SettingToggleSwitch 
+                    <SettingToggleSwitchTextL 
                         settingsObj={notifSettings} 
                         changeHandlerFunc={notifSettingsHandler}
                         settingName="New Credentials"
                         settingKey="newCredentialsNotifs"
                     />
                     <Hr />
-                    <SettingToggleSwitch
+                    <SettingToggleSwitchTextL
                         settingsObj={notifSettings} 
                         changeHandlerFunc={notifSettingsHandler}
                         settingName="Domain Notifications"
                         settingKey="domainNotifs"
                     />
                     <Hr />
-                    <SettingToggleSwitch
+                    <SettingToggleSwitchTextL
                         settingsObj={notifSettings} 
                         changeHandlerFunc={notifSettingsHandler}
                         settingName="System Notifications"
@@ -164,35 +164,35 @@ const NotifsPermsSettingsOrg = ({theme}) => {
                     <H6>
                         Permissions
                     </H6>
-                    <SettingToggleSwitch 
+                    <SettingToggleSwitchTextL 
                         settingsObj={permSettings} 
                         changeHandlerFunc={permSettingsHandler}
                         settingName="Toggle All"
                         settingKey="toggleAllPerms"
                     />
                     <Hr />
-                    <SettingToggleSwitch 
+                    <SettingToggleSwitchTextL 
                         settingsObj={permSettings} 
                         changeHandlerFunc={permSettingsHandler}
                         settingName="Camera Permission"
                         settingKey="cameraPerm"
                     />
                     <Hr />
-                    <SettingToggleSwitch
+                    <SettingToggleSwitchTextL
                         settingsObj={permSettings} 
                         changeHandlerFunc={permSettingsHandler}
                         settingName="NFC Permission"
                         settingKey="nfcPerm"
                     />
                     <Hr />
-                    <SettingToggleSwitch
+                    <SettingToggleSwitchTextL
                         settingsObj={permSettings} 
                         changeHandlerFunc={permSettingsHandler}
                         settingName="WiFi Permission"
                         settingKey="wifiPerm"
                     />
                     <Hr />
-                    <SettingToggleSwitch
+                    <SettingToggleSwitchTextL
                         settingsObj={permSettings} 
                         changeHandlerFunc={permSettingsHandler}
                         settingName="Files & Folders Permission"

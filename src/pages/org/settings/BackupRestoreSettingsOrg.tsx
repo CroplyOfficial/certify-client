@@ -10,7 +10,7 @@ import {
     H6,
     Hr,
     Select,
-    ToggleSwitch
+    SettingToggleSwitchTextLR
 } from "../../../components/ui";
 import SelectBackupFilePopup from './SelectBackupFilePopup';
 import RestoreWarningPopup from './RestoreWarningPopup';
@@ -33,8 +33,7 @@ const Left = styled.div`
     .lastBackupDate {
         font-family: 'Open Sans';
         font-weight: bold;
-        font-size: 1.2rem;
-        padding-left: 4rem;
+        font-size: 1rem;
         color: ${props => props.theme.mainColors.black};
     }
 `;
@@ -44,23 +43,11 @@ const Right = styled.div`
     flex-direction: column;
     width: 50%;
     max-width: 350px;
+    fieldset {
+        margin-top: 2rem;
+    }
     hr:last-of-type {
         padding-bottom: 2rem;
-    }
-    .autoBackupOnOff {
-        width: 60%;
-        display: flex;
-        margin: 0 auto;
-        justify-content: space-between;
-        margin-bottom: 1.8rem;
-        div {
-            display: grid;
-            place-items: center;
-            font-family: 'Open Sans';
-            font-weight: 600;
-            color: ${props => props.theme.mainColors.black};
-            font-size: 1.3rem;
-        }
     }
 `;
 
@@ -167,25 +154,14 @@ const BackupRestoreSettings = ({theme}) => {
                         <H6>
                             Auto Backup
                         </H6>
-                        <div className="autoBackupOnOff">
-                            <div>
-                                OFF
-                            </div>
-                            <div>
-                                <ToggleSwitch
-                                    bgColorOn={theme.mainColors.blue}
-                                    bgColorOff='none'
-                                    isOn={settings.autoBackupOn}
-                                    onToggle={() => {
-                                            settingsHandler('autoBackupOn', !settings.autoBackupOn);
-                                        }
-                                    }
-                                />
-                            </div>
-                            <div>
-                                ON
-                            </div>
-                        </div>
+                        <SettingToggleSwitchTextLR
+                            settingsObj={settings}
+                            settingKey='autoBackupOn'
+                            changeHandlerFunc={settingsHandler}
+                            newSettingValue={!settings.autoBackupOn}
+                            textL='OFF'
+                            textR='ON'
+                        />
                         <Select 
                             defaultValue={settings.autoBackupPeriod}
                             placeholder="Auto Backup Period"

@@ -30,7 +30,8 @@ import PWStrengthMeter from "./PWStrengthMeter";
 import MainContent from "./MainContent";
 import MainContentContainer from "./MainContentContainer";
 import SettingsNavbar from "./SettingsNavbar";
-import SettingToggleSwitch from "./SettingToggleSwitch";
+import SettingToggleSwitchTextL from "./SettingToggleSwitchTextL";
+import SettingToggleSwitchTextLR from "./SettingToggleSwitchTextLR";
 import ShowOptions from "./ShowOptions";
 import RecoveryPhraseElement from "./RecoveryPhraseElement";
 import Select from "./Select";
@@ -73,7 +74,8 @@ export {
     ProfilePic,
     PWStrengthMeter,
     SettingsNavbar,
-    SettingToggleSwitch,
+    SettingToggleSwitchTextL,
+    SettingToggleSwitchTextLR,
     ShowOptions,
     RecoveryPhraseElement,
     Select,

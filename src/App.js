@@ -33,7 +33,7 @@ import IssueCredential from './pages/org/credentials/IssueCredential';
 
 import GeneralSettingsOrg from './pages/org/settings/GeneralSettingsOrg';
 import SecuritySettingsOrg from './pages/org/settings/SecuritySettingsOrg';
-import BackupRestoreSettingsOrg from './pages/org/settings/BackupRestoreSettings';
+import BackupRestoreSettingsOrg from './pages/org/settings/BackupRestoreSettingsOrg';
 import NotifsPermsSettingsOrg from './pages/org/settings/NotifsPermsSettingsOrg';
 
 // importing user pages

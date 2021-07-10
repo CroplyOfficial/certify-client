@@ -10,7 +10,9 @@ import {
     Hr,
     Button,
     Select,
-    ToggleSwitch
+    ToggleSwitch,
+    SettingToggleSwitchTextL,
+    SettingToggleSwitchTextLR
 } from "../../../components/ui"
 import { useThemeUpdate } from '../../../contexts/themeContext';
 import {
@@ -42,23 +44,7 @@ const Right = styled.div`
     hr:last-of-type {
         padding-bottom: 2rem;
     }
-    .appThemeChanger, .sysNotifs {
-        width: 80%;
-        display: flex;
-        margin: 0 auto;
-        justify-content: space-between;
-        div {
-            display: grid;
-            place-items: center;
-            font-family: 'Open Sans';
-            font-weight: 600;
-            color: ${props => props.theme.mainColors.black};
-            font-size: 1.3rem;
-        }
-    }
-    .sysNotifs {
-        width: 60%;
-    }
+    
     .linkToNotifSettingsDiv {
         font-family: 'Open Sans';
         font-size: 1rem;
@@ -68,6 +54,7 @@ const Right = styled.div`
         justify-content: flex-end;
         align-items: center;
         cursor: pointer;
+        margin-top: 1rem;
         div {
             display: grid;
             place-items: center;
@@ -100,11 +87,14 @@ const GeneralSettingsOrg = ({theme}) => {
     );
 
     const settingsHandler = (property: string, newValue: any) => {
-        let newState = {...settings};
+        let newState = {...settings}; 
         if(property === "sysNotifs")
             newState.notifSettings[property] = newValue;
         else
             newState.generalSettings[property] = newValue;
+        
+        if(property === 'appTheme')
+            themeToggler.toggle();
         setSettings(newState);
     };
 
@@ -149,47 +139,26 @@ const GeneralSettingsOrg = ({theme}) => {
                         <H6>
                             Choose Application Theme
                         </H6>
-                        <div className="appThemeChanger">
-                            <div>
-                                DARK
-                            </div>
-                            <div>
-                                <ToggleSwitch
-                                    bgColorOn={theme.mainColors.blue}
-                                    bgColorOff='none'
-                                    isOn={settings.generalSettings.appTheme}
-                                    onToggle={() => {
-                                            settingsHandler('appTheme', !settings.generalSettings.appTheme);
-                                            themeToggler.toggle();
-
-                                        }
-                                    }
-                                />
-                            </div>
-                            <div>
-                                LIGHT
-                            </div>
-                        </div>
+                        <SettingToggleSwitchTextLR
+                            settingsObj={settings.generalSettings}
+                            settingKey='appTheme'
+                            changeHandlerFunc={settingsHandler}
+                            newSettingValue={!settings.generalSettings.appTheme}
+                            textL='DARK'
+                            textR='LIGHT'
+                        />
                         <Hr />
                         <H6>
                             System Notifications
                         </H6>
-                        <div className="sysNotifs">
-                            <div>
-                                OFF
-                            </div>
-                            <div>
-                                <ToggleSwitch
-                                    bgColorOn={theme.mainColors.blue}
-                                    bgColorOff='none'
-                                    isOn={settings.notifSettings.sysNotifs}
-                                    onToggle={() =>settingsHandler('sysNotifs', !settings.notifSettings.sysNotifs)}
-                                />
-                            </div>
-                            <div>
-                                ON
-                            </div>
-                        </div>
+                        <SettingToggleSwitchTextLR
+                            settingsObj={settings.notifSettings}
+                            settingKey='sysNotifs'
+                            changeHandlerFunc={settingsHandler}
+                            newSettingValue={!settings.notifSettings.sysNotifs}
+                            textL='OFF'
+                            textR='ON'
+                        />
                         <div className="linkToNotifSettingsDiv">
                             <div>
                                 more

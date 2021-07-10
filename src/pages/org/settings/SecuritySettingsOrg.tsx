@@ -132,9 +132,7 @@ const SecuritySettingsOrg = ({theme}) => {
                         Automatic Lock
                     </H6>
                     <div>
-                        By continuing to delete your profile you will
-                        remove all records, profiles, identities, and 
-                        associations with this application.
+                        Set the time for user account to automatically log out of the system.
                     </div>
                     <Select
                         defaultValue={settings.automaticLock}

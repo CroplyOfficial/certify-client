@@ -114,10 +114,9 @@ const RestoreWarningPopup = ({theme, goBackFunc, closePopupFunc, showConfirmPinF
                         Warning!
                     </p>
                     <p>
-                        Backing-up the system will delete all current data and restore the backup data.
-                    </p>
+                        Restoring the system from a back-up will delete all current user data and records, and upload all information from the back-up.                    </p>
                     <p>
-                        Please click the button below to proceed.
+                        Click the button bellow to confirm
                     </p>
                 </Warning>
                 <Hr />

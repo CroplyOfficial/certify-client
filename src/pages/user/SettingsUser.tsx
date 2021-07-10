@@ -11,7 +11,7 @@ import {
     Hr,
     H6,
     ToggleSwitch,
-    SettingToggleSwitch
+    SettingToggleSwitchTextL
 } from "../../components/ui"
 import { useThemeUpdate } from '../../contexts/themeContext';
 
@@ -169,7 +169,7 @@ const SettingsUser = ({theme}) => {
                         <H6>
                             Notifications
                         </H6>
-                        <SettingToggleSwitch 
+                        <SettingToggleSwitchTextL 
                             settingsObj={settings} 
                             changeHandlerFunc={settingsHandler}
                             newSettingValue={!settings.toggleAllNotifs}
@@ -177,7 +177,7 @@ const SettingsUser = ({theme}) => {
                             settingKey="toggleAllNotifs"
                         />
                         <Hr />
-                        <SettingToggleSwitch 
+                        <SettingToggleSwitchTextL 
                             settingsObj={settings} 
                             changeHandlerFunc={settingsHandler}
                             newSettingValue={!settings.newCredentialsNotifs}
@@ -185,7 +185,7 @@ const SettingsUser = ({theme}) => {
                             settingKey="newCredentialsNotifs"
                         />
                         <Hr />
-                        <SettingToggleSwitch 
+                        <SettingToggleSwitchTextL 
                             settingsObj={settings} 
                             changeHandlerFunc={settingsHandler}
                             newSettingValue={!settings.domainNotifs}
@@ -193,7 +193,7 @@ const SettingsUser = ({theme}) => {
                             settingKey="domainNotifs"
                         />
                         <Hr />
-                        <SettingToggleSwitch 
+                        <SettingToggleSwitchTextL 
                             settingsObj={settings} 
                             changeHandlerFunc={settingsHandler}
                             newSettingValue={!settings.sysNotifs}
