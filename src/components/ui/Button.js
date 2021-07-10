@@ -16,7 +16,7 @@ import {btnRippleEffect, colorLightLevel, hexToRgb} from "../functions/component
 const ButtonBase = styled.button`
     margin: 0;
     border-radius: 30px;
-    height: 3rem;
+    min-height: 3rem;
     width: 18rem;
     max-width: 250px;
     font-size: 1rem;

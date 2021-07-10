@@ -1,7 +1,7 @@
 // Contains code for the user dashboard menu
 /*
 props:
-active -> The name of the menu item which should be marked active. e.g. on the dashboard page, the Menu component should be typed this way: <Menu active="Dashboard" />
+active -> The name of the menu item which should be marked active. e.g. on the dashboard page, the Menu component should be typed this way: <MenuUser active="Applications" />
 */
 
 import styled, {withTheme} from 'styled-components'
@@ -14,8 +14,6 @@ import { colorLightLevel } from '../functions/componentFunctions'
 import {ReactComponent as CertifyLogo} from "../assets/logo.svg"
 import {
     DoubleChevronBoxed,
-    DashboardFilled,
-    DashboardHollow,
     ApplicationsFilled,
     ApplicationsHollow,
     SettingsFilled,
@@ -95,6 +93,15 @@ const MenuChevron = styled.div`
     }
 `;
 
+const ActivePageMarker = styled.div`
+    position: absolute;
+    width: 0.5rem;
+    height: 1.5rem;
+    border-radius: 0 3px 3px 0;
+    height: 100%;
+    margin: 0;
+`;
+
 const MenuItem = styled(Link)` 
     text-decoration: none;
     font-family: 'Open Sans';
@@ -131,7 +138,7 @@ const MenuItem = styled(Link)`
                 opacity: 1;
             }
         }
-        .activePageMarker {
+        ${ActivePageMarker} {
             background-color: ${props => props.theme.mainColors.blue};
         }
     }
@@ -157,16 +164,6 @@ const MenuItem = styled(Link)`
             }
         }
     }
-`;
-
-const ActivePageMarker = styled.div`
-    position: absolute;
-    width: 0.5rem;
-    height: 1.5rem;
-    border-radius: 0 3px 3px 0;
-    height: 100%;
-    margin: 0;
-
 `;
 
 const LogoutDiv = styled.div`
@@ -240,21 +237,21 @@ const MenuOrg = ({theme, active}) => {
                 <DoubleChevronBoxed width="24" />
             </MenuChevron>           
             <MenuItem to="/user/applications" className={`${menuCollapsedClass} ${active === "Applications" ? "active" : ""}`}>
-                <ActivePageMarker className="activePageMarker" />
+                <ActivePageMarker />
                 <span>
                     {active === "Applications" ? <ApplicationsFilled /> : <ApplicationsHollow />}
                     <div>Applications</div>
                 </span>
             </MenuItem>
             <MenuItem to="/user/publicProfile" className={`${menuCollapsedClass} ${active === "Public Profile" ? "active" : ""}`}>
-                <ActivePageMarker className="activePageMarker" />
+                <ActivePageMarker />
                 <span>
                     {active === "Public Profile" ? <UserFilled /> : <UserHollow />}
                     <div>Public Profile</div>
                 </span>
             </MenuItem>
             <MenuItem to="/user/settings" className={`${menuCollapsedClass} ${active === "Settings" ? "active" : ""}`}>
-                <ActivePageMarker className="activePageMarker" />
+                <ActivePageMarker />
                 <span>
                     {active === "Settings" ? <SettingsFilled /> : <SettingsHollow />}
                     <div>Settings</div>
@@ -268,6 +265,10 @@ const MenuOrg = ({theme, active}) => {
             </LogoutDiv>
         </MenuBase>
     )
+}
+
+MenuOrg.propTypes = {
+    active: PropTypes.string.isRequired
 }
 
 export default withTheme(MenuOrg)

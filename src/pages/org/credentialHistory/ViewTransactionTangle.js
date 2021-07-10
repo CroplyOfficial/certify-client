@@ -7,7 +7,6 @@ import {
     MainContentContainer,
     MainContent,
     Hr,
-    CommonElementsPublic
 } from "../../../components/ui"
 
 const CustomMainContent = styled(MainContent)`

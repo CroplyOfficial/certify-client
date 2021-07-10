@@ -1,6 +1,5 @@
 // Contains code for the tangle history table.
 
-import React from 'react'
 import styled, {withTheme} from "styled-components"
 
 import H1 from "./H1"

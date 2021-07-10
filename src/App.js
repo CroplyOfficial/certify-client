@@ -5,30 +5,48 @@ import GlobalFonts from './components/fonts/fonts' // importing the fonts
 // importing org pages
 import LoginOrg from './pages/org/LoginOrg';
 import Onboarding from './pages/org/onboarding/Onboarding';
+
 import Dashboard from './pages/org/Dashboard';
+
 import ApplicationsOrg from './pages/org/applications/ApplicationsOrg';
 import NewApplicationOrg from './pages/org/applications/NewApplicationOrg';
 import ViewApplicationOrg from './pages/org/applications/ViewApplicationOrg';
+
 import History from './pages/org/credentialHistory/History';
 import ViewTransactionTangle from './pages/org/credentialHistory/ViewTransactionTangle';
+
 import Users from './pages/org/users/Users';
 import ViewUser from './pages/org/users/ViewUser';
 import NewUser from './pages/org/users/NewUser';
-import Identity from './pages/org/Identity';
+
+import IdentityDashboard from './pages/org/identity/dashboard/IdentityDashboard';
+import IdentityScan from './pages/org/identity/scan/IdentityScan';
+import IdentityProfilesList from './pages/org/identity/profilesList/IdentityProfilesList';
+import ViewProfile from './pages/org/identity/profilesList/ViewProfile';
+import AddCredentials from './pages/org/identity/profilesList/AddCredentials';
+import ProfileDomainSettings from './pages/org/identity/profilesList/ProfileDomainSettings';
+
 import Credentials from './pages/org/credentials/Credentials';
 import NewCredential from './pages/org/credentials/NewCredential';
 import ViewCredential from './pages/org/credentials/ViewCredential';
 import IssueCredential from './pages/org/credentials/IssueCredential';
-import SettingsOrg from './pages/org/SettingsOrg';
+
+import GeneralSettingsOrg from './pages/org/settings/GeneralSettingsOrg';
+import SecuritySettingsOrg from './pages/org/settings/SecuritySettingsOrg';
+import BackupRestoreSettingsOrg from './pages/org/settings/BackupRestoreSettingsOrg';
+import NotifsPermsSettingsOrg from './pages/org/settings/NotifsPermsSettingsOrg';
 
 // importing user pages
 import LoginUser from './pages/user/LoginUser';
 import RegisterUser from './pages/user/RegisterUser';
+
 import PublicProfile from './pages/user/publicProfile/PublicProfile';
 import ViewPublicProfile from './pages/user/publicProfile/ViewPublicProfile';
+
 import ApplicationsUser from './pages/user/applications/ApplicationsUser';
 import NewApplicationUser from './pages/user/applications/NewApplicationUser';
 import ViewApplicationUser from './pages/user/applications/ViewApplicationUser';
+
 import SettingsUser from './pages/user/SettingsUser';
 
 // importing public pages
@@ -46,30 +64,49 @@ const App = () => {
           {/* routing org pages */}
           <Route component={LoginOrg} exact path="/org" title="Login" />
           <Route component={Onboarding} path="/org/onboarding" title="Onboarding" />
+
           <Route component={Dashboard} path="/org/dashboard" title="Dashboard" />
+
           <Route component={ApplicationsOrg} exact path="/org/applications" title="Applications" />
           <Route component={NewApplicationOrg} path="/org/applications/new" title="New Application" />
           <Route component={ViewApplicationOrg} path="/org/applications/view" title="View Application" />
+
           <Route component={History} exact path="/org/history" title="History" />
           <Route component={ViewTransactionTangle} path="/org/history/view" title="View Transaction Tangle" />
-          <Route component={Identity} path="/org/identity" title="Identity" />
-          <Route component={SettingsOrg} path="/org/settings" title="Settings" />
+
+          <Route component={IdentityDashboard} path="/org/identity/dashboard" title="Identity Dashboard" />
+          <Route component={IdentityScan} path="/org/identity/scan" title="Identity Scan" />
+          <Route component={IdentityProfilesList} exact path="/org/identity/profilesList" title="Identity Profiles List" />
+          <Route component={ViewProfile} path="/org/identity/profilesList/view" title="View Profile" />
+          <Route component={AddCredentials} path="/org/identity/profilesList/addCredentials" title="Add Credentials" />
+          <Route component={ProfileDomainSettings} path="/org/identity/profilesList/domainSettings" title="Profile Domain Settings" />
+
           <Route component={Credentials} exact path="/org/credentials" title="Credentials" />
           <Route component={NewCredential} path="/org/credentials/new" title="New Credential" />
           <Route component={ViewCredential} path="/org/credentials/view" title="View Credential" />
           <Route component={IssueCredential} path="/org/credentials/issue" title="Issue Credential" />
+
           <Route component={Users} exact path="/org/users" title="Users" />
           <Route component={NewUser} path="/org/users/new" title="New User" />
           <Route component={ViewUser} path="/org/users/view" title="View User" />
 
-          {/* routing org pages */}
+          <Route component={GeneralSettingsOrg} path="/org/settings/general" title="General Settings" />
+          <Route component={SecuritySettingsOrg} path="/org/settings/security" title="Security Settings" />
+          <Route component={BackupRestoreSettingsOrg} path="/org/settings/backupRestore" title="Backup/Restore" />
+          <Route component={NotifsPermsSettingsOrg} path="/org/settings/notifsPerms" title="Notifications/Permissions" />
+
+
+          {/* routing user pages */}
           <Route component={LoginUser} exact path="/user" title="Login" />
           <Route component={RegisterUser} path="/user/register" title="Register" />
-          <Route component={PublicProfile} exact path="/user/publicProfile" title="Public Profile" />
-          <Route component={ViewPublicProfile} path="/user/publicProfile/view" title="View Public Profile" />
+
           <Route component={ApplicationsUser} exact path="/user/applications" title="Applications" />
           <Route component={NewApplicationUser} path="/user/applications/new" title="New Application" />
           <Route component={ViewApplicationUser} path="/user/applications/view" title="View Application" />
+
+          <Route component={PublicProfile} exact path="/user/publicProfile" title="Public Profile" />
+          <Route component={ViewPublicProfile} path="/user/publicProfile/view" title="View Public Profile" />
+
           <Route component={SettingsUser} path="/user/settings" title="Settings" />
 
           {/* routing public pages */}

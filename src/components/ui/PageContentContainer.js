@@ -6,7 +6,7 @@ import backgroundDark from "../assets/Background-dark.svg"
 
 const Div = styled.div`
     width: 85%;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 110px);
     background: url(${props => props.theme.mode === "light" ? backgroundLight : backgroundDark}) center no-repeat;
     background-size: 105%;
     float: right;

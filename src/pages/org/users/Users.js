@@ -1,8 +1,6 @@
 import {useState} from 'react'
 import styled, { withTheme } from 'styled-components'
 import {
-    MenuOrg, 
-    PageTop,
     TangleHistory,
     PageContentContainer,
     MainContentContainer,
@@ -10,7 +8,7 @@ import {
     Table,
     Checkbox,
     Button,
-    RecordOptions,
+    ShowOptions,
     CommonElementsOrg
 } from "../../../components/ui/"
 import {Filters} from "../../../components/assets/icons"
@@ -89,7 +87,7 @@ const Users = ({theme}) => {
                     }
                 </td>
                 <td>
-                    <RecordOptions optionList={{"Edit": hello}} />
+                    <ShowOptions options={{"Edit": hello}} />
                 </td>
             </tr>
         )

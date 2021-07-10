@@ -8,7 +8,7 @@ const Div = styled.div`
     color: ${props => props.theme.mainColors.red};
     font-family: "Open Sans";
     font-size: 1rem;
-    width: 17.3rem;
+    width: 100%;
     height: 1rem;
 `;
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef, useState} from "react";
 import styled from "styled-components";
 import {hexToRgb} from "../../components/functions/componentFunctions";
 import {
@@ -20,6 +20,7 @@ const BlurredBg = styled.div`
     display: grid;
     place-items: center;
     z-index: 4;
+    overflow-y: auto;
 `;
 
 const Popup = styled.div`
@@ -83,23 +84,43 @@ const ContactFormPopup = ({closeModal}) => {
 
     const popupRef = useRef(null);
 
+    const nameRef = useRef(null);
+    const emailRef = useRef(null);
+    const subjectRef = useRef(null);
+    const messageRef = useRef(null);
+
+    const [nameErr, setNameErr] = useState("");
+    const [emailErr, setEmailErr] = useState("");
+    const [subjectErr, setSubjectErr] = useState("");
+    const [messageErr, setMessageErr] = useState("");
+
     /* close modal when clicked outside of it */
-    useEffect(() => {
-        const handleClickOutside = e => {
-            if (popupRef.current && !popupRef.current.contains(e.target)) {
-                closeModal();
-            }
+    const handleClickOutside = e => {
+        if (popupRef.current && !popupRef.current.contains(e.target)) {
+            closeModal();
         }
-        // Bind the event listener
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            // Unbind the event listener on clean up
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    });
+    }
+
+    const inputValidation = () => {
+        setNameErr('');
+        setEmailErr('');
+        setSubjectErr('');
+        setMessageErr('');
+        const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; 
+        if(nameRef.current.value === "")
+            setNameErr("This field cannnot be left empty.");
+        if(!emailFormat.test(emailRef.current.value))
+            setEmailErr("This is an invalid email address.");
+        if(emailRef.current.value === "")
+            setEmailErr("This field cannnot be left empty.");
+        if(subjectRef.current.value === "")
+            setSubjectErr("This field cannnot be left empty.");
+        if(messageRef.current.value === "")
+            setMessageErr("This field cannnot be left empty.");
+    }
 
     return (
-        <BlurredBg >
+        <BlurredBg onMouseDown={handleClickOutside}>
             <Popup ref={popupRef}>
                 <ClosePopup>
                     <Cross fill='#A1A1A1' width="3.5rem" onClick={closeModal} />
@@ -109,15 +130,15 @@ const ContactFormPopup = ({closeModal}) => {
                 </BreadcrumbHeader>
                 <Inputs>
                     <div className="senderDetails">
-                        <InputText className="formTextInput" placeholder="Name" />
-                        <InputText className="formTextInput" placeholder="Email Address" />
+                        <InputText err={nameErr}  inputRef={el => nameRef.current = el} className="formTextInput" placeholder="Name" />
+                        <InputText err={emailErr} inputRef={emailRef} className="formTextInput" placeholder="Email Address" />
                     </div>
 
-                    <InputText className="formTextInput" placeholder="Subject" />
-                    <Textarea className="formTextareaInput" placeholder="Message" />
+                    <InputText err={subjectErr} inputRef={subjectRef} className="formTextInput" placeholder="Subject" />
+                    <Textarea err={messageErr} inputRef={messageRef} className="formTextareaInput" placeholder="Message" />
                 </Inputs>
                 <BtnDiv>
-                    <Button primary btnColor='#5D7586'>SEND</Button>
+                    <Button primary btnColor='#5D7586' onClick={inputValidation}>SEND</Button>
                 </BtnDiv>
             </Popup>
         </BlurredBg>

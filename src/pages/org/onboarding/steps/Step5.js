@@ -7,7 +7,7 @@ import {
 const Step5 = ({userInput, confirmPinRef, nextStepFunc}) => {
     const [confirmPinErr, setConfirmPinErr] = useState("")
     
-    const checkInput = () => {
+    const inputValidation = () => {
         if(confirmPinRef.current.value !== userInput.pin) {
             setConfirmPinErr("The input does not match your entered PIN. Please try again.")
         }
@@ -32,7 +32,7 @@ const Step5 = ({userInput, confirmPinRef, nextStepFunc}) => {
                 <InputPIN id="pinConfirm" inputRef={confirmPinRef} err={confirmPinErr} placeholder="Confirm PIN" maskColor="#89C7F3" inputUnderlineColor="#A1A1A1" deleteDigitColor="#FFFFFF" required />
             </div>
             <div className="div3">
-                <Button primary btnColor="#6D97B5" onClick={checkInput}>CONFIRM PIN CODE</Button>
+                <Button primary btnColor="#6D97B5" onClick={inputValidation}>CONFIRM PIN CODE</Button>
             </div>
         </Step>
     )

@@ -9,7 +9,7 @@ import {
     Table,
     Checkbox,
     Button,
-    RecordOptions,
+    ShowOptions,
 } from "../../../components/ui"
 import DuplicateCredentialPopup from './DuplicateCredentialPopup'
 import IssueCredentialPopup from './IssueCredentialPopup'
@@ -102,7 +102,7 @@ const Credentials = ({theme}) => {
                     }
                 </td>
                 <td>
-                    <RecordOptions optionList={{"Duplicate": () => toggleDuplicateCredentialPopup(entry)}} />
+                    <ShowOptions options={{"Duplicate": () => toggleDuplicateCredentialPopup(entry)}} />
                 </td>
             </tr>
         )

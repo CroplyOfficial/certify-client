@@ -8,7 +8,7 @@ import {
 const Step4 = ({pinRef, nextStepFunc}) => {
     const [pinErr, setPinErr] = useState("")
 
-    const checkInput = () => {
+    const inputValidation = () => {
         if(pinRef.current.value === "") {
             setPinErr("Please enter a valid PIN.")
         }
@@ -39,7 +39,7 @@ const Step4 = ({pinRef, nextStepFunc}) => {
                 <InputPIN id="PIN" placeholder="PIN" inputRef={pinRef} err={pinErr} maskColor="#89C7F3" inputUnderlineColor="#A1A1A1" deleteDigitColor="#FFFFFF" required />
             </div>
             <div className="div3">
-                <Button primary btnColor="#6D97B5" onClick={checkInput}>SET PIN CODE</Button>
+                <Button primary btnColor="#6D97B5" onClick={inputValidation}>SET PIN CODE</Button>
             </div>
         </Step>
     )

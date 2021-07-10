@@ -8,7 +8,7 @@ const Step3 = ({nextStepFunc, passwordRef, confirmPasswordRef}) => {
     const [passwordErr, setPasswordErr] = useState("")
     const [confirmPasswordErr, setConfirmPasswordErr] = useState("")
 
-    const checkInput = () => {
+    const inputValidation = () => {
         if(passwordRef.current.value === "") {
             setConfirmPasswordErr("")
             setPasswordErr("Please enter a valid password.")
@@ -39,7 +39,7 @@ const Step3 = ({nextStepFunc, passwordRef, confirmPasswordRef}) => {
                 <InputConfidInfo id="passwordConfirm" inputRef={confirmPasswordRef} err={confirmPasswordErr} showHideColor="#A1A1A1" placeholder="Confirm Password" required />
             </div>
             <div className="div3">
-                <Button primary btnColor="#6D97B5" onClick={checkInput}>SAVE PASSWORD</Button>
+                <Button primary btnColor="#6D97B5" onClick={inputValidation}>SAVE PASSWORD</Button>
             </div>
         </Step>
     )

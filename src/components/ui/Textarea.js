@@ -119,10 +119,10 @@ const Label = styled.label`
 const Error = styled(InputError)`
     position: absolute;
     margin-left: 1rem;
-    margin-top: 3.2rem;
+    margin-top: 10.2rem;
 `;
 
-const Textarea = ({theme, value, defaultValue, onChange, className, maxLength, placeholder, id, required, errRef, inputRef}) => {
+const Textarea = ({theme, value, defaultValue, onChange, className, maxLength, placeholder, id, required, err, inputRef}) => {
 
     const [isInputFilled, setIsInputFilled] = useState(defaultValue || value ? true : false); // State to determine whether the input field has a value in it or not
 
@@ -156,9 +156,7 @@ const Textarea = ({theme, value, defaultValue, onChange, className, maxLength, p
                 value={value}
             />
             <Label htmlFor={id} className={isInputFilled ? 'inputFilled' : ''}>{placeholder}</Label>
-            <Error 
-                errRef={errRef}
-            ></Error>
+            <Error>{err}</Error>
         </Fieldset>
     )
 }
@@ -175,10 +173,7 @@ Textarea.propTypes = {
     required: PropTypes.bool, 
     defaultValue: PropTypes.string,
     className: PropTypes.string,
-    errRef: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.func
-    ])
+    err: PropTypes.string
 }
 
 export default withTheme(Textarea)

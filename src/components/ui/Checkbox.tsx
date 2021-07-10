@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -24,21 +23,17 @@ const Indicator = styled.div`
   left: -1rem;
   border: 3px solid ${props => props.theme.pastelColors.grey};
   border-radius: 10px;
-
   ${Input}:not(:disabled):checked & {
     background: none;
   }
-
   ${Label}:hover & {
     background: ${props => props.theme.mainColors.white};
   }
-
   &::after {
     content: "";
     position: absolute;
     display: none;
   }
-
   ${Input}:checked + &::after {
     display: block;
     margin: 0;
@@ -47,21 +42,22 @@ const Indicator = styled.div`
     background: ${props => props.theme.mainColors.green};
     border-radius: 30px;
   }
-
   &:disabled {
     cursor: not-allowed;
   }
 `;
 
-const Checkbox = ({id, disabled, label, name, value, checked, onChange}) => {
+interface CheckboxProps {
+  disabled?: boolean,
+  checked?: boolean,
+  onChange: Function
+} 
+
+const Checkbox = ({disabled, checked, onChange}: CheckboxProps) => {
   return (
-    <Label htmlFor={id} disabled={disabled}>
-      {label}
+    <Label disabled={disabled}>
       <Input
-        id={id}
         type="checkbox"
-        name={name}
-        value={value}
         disabled={disabled}
         checked={checked}
         onChange={onChange}
