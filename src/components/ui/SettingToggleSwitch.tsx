@@ -11,15 +11,17 @@ const Container = styled.div`
         place-items: center;
         font-family: 'Open Sans';
         font-weight: 600;
-        color: ${props => props.theme.mainColors.black};
-        font-size: 1.2rem;
+        color: ${props => props.isOn ? props.theme.mainColors.black : props.theme.mainColors.grey};
+        font-size: 1rem;
         margin-right: 1rem;
     }
 `;
 
 const SettingToggleSwitch = ({theme, settingsObj, changeHandlerFunc, settingKey, settingName, newSettingValue=undefined}) => {
     return (
-        <Container>
+        <Container
+            isOn={settingsObj[settingKey]}
+        >
             <div>
                 {settingName}
             </div>

@@ -6,8 +6,8 @@ const SwitchButton = styled.span`
     content: '';
     position: absolute;
     left: 0;
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     transition: 0.2s;
     background: ${props => props.btnColorOff ? props.btnColorOff : props.theme.pastelColors.grey};
@@ -18,8 +18,8 @@ const Label = styled.label`
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    width: 4rem;
-    height: 2rem;
+    width: 3rem;
+    height: 1.5rem;
     background: ${props => props.isOn ? props.bgColorOn : props.bgColorOff};
     border-radius: 30px;
     position: relative;

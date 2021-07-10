@@ -38,6 +38,7 @@ const Right = styled.div`
     flex-direction: column;
     width: 50%;
     max-width: 350px;
+    
     hr:last-of-type {
         padding-bottom: 2rem;
     }

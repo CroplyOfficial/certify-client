@@ -43,6 +43,7 @@ const Right = styled.div`
     flex-direction: column;
     width: 50%;
     max-width: 350px;
+    height: fit-content;
     hr:last-of-type {
         padding-bottom: 2rem;
     }
@@ -50,7 +51,10 @@ const Right = styled.div`
         font-family: 'Open Sans';
         font-size: 1rem;
         color: ${props => props.theme.mainColors.blue};
-        &:nth-of-type(2) {
+        &:nth-of-type(1) {
+            margin-bottom: 1.5rem;
+        }
+        &:nth-of-type(3) {
             margin: 1.5rem 0;
         }
     }
@@ -124,6 +128,14 @@ const SecuritySettingsOrg = ({theme}) => {
                     <Hr />
                 </Left>
                 <Right>
+                    <H6>
+                        Automatic Lock
+                    </H6>
+                    <div>
+                        By continuing to delete your profile you will
+                        remove all records, profiles, identities, and 
+                        associations with this application.
+                    </div>
                     <Select
                         defaultValue={settings.automaticLock}
                         placeholder="Automatic Lock"
