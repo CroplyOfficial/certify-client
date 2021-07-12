@@ -1,15 +1,5 @@
-// Contains code for the BtnPrimary component 
-/*
-props:
-btnColor -> provides background color to the button (MUST be in hexadecimal as a string)
-primary -> insert as a prop to mark a primary button
-type -> provides type attribute for the button
-*/
-
-import React from 'react'
+import {ReactElement} from 'react'
 import styled, {withTheme} from 'styled-components'
-import PropTypes from "prop-types"
-import "../../css/animations.css"
 
 import {btnRippleEffect, colorLightLevel, hexToRgb} from "../functions/componentFunctions"
 
@@ -39,12 +29,56 @@ const ButtonBase = styled.button`
     &:hover {
         background-color: ${props => props.primary ? colorLightLevel(props.btnColor, -10) : "rgba("+hexToRgb(props.btnColor)+",0.2)"}
     }
+    .ripple {
+        position: absolute;
+        border-radius: 100%;
+        pointer-events: none;
+        transform: scale(0);
+        z-index: 2;
+        &.show {
+            animation: ripple 0.45s ease-out;
+        }
+    }
+
+    @keyframes ripple {
+        to {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+    }
+
+
+
+    @keyframes fadeOut {
+        0% { opacity: 1;}
+        99% { opacity: 0.01;width: 100%; height: 100%;}
+        100% { opacity: 0;width: 0; height: 0;}
+    }
+
+    .display-none{
+        .on {
+            display: block;
+            animation: fadeOut 1s;
+            animation-fill-mode: forwards;
+        }
+    }
 `;
 
+/**
+ * Returns the Button Component.
+ * @param {object} theme - To receive the theme from the parent component. 
+ * @param {ReactElement} [children] - Specifies the children of this component.
+ * @param {string} [type] - Specifies the type of the button.
+ * @param {boolean} [primary] - Specifies whether it is a primary button or not. Apply this prop to make the button a primary button.
+ * @param {string} btnColor - Specifies the background color of the button.
+ * @param {string} [className] - Specifies the CSS class of the button.
+ * @param {Function} onClick - Specifies the function to be executed when the button is clicked.
+ * @returns {ReactElement} - The Button component.
+ */
 const Button = ({theme, children, type, primary, btnColor, className, onClick}) => {
     return (
         <ButtonBase 
-            className={className ? className : ""}
+            className={className}
             btnColor={btnColor}
             onClick={(e) => {
                     primary ? btnRippleEffect(e, btnColor): btnRippleEffect(e, theme.mainColors.white)
@@ -61,14 +95,6 @@ const Button = ({theme, children, type, primary, btnColor, className, onClick}) 
             {children}
         </ButtonBase>
     )
-}
-
-Button.propTypes = {
-    btnColor: PropTypes.string.isRequired,
-    id: PropTypes.string,
-    onClick: PropTypes.func,     
-    primary: PropTypes.bool,
-    type: PropTypes.string
 }
 
 export default withTheme(Button)

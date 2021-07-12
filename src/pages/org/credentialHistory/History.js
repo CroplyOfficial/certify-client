@@ -79,7 +79,7 @@ const History = ({theme}) => {
                     {entry.tangleId}
                 </td>
                 <td>
-                    <ShowOptions options={{"Edit": hello}} />
+                    <ShowOptions options={{"Edit": hello}} optionListStyling={`margin-left: -4rem`} />
                 </td>
             </tr>
         )

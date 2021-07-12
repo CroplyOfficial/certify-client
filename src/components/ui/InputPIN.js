@@ -1,14 +1,4 @@
-// Input component to accept numbers like PINs
-/*
-props:
-className, placeholder, id, autoComplete, required, autoFocus have the same meaning as they do in standard jsx for an input field.
-inputRef -> specifies the ref prop for the swd-pin-field element which is part of this component.
-errRef -> specifies the ref prop for the div in the InputError component contained in this component.
-maskColor -> specifies the colour of the text mask for the field in the input field.
-inputUnderlineColor-> specified the colour of the underline under each input for this component. 
-*/
-
-import React, {useState, useRef} from 'react'
+import {useState, useRef} from 'react'
 import PropTypes from 'prop-types';
 import styled, {withTheme} from 'styled-components'
 import ReactPinField from "react-pin-field"
@@ -126,17 +116,37 @@ const Error = styled(InputError)`
     margin-top: 3.2rem;
 `;
 
-const InputPIN = ({theme, className, placeholder, inputRef, autoComplete, required, err, autoFocus, maskColor, inputUnderlineColor, deleteDigitColor}) => {
+/**
+ * Returns the InputPIN component.
+ * @param {object} theme - To receive the theme from the parent component.
+ * @param {string} [value] - The value of the textarea (uneditable textarea).
+ * @param {string} [defaultValue] - The default value of the textarea (editable textarea).
+ * @param {Function} [onChange] - The function to be executed when the value in the swd-pin-field element changes.
+ * @param {number|string} [maxLength] - The max number of chars to be allowed in the swd-pin-field element.
+ * @param {string} [className] - Specifies the CSS class of the fieldset containing the swd-pin-field element.
+ * @param {boolean} [autoFocus] - Specifies whether the swd-pin-field element should be auto-focused or not. Apply this prop if the swd-pin-field element should be auto-focused.
+ * @param {boolean} [autoComplete] - Specifies whether the value in the swd-pin-field element should be auto-completed or not. Apply this prop if the swd-pin-field element should be auto-completed.
+ * @param {string} [placeholder] - Specifies the placeholder for the swd-pin-field element.
+ * @param {string} [err] - Specifies the error to be shown according to input received. This should be a state ideally.
+ * @param {string} [maskColor] - Specifies the color (in hexadecimal) of the mask which hides the entered PIN digits.
+ * @param {string} [maskColor] - Specifies the color (in hexadecimal) of the underline which distinguishes the different digit input elements.
+ * @param {string} [deleteDigitColor] - Specifies the stroke color (in hexadecimal) of the svg element which deletes entered digits on being clicked.
+ * @param {Ref} [inputRef] - Specifies the reference of the input element containing the entered PIN code.
+ * @returns {ReactElement} - The InputPIN component.
+ */
+const InputPIN = ({theme, className, placeholder, inputRef, autoComplete, err, autoFocus, maskColor, inputUnderlineColor, deleteDigitColor}) => {
 
     const [pin, setPin] = useState("") // State to hold the entered PIN value
     const [inputFocused, setInputFocused] = useState(autoFocus ? true : false) // State to determine whether the input fields are focused or blurred
     const pinInputRef = useRef(null) // Reference to the ReactPinField component's swd-pin-field element
     /* 
-    NOTE: pinInputRef is different to inputRef. The latter is the reference to a hidden input field from 
+    NOTE: pinInputRef is different from inputRef. The latter is the reference to a hidden input field from 
     which the value entered in the actual input fields can be accessed using inputRef.current.value . 
     */
 
-
+    /**
+     * Logic of what should happen when the PinDeleteDigit component is clicked.
+     */
     const deleteDigitHandler = () => {
         let arr = pinInputRef.current.inputs.slice().reverse()
         for(let input of arr) {
@@ -148,6 +158,9 @@ const InputPIN = ({theme, className, placeholder, inputRef, autoComplete, requir
         }
     }
 
+    /**
+     * Logic of what should happen when the value of any one of the inputs in the swd-pin-field is changed.
+     */
     const pinHandler = async (e) => {
             setPin(e) // Sets the pin state to the new value in the input fields
             new Promise(() => {
@@ -169,6 +182,7 @@ const InputPIN = ({theme, className, placeholder, inputRef, autoComplete, requir
                 })
             }
     }
+
     return (
         <Fieldset className={className}>
             <InputForShow
@@ -207,7 +221,6 @@ InputPIN.propTypes = {
         PropTypes.func
     ]),    
     autoComplete: PropTypes.string,
-    required: PropTypes.bool, 
     className: PropTypes.string,
     err: PropTypes.string,
     autoFocus: PropTypes.bool

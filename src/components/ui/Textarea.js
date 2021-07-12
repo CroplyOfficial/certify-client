@@ -6,7 +6,7 @@ inputRef -> specifies the ref prop for the textarea element which is part of thi
 errRef -> specifies the ref prop for the div in the InputError component contained in this component.
 */
 
-import {useState} from 'react'
+import {useState, Ref} from 'react'
 import PropTypes from 'prop-types';
 import styled, {withTheme} from 'styled-components'
 
@@ -93,6 +93,7 @@ const TextareaBase = styled.textarea`
         display:none;
     }
 `;
+
 const Label = styled.label`
     position: absolute;
     font-family: "Open Sans";
@@ -122,7 +123,20 @@ const Error = styled(InputError)`
     margin-top: 10.2rem;
 `;
 
-const Textarea = ({theme, value, defaultValue, onChange, className, maxLength, placeholder, id, required, err, inputRef}) => {
+/**
+ * Returns the Textarea component.
+ * @param {object} theme - To receive the theme from the parent component.
+ * @param {string} [value] - The value of the textarea (uneditable textarea).
+ * @param {string} [defaultValue] - The default value of the textarea (editable textarea).
+ * @param {Function} [onChange] - The function to be executed when the value in the textarea changes.
+ * @param {number|string} [maxLength] - The max number of chars to be allowed in the textarea.
+ * @param {string} [className] - Specifies the CSS class of the fieldset containing the textarea.
+ * @param {string} [placeholder] - Specifies the placeholder for the textarea.
+ * @param {string} [err] - Specifies the error to be shown according to input received. This should be a state ideally.
+ * @param {Ref} [inputRef] - Specifies the reference of the textarea.
+ * @returns {ReactElement} - The Textarea component.
+ */
+const Textarea = ({theme, value, defaultValue, onChange, className, maxLength, placeholder, err, inputRef}) => {
 
     const [isInputFilled, setIsInputFilled] = useState(defaultValue || value ? true : false); // State to determine whether the input field has a value in it or not
 
@@ -143,7 +157,6 @@ const Textarea = ({theme, value, defaultValue, onChange, className, maxLength, p
                 maxLength={maxLength} 
                 type="text"
                 ref={inputRef}
-                id={id}
                 defaultValue={defaultValue ? defaultValue : undefined}
                 onChange={(e) => {
                         isInputFilledCheck(e);
@@ -152,7 +165,6 @@ const Textarea = ({theme, value, defaultValue, onChange, className, maxLength, p
                         }
                     }
                 }
-                required={required}
                 value={value}
             />
             <Label htmlFor={id} className={isInputFilled ? 'inputFilled' : ''}>{placeholder}</Label>
@@ -167,7 +179,6 @@ Textarea.propTypes = {
         PropTypes.object,
         PropTypes.func
     ]),
-    id: PropTypes.string,
     maxLength: PropTypes.string,
     onChange: PropTypes.func,
     required: PropTypes.bool, 

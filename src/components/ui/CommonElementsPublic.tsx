@@ -5,6 +5,11 @@ import {
 } from "."
 import ContactFormPopup from '../../pages/public/ContactFormPopup';
 
+/**
+ * Returns the ContactFormPopup, PageTopPublic and MenuPublic components, all three of which are common in all public pages, as one component CommonElementsPublic.
+ * @param {string} [menuActive] - Specifies the menu item to be highlighted. Example usage <CommonElementsPublic menuActive="Home" /> 
+ * @returns {ReactElement} - The CommonElementsPublic component.
+ */
 const CommonElementsPublic = ({menuActive=""}) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [contactModalVisible, setContactModalVisible] = useState(false);

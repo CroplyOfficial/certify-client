@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 import ProfilePic from './ProfilePic';
 import { ChevronRight } from '../assets/icons';
+import { ReactElement } from 'react';
 
 const Container = styled.div`
     border-radius: 20px;
@@ -61,7 +62,12 @@ const ProfileImg = styled(ProfilePic)`
     width: 13vw;
     height: 13vw;
 `;
-
+/**
+ * Returns the DirProfileHolder component which displays the data of a specified profile on the public directory page.
+ * @param {object} theme - To receive the theme from the parent component. 
+ * @param {object} profileData - Contains the data of the profile to be displayed. 
+ * @returns {ReactElement} - The DirProfileHolder component.
+ */
 const DirProfileHolder = ({profileData}) => {
     return (
         <Container>

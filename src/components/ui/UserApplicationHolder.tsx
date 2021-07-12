@@ -79,6 +79,12 @@ const Div5 = styled.div`
     }
 `;
 
+/**
+ * Returns the UserApplicationHolder component which displays the data of a specified applications and shows options for it.
+ * @param {object} theme - To receive the theme from the parent component. 
+ * @param {object} appData - Contains the data of the application to be displayed. 
+ * @returns {ReactElement} - The UserApplicationHolder component.
+ */
 const UserApplicationHolder = ({theme, appData}) => {
     return (
         <Container>
