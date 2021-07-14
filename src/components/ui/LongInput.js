@@ -60,9 +60,19 @@ const SearchButton = styled(Button)`
     height: 3rem;
 `;
 
+/**
+ * Returns the LongInput component. It consists of an input field and button to the right of the field.
+ * @param {object} theme - To receive the theme from the parent component. 
+ * @param {string} placeholder - Placeholder for the input element.
+ * @param {string} btnText - Text for the button.
+ * @param {string} defaultValue - Default value for the input element (editable value).
+ * @param {Ref} inputRef - Reference for the input element.
+ * @param {string} className - CSS class for the Container component in this component.
+ * @returns 
+ */
 const LongInput = ({theme, className, placeholder, btnText, defaultValue, inputRef}) => {
     return (
-        <Container className={className ? className : ""}>
+        <Container className={className}>
             <Input defaultValue={defaultValue} placeholder={placeholder} ref={inputRef} />
             <SearchButton btnColor={theme.mainColors.darkBlue}>{btnText}</SearchButton>
         </Container>

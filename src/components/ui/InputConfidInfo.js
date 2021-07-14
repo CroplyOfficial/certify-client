@@ -1,5 +1,4 @@
 import {withTheme} from 'styled-components'
-import PropTypes from 'prop-types';
 
 import InputBase from "./InputBase"
 

@@ -26,7 +26,6 @@ const InputText = ({placeholder, value, defaultValue, maxLength, onChange, onFoc
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
-            defaultValue={defaultValue}
             value={value}
             defaultValue={defaultValue}
             autoComplete={autoComplete}

@@ -30,7 +30,7 @@ const Dashboard = () => {
         <>
         <CommonElementsOrg menuActive="Dashboard" />
         <PageContentContainer>
-            <MainContentContainer dashboard>
+            <MainContentContainer orgDashboard>
                 <DashboardElement elementTitle="Latest Data"></DashboardElement>
                 <DashboardElement elementTitle="Applications"></DashboardElement>
                 <DashboardElement elementTitle="Credentials"></DashboardElement>

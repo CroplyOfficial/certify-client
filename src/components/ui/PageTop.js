@@ -76,9 +76,9 @@ const PageTop = ({theme}) => {
     when it isn't. This wil be used to provide elements the menuCollapsed class when it the menu is
     collapsed.
     */
-    let menuCollapsedClass = menuCollapsed ? "menuCollapsed" : ""
+    let menuCollapsedClass = menuCollapsed ? "menuCollapsed" : "";
 
-    let notifExists = false // Variable to determine whether the user has any notifications or not.
+    let notifExists = false; // Variable to determine whether the user has any notifications or not.
     return (
         <Container className={menuCollapsedClass}>
             <SearchBar placeholder="Search for a Credential or Application" btnText="SEARCH" />

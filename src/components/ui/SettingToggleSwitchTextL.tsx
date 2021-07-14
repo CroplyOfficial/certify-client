@@ -17,6 +17,16 @@ const Container = styled.div`
     }
 `;
 
+/**
+ * Returns the SettingToggleSwitchTextL component. This component has text on the left side of a ToggleSwitch component.
+ * @param {object} theme - To receive the theme from the parent component.
+ * @param {object} settingsObj - The object containing the settings.
+ * @param {Function} changeHandlerFunc - The function to be executed when a particular setting is changed.
+ * @param {string} settingKey - The key of the setting in the settingsObj object.
+ * @param {string} settingName - The text on the left of the ToggleSwitch component.
+ * @param {any} [newSettingValue] - The new value to assign to the setting in the settingsObj if the changeHandlerFunc doesn't handle it by default. Refer to the SettingsUser component for a bettr understanding of the usage of this prop. 
+ * @returns {ReactElement} - The SettingToggleSwitchTextL component.
+ */
 const SettingToggleSwitchTextL = ({theme, settingsObj, changeHandlerFunc, settingKey, settingName, newSettingValue=undefined}) => {
     return (
         <Container

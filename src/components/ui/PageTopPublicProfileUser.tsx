@@ -5,7 +5,6 @@ import {
     BellHollow,
     BellFilled
 } from "../assets/icons"
-import { ReactEventHandler } from "react";
 
 const Container = styled.div`
     padding: 0.75rem 0;

@@ -10,7 +10,7 @@ import {
     Select,
     Hr,
     H6,
-    ToggleSwitch,
+    SettingToggleSwitchTextLR,
     SettingToggleSwitchTextL
 } from "../../components/ui"
 import { useThemeUpdate } from '../../contexts/themeContext';
@@ -95,6 +95,8 @@ const SettingsUser = ({theme}) => {
                 newState['domainNotifs'] = false;
             }
         }
+        if(property === 'appTheme')
+            themeToggler.toggle();
         let notifSettings = ['sysNotifs', 'newCredentialsNotifs', 'domainNotifs'];
         if(notifSettings.every(setting => newState[setting] === true)) {
             newState['toggleAllNotifs'] = true;
@@ -142,27 +144,14 @@ const SettingsUser = ({theme}) => {
                         <H6>
                             Choose Application Theme
                         </H6>
-                        <div className="appThemeChanger">
-                            <div>
-                                DARK
-                            </div>
-                            <div>
-                                <ToggleSwitch
-                                    bgColorOn={theme.mainColors.blue}
-                                    bgColorOff='none'
-                                    isOn={settings.appTheme}
-                                    onToggle={() => {
-                                            settingsHandler('appTheme', !settings.appTheme);
-                                            themeToggler.toggle();
-
-                                        }
-                                    }
-                                />
-                            </div>
-                            <div>
-                                LIGHT
-                            </div>
-                        </div>
+                        <SettingToggleSwitchTextLR
+                            settingsObj={settings}
+                            settingKey='appTheme'
+                            changeHandlerFunc={settingsHandler}
+                            newSettingValue={!settings.appTheme}
+                            textL='DARK'
+                            textR='LIGHT'
+                        />
                         <Hr />
                     </Left>
                     <Right>

@@ -9,7 +9,7 @@ import {useEffect, useRef} from 'react'
 import zxcvbn from "zxcvbn" // Password strength determiner
 import styled, {withTheme} from "styled-components"
 
-const Div = styled.div`
+const Container = styled.div`
     margin-left: 0.5rem;
 `;
 
@@ -31,7 +31,12 @@ const Score = styled.span`
     letter-spacing: 0.1rem;
 `;
 
-
+/**
+ * Returns the PWStrengthMeter component to measure the strength of the password entered in the InputConfidInfo component.
+ * @param {object} theme - To receive the theme from the parent component. 
+ * @param {Ref} confidInfoFieldRef - Reference to the InputConfidInfo component. 
+ * @returns {ReactElement} - The PWStrengthMeter component.
+ */
 const PWStrengthMeter = ({theme, confidInfoFieldRef}) => {
     const strengthMeterRef = useRef(null) // Reference to the span element which contains the strength score for the entered password
     const strength = {
@@ -43,6 +48,9 @@ const PWStrengthMeter = ({theme, confidInfoFieldRef}) => {
     }
 
     useEffect(() => {
+        /**
+         * Measuring the strength of the password as the user enters it.
+         */
         if(confidInfoFieldRef.current !== null) {
             let password = confidInfoFieldRef.current
             let text = strengthMeterRef.current
@@ -67,9 +75,9 @@ const PWStrengthMeter = ({theme, confidInfoFieldRef}) => {
     })
     
     return (
-        <Div>
+        <Container>
             <Pre>Password Strength:    <Score ref={strengthMeterRef}></Score></Pre>
-        </Div>
+        </Container>
         
     )
 }

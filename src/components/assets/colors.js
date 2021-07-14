@@ -3,6 +3,9 @@
 
 import {colorLightLevel} from "../functions/componentFunctions"
 
+/**
+ * Main colors in the light theme.
+ */
 const mainColorsLight = {
     white: "#FFFFFF",
     black: "#353535",
@@ -16,6 +19,9 @@ const mainColorsLight = {
     darkBlue: "#5D7586"
 }
 
+/**
+ * Main colors in the dark theme.
+ */
 const mainColorsDark = {
     white: "#FFFFFF",
     black: colorLightLevel("#353535", -10),
@@ -29,6 +35,9 @@ const mainColorsDark = {
     darkBlue: colorLightLevel("#5D7586", -10)
 }
 
+/**
+ * Pastel colors in the light theme.
+ */
 const pastelColorsLight = {
     grey: "#E0E0E0",
     green: "#C8E7C9",
@@ -40,6 +49,9 @@ const pastelColorsLight = {
     darkBlue: "#BECFDB"
 }
 
+/**
+ * Pastel colors in the dark theme.
+ */
 const pastelColorsDark = {
     grey: colorLightLevel("#E0E0E0", -5),
     green: colorLightLevel("#C8E7C9", -5),

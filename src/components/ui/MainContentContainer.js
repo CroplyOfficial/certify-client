@@ -1,17 +1,10 @@
-// Contains code for the container div for the main content div on a page.
-/*
-props:
-dashboard -> specifies if the container is supposed to behave as it does on the dashboard page.
-*/
-
-import PropTypes from "prop-types";
 import styled, {css, withTheme} from 'styled-components';
 import {useSelector} from "react-redux";
 
-const Div = styled.div`
+const Container = styled.div`
     width: 75%;
     padding: 0 2rem;
-    ${props => props.dashboard && css`
+    ${props => props.orgDashboard && css`
         overflow-y: auto;
         overflow-x: hidden;
         margin-bottom: 0.5rem;
@@ -68,20 +61,21 @@ const Div = styled.div`
     `}
 `;
 
-const MainContentContainer = ({className, dashboard, children}) => {
+/**
+ * Returns the MainContentContainer component. This component contains the MainContent component.
+ * @param {string} className - CSS class of this component.
+ * @param {ReactElement} children - Children of this component.
+ * @param {boolean} orgDashboard - Specifies whether the page is the organization dashboard or not for special styling on that page. Apply this prop to specify that the page is the organization dashboard.
+ * @returns {ReactElement} - The MainContentContainer component
+ */
+const MainContentContainer = ({className, orgDashboard, children}) => {
     const menuCollapsed = useSelector(state => state.menuCollapsed)
     const menuCollapsedClass = menuCollapsed ? "menuCollapsed" : ""
     return (
-        <Div dashboard={dashboard} className={className ? (className + " " + menuCollapsedClass) : menuCollapsedClass}>
+        <Container orgDashboard={orgDashboard} className={className ? (className + " " + menuCollapsedClass) : menuCollapsedClass}>
             {children}
-        </Div>
+        </Container>
     )
-}
-
-
-MainContentContainer.propTypes = {
-    dashboard: PropTypes.bool,
-    className: PropTypes.string
 }
 
 export default withTheme(MainContentContainer)

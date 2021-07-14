@@ -26,7 +26,9 @@ import {mainColorsLight, mainColorsDark, pastelColorsLight, pastelColorsDark} fr
 // context to update the theme
 const ThemeUpdateContext = React.createContext()
 
-// function to update the theme context
+/**
+ * Function to update the theme context
+ */ 
 const useThemeUpdate = () => {
     return useContext(ThemeUpdateContext)
 }
@@ -39,7 +41,9 @@ const CustomThemeProvider = ({children}) => {
         pastelColors: pastelColorsLight
     })
 
-    // function to toggle the theme
+    /**
+     * Function to toggle the theme
+     */
     const toggle = () => {
         const mode = (themeState.mode === 'light' ? `dark` : `light`)
         const mainColors = themeState.mode === "light" ? mainColorsLight : mainColorsDark

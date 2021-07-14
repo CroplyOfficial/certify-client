@@ -1,3 +1,8 @@
+/**
+ * Creating a global style to use certain fonts throughout the project.
+ * These fonts are: Poppins Bold, Open Sans Regular, Open Sans Semi-Bold and Open Sans Semi-Bold.  
+ */
+
 import { createGlobalStyle } from 'styled-components'
 import PoppinsBoldWoff from "./Poppins-Bold.woff"
 import PoppinsBoldWoff2 from "./Poppins-Bold.woff2"
@@ -7,7 +12,6 @@ import OpenSansSemiBoldWoff from "./OpenSans-SemiBold.woff"
 import OpenSansSemiBoldWoff2 from "./OpenSans-SemiBold.woff2"
 import OpenSansRegularWoff from "./OpenSans-Regular.woff"
 import OpenSansRegularWoff2 from "./OpenSans-Regular.woff2"
-
 
 export default createGlobalStyle`
 @font-face {

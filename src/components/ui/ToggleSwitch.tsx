@@ -1,5 +1,6 @@
 // Credits: https://upmostly.com/tutorials/build-a-react-switch-toggle-component
 
+import { ReactElement } from 'react';
 import styled, {withTheme} from 'styled-components'
 
 const SwitchButton = styled.span`
@@ -41,6 +42,17 @@ const SwitchCheckbox = styled.input.attrs({ type: 'checkbox' })`
     }
 `;
 
+
+/**
+ * Returns the ToggleSwitch component. This component is a toggle switch resembling the one commonly seen on the iOS and iPadOS platforms.
+ * @param {boolean} isOn - The state to determine whether the switch is on or off. 
+ * @param {Function} onToggle - The function to execute when the switch's state changes. 
+ * @param {string} bgColorOn - The background color of the switch when it is on (in hexadecimal). 
+ * @param {string} bgColorOff - The background color of the switch when it is off (in hexadecimal). 
+ * @param {string} btnColorOn - The color of the switch button when the switch is on (in hexadecimal). 
+ * @param {string} btnColorOff - The color of the switch button when the switch is off (in hexadecimal). 
+ * @returns {ReactElement} - The ToggleSwitch component.
+ */
 const ToggleSwitch = ({ isOn, onToggle, bgColorOn, bgColorOff, btnColorOn, btnColorOff }) => {
     return (
         <>  
