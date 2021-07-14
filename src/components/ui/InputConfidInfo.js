@@ -1,23 +1,29 @@
-// Input component to enter confidential information like passwords.
-/* 
-props: 
-placeholder, id, autoComplete, required have the same meaning as they do in standard jsx for an input field.
-strengthMeter -> indicates whether or not the component should contain the PWStrengthMeter to determine the strength of the entered password.
-inputRef -> specifies the ref prop for the input element which is part of this component.
-errRef -> specifies the ref prop for the div in the InputError component contained in this component.
-*/
 import {withTheme} from 'styled-components'
 import PropTypes from 'prop-types';
 
 import InputBase from "./InputBase"
 
-const InputConfidInfo = ({placeholder, inputRef, autoComplete, required, strengthMeter, className, err, showHideColor}) => {
+/**
+ * Returns the InputConfidInfo component.
+ * @param {object} theme - To receive the theme from the parent component.
+ * @param {string} [value] - The value of the input element (uneditable textarea).
+ * @param {string} [defaultValue] - The default value of the input element (editable textarea).
+ * @param {number|string} [maxLength] - The max number of chars to be allowed in the input element.
+ * @param {boolean} [autoComplete] - Specifies whether the value in the input field should be auto-completed or not. Apply this prop if the input field should be auto-completed.
+ * @param {string} [className] - Specifies the CSS class of the fieldset containing the input element.
+ * @param {string} [placeholder] - Specifies the placeholder for the input element.
+ * @param {boolean} [strengthMeter] - Specifies whether there should be a password strentgh meter shown. Apply this prop if the password strentgh meter should be shown.
+ * @param {string} [showHideColor] - Specifies the stroke color of the svg to toggle the masked input (in hexadecimal). 
+ * @param {string} [err] - Specifies the error to be shown according to input received. This should be a state ideally.
+ * @param {Ref} [inputRef] - Specifies the reference of the input element.
+ * @returns {ReactElement} - The InputConfidInfo component.
+ */
+const InputConfidInfo = ({placeholder, inputRef, autoComplete, strengthMeter, className, err, showHideColor}) => {
     return (
             <InputBase 
                 placeholder={placeholder}
                 inputRef={inputRef}
                 autoComplete={autoComplete} 
-                required={required}
                 confidInfo
                 strengthMeter={strengthMeter}
                 className={className}
@@ -26,20 +32,5 @@ const InputConfidInfo = ({placeholder, inputRef, autoComplete, required, strengt
             />
     )
 }
-
-InputConfidInfo.propTypes = {
-    placeholder: PropTypes.string,
-    inputRef: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.func
-    ]),    
-    autoComplete: PropTypes.bool,
-    required: PropTypes.bool, 
-    strengthMeter: PropTypes.bool,
-    className: PropTypes.string,
-    err: PropTypes.string,
-    showHideColor: PropTypes.string
-}
-
 
 export default withTheme(InputConfidInfo)

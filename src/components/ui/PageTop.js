@@ -63,6 +63,11 @@ const ProfilePicture = styled.div`
     text-align: center;
 `;
 
+/**
+ * Returns the PageTop component consisting of the search bar, notification bell and profile picture. This component appears on all org and user pages.
+ * @param {object} theme - To receive the theme from the parent component.
+ * @returns {ReactElement} - The PageTop component.
+ */
 const PageTop = ({theme}) => {
     const menuCollapsed = useSelector(state => state.menuCollapsed)
 

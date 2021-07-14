@@ -129,7 +129,7 @@ const Error = styled(InputError)`
  * @param {string} [placeholder] - Specifies the placeholder for the swd-pin-field element.
  * @param {string} [err] - Specifies the error to be shown according to input received. This should be a state ideally.
  * @param {string} [maskColor] - Specifies the color (in hexadecimal) of the mask which hides the entered PIN digits.
- * @param {string} [maskColor] - Specifies the color (in hexadecimal) of the underline which distinguishes the different digit input elements.
+ * @param {string} [inputUnderlineColor] - Specifies the color (in hexadecimal) of the underline which distinguishes the different digit input elements.
  * @param {string} [deleteDigitColor] - Specifies the stroke color (in hexadecimal) of the svg element which deletes entered digits on being clicked.
  * @param {Ref} [inputRef] - Specifies the reference of the input element containing the entered PIN code.
  * @returns {ReactElement} - The InputPIN component.
@@ -188,7 +188,6 @@ const InputPIN = ({theme, className, placeholder, inputRef, autoComplete, err, a
             <InputForShow
                 type="text"
                 autoComplete={autoComplete}
-                required={required}
                 disabled
                 className={inputFocused ? "active" : ""}
             />

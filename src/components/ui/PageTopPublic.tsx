@@ -65,6 +65,12 @@ const MenuToggle = styled.div`
     }
 `;
 
+/**
+ * Returns the PageTopPublic component consisting of the Certify logo and text, search bar, the login button and hamburger menu. This component appears on all org and public pages.
+ * @param {Function} toggleMenu - The function to show/hide the MenuPublic component.
+ * @param {boolean} menuOpen - The state which determines whether the MenuPublic component is shown or not.
+ * @returns {ReactElement} - The PageTopPublic component.
+ */
 const PageTopPublic = ({toggleMenu, menuOpen}) => {
      return (
         <Container>

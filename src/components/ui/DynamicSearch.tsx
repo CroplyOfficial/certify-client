@@ -90,7 +90,7 @@ const DynamicSearch = ({credentialNames}) => {
   useEffect(() => {
     /**
      * Hides the SearchResultsContainer component when the user clicks outside of the Container component.
-     * @param {Event} e - The click event.
+     * @param {Event} e - The triggering event.
      */
     const handleClickOutside = e => {
         if (containerRef.current && !containerRef.current.contains(e.target)) {
@@ -103,7 +103,7 @@ const DynamicSearch = ({credentialNames}) => {
         // Unbind the event listener on clean up
         window.removeEventListener("mousedown", handleClickOutside);
     };
-});
+  });
   /**
    * Filters credentials from the credentialNames array and sets the data to the filtered state based on the keyword provided.
    * @param {string} keyword - The keyword based on which credentials are to be filtered. 

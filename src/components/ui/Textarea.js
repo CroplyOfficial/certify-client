@@ -1,11 +1,3 @@
-// Contains code for the Textarea components
-/* 
-props:
-value, defaultValue, className, maxLength, placeholder, id, required have the same meaning as they do in standard jsx for an input field.
-inputRef -> specifies the ref prop for the textarea element which is part of this component.
-errRef -> specifies the ref prop for the div in the InputError component contained in this component.
-*/
-
 import {useState, Ref} from 'react'
 import PropTypes from 'prop-types';
 import styled, {withTheme} from 'styled-components'
@@ -167,7 +159,7 @@ const Textarea = ({theme, value, defaultValue, onChange, className, maxLength, p
                 }
                 value={value}
             />
-            <Label htmlFor={id} className={isInputFilled ? 'inputFilled' : ''}>{placeholder}</Label>
+            <Label className={isInputFilled ? 'inputFilled' : ''}>{placeholder}</Label>
             <Error>{err}</Error>
         </Fieldset>
     )

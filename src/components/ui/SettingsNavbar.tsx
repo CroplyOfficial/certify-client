@@ -42,6 +42,11 @@ const SettingsNavbarItem = styled(Link)`
     }
 `;
 
+/**
+ * Returns the SettingsNavbar component. Shows the navbar in the MainContent component on pages related to settings in the organisation UI.
+ * @param {string} [settingsActive] - Specifies the menu item to be highlighted. Example usage <IdentityNavbar settingsActive="General" />
+ * @returns {ReactElement} - The SettingsNavbar component.
+ */
 const SettingsNavbar = ({settingsActive}) => {
     return (
         <Container>

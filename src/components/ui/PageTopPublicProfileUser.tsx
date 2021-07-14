@@ -5,6 +5,7 @@ import {
     BellHollow,
     BellFilled
 } from "../assets/icons"
+import { ReactEventHandler } from "react";
 
 const Container = styled.div`
     padding: 0.75rem 0;
@@ -78,7 +79,11 @@ const ProfilePicture = styled.div`
     text-align: center;
 `;
 
-const PageTopPublic = () => {
+/**
+ * Returns the PageTopPublicProfileUser component which is displayed at the top of the ViewPublicProfile page component.
+ * @returns {ReactElement} - The PageTopPublicProfileUser component.  
+ */
+const PageTopPublicProfileUser = () => {
 
     /*
     Varibale to contain the text "menuCollapsed" when the menu is collapsed and an empty string
@@ -105,4 +110,4 @@ const PageTopPublic = () => {
     )
 }
 
-export default withTheme(PageTopPublic)
+export default withTheme(PageTopPublicProfileUser)
