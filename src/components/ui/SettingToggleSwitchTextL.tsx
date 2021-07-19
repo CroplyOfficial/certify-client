@@ -19,8 +19,8 @@ const Container = styled.div`
 
 /**
  * Returns the SettingToggleSwitchTextL component. This component has text on the left side of a ToggleSwitch component.
- * @param {object} theme - To receive the theme from the parent component.
- * @param {object} settingsObj - The object containing the settings.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} settingsObj - The object containing the settings.
  * @param {Function} changeHandlerFunc - The function to be executed when a particular setting is changed.
  * @param {string} settingKey - The key of the setting in the settingsObj object.
  * @param {string} settingName - The text on the left of the ToggleSwitch component.

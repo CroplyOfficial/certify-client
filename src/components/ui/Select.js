@@ -94,7 +94,7 @@ const Label = styled.label`
 
 /**
  * Returns the Select component.
- * @param {object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the parent component.
  * @param {string} [defaultValue] - The default value of the input element (editable textarea).
  * @param {string[]} optionList - The array of option strings.
  * @param {string} [placeholder] - Specifies the placeholder for the select element.

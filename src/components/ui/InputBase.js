@@ -94,7 +94,7 @@ const Error = styled(InputError)`
 
 /**
  * Returns the InputBase component. This is the parent component of the InputText and InputConfidInfo component.
- * @param {object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the parent component.
  * @param {string} [value] - The value of the input element (uneditable textarea).
  * @param {string} [defaultValue] - The default value of the input element (editable textarea).
  * @param {Function} [onChange] - The function to be executed when the value in the input element changes.

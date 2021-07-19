@@ -76,8 +76,8 @@ const Div4 = styled.div`
 
 /**
  * Returns the CredentialHolder component which displays the data of a specified credential.
- * @param {object} theme - To receive the theme from the parent component. 
- * @param {object} credentialData - Contains the data of the credential to be displayed. 
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} credentialData - Contains the data of the credential to be displayed. 
  * @param {boolean} [selector] - Specifies whether the credential holder should have a checkbox or a chevron to open a popup to view the credential. Apply this prop if this component should have a checkbox.
  * @param {Function} viewPopupFunc - Specifies the function to be executed to open the popup.
  * @param {Function} selectCredentialFunc - Specifies the function to be execute to select the credential to display in the popup.

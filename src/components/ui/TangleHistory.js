@@ -27,7 +27,7 @@ const TangleHistoryTable = styled(Table)`
 
 /**
  * Returns the TangleHistory component. This component shows the history of the organization's tangle.
- * @param {object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the parent component. 
  * @returns {ReactElement} - The TangleHistory component.
  */
 const TangleHistory = ({theme}) => {

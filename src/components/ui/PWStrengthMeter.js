@@ -33,7 +33,7 @@ const Score = styled.span`
 
 /**
  * Returns the PWStrengthMeter component to measure the strength of the password entered in the InputConfidInfo component.
- * @param {object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the parent component. 
  * @param {Ref} confidInfoFieldRef - Reference to the InputConfidInfo component. 
  * @returns {ReactElement} - The PWStrengthMeter component.
  */

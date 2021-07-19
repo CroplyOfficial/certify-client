@@ -4,7 +4,7 @@ import InputBase from "./InputBase"
 
 /**
  * Returns the InputConfidInfo component.
- * @param {object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the parent component.
  * @param {string} [value] - The value of the input element (uneditable textarea).
  * @param {string} [defaultValue] - The default value of the input element (editable textarea).
  * @param {number|string} [maxLength] - The max number of chars to be allowed in the input element.
