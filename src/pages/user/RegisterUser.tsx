@@ -123,8 +123,8 @@ const RegisterUser = () => {
                 <form>
                     <div className="inputFields">
                         <InputText inputRef={usernameRef} err={usernameErr} placeholder="Username" />
-                        <InputConfidInfo inputRef={passwordRef} err={passwordErr} placeholder="Password" strengthMeter inputUnderlineColor="#C4C4C4" maskColor="#89C7F3" showHideColor="#CCCCCC" required />
-                        <InputConfidInfo inputRef={confirmPasswordRef} err={confirmPasswordErr} placeholder="Confirm Password" inputUnderlineColor="#C4C4C4" maskColor="#89C7F3" showHideColor="#CCCCCC" required />
+                        <InputConfidInfo inputRef={passwordRef} err={passwordErr} placeholder="Password" strengthMeter inputUnderlineColor="#C4C4C4" maskColor="#89C7F3" showHideColor="#CCCCCC" />
+                        <InputConfidInfo inputRef={confirmPasswordRef} err={confirmPasswordErr} placeholder="Confirm Password" inputUnderlineColor="#C4C4C4" maskColor="#89C7F3" showHideColor="#CCCCCC" />
                     </div>
                     <div className="buttons">
                         <Button type="button" primary onClick={inputValidation} btnColor="#5D7586">REGISTER</Button>

@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import styled, {withTheme} from 'styled-components';
 import {
     ToggleSwitch
@@ -25,6 +26,18 @@ const TextRight = styled.div`
     color: ${props => props.isOn ? props.theme.mainColors.black : props.theme.mainColors.grey};
 `;
 
+
+/**
+ * Returns the SettingToggleSwitchTextLR component. This component has text on either side of a ToggleSwitch component which is in the center.
+ * @param {object} theme - To receive the theme from the parent component.
+ * @param {object} settingsObj - The object containing the settings.
+ * @param {Function} changeHandlerFunc - The function to be executed when a particular setting is changed.
+ * @param {string} settingKey - The key of the setting in the settingsObj object.
+ * @param {string} textL - The text on the left of the ToggleSwitch component.
+ * @param {string} textR - The text on the right of the ToggleSwitch component.
+ * @param {any} [newSettingValue] - The new value to assign to the setting in the settingsObj if the changeHandlerFunc doesn't handle it by default. Refer to the SettingsUser component for a bettr understanding of the usage of this prop. 
+ * @returns {ReactElement} - The SettingToggleSwitchTextLR component.
+ */
 const SettingToggleSwitchTextLR = ({theme, settingsObj, changeHandlerFunc, settingKey, textL, textR, newSettingValue=undefined}) => {
     return (
         <Container>

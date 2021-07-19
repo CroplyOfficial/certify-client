@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import styled, {withTheme} from "styled-components"
 import {hexToRgb} from "../../../components/functions/componentFunctions"
 import {

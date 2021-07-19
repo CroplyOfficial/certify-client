@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -53,6 +54,13 @@ interface CheckboxProps {
   onChange: Function
 } 
 
+/**
+ * Returns the Checkbox component.
+ * @param {boolean} [disabled] - Specifies whether the checkbox is disabled or not. Apply this propety to make it disabled. 
+ * @param {boolean} [checked] - Specifies whether the checkbox is checked or not. Apply this propety to make it checked. 
+ * @param {boolean} onChange - Specifies the function to be executed when the state of the checkbox changes. 
+ * @returns {ReactElement} - The Checkbox component.
+ */
 const Checkbox = ({disabled, checked, onChange}: CheckboxProps) => {
   return (
     <Label disabled={disabled}>

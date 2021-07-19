@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, {withTheme} from 'styled-components'
+import styled from 'styled-components'
 
 import Button from "./Button"
 import { hexToRgb, colorLightLevel } from '../functions/componentFunctions'
@@ -12,14 +12,14 @@ const Container = styled.div`
 `;
 
 const WordsContainer = styled.div`
-    background-color: ${props => "rgba("+hexToRgb(props.theme.mainColors.blue)+",0.2)"};
+    background-color: ${"rgba("+hexToRgb('#89C7F3')+",0.2)"};
     padding: 0.6rem 0.6rem 0.6rem 0.6rem;
     border-radius: 15px;
     width: fit-content;
     height: fit-content;
 `;
 const TextBox = styled.div`
-    background-color: ${props => "rgba("+hexToRgb(props.theme.mainColors.blue)+",0.2)"};
+    background-color: ${"rgba("+hexToRgb('#89C7F3')+",0.2)"};
     margin: 0.3rem 0.3rem 0.3rem 0.3rem;
     border-radius: 20px;
     display: grid;
@@ -55,8 +55,12 @@ const BtnDiv = styled.div`
     place-items: center;
 `;
 
+/**
+ * Returns the RecoveryPhraseElement component. This shows the user phrases on the Onboarding page so that they can recover their account.
+ * @returns {ReactElement} - The RecoveryPhraseElement component.
+ */
 const RecoveryPhraseElement = () => {
-    let recoveryPhraseWords = [
+    const recoveryPhraseWords = [
         "hello","hello","hello","hello","hello","hello","hello","hello",
         "hello","hello","hello","hello","hello","hello","hello","hello",
         "hello","hello","hello","hello","hello","hello","hello","hello"
@@ -64,11 +68,11 @@ const RecoveryPhraseElement = () => {
     let rows = []
     let textBoxes = []
 
-    /*
-    3 TextBox components are pushed to the array textBoxes and as soon as textBoxes contains 3 elements, 
-    it is wrapped in the Row component and pushed to another array, rows. The array textBoxes is then emptied
-    and the loop goes on. So, every element of the array rows contains a Row component with 3 TextBox elements 
-    as children 
+    /**
+     * 3 TextBox components are pushed to the array textBoxes and as soon as textBoxes contains 3 elements, 
+     * it is wrapped in the Row component and pushed to another array, rows. The array textBoxes is then emptied
+     * and the loop goes on. So, every element of the array rows contains a Row component with 3 TextBox elements 
+     * as children 
     */
     for(const [index, word] of recoveryPhraseWords.entries()) {
         let num = index+1
@@ -100,4 +104,4 @@ const RecoveryPhraseElement = () => {
     )
 }
 
-export default withTheme(RecoveryPhraseElement)
+export default RecoveryPhraseElement

@@ -1,17 +1,23 @@
-// Input component to enter confidential information like passwords
-/*
-props:
-placeholder, value, maxLength, id, defaultValue, autoComplete, required, className have the same meaning as they do in standard jsx for an input field.
-inputRef -> specifies the ref prop for the input element which is part of this component.
-errRef -> specifies the ref prop for the div in the InputError component contained in this component.
-*/
-
-import PropTypes from "prop-types"
 import {withTheme} from 'styled-components'
 
 import InputBase from "./InputBase"
 
-const InputText = ({placeholder, value, maxLength, onChange, onFocus, onBlur, inputRef, defaultValue, autoComplete, required, className, err}) => {
+/**
+ * Returns the InputText component.
+ * @param {string} [value] - The value of the input element (uneditable textarea).
+ * @param {string} [defaultValue] - The default value of the input element (editable textarea).
+ * @param {Function} [onChange] - The function to be executed when the value in the input element changes.
+ * @param {number|string} [maxLength] - The max number of chars to be allowed in the input element.
+ * @param {Function} [onFocus] - Specifies the function to be executed when the onFocus event is triggered.
+ * @param {Function} [onBlur] - Specifies the function to be executed when the onBlur event is triggered.
+ * @param {boolean} [autoComplete] - Specifies whether the value in the input field should be auto-completed or not. Apply this prop if the input field should be auto-completed.
+ * @param {string} [className] - Specifies the CSS class of the fieldset containing the input element.
+ * @param {string} [placeholder] - Specifies the placeholder for the input element.
+ * @param {string} [err] - Specifies the error to be shown according to input received. This should be a state ideally.
+ * @param {Ref} [inputRef] - Specifies the reference of the input element.
+ * @returns {ReactElement} - The InputText component.
+ */
+const InputText = ({placeholder, value, defaultValue, maxLength, onChange, onFocus, onBlur, inputRef, autoComplete, className, err}) => {
     return (
         <InputBase 
             placeholder={placeholder} 
@@ -20,32 +26,13 @@ const InputText = ({placeholder, value, maxLength, onChange, onFocus, onBlur, in
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
-            defaultValue={defaultValue}
             value={value}
-            type="text"
+            defaultValue={defaultValue}
             autoComplete={autoComplete}
-            required={required}
             className={className}
             err={err}
         />
     )
-}
-
-InputText.propTypes = {
-    placeholder: PropTypes.string,
-    inputRef: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.func
-    ]), 
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    autoComplete: PropTypes.bool,
-    maxLength: PropTypes.string,
-    required: PropTypes.bool,
-    defaultValue: PropTypes.string,
-    className: PropTypes.string,
-    err: PropTypes.string
 }
 
 export default withTheme(InputText)

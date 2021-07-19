@@ -11,8 +11,7 @@ import {
     InputConfidInfo,
     InputPIN,
     H6,
-    Hr,
-    SettingsNavbar
+    Hr
 } from "../../../components/ui";
 
 
@@ -103,9 +102,9 @@ const SecuritySettingsOrg = ({theme}) => {
                     <H6>
                         Change Password
                     </H6>
-                    <InputConfidInfo inputRef={oldPasswordRef} err={oldPasswordErr} placeholder="Old Password" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} showHideColor={theme.pastelColors.grey} required />
-                    <InputConfidInfo inputRef={newPasswordRef} err={newPasswordErr} placeholder="New Password" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} showHideColor={theme.pastelColors.grey} strengthMeter required />
-                    <InputConfidInfo inputRef={confirmNewPasswordRef} err={confirmNewPasswordErr} placeholder="Confirm Password" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} showHideColor={theme.pastelColors.grey} required />
+                    <InputConfidInfo inputRef={oldPasswordRef} err={oldPasswordErr} placeholder="Old Password" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} showHideColor={theme.pastelColors.grey} />
+                    <InputConfidInfo inputRef={newPasswordRef} err={newPasswordErr} placeholder="New Password" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} showHideColor={theme.pastelColors.grey} strengthMeter />
+                    <InputConfidInfo inputRef={confirmNewPasswordRef} err={confirmNewPasswordErr} placeholder="Confirm Password" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} showHideColor={theme.pastelColors.grey} />
                     <Button
                         primary
                         btnColor={theme.mainColors.darkBlue}
@@ -116,9 +115,9 @@ const SecuritySettingsOrg = ({theme}) => {
                     <H6>
                         Change PIN Code
                     </H6>
-                    <InputPIN inputRef={oldPinRef} err={oldPinErr} placeholder="Old PIN" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} deleteDigitColor={theme.mainColors.black} required />
-                    <InputPIN inputRef={newPinRef} err={newPinErr} placeholder="New PIN" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} deleteDigitColor={theme.mainColors.black} required />
-                    <InputPIN inputRef={confirmNewPinRef} err={confirmNewPinErr} placeholder="Confirm New PIN" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} deleteDigitColor={theme.mainColors.black} required />
+                    <InputPIN inputRef={oldPinRef} err={oldPinErr} placeholder="Old PIN" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} deleteDigitColor={theme.mainColors.black} />
+                    <InputPIN inputRef={newPinRef} err={newPinErr} placeholder="New PIN" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} deleteDigitColor={theme.mainColors.black} />
+                    <InputPIN inputRef={confirmNewPinRef} err={confirmNewPinErr} placeholder="Confirm New PIN" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} deleteDigitColor={theme.mainColors.black} />
                     <Button
                         primary
                         btnColor={theme.mainColors.darkBlue}

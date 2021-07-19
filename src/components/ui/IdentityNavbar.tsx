@@ -1,5 +1,6 @@
 import styled, {withTheme} from "styled-components";
 import {Link} from 'react-router-dom';
+import { ReactElement } from "react";
 
 const Container = styled.div`
     height: 3.5rem;
@@ -42,6 +43,11 @@ const IdentityNavbarItem = styled(Link)`
     }
 `;
 
+/**
+ * Returns the IdentityNavbar component. Shows the navbar in the MainContent component on pages related to Identity in the organisation UI.
+ * @param {string} [identityActive] - Specifies the menu item to be highlighted. Example usage <IdentityNavbar identityActive="Dashboard" />
+ * @returns {ReactElement} - The IdentityNavbar component.
+ */
 const IdentityNavbar = ({identityActive}) => {
     return (
         <Container>

@@ -1,9 +1,3 @@
-// Contains code for the org dashboard menu
-/*
-props:
-active -> The name of the menu item which should be marked active. e.g. on the dashboard page, the Menu component should be typed this way: <Menu active="Dashboard" />
-*/
-
 import styled from 'styled-components'
 import PropTypes from "prop-types"
 import {Link} from "react-router-dom"
@@ -15,6 +9,7 @@ import {
     Contact,
     Register
 } from "../assets/icons"
+import { ReactElement } from 'react'
 
 const MenuBase = styled.div`
     position: fixed;
@@ -95,6 +90,14 @@ const ActivePageMarker = styled.div`
     margin: 0;
 `;
 
+
+/**
+ * Returns the MenuPublic component which appears on all public pages.
+ * @param {Ref} menuRef - The reference to this component. 
+ * @param {Function} toggleModal - The function to show/hide the contact modal on the public pages. 
+ * @param {string} [active] - Specifies the menu item to be highlighted. Example usage <MenuPublic active="Home" /> 
+ * @returns {ReactElement} - The MenuPublic component.
+ */
 const MenuPublic = ({menuRef, toggleModal, active}) => {
 
     return (

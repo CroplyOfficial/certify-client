@@ -4,7 +4,7 @@ import backgroundLight from "../assets/Background-light.svg"
 import backgroundDark from "../assets/Background-dark.svg"
 
 
-const Div = styled.div`
+const Container = styled.div`
     width: 85%;
     height: calc(100vh - 110px);
     background: url(${props => props.theme.mode === "light" ? backgroundLight : backgroundDark}) center no-repeat;
@@ -21,13 +21,19 @@ const Div = styled.div`
     }
 `;
 
+/**
+ * Returns the PageContentContainer component. This component contains the TangleHistory and the MainContentContainer components.
+ * @param {string} className - CSS class of this component.
+ * @param {ReactElement} children - Children of this component.
+ * @returns {ReactElement} - The PageContentContainer component.
+ */
 const PageContentContainer = ({className, children}) => {
     const menuCollapsed = useSelector(state => state.menuCollapsed)
     const menuCollapsedClass = menuCollapsed ? "menuCollapsed" : ""
     return (
-        <Div className={className ? (className + " " + menuCollapsedClass) : menuCollapsedClass}>
+        <Container className={className ? (className + " " + menuCollapsedClass) : menuCollapsedClass}>
             {children}
-        </Div>
+        </Container>
     )
 }
 

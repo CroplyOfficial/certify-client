@@ -1,7 +1,4 @@
-// Contains code for the component to describe input error
-
 import React from 'react'
-import PropTypes from "prop-types"
 import styled, {withTheme} from "styled-components"
 
 const Div = styled.div`
@@ -12,17 +9,19 @@ const Div = styled.div`
     height: 1rem;
 `;
 
-const InputError = ({theme, id, className, children}) => {
+/**
+ * Returns the InputError component. This displays errors related to input (if any) in the InputBase component.
+ * @param {object} theme -  To receive the theme from the parent component.
+ * @param {string} className -  The CSS class of the div in this component.
+ * @param {ReactElement} children - The children of this component.
+ * @returns {ReactElement} - The InputError component.
+ */
+const InputError = ({theme, className, children}) => {
     return (
-        <Div id={id} className={className}>
+        <Div className={className}>
             {children}
         </Div>
     )
-}
-
-InputError.propTypes ={
-    id: PropTypes.string,
-    className: PropTypes.string
 }
 
 export default withTheme(InputError)

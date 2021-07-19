@@ -45,6 +45,13 @@ const DomainOptions = styled.div`
     place-items: center;
 `;
 
+/**
+ * Returns the DomainHolder component which displays the data of a specified domain and shows options for it.
+ * @param {object} theme - To receive the theme from the parent component. 
+ * @param {object} domain - Contains the data of the domain to be displayed. 
+ * @param {Function} toggleEditDomainPopupFunc - Specifies the function to be executed to show the EditDomainPopup component.
+ * @returns {ReactElement} - The DomainHolder component.
+ */
 const DomainHolder = ({theme, domain, toggleEditDomainPopupFunc}) => {
     const domainOptions = {
         "Edit": () => toggleEditDomainPopupFunc(domain),

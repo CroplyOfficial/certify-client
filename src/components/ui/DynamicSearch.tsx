@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, ReactElement } from "react";
 import styled, {withTheme} from "styled-components";
 import InputText from "./InputText";
 
@@ -74,24 +74,11 @@ const NoCredentialsFound = styled.div`
   color: ${props => props.theme.mainColors.black};
 `;
 
-const useOutsideHandler = (containerRef, searchResultsContainerRef) => {
-  useEffect(() => {
-      const handleClickOutside = e => {
-          if (containerRef.current && !containerRef.current.contains(e.target)) {
-            searchResultsContainerRef.current.style.display = "none";
-          }
-      }
-
-      // Bind the event listener
-      window.addEventListener("mousedown", handleClickOutside);
-      return () => {
-          // Unbind the event listener on clean up
-          window.removeEventListener("mousedown", handleClickOutside);
-      };
-  });
-}
-
-
+/**
+ * Returns the DynamicSearch component which is a search bar which helps search for a credential while the user is typing its name.
+ * @param {string[]} credentialNames - The array containing the names of the credentials.
+ * @returns {ReactElement} The DynamicSearch component.
+ */
 const DynamicSearch = ({credentialNames}) => {
   const [filtered, setFiltered] = useState(credentialNames);
   const [inputValue, setInputValue] = useState("");
@@ -99,9 +86,29 @@ const DynamicSearch = ({credentialNames}) => {
   const containerRef = useRef(null);
   const inputRef = useRef(null);
   const searchResultsContainerRef = useRef(null);
-  useOutsideHandler(containerRef, searchResultsContainerRef);
 
-  const filterData = (keyword: any) => {
+  useEffect(() => {
+    /**
+     * Hides the SearchResultsContainer component when the user clicks outside of the Container component.
+     * @param {Event} e - The triggering event.
+     */
+    const handleClickOutside = e => {
+        if (containerRef.current && !containerRef.current.contains(e.target)) {
+          searchResultsContainerRef.current.style.display = "none";
+        }
+    }
+    // Bind the event listener
+    window.addEventListener("mousedown", handleClickOutside);
+    return () => {
+        // Unbind the event listener on clean up
+        window.removeEventListener("mousedown", handleClickOutside);
+    };
+  });
+  /**
+   * Filters credentials from the credentialNames array and sets the data to the filtered state based on the keyword provided.
+   * @param {string} keyword - The keyword based on which credentials are to be filtered. 
+   */
+  const filterData = (keyword: string) => {
     let search;
     try {
       search = new RegExp(keyword, 'gi');

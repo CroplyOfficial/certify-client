@@ -102,9 +102,10 @@ const Credentials = ({theme}) => {
                     }
                 </td>
                 <td>
-                    <ShowOptions options={{"Duplicate": () => toggleDuplicateCredentialPopup(entry)}} />
+                    <ShowOptions options={{"Duplicate": () => toggleDuplicateCredentialPopup(entry)}} optionListStyling={`margin-left: -4rem`} />
                 </td>
             </tr>
+
         )
         rowIndex++
     }

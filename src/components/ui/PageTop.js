@@ -63,6 +63,11 @@ const ProfilePicture = styled.div`
     text-align: center;
 `;
 
+/**
+ * Returns the PageTop component consisting of the search bar, notification bell and profile picture. This component appears on all org and user pages.
+ * @param {object} theme - To receive the theme from the parent component.
+ * @returns {ReactElement} - The PageTop component.
+ */
 const PageTop = ({theme}) => {
     const menuCollapsed = useSelector(state => state.menuCollapsed)
 
@@ -71,9 +76,9 @@ const PageTop = ({theme}) => {
     when it isn't. This wil be used to provide elements the menuCollapsed class when it the menu is
     collapsed.
     */
-    let menuCollapsedClass = menuCollapsed ? "menuCollapsed" : ""
+    let menuCollapsedClass = menuCollapsed ? "menuCollapsed" : "";
 
-    let notifExists = false // Variable to determine whether the user has any notifications or not.
+    let notifExists = false; // Variable to determine whether the user has any notifications or not.
     return (
         <Container className={menuCollapsedClass}>
             <SearchBar placeholder="Search for a Credential or Application" btnText="SEARCH" />

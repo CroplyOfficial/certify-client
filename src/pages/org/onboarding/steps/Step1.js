@@ -33,7 +33,7 @@ const Step1 = ({profileNameRef, nextStepFunc}) => {
                 </p>
             </div>
             <div className="div2">
-                <InputText id="profileName" inputRef={profileNameRef} placeholder="Profile Name" err={profileNameErr} required />
+                <InputText id="profileName" inputRef={profileNameRef} placeholder="Profile Name" err={profileNameErr} />
             </div>
             <div className="div3">
                 <Button primary btnColor="#6D97B5" onClick={inputValidation}>CREATE NEW IDENTITY</Button>

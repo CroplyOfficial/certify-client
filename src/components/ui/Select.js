@@ -1,7 +1,6 @@
 // Contains the code for the custom select tag.
 
 import React, {useState} from 'react'
-import PropTypes from "prop-types"
 
 import styled, {withTheme} from "styled-components"
 
@@ -93,14 +92,23 @@ const Label = styled.label`
     }
 `;
 
-const Select = ({theme, id, inputRef, required, defaultValue, placeholder, optionList}) => {
+/**
+ * Returns the Select component.
+ * @param {object} theme - To receive the theme from the parent component.
+ * @param {string} [defaultValue] - The default value of the input element (editable textarea).
+ * @param {string[]} optionList - The array of option strings.
+ * @param {string} [placeholder] - Specifies the placeholder for the select element.
+ * @param {Ref} [inputRef] - Specifies the reference of the select element.
+ * @returns {ReactElement} - The Select component.
+ */
+const Select = ({theme, inputRef, defaultValue, placeholder, optionList}) => {
     const [isOptSelected, setIsOptSelected] = useState(defaultValue ? true : false) // State to determine whether an option is selected or not.
     let optList = [] // Array which will contain all the option elements
 
-    /* 
-    Checks if the SelectBase element has any value in it and changes the state isOptSelected according to that. This is 
-    needed for making the label float over the element when the latter is clicked. 
-    */
+    /**
+     * Checks if the SelectBase element has any value in it and changes the state isOptSelected according to that. This is 
+     * needed for making the label float over the element when the latter is clicked. 
+     */
     const isOptSelectedCheck = (e) => {
         if (e.target.value !== "")
             setIsOptSelected(true);
@@ -110,13 +118,11 @@ const Select = ({theme, id, inputRef, required, defaultValue, placeholder, optio
     /* Converting all values in optionList to option elements and pushing them to optList */
     for (const [index, value] of optionList.entries()) {
         optList.push(<option key={index}>{value}</option>)
-      }
+    }
     return (
         <Fieldset>
             <SelectBase 
-                id={id}
                 ref={inputRef}
-                required={required}
                 onChange={isOptSelectedCheck}
                 defaultValue={defaultValue}
             >
@@ -129,15 +135,6 @@ const Select = ({theme, id, inputRef, required, defaultValue, placeholder, optio
             <Label className={isOptSelected ? 'optSelected' : ''}>{placeholder}</Label>
         </Fieldset>
     )
-}
-
-Select.propTypes = {
-    placeholder: PropTypes.string,
-    inputRef: PropTypes.func || PropTypes.object,
-    id: PropTypes.string,
-    optionList: PropTypes.array,
-    required: PropTypes.bool,
-    defaultValue: PropTypes.string
 }
 
 export default withTheme(Select)

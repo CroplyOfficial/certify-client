@@ -1,15 +1,4 @@
-// Contains code for the base of the InputPIN, InputText and InputConfidInfo components
-/* 
-props:
-value, defaultValue, className, maxLength, placeholder, id, autoComplete, required have the same meaning as they do in standard jsx for an input field.
-strengthMeter -> indicates whether or not the component should contain the PWStrengthMeter to determine the strength of the entered password (mainly meant for InputConfidInfo component).
-confidInfo -> indicates whether or not the component deals with confidential info or not.
-inputRef -> specifies the ref prop for the input element which is part of this component.
-errRef -> specifies the ref prop for the div in the InputError component contained in this component.
-*/
-
 import {useState} from 'react'
-import PropTypes from 'prop-types';
 import styled, {withTheme} from 'styled-components'
 
 import {View, Hide} from "../assets/icons"
@@ -103,15 +92,35 @@ const Error = styled(InputError)`
     margin-top: ${props => props.strengthMeter ? "5.2rem" : "3.2rem"};
 `;
 
-const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, className, strengthMeter, maxLength, confidInfo, placeholder, autoComplete, required, err, inputRef, showHideColor}) => {
+/**
+ * Returns the InputBase component. This is the parent component of the InputText and InputConfidInfo component.
+ * @param {object} theme - To receive the theme from the parent component.
+ * @param {string} [value] - The value of the input element (uneditable textarea).
+ * @param {string} [defaultValue] - The default value of the input element (editable textarea).
+ * @param {Function} [onChange] - The function to be executed when the value in the input element changes.
+ * @param {number|string} [maxLength] - The max number of chars to be allowed in the input element.
+ * @param {Function} [onFocus] - Specifies the function to be executed when the onFocus event is triggered.
+ * @param {Function} [onBlur] - Specifies the function to be executed when the onBlur event is triggered.
+ * @param {boolean} [autoComplete] - Specifies whether the value in the input field should be auto-completed or not. Apply this prop if the input field should be auto-completed.
+ * @param {string} [className] - Specifies the CSS class of the fieldset containing the input element.
+ * @param {string} [placeholder] - Specifies the placeholder for the input element.
+ * @param {boolean} [strengthMeter] - Specifies whether there should be a password strentgh meter shown. Apply this prop if the password strentgh meter should be shown.
+ * @param {boolean} [confidInfo] - Specifies whether the value in the input element should be masked or not. Apply this prop if the value in the input element should be masked.
+ * @param {string} [showHideColor] - Specifies the stroke color of the svg to toggle the masked input (in hexadecimal). 
+ * @param {string} [err] - Specifies the error to be shown according to input received. This should be a state ideally.
+ * @param {Ref} [inputRef] - Specifies the reference of the input element.
+ * @returns {ReactElement} - The InputBase component.
+ */
+const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, className, strengthMeter, maxLength, confidInfo, placeholder, autoComplete, err, inputRef, showHideColor}) => {
 
     const [isInputFilled, setIsInputFilled] = useState(defaultValue || value ? true : false); // State to determine whether the input field has a value in it or not
     const [isConfidInfoVisible, setIsConfidInfoVisible] = useState(false); // State to determine whether the text in the input field is masked or not. This is needed for the Show/Hide Password functionality
 
-    /* 
-    Checks if the Input element has any value in it and changes the state isInputFilled according to that. This is 
-    needed for making the label float over the input when the latter is clicked. 
-    */
+    /** 
+     * Checks if the Input element has any value in it and changes the state isInputFilled according to that. This is 
+     * needed for making the label float over the input when the latter is clicked.
+     * @param {Event} e - The triggering event.
+     */
     const isInputFilledCheck = (e) => {
         if (e.target.value !== "")
             setIsInputFilled(true);
@@ -119,7 +128,10 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
             setIsInputFilled(false);
     }
 
-    /* Changes the state isConfidInfoVisible to show or hide (mask) the info in the input field */
+    /**
+     * Changes the state isConfidInfoVisible to show or hide (mask) the info in the input field.
+     * @param {Event} e - The triggering event.
+     */
     const toggleShowConfidInfo = (e) => {
         if (!isConfidInfoVisible) 
             setIsConfidInfoVisible(true)
@@ -151,7 +163,6 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
                 onBlur={onBlur}
                 confidInfo={confidInfo}
                 autoComplete={autoComplete}
-                required={required}
                 value={value ? value : undefined}
             />
             <Label 
@@ -174,26 +185,6 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
             <Error strengthMeter={strengthMeter}>{err}</Error>
         </Fieldset>
     )
-}
-
-InputBase.propTypes = {
-    placeholder: PropTypes.string,
-    inputRef: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.func
-    ]),
-    autoComplete: PropTypes.bool,
-    maxLength: PropTypes.string,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    required: PropTypes.bool, 
-    confidInfo: PropTypes.bool,
-    strengthMeter: PropTypes.bool,
-    defaultValue: PropTypes.string,
-    className: PropTypes.string,
-    err: PropTypes.string,
-    showHideColor: PropTypes.string
 }
 
 export default withTheme(InputBase)

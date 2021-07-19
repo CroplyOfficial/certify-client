@@ -1,9 +1,3 @@
-// Contains code for the org dashboard menu
-/*
-props:
-active -> The name of the menu item which should be marked active. e.g. on the dashboard page, the Menu component should be typed this way: <MenuOrg active="Dashboard" />
-*/
-
 import styled, {withTheme} from 'styled-components'
 import PropTypes from "prop-types"
 import {useSelector, useDispatch} from "react-redux"
@@ -222,7 +216,12 @@ const LogoutDiv = styled.div`
     }
 `;
 
-
+/**
+ * Returns the MenuOrg component which appears on all organization pages.
+ * @param {object} theme - To receive the theme from the parent component. 
+ * @param {string} [active] - Specifies the menu item to be highlighted. Example usage <MenuOrg active="Dashboard" /> 
+ * @returns {ReactElement} - The MenuOrg component.
+ */
 const MenuOrg = ({theme, active}) => {
     const menuCollapsed = useSelector((state: RootState) => state.menuCollapsed)
 

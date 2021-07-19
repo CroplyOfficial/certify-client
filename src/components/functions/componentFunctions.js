@@ -1,8 +1,9 @@
 // Contains functions used for components
 
-/*
-Precondition: A color in hexadecimal code as a string, e.g. #FFFFFF
-Postcondition: The color in RGB as a string with the format: RRR,GGG,BBB 
+/**
+ * Returns a color in RGB as a string with the format: RRR,GGG,BBB 
+ * @param {string} hex - A color in hexadecimal code as a string, e.g. #FFFFFF
+ * @returns {string} - The color in RGB as a string with the format: RRR,GGG,BBB
 */
 const hexToRgb = (hex) => {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -15,9 +16,10 @@ const hexToRgb = (hex) => {
     return resultStr
 }
 
-/* Creates a ripple effect of a particular color on a button on execution of an event */
+/**
+ * Creates a ripple effect of a particular color on a button on execution of an event.
+ */ 
 const btnRippleEffect = (e, color) => {
-
     let target = e.target;
     let rect = target.getBoundingClientRect();
     let ripple = target.querySelector('.ripple');
@@ -39,9 +41,11 @@ const btnRippleEffect = (e, color) => {
 
 }
 
-/*
-Precondition: A color in hexadecimal code as a string, e.g. #FFFFFF, and the percent by which you want to darken or lighten the color (negative values for darkening, positive values for lightening)
-Postcondition: The darkened/lightened color in hexadecimal code as a string
+/**
+ * Returns darkened/lightened color in hexadecimal code as a string.
+ * @param {string} color - The color in hexadecimal code as a string, e.g. #FFFFFF
+ * @param {number} percent - The percent by which you want to darken or lighten the color (negative values for darkening, positive values for lightening).
+ * @returns {string} - The darkened/lightened color in hexadecimal code as a string.
 */
 const colorLightLevel= (color, percent) => {
     var R = parseInt(color.substring(1,3),16);
