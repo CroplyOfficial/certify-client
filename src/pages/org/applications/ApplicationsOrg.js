@@ -44,9 +44,9 @@ const EditColHeading = styled.div`
 
 /**
  * Returns the ApplicationsOrg component which is the page that
- * displays the applications of a particular organisation.
+ * displays the applications of the organization.
  * @param {Object} theme - To receive the theme from the parent component. 
- * @returns {ReactElement} - The ApplicationsOrg component
+ * @returns {ReactElement} - The ApplicationsOrg component.
  */
 const ApplicationsOrg = ({theme}) => {
     const sidebarCollapsed = useSelector(state => state.sidebarCollapsed)

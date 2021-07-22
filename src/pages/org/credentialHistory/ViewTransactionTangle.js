@@ -66,10 +66,10 @@ const DataField = ({theme, children, title}) => {
 }
 
 /**
- * Returns the History component which is the page that 
+ * Returns the ViewTransactionTangle component which is the page that 
  * contains information about a particular credential.
  * @param {Object} theme - To receive the theme from the parent component. 
- * @returns {ReactElement} - The History component.
+ * @returns {ReactElement} - The ViewTransactionTangle component.
  */
 const ViewTransactionTangle = ({theme}) => {
     const [userData] = useState({

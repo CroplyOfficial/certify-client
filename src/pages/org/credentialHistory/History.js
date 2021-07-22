@@ -43,7 +43,7 @@ const EditColHeading = styled.div`
 
 /**
  * Returns the History component which is the page that 
- * displays the credential history of a particular organisation.
+ * displays the credential history of the organization.
  * @param {Object} theme - To receive the theme from the parent component. 
  * @returns {ReactElement} - The History component.
  */

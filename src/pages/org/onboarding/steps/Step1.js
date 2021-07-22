@@ -1,13 +1,23 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {Step} from "./"
 import {
     InputText, 
     Button,
 } from "../../../../components/ui" 
 
+/**
+ * Returns the Step1 component which is the onboarding step to ask for the 
+ * profile name.
+ * @param {Ref} profileNameRef - The reference to the profile name input field. 
+ * @param {Function} nextStepFunc - The function to proceed to the next step.
+ * @returns {ReactElement} - The Step1 component.
+ */
 const Step1 = ({profileNameRef, nextStepFunc}) => {
     const [profileNameErr, setProfileNameErr] = useState("")
 
+    /**
+     * Function to validate the input values.
+     */
     const inputValidation = () => {
         if(profileNameRef.current.value === "") {
             setProfileNameErr("Please enter a valid profile name.")

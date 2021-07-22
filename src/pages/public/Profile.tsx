@@ -123,6 +123,10 @@ const CredentialInfoHolder = styled.div`
     }
 `;
 
+/**
+ * Returns the Profile component which is page that displays an organization's profile.
+ * @returns {ReactElement} - The Profile component.
+ */
 const Profile = () => {
     const [userData] = useState({
         userProfileDesc: "Nestled on the beautiful hillsides of the Brecon Beacons National Park, Wales, Brecon Mountain Farm are an award winning upland sheep farm specialising in traditional all natural wool produce. With almost 100 years in the business, the fourth generation farm still operate traditional, natural farming methods, to help preserve the natural Welsh landscape through organic and regenerative farming practices. ",

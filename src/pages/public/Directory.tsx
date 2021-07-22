@@ -23,6 +23,11 @@ const ProfilesHolder = styled.div`
     padding: 3rem 6rem;
 `;
 
+/**
+ * Returns the Directory component which is the page that
+ * displays organization profiles.
+ * @returns {ReactElement} - The Directory component.
+ */
 const Directory = () => {
 
     const [profiles] = useState([

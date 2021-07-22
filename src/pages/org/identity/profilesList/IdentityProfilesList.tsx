@@ -18,11 +18,21 @@ const ProfilesHolder = styled.div`
     margin-bottom: 1rem;
 `;
 
+/**
+ * Returns the IdentityProfilesList component which is the page that displays
+ * the list of Identity profiles.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The IdentityProfilesList component.
+ */
 const IdentityProfilesList = ({theme}) => {
     const [newProfilePopupVisible, setNewProfilePopupVisible] = useState(false);
+    /**
+     * Function to show/hide the NewProfilePopup component.
+     */
     const toggleNewProfilePopupVisible = () => {
         setNewProfilePopupVisible(!newProfilePopupVisible);
     }
+
     const [profiles] = useState([
         {
             profileName: 'TomWork',

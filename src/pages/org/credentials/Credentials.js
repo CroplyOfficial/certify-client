@@ -45,7 +45,7 @@ const EditColHeading = styled.div`
 
 /**
  * Returns the Credentials component which is the page that 
- * displays the credentials of a particular organisation.
+ * displays the credentials of the organization.
  * @param {Object} theme - To receive the theme from the parent component. 
  * @returns {ReactElement} - The Credentials component.
  */

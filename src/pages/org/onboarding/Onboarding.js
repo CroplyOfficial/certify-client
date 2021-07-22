@@ -65,7 +65,11 @@ const LogoDiv = styled.div`
     }
 `;
 
-
+/**
+ * Returns the LoginOrg component which is the page that contains
+ * the organisation onboarding steps.
+ * @returns {ReactElement} - The LoginOrg component.
+ */
 const Onboarding = () => {
     const [userInput, setUserInput] = useState({
         "profileName" : "",
@@ -80,7 +84,9 @@ const Onboarding = () => {
     const pinRef = useRef(null)
     const confirmPinRef = useRef(null)
 
-
+    /**
+     * Function to go to the next step.
+     */
     const nextStep = () => {
         // If user is on Step1 (the step where they have to enter the profile name)
         if(activeStep === 0) {
@@ -102,9 +108,14 @@ const Onboarding = () => {
         }
         setActiveStep(activeStep => activeStep+1)
     }
+
+    /**
+     * Function to go back to the previous step.
+     */
     const prevStep = () => {
         setActiveStep(activeStep => activeStep-1)
     }
+    
     const steps =  [
         <Step1 profileNameRef={profileNameRef} nextStepFunc={nextStep} />, 
         <Step2 nextStepFunc={nextStep} />,

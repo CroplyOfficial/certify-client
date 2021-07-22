@@ -54,8 +54,17 @@ const CredentialsHolder = styled.div`
     margin-bottom: 1rem;
 `;
 
+/**
+ * Returns the ViewProfile component which is the page to view/edit
+ * a user profile.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The ViewProfile component.
+ */
 const ViewProfile = ({theme}) => {
     const [editCredentialPermsPopupVisible, setEditCredentialPermsPopupVisible] = useState(false);
+    /**
+     * Function to show/hide the EditCredentialPermsPopup component.
+     */
     const toggleEditCredentialPermsPopupVisible = () => {
         setEditCredentialPermsPopupVisible(!editCredentialPermsPopupVisible);
     }
@@ -111,7 +120,10 @@ const ViewProfile = ({theme}) => {
                 <MainContent contentTitle="View Profile" identityActive="Profiles List" componentRight={addCredentialsBtn}>
                     <Header>
                         <Menu>
-                            <ShowOptions options={menuOptions} optionListStyling={'margin-left: -6.5rem;'} />
+                            <ShowOptions 
+                                options={menuOptions}
+                                optionListStyling={'margin-left: -6.5rem;'} 
+                            />
                         </Menu>
                         <ProfilePicture>
                             {profileData.profileName[0]}

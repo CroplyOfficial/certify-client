@@ -4,10 +4,22 @@ import {
     InputConfidInfo,
     Button,
 } from "../../../../components/ui" 
-const Step3 = ({nextStepFunc, passwordRef, confirmPasswordRef}) => {
-    const [passwordErr, setPasswordErr] = useState("")
-    const [confirmPasswordErr, setConfirmPasswordErr] = useState("")
 
+/**
+ * Returns the Step3 component which is the onboarding step to enter and confirm the
+ * password.
+ * @param {Reference} passwordRef - The reference to the password input field.
+ * @param {Reference} confirmPasswordRef - The reference to the confirm password input field.
+ * @param {Function} nextStepFunc - The function to proceed to the next step.
+ * @returns {ReactElement} - The Step3 component.
+ */
+const Step3 = ({nextStepFunc, passwordRef, confirmPasswordRef}) => {
+    const [passwordErr, setPasswordErr] = useState("");
+    const [confirmPasswordErr, setConfirmPasswordErr] = useState("");
+    
+    /**
+     * Function to validate the input values.
+     */
     const inputValidation = () => {
         if(passwordRef.current.value === "") {
             setConfirmPasswordErr("")
