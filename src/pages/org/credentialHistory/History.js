@@ -41,9 +41,20 @@ const EditColHeading = styled.div`
     margin-top: 0.5rem;
 `;
 
+/**
+ * Returns the History component which is the page that 
+ * displays the credential history of a particular organisation.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The History component.
+ */
 const History = ({theme}) => {
     const sidebarCollapsed = useSelector(state => state.sidebarCollapsed)
     const [checkboxState, setCheckboxState] = useState([entries.map((a) => false)]) // sets initial value of all elements of the state to false
+    
+     /**
+     * Handles what happens when a checkbox is clicked.
+     * @param {Event} e - The onClick event which is fired when a checkbox is clicked.
+     */
     const handleCheckboxChange = (e) => {
         let parentTrTag = e.target.parentElement.parentElement
         let index = parentTrTag.key

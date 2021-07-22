@@ -35,6 +35,12 @@ const IDScan = styled(LongInput)`
     grid-column: 1 / span 7;
 `;
 
+/**
+ * Returns the NewApplicationOrg component which is the page that 
+ * contains the form to make a new application for a particular organisation.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The NewApplicationOrg component
+ */
 const NewApplicationOrg = ({theme}) => {
     const userInputRefs = useRef({})
     userInputRefs.current = {

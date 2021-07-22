@@ -46,6 +46,16 @@ const DataFieldContent = styled.div`
     padding-left: 1.5rem;
 `;
 
+/**
+ * Returns the DataField component which contains the a piece of information 
+ * about a particular credential.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {ReactElement} [children] - Specifies the content of the DataFieldContent
+ * component inside this component.
+ * @param {ReactElement} [title] - Specifies the content of the DataFieldTitle
+ * component inside this component.
+ * @returns {ReactElement} - The DataField component.
+ */
 const DataField = ({theme, children, title}) => {
     return (
         <div>
@@ -55,6 +65,12 @@ const DataField = ({theme, children, title}) => {
     )
 }
 
+/**
+ * Returns the History component which is the page that 
+ * contains information about a particular credential.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The History component.
+ */
 const ViewTransactionTangle = ({theme}) => {
     const [userData] = useState({
         licenseHolderID: "did:iota:123456789abcdefghi",
