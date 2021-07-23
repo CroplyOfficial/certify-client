@@ -99,6 +99,13 @@ const BtnDiv = styled.div`
     }
 `;
 
+/**
+ * Returns the NewProfilePopup component which is the modal used to
+ * create a new profile.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Function} closePopupFunc - The function to close the popup. 
+ * @returns {ReactElement} - The NewProfilePopup component.
+ */
 const NewProfilePopup = ({theme, closePopupFunc}) => {
 
     const popupRef = useRef(null);
@@ -109,7 +116,11 @@ const NewProfilePopup = ({theme, closePopupFunc}) => {
     const [profileUsernameErr, setProfileUsernameErr] = useState('');
     const [publicNameErr, setPublicNameErr] = useState('');
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();

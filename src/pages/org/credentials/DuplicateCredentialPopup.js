@@ -101,10 +101,22 @@ const BtnDiv = styled.div`
     }
 `;
 
+/**
+ * Returns the DuplicateCredentialPopup component which is the modal used to
+ * duplicate a credential.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Function} closePopupFunc - The function to close the popup. 
+ * @param {Object} credential - The credential to be duplicated.
+ * @returns {ReactElement} - The DuplicateCredentialPopup component.
+ */
 const DuplicateCredentialPopup = ({theme, closePopupFunc, credential}) => {
     const popupRef = useRef(null);
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();

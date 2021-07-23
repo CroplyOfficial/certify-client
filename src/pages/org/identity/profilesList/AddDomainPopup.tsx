@@ -78,6 +78,12 @@ const BtnDiv = styled.div`
     }
 `;
 
+/**
+ * Returns the AddDomainPopup component which is the modal to add a domain to a profile. 
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Function} closePopupFunc - The function to close this popup.
+ * @returns {ReactElement} - The AddDomainPopup component.
+ */
 const AddDomainPopup = ({theme, closePopupFunc}) => {
 
     const popupRef = useRef(null);
@@ -86,13 +92,19 @@ const AddDomainPopup = ({theme, closePopupFunc}) => {
 
     const [domainErr, setDomainErr] = useState('');
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();
         }
     }
-
+    /**
+     * Function to validate the input data.
+     */
     const inputValidation = () => {
         setDomainErr('');
         const domainFormat = /[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+/; // Credits: https://stackoverflow.com/a/26093611/14323287

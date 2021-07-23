@@ -80,7 +80,13 @@ const BtnDiv = styled.div`
     }
 `;
 
-const ContactFormPopup = ({closeModal}) => {
+/**
+ * Returns the ContactFormPopup which is the modal that displays the
+ * contact form on the public pages.
+ * @param {Function} closePopupFunc - The function to close the popup.
+ * @returns {ReactElement} - The ContactFormPopup component.
+ */
+const ContactFormPopup = ({closePopupFunc}) => {
 
     const popupRef = useRef(null);
 
@@ -94,13 +100,20 @@ const ContactFormPopup = ({closeModal}) => {
     const [subjectErr, setSubjectErr] = useState("");
     const [messageErr, setMessageErr] = useState("");
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
         if (popupRef.current && !popupRef.current.contains(e.target)) {
-            closeModal();
+            closePopupFunc();
         }
     }
 
+    /**
+     * Function to validate the input data.
+     */
     const inputValidation = () => {
         setNameErr('');
         setEmailErr('');
@@ -123,7 +136,7 @@ const ContactFormPopup = ({closeModal}) => {
         <BlurredBg onMouseDown={handleClickOutside}>
             <Popup ref={popupRef}>
                 <ClosePopup>
-                    <Cross fill='#A1A1A1' width="3.5rem" onClick={closeModal} />
+                    <Cross fill='#A1A1A1' width="3.5rem" onClick={closePopupFunc} />
                 </ClosePopup>
                 <BreadcrumbHeader>
                     <H1>Contact Form</H1>

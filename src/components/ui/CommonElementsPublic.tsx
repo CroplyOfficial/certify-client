@@ -44,7 +44,7 @@ const CommonElementsPublic = ({menuActive=""}) => {
         <>
             {
                 contactModalVisible ? 
-                <ContactFormPopup closeModal={toggleContactModal} />: 
+                <ContactFormPopup closePopupFunc={toggleContactModal} />: 
                 ""
             }
             <PageTopPublic toggleMenu={toggleMenu} menuOpen={menuOpen} />
