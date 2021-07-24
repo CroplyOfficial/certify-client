@@ -1,12 +1,3 @@
-// Contains code for the main content div on a page.
-/*
-props:
-contentTitle -> The heading that appears for the main content
-componentRight -> A ReactJS component that should be aligned to the right of the contentTitle
-tablePage -> Add this prop if the page contains a table of records
-identityActive -> Add this prop if you want to display the navbar for identity pages. Provide the name of the item which is supposed to be highlighted in the navbar.
-*/
-
 import styled, {css, withTheme} from 'styled-components';
 import { useHistory } from "react-router-dom";
 
@@ -37,8 +28,8 @@ const ContentWithoutNavbar = styled.div`
     overflow-x: hidden;
     height: calc(100% - 100px);
     border-radius: 30px;
-    border: 1px solid ${props => props.theme.pastelColors.grey};
-    background-color: ${props => props.theme.mainColors.white};
+    border: 1px solid ${props => props.theme.mainContent.border};
+    background-color: ${props => props.theme.mainContent.bg};
     padding: 2rem;
     box-sizing: border-box;
 
@@ -106,7 +97,6 @@ const ContentWithNavbar = styled(ContentWithoutNavbar)`
  * Returns the MainContent component. It contains the page title, components to the right of the page title and the important content of the page and, if specified, the SettingsNavbar and IdentityNavbar components.
  * @param {Object} theme - To receive the theme from the parent component.
  * @param {string} [identityActive] - Specifies whether or not to render the IdentityNavbar component in this component. Apply this prop to render the IdentityNavbar component in this component and set it equal to the navbar item you wish to highlight. e.g. <MainContent identityActive="Dashboard" />
- *  * @param {string} [settingsActive] - Specifies whether or not to render the SettingsNavbar component in this component. Apply this prop to render the SettingsNavbar component in this component and set it equal to the navbar item you wish to highlight. e.g. <MainContent settingsActive="General" /> 
  * @param {string} [settingsActive] - Specifies whether or not to render the SettingsNavbar component in this component. Apply this prop to render the IdentityNavbar component in this component.
  * @param {boolean} [tablePage] - Specifies whether or not the main content of the page is a table. Apply this prop to specify that the main content of the page is a table.
  * @param {ReactElement} [componentRight] - The component to be rendered at the top right corner in this component.

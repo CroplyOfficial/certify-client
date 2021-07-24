@@ -1,17 +1,9 @@
-// Contains code for the user dashboard menu
-/*
-props:
-active -> The name of the menu item which should be marked active. e.g. on the dashboard page, the Menu component should be typed this way: <MenuUser active="Applications" />
-*/
-
 import styled, {withTheme} from 'styled-components'
 import PropTypes from "prop-types"
 import {useSelector, useDispatch} from "react-redux"
 import {Link} from "react-router-dom"
 
 import {toggleMenuState} from "../../actions"
-import { colorLightLevel } from '../functions/componentFunctions'
-import {ReactComponent as CertifyLogo} from "../assets/logo.svg"
 import {
     DoubleChevronBoxed,
     ApplicationsFilled,
@@ -32,6 +24,7 @@ const MenuBase = styled.div`
     width: 15%;
     transition: width 0.5s;
     box-shadow: 12px 0px 33px -22px rgb(0 0 0 / 24%);
+    background: ${props => props.theme.menuAuth.bg};
 
     &.menuCollapsed {
         width: 5vw;
@@ -48,7 +41,7 @@ const MenuBase = styled.div`
 const LogoDiv = styled.div`
     font-family: 'Poppins';
     font-size: 1.4rem;
-    color: ${props => props.theme.mainColors.darkBlue};
+    color: ${props => props.theme.menuAuth.certifyColor};
     margin: 3vh 2vw;
     margin-bottom: 0;
     height: 3.5rem;
@@ -115,7 +108,7 @@ const MenuItem = styled(Link)`
     position: relative;
     span {
         margin-left: 1rem;
-        color: ${props => props.theme.mainColors.grey};
+        color: ${props => props.theme.menuAuth.menuItemColor};
         display: flex;
         svg {
             width: 1.2rem;
@@ -143,7 +136,7 @@ const MenuItem = styled(Link)`
         }
     }
     &:hover {
-        background-color: ${props => colorLightLevel(props.theme.pastelColors.grey, 10)};
+        background-color: ${props => props.theme.menuAuth.menuItemBgHover};
     }
     &.menuCollapsed {
         display: grid;
@@ -179,7 +172,7 @@ const LogoutDiv = styled.div`
     span {
         text-decoration: none;
         margin-left: 1rem;
-        color: ${props => props.theme.mainColors.grey};
+        color: ${props => props.theme.menuAuth.menuItemColor};
         display: flex;
         svg {
             width: 1.2rem;
@@ -235,7 +228,7 @@ const MenuOrg = ({theme, active}) => {
     return (
         <MenuBase className={menuCollapsedClass}>
             <LogoDiv className={menuCollapsedClass}>
-                <CertifyLogo />
+                {theme.menuAuth.logo}
                 <div className={menuCollapsedClass}>CERTIFY</div>
             </LogoDiv>
             <MenuChevron className={menuCollapsedClass} onClick={toggleMenu}>

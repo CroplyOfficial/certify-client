@@ -5,7 +5,7 @@ import styled, {withTheme} from "styled-components"
 const H1 = styled.h1`
     font-family: "Poppins";
     font-size: 1.7rem;
-    color: ${props => props.theme.mainColors.darkBlue};
+    color: ${props => props.theme.h1};
 `;
 
 export default withTheme(H1)

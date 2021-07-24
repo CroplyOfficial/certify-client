@@ -7,8 +7,8 @@ const Div = styled.div`
     width: 20rem;
     height: 20rem;
     border-radius: 30px;
-    background: #C8D7E3;
-    border: 1px solid #E5E5E5;
+    background: ${props => props.theme.profilePic.bg};
+    border: ${props => props.theme.profilePic.border};
     display: grid;
     place-items: center;
     cursor: pointer;

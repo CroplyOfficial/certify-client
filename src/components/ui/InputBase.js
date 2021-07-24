@@ -23,13 +23,13 @@ const Input = styled.input`
     font-size: 1rem;
     font-family: "Open Sans";
     font-weight: normal;
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.input.color};
     width: 100%;
     height: 3rem;
     padding: ${props => props.confidInfo ? "0rem 2.5rem 0rem 1rem" : "0rem 1rem 0rem 1rem"};
     border-radius: 30px;
     box-shadow: none;
-    border: 1px solid ${props => props.theme.pastelColors.grey};
+    border: 1px solid ${props => props.theme.input.borderColor};
     cursor: text;
     position: relative;
     outline: none;
@@ -45,11 +45,11 @@ const Input = styled.input`
     }
     &:focus ~ label {
         transform: scale(0.5);
-        background-color: white;
+        background-color: ${props => props.theme.input.labelBgFloating};
         padding: 0 0.5rem;
         top: ${props => props.strengthMeter ? "3rem" : "1rem"};
         font-size: 1.7rem;
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.theme.input.labelColor};
         width: max-content;
     }
 `;
@@ -66,11 +66,11 @@ const Label = styled.label`
     pointer-events: none;
     &.inputFilled {
         transform: scale(0.5);
-        background-color: white;
+        background-color: ${props => props.theme.input.labelBgFloating};
         padding: 0 0.5rem;
         top: ${props => props.strengthMeter ? "3rem" : "1rem"};
         font-size: 1.7rem;
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.theme.input.labelColor};
         width: max-content;
     }
 
@@ -83,7 +83,7 @@ const ToggleShow = styled.div`
     top: ${props => props.strengthMeter ? "2.7rem" : "0.7rem"};
     height: fit-content;
     width: fit-content;
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.input.toggleShowBg};
 `;
 
 const Error = styled(InputError)`

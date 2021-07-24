@@ -23,14 +23,14 @@ const TextareaBase = styled.textarea`
     font-size: 1rem;
     font-family: "Open Sans";
     font-weight: normal;
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.input.color};
     resize: none;
     width: 100%;
     height: 100%;
     padding: 1rem;
     border-radius: 30px;
     box-shadow: none;
-    border: 1px solid ${props => props.theme.pastelColors.grey};
+    border: 1px solid ${props => props.theme.input.borderColor};
     cursor: text;
     position: relative;
     outline: none;
@@ -46,11 +46,11 @@ const TextareaBase = styled.textarea`
     }
     &:focus ~ label {
         transform: scale(0.5);
-        background-color: white;
+        background-color: ${props => props.theme.input.labelBgFloating};
         padding: 0 0.5rem;
         top: 1rem;
         font-size: 1.7rem !important;
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.theme.input.labelColor};
         width: max-content;
     }
       /**********************
@@ -99,11 +99,11 @@ const Label = styled.label`
     pointer-events: none;
     &.inputFilled {
         transform: scale(0.5);
-        background-color: white;
+        background-color: ${props => props.theme.input.labelBgFloating};
         padding: 0 0.5rem;
         top: 1rem;
         font-size: 1.7rem !important;
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.theme.input.labelColor};
         width: max-content;
     }
 

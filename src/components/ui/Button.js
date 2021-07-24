@@ -1,5 +1,5 @@
 import {ReactElement} from 'react'
-import styled, {withTheme} from 'styled-components'
+import styled, {css, withTheme} from 'styled-components'
 
 import {btnRippleEffect, colorLightLevel, hexToRgb} from "../functions/componentFunctions"
 
@@ -13,10 +13,9 @@ const ButtonBase = styled.button`
     font-family: 'Poppins';
     font-weight: bold;
     letter-spacing: 0.1rem;
-    color: ${props => props.primary ? "white" : props.btnColor};
-    background-color: ${props => props.primary ? props.btnColor : "white"};
-    border: ${props => props.primary ? "none" : "3px solid"};
-    border-color: ${props => props.primary ? "" : props.btnColor};
+    color: white;
+    background-color: ${props => props.btnColor};
+    border: none;
     cursor: pointer;
     text-align: center;
     position: relative;
@@ -27,8 +26,25 @@ const ButtonBase = styled.button`
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
     &:hover {
-        background-color: ${props => props.primary ? colorLightLevel(props.btnColor, -10) : "rgba("+hexToRgb(props.btnColor)+",0.2)"}
+        background-color: ${props => colorLightLevel(props.btnColor, -10)};
     }
+    ${props => !props.primary && css`
+        color: ${props => props.btnColor};
+        background-color: 'white';
+        border: 3px solid ${props => props.btnColor};
+        &:hover {
+            background-color: ${props => "rgba("+hexToRgb(props.btnColor)+",0.2)"};
+        }
+        ${props => props.theme.mode === 'dark' && css`
+            color: white;
+            background-color: ${props => colorLightLevel(props.btnColor, -10)};
+            border: none;
+            &:hover {
+                background-color: ${props => colorLightLevel(props.btnColor, -10)};
+            }
+        `}
+    `}
+
     .ripple {
         position: absolute;
         border-radius: 100%;

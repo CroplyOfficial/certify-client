@@ -16,12 +16,12 @@ const OptionList = styled.div`
     width: max-content;
     position: absolute;
     border-radius: 20px;
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.showOptions.optionList.bg};
     display: none;
     box-shadow: 0px 0px 100px -28px rgba(0,0,0,0.62);
     padding: 1rem 0;
     margin-left: -1rem;
-    border: 1px solid ${props => props.theme.pastelColors.grey};
+    border: 1px solid ${props => props.theme.showOptions.optionList.borderColor};
     &:hover {
         margin-top: -0.1rem;
         display: block;
@@ -54,7 +54,7 @@ const Option = styled.div`
     padding: 0.5rem 0.5rem;
     color: ${props => props.theme.mainColors.grey};
     &:hover {
-        background-color: ${props => props.theme.mainColors.blue};
+        background-color: ${props => props.theme.showOptions.optionList.optionColorHover};
         color: ${props => props.theme.mainColors.white};
         font-weight: bold;
     }
@@ -83,7 +83,7 @@ const ShowOptions = ({theme, options, optionListStyling=""}) => {
     return (
         <Container>
             <Ellipsis optionListStyling={optionListStyling}>
-                <MenuDots fill={theme.mainColors.grey} width="1.2rem" />
+                <MenuDots fill={theme.showOptions.ellipsisColor} width="1.2rem" />
             </Ellipsis>
             <OptionList optionListStyling={optionListStyling}>
                 {optionComponentsList}

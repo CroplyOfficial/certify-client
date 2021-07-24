@@ -19,11 +19,11 @@ const Container = styled.div`
 `;
 
 const TextLeft = styled.div`
-    color: ${props => props.isOn ? props.theme.mainColors.grey : props.theme.mainColors.black};
+    color: ${props => props.isOn ? props.theme.settingToggleSwitchLR.textOffColor : props.theme.settingToggleSwitchLR.textOnColor};
 `;
 
 const TextRight = styled.div`
-    color: ${props => props.isOn ? props.theme.mainColors.black : props.theme.mainColors.grey};
+    color: ${props => props.isOn ? props.theme.settingToggleSwitchLR.textOnColor : props.theme.settingToggleSwitchLR.textOffColor};
 `;
 
 

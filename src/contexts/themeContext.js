@@ -21,7 +21,7 @@
 
 import React, {useContext, useState} from "react"
 import {ThemeProvider} from "styled-components"
-import {mainColorsLight, mainColorsDark, pastelColorsLight, pastelColorsDark} from "../components/assets/colors"
+import {themeLight, themeDark} from "../components/assets/theme"
 
 // context to update the theme
 const ThemeUpdateContext = React.createContext()
@@ -35,31 +35,21 @@ const useThemeUpdate = () => {
 
 const CustomThemeProvider = ({children}) => {
     // state for theme
-    const [themeState, setThemeState] = useState({
-        mode: "light",
-        mainColors: mainColorsLight,
-        pastelColors: pastelColorsLight
-    })
+    const [themeState, setThemeState] = useState(themeDark);
 
     /**
      * Function to toggle the theme
      */
     const toggle = () => {
-        const mode = (themeState.mode === 'light' ? `dark` : `light`)
-        const mainColors = themeState.mode === "light" ? mainColorsLight : mainColorsDark
-        const pastelColors = themeState.mode === "light" ? pastelColorsLight : pastelColorsDark
-        setThemeState({ mode: mode, mainColors: mainColors, pastelColors: pastelColors })
+        if(themeState.mode === 'light' )
+            setThemeState(themeDark);
+        else
+            setThemeState(themeLight);
     }
 
     return (
             <ThemeUpdateContext.Provider value={{ toggle: toggle }}>
-                <ThemeProvider theme={
-                    { 
-                        mode: themeState.mode, 
-                        mainColors: themeState.mainColors,
-                        pastelColors: themeState.pastelColors
-                    }
-                }>
+                <ThemeProvider theme={themeState}>
                         {children}
                 </ThemeProvider>
             </ThemeUpdateContext.Provider>

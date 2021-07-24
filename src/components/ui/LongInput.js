@@ -17,16 +17,17 @@ const Container = styled.div`
 `;
 
 const Input = styled.input`
+    background: none;
     border-radius: 30px 0 0 30px;
     padding: 1rem 1rem 1rem 1rem;
     box-sizing: border-box;
     height: 3rem;
     font-family: "Open Sans";
     font-weight: normal;
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.input.color};
     width: 75%;
     box-shadow: none;
-    border: 1px solid ${props => props.theme.pastelColors.grey};
+    border: 1px solid ${props => props.theme.input.borderColor};
     border-right: none;
     font-size: 1rem;
     cursor: text;
@@ -74,23 +75,11 @@ const LongInput = ({theme, className, placeholder, btnText, defaultValue, inputR
     return (
         <Container className={className}>
             <Input defaultValue={defaultValue} placeholder={placeholder} ref={inputRef} />
-            <SearchButton btnColor={theme.mainColors.darkBlue}>{btnText}</SearchButton>
+            <SearchButton primary={theme.mode === 'dark'} btnColor={theme.mainColors.darkBlue}>{btnText}</SearchButton>
         </Container>
     )
 }
 
-
-// The className prop is required for extending styles with styled-components
-LongInput.propTypes = {
-    className: PropTypes.string,
-    placeholder: PropTypes.string.isRequired,
-    btnText: PropTypes.string.isRequired,
-    defaultValue: PropTypes.string,
-    inputRef: PropTypes.oneOfType([
-        PropTypes.func,
-        PropTypes.object
-    ])
-}
 
 
 export default withTheme(LongInput)

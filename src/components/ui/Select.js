@@ -20,6 +20,7 @@ const Fieldset = styled.fieldset`
 `;
 
 const SelectBase = styled.select`
+    background: none;
     box-sizing: border-box;
     font-family: "Open Sans";
     font-weight: normal;
@@ -30,11 +31,12 @@ const SelectBase = styled.select`
     box-shadow: none;
     display: flex;
     justify-content: flex-start;
-    border: 1px solid ${props => props.theme.pastelColors.grey};
+    border: 1px solid ${props => props.theme.input.borderColor};
     font-size: 1rem;
     cursor: pointer;
     position: relative;
     outline: none;
+    color: ${props => props.theme.input.color};
     // to remove original dropdown arrow
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -50,11 +52,11 @@ const SelectBase = styled.select`
     }
     &:focus ~ label {
         transform: scale(0.5);
-        background-color: white;
+        background-color: ${props => props.theme.input.labelBgFloating};
         padding: 0 0.5rem;
         top: 1rem;
         font-size: 1.7rem !important;
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.theme.input.labelColor};
         width: max-content;
     }
     & option {
@@ -83,11 +85,11 @@ const Label = styled.label`
     pointer-events: none;
     &.optSelected {
         transform: scale(0.5);
-        background-color: white;
+        background-color: ${props => props.theme.input.labelBgFloating};
         padding: 0 0.5rem;
         top: 1rem;
         font-size: 1.7rem !important;
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.theme.input.labelColor};
         width: max-content;
     }
 `;
