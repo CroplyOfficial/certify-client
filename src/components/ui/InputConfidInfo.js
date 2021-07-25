@@ -4,7 +4,6 @@ import InputBase from "./InputBase"
 
 /**
  * Returns the InputConfidInfo component.
- * @param {Object} theme - To receive the theme from the parent component.
  * @param {string} [value] - The value of the input element (uneditable textarea).
  * @param {string} [defaultValue] - The default value of the input element (editable textarea).
  * @param {number|string} [maxLength] - The max number of chars to be allowed in the input element.
@@ -19,7 +18,7 @@ import InputBase from "./InputBase"
  */
 const InputConfidInfo = ({placeholder, inputRef, autoComplete, strengthMeter, className, err, showHideColor}) => {
     return (
-            <InputBase 
+            <InputBase
                 placeholder={placeholder}
                 inputRef={inputRef}
                 autoComplete={autoComplete} 

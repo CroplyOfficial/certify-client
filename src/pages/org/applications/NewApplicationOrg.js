@@ -66,7 +66,7 @@ const NewApplicationOrg = ({theme}) => {
         appPostalCode: userInputRefs.current['appPostalCode'] ? userInputRefs.current['appPostalCode'].value : ""
     })
     const saveAppBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue}>SAVE APPLICATION</Button>
+        <Button primary btnColor={theme.btnPriBg}>SAVE APPLICATION</Button>
     )
     return (
         <>

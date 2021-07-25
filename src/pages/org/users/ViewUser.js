@@ -63,7 +63,7 @@ const ViewUser = ({theme}) => {
         userProfileURL: "/breconmountainfarm"
     })
 
-    const newUserBtn = <Button primary btnColor={theme.mainColors.darkBlue} onClick={() => window.location.href = "/org/users/new"}>+ NEW USER</Button>
+    const newUserBtn = <Button primary btnColor={theme.btnPriBg} onClick={() => window.location.href = "/org/users/new"}>+ NEW USER</Button>
     return (
         <>
         <CommonElementsOrg menuActive="Users" />

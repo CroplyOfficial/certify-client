@@ -66,7 +66,7 @@ const Label = styled.label`
     pointer-events: none;
     &.inputFilled {
         transform: scale(0.5);
-        background-color: ${props => props.theme.input.labelBgFloating};
+        background: ${props => props.theme.input.labelBgFloating};
         padding: 0 0.5rem;
         top: ${props => props.strengthMeter ? "3rem" : "1rem"};
         font-size: 1.7rem;
@@ -83,7 +83,7 @@ const ToggleShow = styled.div`
     top: ${props => props.strengthMeter ? "2.7rem" : "0.7rem"};
     height: fit-content;
     width: fit-content;
-    background-color: ${props => props.theme.input.toggleShowBg};
+    background: ${props => props.theme.input.toggleShowBg};
 `;
 
 const Error = styled(InputError)`

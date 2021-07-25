@@ -52,7 +52,7 @@ const Option = styled.div`
     font-weight: 600;
     text-align: center;
     padding: 0.5rem 0.5rem;
-    color: ${props => props.theme.mainColors.grey};
+    color: ${props => props.theme.showOptions.optionList.optionColor};
     &:hover {
         background-color: ${props => props.theme.showOptions.optionList.optionColorHover};
         color: ${props => props.theme.mainColors.white};

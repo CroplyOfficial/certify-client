@@ -9,9 +9,9 @@ import {
 
 const DashboardCard = styled.div`
     border-radius: 30px;
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.dashboardCard.bg};
     height: 90%;
-    border: 1px solid ${props => props.theme.pastelColors.grey};
+    border: ${props => props.theme.dashboardCard.border};
 `;
 
 const DashboardElement = ({elementTitle, children}) => {

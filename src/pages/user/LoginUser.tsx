@@ -1,9 +1,8 @@
 import {useRef, useState} from 'react'
-import styled, { withTheme } from 'styled-components';
+import styled from 'styled-components';
 import {Link} from "react-router-dom"
 
 import {colorLightLevel} from "../../components/functions/componentFunctions"
-
 import backgroundLight from "../../components/assets/Background-light.svg"
 import {ReactComponent as CertifyLogo} from "../../components/assets/logo.svg"
 import {
@@ -132,4 +131,4 @@ const LoginUser = () => {
     )
 }
 
-export default withTheme(LoginUser)
+export default LoginUser

@@ -36,7 +36,7 @@ const IdentityProfilesList = ({theme}) => {
         },
     ]);
     const newProfileBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue} onClick={toggleNewProfilePopupVisible}>+ ADD NEW PROFILE</Button>
+        <Button primary btnColor={theme.btnPriBg} onClick={toggleNewProfilePopupVisible}>+ ADD NEW PROFILE</Button>
     )
     return (
         <>

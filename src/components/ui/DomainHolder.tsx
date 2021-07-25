@@ -1,5 +1,4 @@
 import styled, {withTheme} from 'styled-components';
-import PropTypes from 'prop-types'
 
 import { Hr } from '.';
 import ShowOptions from './ShowOptions';
@@ -35,7 +34,7 @@ const Domain = styled.div`
     padding-left: 1rem;
     a {
         text-decoration: none;
-        color: ${props => props.theme.mainColors.black};
+        color: ${props => props.theme.domainHolder.domain};
     }
 `;
 
@@ -85,8 +84,5 @@ const DomainHolder = ({theme, domain, toggleEditDomainPopupFunc}) => {
     );
 }
 
-DomainHolder.propTypes = {
-    domain: PropTypes.string,
-};
 
 export default withTheme(DomainHolder)

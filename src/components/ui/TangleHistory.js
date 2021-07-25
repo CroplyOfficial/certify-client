@@ -42,7 +42,7 @@ const TangleHistory = ({theme}) => {
                             return (
                                 <tr key={ index }>
                                     <td>{name}</td>
-                                    <td><View stroke={theme.mainColors.darkBlue} /></td>
+                                    <td><View stroke={theme.tangleHistoryTable.view} /></td>
                                 </tr>
                             )
                         })}

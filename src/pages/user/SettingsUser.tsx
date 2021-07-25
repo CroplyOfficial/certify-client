@@ -108,7 +108,7 @@ const SettingsUser = ({theme}) => {
     };
 
     const saveSettingsBtn = (
-        <Button primary btnColor={theme.mainContent.componentRight.btnPriBgColor}>SAVE SETTINGS</Button>
+        <Button primary btnColor={theme.btnPriBg}>SAVE SETTINGS</Button>
     );
     return (
         <>

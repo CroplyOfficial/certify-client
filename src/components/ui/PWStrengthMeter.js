@@ -19,7 +19,7 @@ const Pre = styled.pre`
     font-family: "Open Sans";
     font-weight: "normal";
     font-size: 1rem;
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.strengthMeter.color};
     margin-top: 0;
 
 `;

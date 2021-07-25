@@ -28,19 +28,23 @@ const ButtonBase = styled.button`
     &:hover {
         background-color: ${props => colorLightLevel(props.btnColor, -10)};
     }
+    /* For secondary button */
     ${props => !props.primary && css`
-        color: ${props => props.btnColor};
-        background-color: 'white';
-        border: 3px solid ${props => props.btnColor};
-        &:hover {
-            background-color: ${props => "rgba("+hexToRgb(props.btnColor)+",0.2)"};
-        }
+        ${props => props.theme.mode === 'light' && css`
+
+            color: ${props => props.btnColor};
+            background-color: white;
+            border: 3px solid ${props => props.btnColor};
+            &:hover {
+                background-color: ${props => "rgba("+hexToRgb(props.btnColor)+",0.2)"};
+            }
+        `}
         ${props => props.theme.mode === 'dark' && css`
             color: white;
             background-color: ${props => colorLightLevel(props.btnColor, -10)};
             border: none;
             &:hover {
-                background-color: ${props => colorLightLevel(props.btnColor, -10)};
+                background-color: ${props => props.btnColor};
             }
         `}
     `}

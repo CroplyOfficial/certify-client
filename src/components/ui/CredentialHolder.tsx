@@ -19,7 +19,7 @@ const Container = styled.div`
     width: 100%;
     height: 6rem;
     padding: 1rem;
-    background-color: ${props => colorLightLevel(props.theme.pastelColors.grey, 9)};
+    background: ${props => props.theme.credentialHolder.bg};
 `;
 
 const Div1 = styled.div`
@@ -39,11 +39,11 @@ const Div2 = styled.div`
         flex-direction: column;
     }
     div:nth-of-type(1) {
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.theme.credentialHolder.headingColor};
         font-size: 0.8rem;
     }
     div:nth-of-type(2) {
-        color: #666666;
+        color: ${props => props.theme.credentialHolder.contentColor};
         font-size: 1rem;
     }
 `;
@@ -57,11 +57,11 @@ const Div3 = styled.div`
         flex-direction: column;
     }
     div:nth-of-type(1) {
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.theme.credentialHolder.headingColor};
         font-size: 0.8rem;
     }
     div:nth-of-type(2) {
-        color: #666666;
+        color: ${props => props.theme.credentialHolder.contentColor};
         font-size: 1rem;
     }
 `;
@@ -123,7 +123,7 @@ const CredentialHolder = ({theme, credentialData, selector, viewPopupFunc, selec
                 {
                     selector ? 
                     <Checkbox {...checkboxProps} />:
-                    <ChevronRight width="2rem" fill={theme.mainColors.grey} onClick={() => showPopup()} />
+                    <ChevronRight width="2rem" fill={theme.credentialHolder.chevronColor} onClick={() => showPopup()} />
                 }
             </Div4>
         </Container>

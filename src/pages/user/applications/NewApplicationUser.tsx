@@ -81,7 +81,7 @@ const NewApplicationUser = ({theme}) => {
     });
 
     const submitAppBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue}>SUBMIT APPLICATION</Button>
+        <Button primary btnColor={theme.btnPriBg}>SUBMIT APPLICATION</Button>
     );
     return (
         <>

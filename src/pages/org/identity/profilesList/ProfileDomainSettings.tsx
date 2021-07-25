@@ -34,7 +34,7 @@ const ProfilePicture = styled.div`
 
 const Username = styled.div`
     font-family: 'Open Sans';
-    color: ${props => props.theme.mainColors.darkBlue};
+    color: ${props => props.theme.mode === 'light' ? props.theme.mainColors.darkBlue : props.theme.mainColors.blue};
     font-size: 1.8rem;
     display: grid;
     place-items: center;

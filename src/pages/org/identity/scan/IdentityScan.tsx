@@ -15,10 +15,10 @@ const ChooseMethod = styled.div`
     display: grid;
     place-items: center;
     .inactive {
-        color: ${props => props.theme.mainColors.grey};
+        color: ${props => props.theme.identityScan.inactive};
     }
     .active {
-        color: ${props => props.theme.mainColors.black};
+        color: ${props => props.theme.identityScan.active};
     }
     .switch {
         display: flex;
@@ -43,7 +43,7 @@ const Instructions = styled.div`
     font-family: 'Open Sans';
     font-size: 1.3rem;
     font-weight: 600; 
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.identityScan.color};
     display: grid;
     place-items: center;
 `;

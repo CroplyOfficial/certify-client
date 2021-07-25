@@ -93,7 +93,7 @@ const Users = ({theme}) => {
         )
         rowIndex++
     }
-    const newUserBtn = <Button primary btnColor={theme.mainColors.darkBlue} onClick={() => window.location.href = "/org/users/new"}>+ NEW USER</Button>
+    const newUserBtn = <Button primary btnColor={theme.btnPriBg} onClick={() => window.location.href = "/org/users/new"}>+ NEW USER</Button>
     return (
         <>
         <CommonElementsOrg menuActive="Users" />
@@ -109,7 +109,7 @@ const Users = ({theme}) => {
                                 <td>Created</td>
                                 <td>Verfication</td>
                                 <td>Status</td>
-                                <td><EditColHeading><Filters width="1.5rem" fill="#666666" /></EditColHeading></td>
+                                <td><EditColHeading><Filters width="1.5rem" fill={theme.table.filters} /></EditColHeading></td>
                             </tr>
                            {rows}
                         </tbody>

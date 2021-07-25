@@ -19,7 +19,7 @@ import InputBase from "./InputBase"
  */
 const InputText = ({placeholder, value, defaultValue, maxLength, onChange, onFocus, onBlur, inputRef, autoComplete, className, err}) => {
     return (
-        <InputBase 
+        <InputBase
             placeholder={placeholder} 
             maxLength={maxLength}
             inputRef={inputRef}

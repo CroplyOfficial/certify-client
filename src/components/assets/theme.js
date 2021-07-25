@@ -52,14 +52,22 @@ const themeLight = {
         menuItemColor: mainColors.grey,
         menuItemBgHover: colorLightLevel(pastelColors.grey, 10)
     },
+    navbar: {
+        color: mainColors.grey
+    },
     mainContent: {
-       bg:  mainColors.white,
-       border: pastelColors.grey,
-       componentRight: {
-        btnPriBgColor: mainColors.darkBlue,
-        btnSecBgColor: mainColors.darkBlue
-    }
-    },    
+        bg:  mainColors.white,
+        border: pastelColors.grey,
+    },
+    table: {
+        firstRowBg: '#DFE3E7',
+        firstRowColor: '#666666',
+        oddRowBg: '#F2F4F5',
+        evenRowBg: '#FFFFFF',
+        otherRowsColor: mainColors.black,
+        border: `1px solid ${pastelColors.grey}`,
+        filters: '#666666'
+    },
     h1: mainColors.darkBlue,
     h6: mainColors.darkBlue,
     input: {
@@ -69,7 +77,22 @@ const themeLight = {
         borderColor: pastelColors.grey,
         toggleShowBg: mainColors.white
     },
+    checkbox: {
+        labelHover: mainColors.white
+    },
+    btnPriBg: mainColors.darkBlue,
+    btnSecBg: mainColors.darkBlue,
     hr: pastelColors.grey,
+    strengthMeter: {
+        color: mainColors.black
+    },
+    tangleHistoryTable: {
+        view: mainColors.darkBlue
+    },
+    dashboardCard: {
+        bg: mainColors.white,
+        border: `1px solid ${pastelColors.grey}`
+    },    
     settingToggleSwitchL: {
         textOn: mainColors.black,
         textOff: mainColors.grey
@@ -83,10 +106,24 @@ const themeLight = {
         headingColor: mainColors.darkBlue,
         contentColor: '#666666'
     },
+    credentialHolder: {
+        bg: colorLightLevel(pastelColors.grey, 9),
+        headingColor: mainColors.darkBlue,
+        contentColor: '#666666',
+        chevronColor: mainColors.grey
+    },
+    identityProfileHolder: {
+        bg: colorLightLevel(pastelColors.grey, 9),
+        headingColor: mainColors.darkBlue,
+        contentColor: '#666666',
+        chevronColor: mainColors.grey,
+        profileNameColor: mainColors.darkBlue
+    },
     showOptions: {
         ellipsisColor: mainColors.grey,
         optionList: {
             bg: mainColors.white,
+            optionColor: mainColors.grey,
             optionColorHover: mainColors.blue,
             borderColor: pastelColors.grey
         }
@@ -94,8 +131,20 @@ const themeLight = {
     profilePic: {
         bg: '#C8D7E3',
         border: '1px solid #E5E5E5'
+    },
+    identityScan: {
+        active: mainColors.black,
+        inactive: mainColors.grey,
+        color: mainColors.black
+    },
+    domainHolder: {
+        domain: mainColors.black
+    },
+    settings: {
+        moreTextColor: mainColors.black,
+        moreChevron: mainColors.grey,
+        lastBackupDateColor: mainColors.black
     }
-
 }
 
 const themeDark = {
@@ -113,13 +162,21 @@ const themeDark = {
         menuItemColor: mainColors.white,
         menuItemBgHover: mainColors.darkBlue
     },
+    navbar: {
+        color: mainColors.white
+    },
     mainContent: {
        bg:  colorLightLevel(mainColors.darkBlue, -20),
-       border: 'none',
-       componentRight: {
-           btnPriBgColor: colorLightLevel(mainColors.blue, -25),
-           btnSecBgColor: colorLightLevel(mainColors.darkBlue, 30)
-       }
+       border: 'none'
+    },
+    table: {
+        firstRowBg: colorLightLevel(mainColors.darkBlue, -20),
+        firstRowColor: mainColors.white,
+        oddRowBg: colorLightLevel(mainColors.darkBlue, -20),
+        evenRowBg: mainColors.darkBlue,
+        otherRowsColor:  mainColors.white,
+        border: 'none',
+        filters: mainColors.white
     },
     h1: mainColors.white,
     h6: mainColors.blue,
@@ -130,7 +187,22 @@ const themeDark = {
         borderColor: mainColors.grey,
         toggleShowBg: colorLightLevel(mainColors.darkBlue, -20)
     },
+    checkbox: {
+        labelHover: pastelColors.blue
+    },
+    btnPriBg: colorLightLevel(mainColors.blue, -25),
+    btnSecBg: colorLightLevel(mainColors.darkBlue, 30),
     hr: mainColors.darkBlue,
+    strengthMeter: {
+        color: mainColors.grey
+    },
+    tangleHistoryTable: {
+        view: mainColors.white
+    },
+    dashboardCard: {
+        bg:  colorLightLevel(mainColors.darkBlue, -20),
+        border: 'none'
+    },
     settingToggleSwitchL: {
         textOnColor: mainColors.white,
         textOffColor: mainColors.grey
@@ -144,10 +216,24 @@ const themeDark = {
         headingColor: mainColors.blue,
         contentColor: mainColors.white
     },
+    credentialHolder: {
+        bg: mainColors.darkBlue,
+        headingColor: mainColors.blue,
+        contentColor: mainColors.white,
+        chevronColor: mainColors.white
+    },
+    identityProfileHolder: {
+        bg: mainColors.darkBlue,
+        headingColor: mainColors.blue,
+        contentColor: mainColors.white,
+        chevronColor: mainColors.white,
+        profileNameColor: mainColors.blue
+    },
     showOptions: {
         ellipsisColor: mainColors.white,
         optionList: {
             bg: mainColors.darkBlue,
+            optionColor: mainColors.white,
             optionColorHover: mainColors.blue,
             borderColor: mainColors.darkBlue
         }
@@ -155,6 +241,19 @@ const themeDark = {
     profilePic: {
         bg: colorLightLevel(mainColors.darkBlue, 20),
         border: 'none'
+    },
+    identityScan: {
+        active: mainColors.white,
+        inactive: mainColors.grey,
+        color: mainColors.white
+    },
+    domainHolder: {
+        domain: mainColors.white
+    },
+    settings: {
+        moreTextColor: mainColors.blue,
+        moreChevron: mainColors.white,
+        lastBackupDateColor: mainColors.white
     }
 }
 

@@ -109,8 +109,8 @@ const PublicProfile = ({theme}) => {
 
     const buttons = (
         <>
-            <Button btnColor={theme.mainContent.componentRight.btnSecBgColor}>VIEW PROFLE</Button>
-            <Button primary btnColor={theme.mainContent.componentRight.btnPriBgColor}>SAVE PROFLE</Button>
+            <Button btnColor={theme.btnSecBg}>VIEW PROFLE</Button>
+            <Button primary btnColor={theme.btnPriBg}>SAVE PROFLE</Button>
         </>
     )
 

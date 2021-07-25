@@ -57,7 +57,7 @@ const SearchButton = styled(Button)`
     border-radius: 0 30px 30px 0 !important;
     min-width: 25%;
     max-width: 50px;
-    border: 1px solid;
+    border: 3px solid;
     height: 3rem;
 `;
 

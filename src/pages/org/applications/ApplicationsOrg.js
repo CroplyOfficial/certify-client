@@ -103,7 +103,7 @@ const ApplicationsOrg = ({theme}) => {
         )
         rowIndex++
     }
-    const newAppBtn = <Button primary btnColor={theme.mainColors.darkBlue} onClick={() => window.location.href="/org/applications/new"}>+ NEW APPLICATION</Button>
+    const newAppBtn = <Button primary btnColor={theme.btnPriBg} onClick={() => window.location.href="/org/applications/new"}>+ NEW APPLICATION</Button>
     return (
         <>
         <CommonElementsOrg menuActive="Applications" />
@@ -119,7 +119,7 @@ const ApplicationsOrg = ({theme}) => {
                                 <td>Created</td>
                                 <td>Type</td>
                                 <td>Status</td>
-                                <td><EditColHeading><Filters width="1.5rem" fill="#666666" /></EditColHeading></td>
+                                <td><EditColHeading><Filters width="1.5rem" fill={theme.table.filters} /></EditColHeading></td>
                             </tr>
                            {rows}
                         </tbody>
