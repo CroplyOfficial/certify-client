@@ -48,12 +48,24 @@ const Instructions = styled.div`
     place-items: center;
 `;
 
+/**
+ * Returns the IdentityScan component which is the page used to scan
+ * credentials.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The IdentityScan component.
+ */
 const IdentityScan = ({theme}) => {
     const [confirmationPopupVisible, setConfirmationPopupVisible] = useState(false);
+    /**
+     * Function to show/hide the ConfirmationPopup component.
+     */
     const toggleConfirmationPopupVisible = () => {
         setConfirmationPopupVisible(!confirmationPopupVisible);
     }
     const [scanMethod, setScanMethod] = useState('QR')
+    /**
+     * Function to set the scan method (QR or NFC).
+     */
     const toggleShareMethod = () => {
         if(scanMethod === "QR")
             setScanMethod("NFC");

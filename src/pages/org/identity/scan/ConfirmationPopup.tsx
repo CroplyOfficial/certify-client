@@ -133,6 +133,15 @@ const Verification = styled.div`
 
 `;
 
+/**
+ * Returns the Data component which displays a piece of information about the credential.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {string} dataName - The name of the field.
+ * @param {string} dataValue - The value in the field.
+ * @param {boolean} [link=false] - Specifies whether dataValue is a URL or not. 
+ * Use it to specify that the value assigned to dataValue is a URL.
+ * @returns {ReactElement} - The Data component.
+ */
 const Data = ({theme, dataName, dataValue, link=false}) => {
     return (
         <DataContainer>
@@ -149,10 +158,22 @@ const Data = ({theme, dataName, dataValue, link=false}) => {
     );
 }
 
+/**
+ * Returns the ConfirmationPopup component which is the modal used to
+ * show info about a scanned credential.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Function} closePopupFunc - The function to close the popup.
+ * @param {Object} credential - The scanned credential.
+ * @returns {ReactElement} - The ConfirmationPopup component.
+ */
 const ConfirmationPopup = ({theme, closePopupFunc, credential}) => {
     const popupRef = useRef(null);
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
         if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();

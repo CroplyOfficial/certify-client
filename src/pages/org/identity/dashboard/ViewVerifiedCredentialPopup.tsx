@@ -155,10 +155,24 @@ const Data = ({theme, dataName, dataValue, link=false}) => {
     );
 }
 
+/**
+ * Returns the ViewVerifiedCredentialPopup component which is the popup to view
+ * a specified verified credential.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Function} closePopupFunc - The function to close this popup.
+ * @param {Object} credential - The credential that is to be viewed.
+ * @param {Function} showShareCredentialPopupFunc - The function to
+ * hide this component and show the ShareCredentialPopup component.
+ * @returns {ReactElement} - The ViewVerifiedCredentialPopup component.
+ */
 const ViewVerifiedCredentialPopup = ({theme, closePopupFunc, credential, showShareCredentialPopupFunc}) => {
     const popupRef = useRef(null);
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();

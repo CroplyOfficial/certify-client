@@ -1,7 +1,13 @@
-import React from 'react'
 import {Step} from "./"
 import {Button} from "../../../../components/ui" 
-const Step7 = (props) => {
+
+/**
+ * Returns the Step7 component which is the onboarding step in which the
+ * recovery phrase is shown to the user.
+ * @param {Function} nextStepFunc - The function to proceed to the next step.
+ * @returns {ReactElement} - The Step7 component.
+ */
+const Step7 = ({nextStepFunc}) => {
     return (
         <Step>
             <div className="div1">
@@ -20,7 +26,7 @@ const Step7 = (props) => {
             </div>
             <div className="div2"></div>
             <div className="div3">
-                <Button primary btnColor="#6D97B5" onClick={props.nextStepFunc}>CONTINUE</Button>
+                <Button primary btnColor="#6D97B5" onClick={nextStepFunc}>CONTINUE</Button>
             </div>
         </Step>
     )

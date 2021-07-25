@@ -51,19 +51,34 @@ const Right = styled.div`
     }
 `;
 
-const BackupRestoreSettings = ({theme}) => {
+/**
+ * Returns the BackupRestoreSettingsOrg component which is the page to
+ * manage the backup/restore settings for the organization.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The BackupRestoreSettingsOrg component.
+ */
+const BackupRestoreSettingsOrg = ({theme}) => {
     const [selectBackupFilePopupVisible, setSelectBackupFilePopupVisible] = useState(false);
+    /**
+     * Function to show/hide the SelectBackupFilePopup component.
+     */
     const toggleSelectBackupFilePopupVisible = () => {
         setSelectBackupFilePopupVisible(!selectBackupFilePopupVisible);
     }
     
     const [restoreWarningPopupVisible, setRestoreWarningPopupVisible] = useState(false);
+    /**
+     * Function to show/hide the RestoreWarningPopup component.
+     */
     const toggleRestoreWarningPopupVisible = () => {
         setSelectBackupFilePopupVisible(false);
         setRestoreWarningPopupVisible(!restoreWarningPopupVisible);
     }
 
     const [confirmPinForRestorePopupVisible, setConfirmPinForRestorePopupVisible] = useState(false);
+    /**
+     * Function to show/hide the ConfirmPinForRestorePopup component.
+     */
     const toggleConfirmPinForRestorePopupVisible = () => {
         setRestoreWarningPopupVisible(false);
         setConfirmPinForRestorePopupVisible(!confirmPinForRestorePopupVisible);
@@ -77,9 +92,14 @@ const BackupRestoreSettings = ({theme}) => {
         }
     );
 
-    const settingsHandler = (property: string, newValue: any) => {
+    /**
+     * Function to handle change in settings triggered by the user.
+     * @param {string} property - The key of the property to alter in the settings object.
+     * @param {boolean} newValue - The new value to be assigned to the specified property.
+     */
+    const settingsHandler = (property: string, newValue: boolean) => {
         let newState = {...settings};
-        newState[property] = !newState[property];
+        newState[property] = newValue;
         setSettings(newState);
     }
 
@@ -177,4 +197,4 @@ const BackupRestoreSettings = ({theme}) => {
     )
 }
 
-export default withTheme(BackupRestoreSettings)
+export default withTheme(BackupRestoreSettingsOrg)

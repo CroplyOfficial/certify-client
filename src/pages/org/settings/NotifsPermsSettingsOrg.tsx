@@ -38,6 +38,12 @@ const Right = styled.div`
     }
 `;
 
+/**
+ * Returns the NotifsPermsSettingsOrg component which is the page to
+ * manage the notification and permission settings for the organization.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The NotifsPermsSettingsOrg component.
+ */
 const NotifsPermsSettingsOrg = ({theme}) => {
     const [notifSettings, setNotifSettings] = useState(
         {
@@ -58,6 +64,10 @@ const NotifsPermsSettingsOrg = ({theme}) => {
         }
     );
     
+    /**
+     * Function to handle change in notification settings triggered by the user.
+     * @param {string} property - The key of the property to alter in the notifSettings object.
+     */
     const notifSettingsHandler = (property: string) => {
         let newState = {...notifSettings};
         let newValue = !newState[property];
@@ -84,6 +94,10 @@ const NotifsPermsSettingsOrg = ({theme}) => {
         setNotifSettings(newState);
     };
 
+    /**
+     * Function to handle change in permission settings triggered by the user.
+     * @param {string} property - The key of the property to alter in the permSettings object.
+     */
     const permSettingsHandler = (property: string) => {
         let newState = {...permSettings};
         let newValue = !newState[property];

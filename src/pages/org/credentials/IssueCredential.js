@@ -36,10 +36,10 @@ const IDSearch = styled(LongInput)`
 `;
 
 /**
- * Returns the Credentials component which is the page that 
- * displays the credentials of a particular organisation.
+ * Returns the IssueCredential component which is the page that 
+ * contains the form to issue a particular credential of the organization.
  * @param {Object} theme - To receive the theme from the parent component. 
- * @returns {ReactElement} - The Credentials component.
+ * @returns {ReactElement} - The IssueCredential component.
  */
 const IssueCredential = ({theme}) => {
 

@@ -81,12 +81,20 @@ const ContentContainer = styled.div`
     }
 `;
 
+/**
+ * Returns the LoginUser component which is the page that contains
+ * the user login form.
+ * @returns {ReactElement} - The LoginUser component.
+ */
 const LoginUser = () => {
     const usernameRef = useRef(null)
     const passwordRef = useRef(null)
     const [usernameErr, setUsernameErr] = useState("")
     const [passwordErr, setPasswordErr] = useState("")
 
+    /**
+     * Function to validate the input values.
+     */
     const inputValidation = () => {
         if(usernameRef.current.value === "") {
             setUsernameErr("Please enter your username.") 

@@ -20,7 +20,12 @@ const DataHolder = styled.div`
     margin-bottom: 1rem;
 `;
 
-
+/**
+ * Returns the IdentityDashboard component which is the page that displays info of
+ * Identity credentials of the organization.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The IdentityDashboard component
+ */
 const IdentityDashboard = ({theme}) => {
     const [verifiedCredentialPopupVisible, setVerifiedCredentialPopupVisible] = useState(false);
     const toggleVerifiedCredentialPopupVisible = () => {

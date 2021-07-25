@@ -3,10 +3,21 @@ import {Step} from "./"
 import {
     InputPIN,
     Button,
-} from "../../../../components/ui" 
+} from "../../../../components/ui"
+
+/**
+ * Returns the Step5 component which is the onboarding step to confirm the entered PIN.
+ * @param {Object} userInput - The object containing the user input.
+ * @param {Reference} confirmPinRef - The reference to the confirm PIN input field.
+ * @param {Function} nextStepFunc - The function to proceed to the next step.
+ * @returns {ReactElement} - The Step5 component.
+ */
 const Step5 = ({userInput, confirmPinRef, nextStepFunc}) => {
-    const [confirmPinErr, setConfirmPinErr] = useState("")
+    const [confirmPinErr, setConfirmPinErr] = useState("");
     
+    /**
+     * Function to validate the input values.
+     */
     const inputValidation = () => {
         if(confirmPinRef.current.value !== userInput.pin) {
             setConfirmPinErr("The input does not match your entered PIN. Please try again.")

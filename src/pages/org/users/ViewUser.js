@@ -52,6 +52,12 @@ const CustomMainContent = styled(MainContent)`
     }
 `;
 
+/**
+ * Returns the ViewUser component which is the page that contains the form
+ * to view/edit the info of a particular user in an organization.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The ViewUser component.
+ */
 const ViewUser = ({theme}) => {
     const [userData] = useState({
         userProfileDesc: "hello",

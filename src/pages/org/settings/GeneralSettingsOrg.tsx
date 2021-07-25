@@ -60,6 +60,12 @@ const Right = styled.div`
     }
 `;
 
+/**
+ * Returns the GeneralSettingsOrg component which is the page to
+ * manage the general settings for the organization.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The GeneralSettingsOrg component.
+ */
 const GeneralSettingsOrg = ({theme}) => {
     const themeToggler = useThemeUpdate();
 
@@ -84,6 +90,11 @@ const GeneralSettingsOrg = ({theme}) => {
         }
     );
 
+    /**
+     * Function to handle change in settings triggered by the user.
+     * @param {string} property - The key of the property to alter in the settings object.
+     * @param {any} newValue - The new value to be assigned to the specified property.
+     */
     const settingsHandler = (property: string, newValue: any) => {
         let newState = {...settings}; 
         if(property === "sysNotifs")

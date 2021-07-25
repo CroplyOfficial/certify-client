@@ -14,6 +14,12 @@ const DashboardCard = styled.div`
     border: ${props => props.theme.dashboardCard.border};
 `;
 
+/**
+ * 
+ * @param {string} elementTitle - The heading of the element.
+ * @param {ReactElement} children -  The content inside the card element.
+ * @returns {ReactElement} - The DashboardElement component.
+ */
 const DashboardElement = ({elementTitle, children}) => {
     return (
         <div>
@@ -25,6 +31,12 @@ const DashboardElement = ({elementTitle, children}) => {
     )
 }
 
+/**
+ * Returns the Dashboard component which consists of 3 card elements
+ * contains info about the latest data relating to the organisation 
+ * and its applications and credentials.
+ * @returns {ReactElement} - The Dashboard component
+ */
 const Dashboard = () => {
     return (
         <>

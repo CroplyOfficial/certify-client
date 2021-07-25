@@ -78,19 +78,36 @@ const BtnDiv = styled.div`
     }
 `;
 
-
-const ConfirmPinForRestorePopup = ({theme, goBackFunc, closePopupFunc}) => {
+/**
+ * Returns the ConfirmPinForRestorePopup component which is the modal used to
+ * confirm the PIN for restoring account data.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Function} closePopupFunc - The function to close the popup.
+ * @param {Object} goBackFunc - The function to hide this component and 
+ * show the RestoreWarningPopup component.
+ * @returns {ReactElement} - The ConfirmPinForRestorePopup component.
+ */
+const ConfirmPinForRestorePopup = ({theme, closePopupFunc, goBackFunc}) => {
     const popupRef = useRef(null);
     const pinRef = useRef(null);
     const [pinErr, setPinErr] = useState('');
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();
         }
     }
     
+    /**
+     * Function to validate the input data.
+     * @param {Event} e - The click event which is fired on clicking
+     * RESTORE button.
+     */
     const inputValidation = e => {
         if(pinRef.current.value === "") {
             setPinErr("Please enter your PIN.") 

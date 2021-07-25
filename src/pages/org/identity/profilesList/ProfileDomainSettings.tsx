@@ -47,15 +47,27 @@ const DomainsHolder = styled.div`
     grid-row-gap: 1rem;
 `;
 
+/**
+ * Returns the ProfileDomainSettings component which is the page to manage
+ * a user profile's domain settings.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The ProfileDomainSettings component.
+ */
 const ProfileDomainSettings = ({theme}) => {
     const [selectedDomain, setSelectedDomain] = useState({});
 
     const [addDomainPopupVisible, setAddDomainPopupVisible] = useState(false);
+    /**
+     * Function to show/hide the AddDomainPopup component.
+     */
     const toggleAddDomainPopupVisible = () => {
         setAddDomainPopupVisible(!addDomainPopupVisible);
     }
 
     const [editDomainPopupVisible, setEditDomainPopupVisible] = useState(false);
+    /**
+     * Function to show/hide the EditDomainPopup component.
+     */
     const toggleEditDomainPopupVisible = (domain) => {
         setSelectedDomain(domain);
         setEditDomainPopupVisible(!editDomainPopupVisible);

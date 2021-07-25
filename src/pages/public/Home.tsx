@@ -88,6 +88,10 @@ const Footer = styled.footer`
     }
 `;
 
+/**
+ * Returns the Home component which is the home page.
+ * @returns {ReactElement} - The Home component.
+ */
 const Home = () => {
     return (
         <PageContainer>

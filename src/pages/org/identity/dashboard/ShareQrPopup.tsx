@@ -87,10 +87,23 @@ const Instructions = styled.div`
     font-weight: 600; 
 `;
 
+/**
+ * Returns the ShareQrPopup component which is the modal that enables the sharing
+ * of the QR code of a specified credential.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Function} closePopupFunc - The function to close the popup.
+ * @param {Function} goBackFunc - The function to hide this component
+ * and show the ShareCredentialPopup. * @param {Object} credential - The credential to be shared.  
+ * @returns {ReactElement} - The ShareQrPopup component.
+ */
 const ShareQrPopup = ({theme, closePopupFunc, goBackFunc, credential}) => {
     const popupRef = useRef(null);
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */
     const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();

@@ -84,6 +84,11 @@ const ContentContainer = styled.div`
     }
 `;
 
+/**
+ * Returns the RegisterUser component which is the page that contains
+ * the user registration form.
+ * @returns {ReactElement} - The RegisterUser component.
+ */
 const RegisterUser = () => {
     const usernameRef = useRef(null);
     const passwordRef = useRef(null);
@@ -92,7 +97,9 @@ const RegisterUser = () => {
     const [passwordErr, setPasswordErr] = useState("");
     const [confirmPasswordErr, setConfirmPasswordErr] = useState("");
 
-
+    /**
+     * Function to validate the input values.
+     */
     const inputValidation = () => {
         if(usernameRef.current.value === "") {
             setUsernameErr("Please enter your username.");

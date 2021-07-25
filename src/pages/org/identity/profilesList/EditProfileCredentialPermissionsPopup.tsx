@@ -130,6 +130,15 @@ const BtnDiv = styled.div`
 
 `;
 
+/**
+ * Returns the Data component which displays a piece of information about the credential.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {string} dataName - The name of the field.
+ * @param {string} dataValue - The value in the field.
+ * @param {boolean} [link=false] - Specifies whether dataValue is a URL or not. 
+ * Use it to specify that the value assigned to dataValue is a URL.
+ * @returns {ReactElement} - The Data component.
+ */
 const Data = ({theme, dataName, dataValue, link=false}) => {
     const [shareData, setShareData] = useState(true);
     return (
@@ -155,10 +164,22 @@ const Data = ({theme, dataName, dataValue, link=false}) => {
     );
 }
 
+/**
+ * Returns the EditProfileCredentialPermsPopup component which is the modal used to
+ * duplicate a credential.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Function} closePopupFunc - The function to close the popup. 
+ * @param {Object} credential - The credential whose permissions are to be edited.
+ * @returns {ReactElement} - The EditProfileCredentialPermsPopup component.
+ */
 const EditProfileCredentialPermsPopup = ({theme, closePopupFunc, credential}) => {
     const popupRef = useRef(null);
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();
@@ -172,7 +193,7 @@ const EditProfileCredentialPermsPopup = ({theme, closePopupFunc, credential}) =>
                     <ClosePopup>
                         <ArrowLeft stroke={theme.mainColors.grey} onClick={closePopupFunc} width="2rem" />
                     </ClosePopup>
-                    <H1>Edit Credentials Permissions</H1>
+                    <H1>Edit Credential Permissions</H1>
                 </BreadcrumbHeader>
                 <CredentialGeneralInfo>
                     <div>

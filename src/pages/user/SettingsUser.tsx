@@ -58,6 +58,12 @@ const Right = styled.div`
     max-width: 350px;
 `;
 
+/**
+ * Returns the SettingsUser component which is the page to
+ * manage user settings.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The SettingsUser component.
+ */
 const SettingsUser = ({theme}) => {
     const themeToggler = useThemeUpdate();
     const settingsRefs = useRef(null);
@@ -80,6 +86,11 @@ const SettingsUser = ({theme}) => {
         }
     );
     
+    /**
+     * Function to handle change in settings triggered by the user.
+     * @param {string} property - The key of the property to alter in the settings object.
+     * @param {any} newValue - The new value to be assigned to the specified property.
+     */
     const settingsHandler = (property: string, newValue: any) => {
         let newState = {...settings};
         newState[property] = newValue;
