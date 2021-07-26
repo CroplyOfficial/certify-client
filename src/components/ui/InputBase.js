@@ -4,6 +4,7 @@ import styled, {withTheme} from 'styled-components'
 import {View, Hide} from "../assets/icons"
 import {PWStrengthMeter} from "./"
 import InputError from "./InputError"
+import { themeLight, themeDark } from '../assets/theme'
 
 const Fieldset = styled.fieldset`
     margin: 0;
@@ -45,7 +46,7 @@ const Input = styled.input`
     }
     &:focus ~ label {
         transform: scale(0.5);
-        background-color: ${props => props.theme.input.labelBgFloating};
+        background: ${props => props.theme.input.labelBgFloating};
         padding: 0 0.5rem;
         top: ${props => props.strengthMeter ? "3rem" : "1rem"};
         font-size: 1.7rem;
@@ -111,7 +112,7 @@ const Error = styled(InputError)`
  * @param {Ref} [inputRef] - Specifies the reference of the input element.
  * @returns {ReactElement} - The InputBase component.
  */
-const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, className, strengthMeter, maxLength, confidInfo, placeholder, autoComplete, err, inputRef, showHideColor}) => {
+const InputBase = ({theme, lightTheme, darkTheme, value, defaultValue, onFocus, onBlur, onChange, className, strengthMeter, maxLength, confidInfo, placeholder, autoComplete, err, inputRef, showHideColor}) => {
 
     const [isInputFilled, setIsInputFilled] = useState(defaultValue || value ? true : false); // State to determine whether the input field has a value in it or not
     const [isConfidInfoVisible, setIsConfidInfoVisible] = useState(false); // State to determine whether the text in the input field is masked or not. This is needed for the Show/Hide Password functionality

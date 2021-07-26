@@ -16,9 +16,11 @@ import InputBase from "./InputBase"
  * @param {Ref} [inputRef] - Specifies the reference of the input element.
  * @returns {ReactElement} - The InputConfidInfo component.
  */
-const InputConfidInfo = ({placeholder, inputRef, autoComplete, strengthMeter, className, err, showHideColor}) => {
+const InputConfidInfo = ({lightTheme, darkTheme, placeholder, inputRef, autoComplete, strengthMeter, className, err, showHideColor}) => {
     return (
             <InputBase
+                lightTheme={lightTheme}
+                darkTheme={darkTheme}
                 placeholder={placeholder}
                 inputRef={inputRef}
                 autoComplete={autoComplete} 

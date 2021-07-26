@@ -1,4 +1,4 @@
-// Contains the theme and colors used for app design. 
+// Contains the themes and colors used for app design. 
 // NOTE: pastelColors are essentially a lighter shade of the mainColors.
 
 import backgroundLight from "../assets/Background-light.svg";
@@ -37,6 +37,9 @@ const pastelColors = {
     darkBlue: "#BECFDB"
 }
 
+/**
+ * Specifications relating to light theme.
+ */
 const themeLight = {
     mainColors: mainColors,
     pastelColors: pastelColors,
@@ -132,6 +135,20 @@ const themeLight = {
         bg: '#C8D7E3',
         border: '1px solid #E5E5E5'
     },
+    popup: {
+        bg: mainColors.white,
+        colorPri: mainColors.black,
+        colorSec: mainColors.grey,
+        viewIcon: mainColors.blue,
+        hideIcon: mainColors.grey,
+        hideInfo: mainColors.grey,
+        active: mainColors.black,
+        inactive: mainColors.grey
+    },
+    dynamicSearch: {
+        bg: mainColors.white,
+        color: mainColors.black
+    },
     identityScan: {
         active: mainColors.black,
         inactive: mainColors.grey,
@@ -147,7 +164,9 @@ const themeLight = {
     }
 }
 
-
+/**
+ * Specifications relating to dark theme.
+ */
 const themeDark = {
     mainColors: mainColors,
     pastelColors: pastelColors,
@@ -242,6 +261,20 @@ const themeDark = {
     profilePic: {
         bg: colorLightLevel(mainColors.darkBlue, 20),
         border: 'none'
+    },
+    popup: {
+        bg: colorLightLevel(mainColors.darkBlue, -20),
+        colorPri: mainColors.white,
+        colorSec: mainColors.blue,
+        viewIcon: mainColors.white,
+        hideIcon: mainColors.grey,
+        hideInfo: mainColors.grey,
+        active: mainColors.white,
+        inactive: mainColors.grey
+    },
+    dynamicSearch: {
+        bg: colorLightLevel(mainColors.darkBlue, -20),
+        color: mainColors.white
     },
     identityScan: {
         active: mainColors.white,

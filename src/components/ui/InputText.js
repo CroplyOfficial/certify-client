@@ -17,9 +17,11 @@ import InputBase from "./InputBase"
  * @param {Ref} [inputRef] - Specifies the reference of the input element.
  * @returns {ReactElement} - The InputText component.
  */
-const InputText = ({placeholder, value, defaultValue, maxLength, onChange, onFocus, onBlur, inputRef, autoComplete, className, err}) => {
+const InputText = ({lightTheme, darkTheme, placeholder, value, defaultValue, maxLength, onChange, onFocus, onBlur, inputRef, autoComplete, className, err}) => {
     return (
         <InputBase
+            lightTheme={lightTheme}
+            darkTheme={darkTheme}
             placeholder={placeholder} 
             maxLength={maxLength}
             inputRef={inputRef}

@@ -27,7 +27,7 @@ const BlurredBg = styled.div`
 const Popup = styled.div`
     display: grid;
     grid-template-rows: repeat(3, auto);
-    background-color: #fff;
+    background-color: ${props => props.theme.popup.bg};
     border-radius: 30px;
     height: fit-content;
     width: 30%;
@@ -81,7 +81,7 @@ const Inputs = styled.div`
 
 const Note = styled.div`
     font-family: "Open Sans";
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
     font-size: 1rem;
     margin: 1rem 0;
     text-align: center;
@@ -168,7 +168,7 @@ const NewProfilePopup = ({theme, closePopupFunc}) => {
                     </div>
                 </Note>
                 <BtnDiv>
-                    <Button primary btnColor='#5D7586' onClick={inputValidation}>SAVE & CONTINUE</Button>
+                    <Button primary btnColor={theme.btnPriBg} onClick={inputValidation}>SAVE & CONTINUE</Button>
                 </BtnDiv>
             </Popup>
         </BlurredBg>

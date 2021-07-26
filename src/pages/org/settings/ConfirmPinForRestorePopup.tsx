@@ -28,14 +28,14 @@ const BlurredBg = styled.div`
 
 const Popup = styled.div`
     display: grid;
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.popup.bg};
     border-radius: 30px;
     height: fit-content;
     max-width: fit-content;
     width: 30%;
     padding: 0 2rem 2rem 2rem;
     font-family: 'Open Sans';
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
     hr {
         width: 100%;
         margin: 1.5rem 0;
@@ -145,7 +145,7 @@ const ConfirmPinForRestorePopup = ({theme, closePopupFunc, goBackFunc}) => {
                 <BtnDiv>
                     <Button 
                         primary 
-                        btnColor={theme.mainColors.darkBlue}
+                        btnColor={theme.btnPriBg}
                         onClick={inputValidation}
                     >
                         RESTORE

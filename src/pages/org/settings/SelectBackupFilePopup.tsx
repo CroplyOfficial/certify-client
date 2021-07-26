@@ -28,13 +28,13 @@ const BlurredBg = styled.div`
 const Popup = styled.div`
     display: grid;
     grid-row-gap: 1rem;
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.popup.bg};
     border-radius: 30px;
     height: fit-content;
     width: 30%;
     padding: 0 2rem 2rem 2rem;
     font-family: 'Open Sans';
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
     hr {
         width: 100%;
         margin: 0.5rem 0;
@@ -123,7 +123,7 @@ const SelectBackupFilePopup = ({theme, closePopupFunc, showRestoreWarningPopupFu
                     <H1>Choose Backup File</H1>
                 </BreadcrumbHeader>
                 <ChooseFile>
-                    <Button btnColor={theme.mainColors.darkBlue}>
+                    <Button btnColor={theme.btnSecBg}>
                         <input 
                             type="file" 
                             ref={chooseFileRef}
@@ -145,7 +145,7 @@ const SelectBackupFilePopup = ({theme, closePopupFunc, showRestoreWarningPopupFu
                 <BtnDiv>
                     <Button 
                         primary
-                        btnColor={theme.mainColors.darkBlue}
+                        btnColor={theme.btnPriBg}
                         onClick={showRestoreWarningPopupFunc}
                     >
                         CONTINUE

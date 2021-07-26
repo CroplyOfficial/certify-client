@@ -91,6 +91,9 @@ const ContentWithNavbar = styled(ContentWithoutNavbar)`
     border: none;
     background: none;
     height: calc(100% - 70px);
+    &::-webkit-scrollbar-track {
+        margin:0;
+    }
 `;
 
 /**

@@ -41,7 +41,7 @@ const ProfilePicture = styled.div`
 
 const Username = styled.div`
     font-family: 'Open Sans';
-    color: ${props => props.theme.mainColors.darkBlue};
+    color: ${props => props.theme.mode === 'light' ? props.theme.mainColors.darkBlue : props.theme.mainColors.blue};
     font-size: 1.8rem;
     display: grid;
     place-items: center;
@@ -98,11 +98,11 @@ const ViewProfile = ({theme}) => {
     
     const menuOptions = {
         "Delete Profile": () => console.log("profile deleted"),
-        "Domain Settings": () => window.location.href = "/org/identity/profileLists/domainSettings"
+        "Domain Settings": () => window.location.href = "/org/identity/profilesList/domainSettings"
     }
 
     const addCredentialsBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue} onClick={() => window.location.href="/org/identity/profilesList/addCredentials"}>+ ADD CREDENTIALS</Button>
+        <Button primary btnColor={theme.btnPriBg} onClick={() => window.location.href="/org/identity/profilesList/addCredentials"}>+ ADD CREDENTIALS</Button>
     )
     return (
         <>

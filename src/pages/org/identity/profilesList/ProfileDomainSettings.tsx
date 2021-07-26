@@ -96,7 +96,7 @@ const ProfileDomainSettings = ({theme}) => {
     });
 
     const addDomainBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue} onClick={toggleAddDomainPopupVisible}>+ ADD DOMAIN</Button>
+        <Button primary btnColor={theme.btnPriBg} onClick={toggleAddDomainPopupVisible}>+ ADD DOMAIN</Button>
     )
     return (
         <>
