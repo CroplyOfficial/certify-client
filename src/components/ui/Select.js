@@ -6,6 +6,8 @@ import styled, {withTheme} from "styled-components"
 
 import {ChevronDown} from "../assets/icons"
 
+import { themeLight, themeDark, mainColors } from '../assets/theme';
+
 const Fieldset = styled.fieldset`
     padding: 0;
     margin: 0;
@@ -31,36 +33,71 @@ const SelectBase = styled.select`
     box-shadow: none;
     display: flex;
     justify-content: flex-start;
-    border: 1px solid ${props => props.theme.input.borderColor};
+    border: 1px solid ${props => props.lightTheme ? 
+            themeLight.input.borderColor :          
+            (
+                props.darkTheme ?
+                themeDark.input.borderColor :
+                props.theme.input.borderColor
+            )
+        };
     font-size: 1rem;
     cursor: pointer;
     position: relative;
     outline: none;
-    color: ${props => props.theme.input.color};
+    color: ${props => props.lightTheme ? 
+            themeLight.input.color :          
+            (
+                props.darkTheme ?
+                themeDark.input.color :
+                props.theme.input.color
+            )
+        };
     // to remove original dropdown arrow
     -webkit-appearance: none;
     -moz-appearance: none;
     -o-appearance: none;
 
     &:hover { 
-        border-color: ${props => props.theme.mainColors.darkBlue};
-        border-width:2px;
+        border-color: ${props => props.lightTheme ? 
+            themeLight.input.borderColorHover :          
+            (
+                props.darkTheme ?
+                themeDark.input.borderColorHover :
+                props.theme.input.borderColorHover
+            )
+        };        
+        border-width: 2px;
     }
     &:focus { 
-        border-color: ${props => props.theme.mainColors.blue};
+        border-color: ${mainColors.blue};
         border-width:2px;
     }
     &:focus ~ label {
         transform: scale(0.5);
-        background-color: ${props => props.theme.input.labelBgFloating};
+        background: ${props => props.lightTheme ? 
+            themeLight.input.labelBgFloating:          
+            (
+                props.darkTheme ?
+                themeDark.input.labelBgFloating :
+                props.theme.input.labelBgFloating
+            )
+        };
         padding: 0 0.5rem;
         top: 1rem;
         font-size: 1.7rem !important;
-        color: ${props => props.theme.input.labelColor};
+        color: ${props => props.lightTheme ? 
+            themeLight.input.labelColorFloating:          
+            (
+                props.darkTheme ?
+                themeDark.input.labelColorFloating :
+                props.theme.input.labelColorFloating
+            )
+        };
         width: max-content;
     }
     & option {
-        color: ${props => props.theme.mainColors.black};
+        color: ${mainColors.black};
     }
 `;
 
@@ -79,17 +116,38 @@ const Label = styled.label`
     font-size: 1rem !important;
     top: 0.7rem;
     left: 1rem;
-    color: ${props => props.theme.mainColors.grey};
+    color: ${props => props.lightTheme ? 
+            themeLight.input.labelColor :          
+            (
+                props.darkTheme ?
+                themeDark.input.labelColor :
+                props.theme.input.labelColor
+            )
+        };
     transform-origin: 7% -130%;
     transition: transform 300ms ease;
     pointer-events: none;
     &.optSelected {
         transform: scale(0.5);
-        background-color: ${props => props.theme.input.labelBgFloating};
+        background-color: ${props => props.lightTheme ? 
+            themeLight.input.labelBgFloating :          
+            (
+                props.darkTheme ?
+                themeDark.input.labelBgFloating :
+                props.theme.input.labelBgFloating
+            )
+        };
         padding: 0 0.5rem;
         top: 1rem;
         font-size: 1.7rem !important;
-        color: ${props => props.theme.input.labelColor};
+        color: ${props => props.lightTheme ? 
+            themeLight.input.labelColorFloating :          
+            (
+                props.darkTheme ?
+                themeDark.input.labelColorFloating :
+                props.theme.input.labelColorFloating
+            )
+        };
         width: max-content;
     }
 `;
@@ -97,13 +155,15 @@ const Label = styled.label`
 /**
  * Returns the Select component.
  * @param {Object} theme - To receive the theme from the parent component.
+ * @param {boolean} [darkTheme] - To specify if the component should use the light theme.
+ * @param {boolean} [lightTheme] - To specify if the component should use the dark theme.
  * @param {string} [defaultValue] - The default value of the input element (editable textarea).
  * @param {string[]} optionList - The array of option strings.
  * @param {string} [placeholder] - Specifies the placeholder for the select element.
  * @param {Ref} [inputRef] - Specifies the reference of the select element.
  * @returns {ReactElement} - The Select component.
  */
-const Select = ({theme, inputRef, defaultValue, placeholder, optionList}) => {
+const Select = ({theme, lightTheme, darkTheme, inputRef, defaultValue, placeholder, optionList}) => {
     const [isOptSelected, setIsOptSelected] = useState(defaultValue ? true : false) // State to determine whether an option is selected or not.
     let optList = [] // Array which will contain all the option elements
 
@@ -127,14 +187,22 @@ const Select = ({theme, inputRef, defaultValue, placeholder, optionList}) => {
                 ref={inputRef}
                 onChange={isOptSelectedCheck}
                 defaultValue={defaultValue}
+                lightTheme={lightTheme}
+                darkTheme={darkTheme}
             >
                 <option hidden disabled selected value></option>
                 {optList}
             </SelectBase>
             <DropdownArrow>
-                <ChevronDown fill={theme.mainColors.grey} width="1.5rem" />
+                <ChevronDown fill={mainColors.grey} width="1.5rem" />
             </DropdownArrow>
-            <Label className={isOptSelected ? 'optSelected' : ''}>{placeholder}</Label>
+            <Label
+                lightTheme={lightTheme}
+                darkTheme={darkTheme}
+                className={isOptSelected ? 'optSelected' : ''}
+            >
+                {placeholder}
+            </Label>
         </Fieldset>
     )
 }

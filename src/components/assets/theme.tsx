@@ -75,10 +75,15 @@ const themeLight = {
     h6: mainColors.darkBlue,
     input: {
         labelBgFloating: mainColors.white,
-        labelColor: mainColors.darkBlue,
+        labelColor: mainColors.grey,
+        labelColorFloating: mainColors.darkBlue,
         color: mainColors.black,
         borderColor: pastelColors.grey,
-        toggleShowBg: mainColors.white
+        borderColorHover: mainColors.darkBlue,
+        toggleShowBg: mainColors.white,
+        toggleShowIcon: mainColors.grey,
+        deleteDigitColor: mainColors.grey,
+        inputUnderlineColor: '#C4C4C4'
     },
     checkbox: {
         labelHover: mainColors.white
@@ -202,10 +207,15 @@ const themeDark = {
     h6: mainColors.blue,
     input: {
         labelBgFloating: colorLightLevel(mainColors.darkBlue, -20),
-        labelColor: mainColors.blue,
+        labelColor: mainColors.grey,
+        labelColorFloating: pastelColors.grey,
         color: mainColors.white,
         borderColor: mainColors.grey,
-        toggleShowBg: colorLightLevel(mainColors.darkBlue, -20)
+        borderColorHover: pastelColors.grey,
+        toggleShowBg: colorLightLevel(mainColors.darkBlue, -20),
+        toggleShowIcon: '#fff',
+        deleteDigitColor: '#fff',
+        inputUnderlineColor: '#A1A1A1'
     },
     checkbox: {
         labelHover: pastelColors.blue
@@ -214,7 +224,7 @@ const themeDark = {
     btnSecBg: colorLightLevel(mainColors.darkBlue, 30),
     hr: mainColors.darkBlue,
     strengthMeter: {
-        color: mainColors.grey
+        color: mainColors.white
     },
     tangleHistoryTable: {
         view: mainColors.white
@@ -224,12 +234,12 @@ const themeDark = {
         border: 'none'
     },
     settingToggleSwitchL: {
-        textOnColor: mainColors.white,
-        textOffColor: mainColors.grey
+        textOn: mainColors.white,
+        textOff: mainColors.grey
     },
     settingToggleSwitchLR: {
-        textOnColor: mainColors.white,
-        textOffColor: mainColors.grey
+        textOn: mainColors.white,
+        textOff: mainColors.grey
     },
     userAppHolder: {
         bg: mainColors.darkBlue,
@@ -294,4 +304,6 @@ const themeDark = {
 export {
     themeLight,
     themeDark,
+    mainColors,
+    pastelColors
 }

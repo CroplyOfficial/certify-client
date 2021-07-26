@@ -48,20 +48,11 @@ margin-top: 1rem;
         div {
             background: none;
         }
-        pre {
-           color: ${colorLightLevel("#FFFFFF", -25)}
-        }
-        input {
-            color: white;
-        }
         input:focus ~ label, input:valid ~ label {
             background-color: #5A7181;
-            color: white;
         }
         label {
-            color: ${colorLightLevel("#FFFFFF", -25)};
             &.inputFilled {
-                color: white;
                 background-color: #546979;
             }
         }

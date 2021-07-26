@@ -6,6 +6,8 @@ import ReactPinField from "react-pin-field"
 import InputError from "./InputError"
 import { PinDeleteDigit } from '../assets/icons';
 
+import { themeLight, themeDark, mainColors } from '../assets/theme';
+
 const Fieldset = styled.fieldset`
     padding: 0;
     position: relative;
@@ -20,28 +22,39 @@ const Fieldset = styled.fieldset`
 
 const InputForShow = styled.input`
     box-sizing: border-box;
-    font-size: "1.2rem";
     font-family: "Open Sans";
     font-weight: normal;
-    color: ${props => props.theme.mainColors.black};
     width: 100%;
     height: 3rem;
-    padding: "0rem 1rem 0rem 1rem";
     border-radius: 30px;
     box-shadow: none;
-    border: 1px solid ${props => props.theme.input.borderColor};
+    border: 1px solid ${props => props.lightTheme ? 
+            themeLight.input.borderColor :          
+            (
+                props.darkTheme ?
+                themeDark.input.borderColor :
+                props.theme.input.borderColor
+            )
+        };
     cursor: text;
     position: relative;
     outline: none;
     background: none;
     letter-spacing: 0.3rem;
     &:hover { 
-        border-color: ${props => props.theme.mainColors.darkBlue};
+        border-color: ${props => props.lightTheme ? 
+            themeLight.input.borderColorHover :          
+            (
+                props.darkTheme ?
+                themeDark.input.borderColorHover :
+                props.theme.input.borderColorHover
+            )
+        };        
         border-width:2px;
     }
 
     &.active { 
-        border-color: ${props => props.theme.mainColors.blue};
+        border-color: ${mainColors.blue};
         border-width:2px;
     }
 `;
@@ -56,15 +69,36 @@ const Label = styled.label`
     font-weight: normal;
     top: 1rem;
     left: 1rem;
-    color: ${props => props.theme.mainColors.grey};
+    color: ${props => props.lightTheme ? 
+            themeLight.input.borderColor :          
+            (
+                props.darkTheme ?
+                themeDark.input.borderColor :
+                props.theme.input.borderColor
+            )
+        };
     transform-origin: 7% -130%;
     transition: transform 300ms ease;
     pointer-events: none;
     transform: scale(0.5);
-    background: ${props => props.theme.input.labelBgFloating};
+    background: ${props => props.lightTheme ? 
+            themeLight.input.labelBgFloating :          
+            (
+                props.darkTheme ?
+                themeDark.input.labelBgFloating :
+                props.theme.input.labelBgFloating
+            )
+        };
     padding: 0 0.5rem;
     font-size: 1.7rem !important;
-    color: ${props => props.theme.input.labelColor};
+    color: ${props => props.lightTheme ? 
+            themeLight.input.labelColorFloating :          
+            (
+                props.darkTheme ?
+                themeDark.input.labelColorFloating :
+                props.theme.input.labelColorFloating
+            )
+        };
     width: max-content;
 `;
 const DeleteDigit = styled.div`
@@ -93,11 +127,27 @@ const PinContainer = styled.div`
             height: 1.5rem;
             width: 1.6rem;
             border: none;
-            border-bottom: ${props => "3px solid "+props.inputUnderlineColor};
+            color: ${props => props.lightTheme ? 
+                themeLight.input.color :          
+                (
+                    props.darkTheme ?
+                    themeDark.input.color :
+                    props.theme.input.color
+                )
+            };
+            border-bottom: ${props => "3px solid "+ (props.lightTheme ? 
+                    themeLight.input.inputUnderlineColor :          
+                    (
+                        props.darkTheme ?
+                        themeDark.input.inputUnderlineColor :
+                        props.theme.input.inputUnderlineColor
+                    )
+                )
+            };
             &[type=password] {
                 padding: 0rem;
                 font-size: 5rem;
-                color: ${props => props.maskColor};
+                color: #89C7F3;
                 border-bottom: none;
                 @-moz-document url-prefix() {
                     & {
@@ -119,6 +169,8 @@ const Error = styled(InputError)`
 /**
  * Returns the InputPIN component.
  * @param {Object} theme - To receive the theme from the parent component.
+ * @param {boolean} [darkTheme] - To specify if the component should use the light theme.
+ * @param {boolean} [lightTheme] - To specify if the component should use the dark theme.
  * @param {string} [value] - The value of the textarea (uneditable textarea).
  * @param {string} [defaultValue] - The default value of the textarea (editable textarea).
  * @param {Function} [onChange] - The function to be executed when the value in the swd-pin-field element changes.
@@ -128,13 +180,10 @@ const Error = styled(InputError)`
  * @param {boolean} [autoComplete] - Specifies whether the value in the swd-pin-field element should be auto-completed or not. Apply this prop if the swd-pin-field element should be auto-completed.
  * @param {string} [placeholder] - Specifies the placeholder for the swd-pin-field element.
  * @param {string} [err] - Specifies the error to be shown according to input received. This should be a state ideally.
- * @param {string} [maskColor] - Specifies the color (in hexadecimal) of the mask which hides the entered PIN digits.
- * @param {string} [inputUnderlineColor] - Specifies the color (in hexadecimal) of the underline which distinguishes the different digit input elements.
- * @param {string} [deleteDigitColor] - Specifies the stroke color (in hexadecimal) of the svg element which deletes entered digits on being clicked.
  * @param {Ref} [inputRef] - Specifies the reference of the input element containing the entered PIN code.
  * @returns {ReactElement} - The InputPIN component.
  */
-const InputPIN = ({theme, className, placeholder, inputRef, autoComplete, err, autoFocus, maskColor, inputUnderlineColor, deleteDigitColor}) => {
+const InputPIN = ({theme, lightTheme, darkTheme, className, placeholder, inputRef, autoComplete, err, autoFocus}) => {
 
     const [pin, setPin] = useState("") // State to hold the entered PIN value
     const [inputFocused, setInputFocused] = useState(autoFocus ? true : false) // State to determine whether the input fields are focused or blurred
@@ -148,10 +197,10 @@ const InputPIN = ({theme, className, placeholder, inputRef, autoComplete, err, a
      * Logic of what should happen when the PinDeleteDigit component is clicked.
      */
     const deleteDigitHandler = () => {
-        let arr = pinInputRef.current.inputs.slice().reverse()
+        let arr = pinInputRef.current.inputs.slice().reverse();
         for(let input of arr) {
             if(input.value.length > 0) {
-                input.focus()
+                input.focus();
                 input.dispatchEvent(new KeyboardEvent('keydown',{'key':'Backspace'}));
                 break
             }
@@ -186,18 +235,41 @@ const InputPIN = ({theme, className, placeholder, inputRef, autoComplete, err, a
     return (
         <Fieldset className={className}>
             <InputForShow
+                lightTheme={lightTheme}
+                darkTheme={darkTheme}
                 type="text"
                 autoComplete={autoComplete}
                 disabled
                 className={inputFocused ? "active" : ""}
             />
-            <Label className="inputFilled">{placeholder}</Label>
+            <Label
+                lightTheme={lightTheme}
+                darkTheme={darkTheme}
+                className="inputFilled"
+            >
+                {placeholder}
+            </Label>
             <HiddenInput ref={inputRef} style={{display: "none"}} defaultValue={pin} />
             <DeleteDigit>
-                <PinDeleteDigit stroke={deleteDigitColor} width="1.5rem" onClick={deleteDigitHandler} />
+                <PinDeleteDigit
+                    
+                    stroke={
+                        lightTheme ? 
+                        themeLight.input.deleteDigitColor :          
+                        (
+                            darkTheme ?
+                            themeDark.input.deleteDigitColor :
+                            theme.input.deleteDigitColor
+                        )
+                    } 
+                    width="1.5rem" 
+                    onClick={deleteDigitHandler} 
+                />
             </DeleteDigit>
-            <PinContainer inputUnderlineColor={inputUnderlineColor} maskColor={maskColor}>
-                <ReactPinField 
+            <PinContainer lightTheme={lightTheme} darkTheme={darkTheme}>
+                <ReactPinField
+                    lightTheme={lightTheme}
+                    darkTheme={darkTheme}
                     ref={pinInputRef}
                     className="pinDigitContainer" 
                     validate="0123456789" 

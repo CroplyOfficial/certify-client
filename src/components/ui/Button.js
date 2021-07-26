@@ -2,6 +2,7 @@ import {ReactElement} from 'react'
 import styled, {css, withTheme} from 'styled-components'
 
 import {btnRippleEffect, colorLightLevel, hexToRgb} from "../functions/componentFunctions"
+import { mainColors } from '../assets/theme';
 
 const ButtonBase = styled.button`
     margin: 0;
@@ -101,7 +102,7 @@ const Button = ({theme, children, type, primary, btnColor, className, onClick}) 
             className={className}
             btnColor={btnColor}
             onClick={(e) => {
-                    primary ? btnRippleEffect(e, btnColor): btnRippleEffect(e, theme.mainColors.white)
+                    primary ? btnRippleEffect(e, btnColor): btnRippleEffect(e, mainColors.white)
 
                     // Checks if the onClick prop has a value or no
                     if(typeof onClick !== "undefined") {

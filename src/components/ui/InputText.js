@@ -4,6 +4,8 @@ import InputBase from "./InputBase"
 
 /**
  * Returns the InputText component.
+ * @param {boolean} [darkTheme] - To specify if the component should use the light theme.
+ * @param {boolean} [lightTheme] - To specify if the component should use the dark theme.
  * @param {string} [value] - The value of the input element (uneditable textarea).
  * @param {string} [defaultValue] - The default value of the input element (editable textarea).
  * @param {Function} [onChange] - The function to be executed when the value in the input element changes.
