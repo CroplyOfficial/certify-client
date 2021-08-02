@@ -28,7 +28,7 @@ const Indicator = styled.div`
     background: none;
   }
   ${Label}:hover & {
-    background: ${props => props.theme.mainColors.white};
+    background: ${props => props.theme.checkbox.labelHover};
   }
   &::after {
     content: "";

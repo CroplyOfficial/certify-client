@@ -30,14 +30,14 @@ const Popup = styled.div`
     display: grid;
     grid-template-rows: repeat(6, auto);
     grid-row-gap: 1rem;
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.popup.bg};
     border-radius: 30px;
     height: fit-content;
     width: 60%;
     box-sizing: border-box;
     padding: 0 2rem 2rem 2rem;
     font-family: 'Open Sans';
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
 
     hr {
         width: 100%;
@@ -86,7 +86,7 @@ const CredentialData = styled.div`
     margin: 0 1rem;
     font-family: "Open Sans";
     font-weight: bold;
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
     font-size: 1.1rem;
 `;
 
@@ -95,7 +95,7 @@ const DataContainer = styled.div`
     grid-column-end: span 1;
     display: grid;
     grid-template-columns: 4fr 1fr;
-    color: ${props => props.shareData ? props.theme.mainColors.black : props.theme.mainColors.grey};
+    color: ${props => props.shareData ? props.theme.popup.colorPri : props.theme.popup.hideInfo};
     span {
         font-size: 1rem;
         font-weight: 600;
@@ -111,7 +111,7 @@ const DataContainer = styled.div`
         font-weight: bold;
         a {
             text-decoration: none;
-            color: ${props => props.shareData ? props.theme.mainColors.black : props.theme.mainColors.grey};
+            color: ${props => props.shareData ? props.theme.popup.colorPri : props.theme.popup.hideInfo};
         }
     }
     hr {
@@ -154,8 +154,8 @@ const Data = ({theme, dataName, dataValue, link=false}) => {
             <div>
                 {
                     shareData ?
-                    <View stroke={theme.mainColors.blue} onClick={() => setShareData(false)} />:
-                    <Hide stroke={theme.mainColors.grey} onClick={() => setShareData(true)} />
+                    <View stroke={theme.popup.viewIcon} onClick={() => setShareData(false)} />:
+                    <Hide stroke={theme.popup.hideIcon} onClick={() => setShareData(true)} />
                 }
             </div>
             <Hr />
@@ -216,7 +216,7 @@ const EditProfileCredentialPermsPopup = ({theme, closePopupFunc, credential}) =>
                 <BtnDiv>
                     <Button 
                         primary 
-                        btnColor={theme.mainColors.darkBlue}
+                        btnColor={theme.btnPriBg}
                     >SAVE PERMISSIONS</Button>
                 </BtnDiv>
             </Popup>

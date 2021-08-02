@@ -27,7 +27,7 @@ const Popup = styled.div`
     display: grid;
     grid-template-rows: repeat(7, auto);
     grid-row-gap: 1rem;
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.popup.bg};
     border-radius: 30px;
     height: fit-content;
     width: 60%;
@@ -57,7 +57,7 @@ const Note = styled.div`
     padding: 0 1rem;
     font-family: "Open Sans";
     font-size: 1rem;
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
 `;
 
 const CredentialName = styled.div`
@@ -74,7 +74,7 @@ const AppData = styled.div`
     margin: 0 1rem;
     font-family: "Open Sans";
     font-weight: bold;
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
     font-size: 1.1rem;
 `;
 
@@ -105,7 +105,7 @@ const Business = styled.div`
 const Info = styled.div`
     margin: 0 1rem;
     font-family: "Open Sans";
-    color: ${props => props.theme.mainColors.grey};
+    color: ${props => props.theme.popup.colorSec};
 `;
 
 const BtnDiv = styled.div`

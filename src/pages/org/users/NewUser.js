@@ -79,7 +79,7 @@ const NewUser = ({theme}) => {
         userCountry: userInputRefs.current.userCountry ? userInputRefs.current.userCountry.value : "",
         userProfileURL: userInputRefs.current.userProfileURL ? userInputRefs.current.userProfileURL.value : ""
     })
-    const saveUserBtn = <Button primary btnColor={theme.mainColors.darkBlue}>SAVE USER</Button>
+    const saveUserBtn = <Button primary btnColor={theme.btnPriBg}>SAVE USER</Button>
     return (
         <>
         <CommonElementsOrg menuActive="Users" />

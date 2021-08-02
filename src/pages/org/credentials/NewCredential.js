@@ -100,7 +100,7 @@ const NewCredential = ({theme}) => {
     customFieldTypeRefs.current =  Array(3).fill().map((_, i) => customFieldTypeRefs.current[i]);
 
     const saveTemplateBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue}>SAVE TEMPLATE</Button>
+        <Button primary btnColor={theme.btnPriBg}>SAVE TEMPLATE</Button>
     )
 
     const [customFields, setCustomFields] = useState([

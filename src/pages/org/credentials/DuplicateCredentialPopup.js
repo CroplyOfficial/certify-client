@@ -28,7 +28,7 @@ const Popup = styled.div`
     display: grid;
     grid-template-rows: repeat(5, auto);
     grid-row-gap: 1rem;
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.popup.bg};
     border-radius: 30px;
     height: fit-content;
     width: 60%;
@@ -59,7 +59,7 @@ const Note = styled.div`
     padding: 0 1rem;
     font-family: "Open Sans";
     font-size: 1rem;
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
 `;
 
 const CredentialName = styled.div`
@@ -143,7 +143,7 @@ const DuplicateCredentialPopup = ({theme, closePopupFunc, credential}) => {
                     <Select placeholder="Credential Type" optionList={["License"]} />
                 </Inputs>
                 <BtnDiv>
-                    <Button primary btnColor={theme.mainColors.darkBlue}>SAVE NEW TEMPLATE</Button>
+                    <Button primary btnColor={theme.btnPriBg}>SAVE NEW TEMPLATE</Button>
                 </BtnDiv>
             </Popup>
         </BlurredBg>

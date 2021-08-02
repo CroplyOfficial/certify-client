@@ -35,6 +35,7 @@ const CustomMainContent = styled(MainContent)`
         display: grid;
         grid-template: repeat(4, 1fr) / repeat(7, 1fr);
         grid-gap: 2rem;
+        padding-bottom: 2rem;
         & > * {
             width: 100%;
             max-width: 100%;
@@ -47,6 +48,7 @@ const CustomMainContent = styled(MainContent)`
         }
         button {
             grid-column: 5 / span 3;
+            height: 3rem;
             
         }
         div:first-of-type {
@@ -116,8 +118,8 @@ const PublicProfile = ({theme}) => {
 
     const buttons = (
         <>
-            <Button btnColor={theme.mainColors.darkBlue}>VIEW PROFLE</Button>
-            <Button primary btnColor={theme.mainColors.darkBlue}>SAVE PROFLE</Button>
+            <Button btnColor={theme.btnSecBg}>VIEW PROFLE</Button>
+            <Button primary btnColor={theme.btnPriBg}>SAVE PROFLE</Button>
         </>
     )
 

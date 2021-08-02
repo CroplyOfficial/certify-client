@@ -129,8 +129,8 @@ const Credentials = ({theme}) => {
     }
     const buttons = (
         <>
-        <Button btnColor={theme.mainColors.darkBlue} onClick={() => window.location = "/org/credentials/new"}>+ NEW CREDENTIAL</Button>
-        <Button primary btnColor={theme.mainColors.darkBlue} onClick={toggleIssueCredentialPopup}>+ ISSUE CREDENTIAL</Button>
+        <Button btnColor={theme.btnPriBg} onClick={() => window.location = "/org/credentials/new"}>+ NEW CREDENTIAL</Button>
+        <Button primary btnColor={theme.btnSecBg} onClick={toggleIssueCredentialPopup}>+ ISSUE CREDENTIAL</Button>
         </>
     )
 
@@ -149,7 +149,7 @@ const Credentials = ({theme}) => {
                                 <td>Created</td>
                                 <td>Type</td>
                                 <td>Status</td>
-                                <td><EditColHeading><Filters width="1.5rem" fill="#666666" /></EditColHeading></td>
+                                <td><EditColHeading><Filters width="1.5rem" fill={theme.table.filters} /></EditColHeading></td>
                             </tr>
                            {rows}
                         </tbody>

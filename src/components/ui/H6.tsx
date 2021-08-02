@@ -5,7 +5,7 @@ const H6 = styled.h6`
     margin-top: 0;
     font-family: "Open Sans";
     font-size: 1rem;
-    color: ${props => props.theme.mainColors.darkBlue};
+    color: ${props => props.theme.h6};
 `
 
 export default withTheme(H6);

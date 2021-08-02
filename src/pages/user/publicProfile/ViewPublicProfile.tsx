@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import styled, {withTheme} from 'styled-components';
+import styled from 'styled-components';
 
+import { themeLight } from '../../../components/assets/theme';
 import backgroundLight from "../../../components/assets/Background-light.svg";
 import { 
     PageTopPublicProfileUser,
@@ -27,7 +28,9 @@ const PageContainer = styled.div`
 const ProfileImg = styled(ProfilePic)`
     place-self: center;
     height: 15rem;
-    width: 15rem;    
+    width: 15rem;
+    background: ${themeLight.profilePic.bg};
+    border: ${themeLight.profilePic.border};
 `;
 const GeneralInfoDiv = styled.div`
     background-color: #5D7586;
@@ -216,4 +219,4 @@ const ViewPublicProfile = () => {
     )
 }
 
-export default withTheme(ViewPublicProfile)
+export default ViewPublicProfile

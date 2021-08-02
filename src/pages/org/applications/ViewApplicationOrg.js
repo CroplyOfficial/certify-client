@@ -91,7 +91,7 @@ const ViewApplicationOrg = ({theme}) => {
     }
 
     const viewAppBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue} onClick={togglePopup}>CONFIRM</Button>
+        <Button primary btnColor={theme.btnPriBg} onClick={togglePopup}>CONFIRM</Button>
     )
     return (
         <>

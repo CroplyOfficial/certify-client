@@ -1,13 +1,11 @@
 import styled, {withTheme} from 'styled-components'
 import {useSelector} from "react-redux"
-import backgroundLight from "../assets/Background-light.svg"
-import backgroundDark from "../assets/Background-dark.svg"
 
 
 const Container = styled.div`
     width: 85%;
     height: calc(100vh - 110px);
-    background: url(${props => props.theme.mode === "light" ? backgroundLight : backgroundDark}) center no-repeat;
+    background: ${props => props.theme.pageBg} center no-repeat;
     background-size: 105%;
     float: right;
     transition: width 0.5s; 

@@ -28,14 +28,14 @@ const Popup = styled.div`
     display: grid;
     grid-template-rows: repeat(6, auto);
     grid-row-gap: 1rem;
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.popup.bg};
     border-radius: 30px;
     height: fit-content;
     width: 60%;
     box-sizing: border-box;
     padding: 0 2rem 2rem 2rem;
     font-family: 'Open Sans';
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
     hr {
         width: 100%;
         margin: 0.5rem 0;

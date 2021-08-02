@@ -143,12 +143,12 @@ const ContactFormPopup = ({closePopupFunc}) => {
                 </BreadcrumbHeader>
                 <Inputs>
                     <div className="senderDetails">
-                        <InputText err={nameErr}  inputRef={el => nameRef.current = el} className="formTextInput" placeholder="Name" />
-                        <InputText err={emailErr} inputRef={emailRef} className="formTextInput" placeholder="Email Address" />
+                        <InputText lightTheme err={nameErr}  inputRef={el => nameRef.current = el} className="formTextInput" placeholder="Name" />
+                        <InputText lightTheme err={emailErr} inputRef={emailRef} className="formTextInput" placeholder="Email Address" />
                     </div>
 
-                    <InputText err={subjectErr} inputRef={subjectRef} className="formTextInput" placeholder="Subject" />
-                    <Textarea err={messageErr} inputRef={messageRef} className="formTextareaInput" placeholder="Message" />
+                    <InputText lightTheme err={subjectErr} inputRef={subjectRef} className="formTextInput" placeholder="Subject" />
+                    <Textarea lightTheme err={messageErr} inputRef={messageRef} className="formTextareaInput" placeholder="Message" />
                 </Inputs>
                 <BtnDiv>
                     <Button primary btnColor='#5D7586' onClick={inputValidation}>SEND</Button>
@@ -158,4 +158,4 @@ const ContactFormPopup = ({closePopupFunc}) => {
     )
 }
 
-export default ContactFormPopup
+export default ContactFormPopup;

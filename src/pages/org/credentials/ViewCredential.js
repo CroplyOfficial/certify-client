@@ -157,14 +157,14 @@ const ViewCredential = ({theme}) => {
     }
 
     const saveTemplateBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue}>SAVE TEMPLATE</Button>
+        <Button primary btnColor={theme.btnPriBg}>SAVE TEMPLATE</Button>
     )
     return (
         <>
         <CommonElementsOrg menuActive="Credentials" />
         <PageContentContainer>
             <MainContentContainer>
-                <CustomMainContent contentTitle="New Credential Template" componentRight={saveTemplateBtn}>
+                <CustomMainContent contentTitle="View Credential" componentRight={saveTemplateBtn}>
                     <div className="inputFields">
                         <InputText placeholder="Credential Name" required />
                         <InputText placeholder="Credential Reference Code" required />

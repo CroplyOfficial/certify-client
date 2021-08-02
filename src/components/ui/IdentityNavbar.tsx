@@ -25,7 +25,7 @@ const IdentityNavbarItem = styled(Link)`
     text-decoration: none;
     font-family: 'Open Sans';
     font-size: 1rem;
-    color: ${props => props.theme.mainColors.grey};
+    color: ${props => props.theme.navbar.color};
     margin: 0 2rem;
     display: flex;
     flex-direction: column;

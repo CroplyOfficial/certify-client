@@ -4,24 +4,21 @@
  * 
  * This implementation uses the ThemeProvider provided by styled-components.
  * 
- * A local state contains 3 key/value pairs which determine the theme mode and which mainColors and pastelColors
- * to use (light or dark) depending on the theme mode. This state provides the 'theme' prop to the ThemeProvider.
+ * A local state contains an object which determines the theme specifications 
+ * to be used (light or dark). This state provides the 'theme' prop to the ThemeProvider.
  * 
  * The default theme mode is 'light' and the theme can be changed by calling the function toggle() which provides the value
  * to the key 'toggle' in the object assigned to the 'value' prop of the context responsible for theme updation. To use the
  * theme toggler, import the function useThemeUpdate(), assign it to a variable, say, themeToggler, and type 
  * themeToggler.toggle()
  *
- * To access the the theme mode in a component, use theme.mode
- * To access the the mainColors in a component, use theme.mainColors.colorName e.g. theme.mainColors.red
- * To access the the pastelColors in a component, use theme.pastelColors.colorName e.g. theme.pastelColors.grey
- * The same can be accessed similarly in the styling of components styled using styled-components.
+ * To check specifications for each theme, check /src/components/assets/theme.tsx
  * 
  */
 
 import React, {useContext, useState} from "react"
 import {ThemeProvider} from "styled-components"
-import {mainColorsLight, mainColorsDark, pastelColorsLight, pastelColorsDark} from "../components/assets/colors"
+import {themeLight, themeDark} from "../components/assets/theme"
 
 // context to update the theme
 const ThemeUpdateContext = React.createContext()
@@ -35,31 +32,21 @@ const useThemeUpdate = () => {
 
 const CustomThemeProvider = ({children}) => {
     // state for theme
-    const [themeState, setThemeState] = useState({
-        mode: "light",
-        mainColors: mainColorsLight,
-        pastelColors: pastelColorsLight
-    })
+    const [themeState, setThemeState] = useState(themeLight);
 
     /**
      * Function to toggle the theme
      */
     const toggle = () => {
-        const mode = (themeState.mode === 'light' ? `dark` : `light`)
-        const mainColors = themeState.mode === "light" ? mainColorsLight : mainColorsDark
-        const pastelColors = themeState.mode === "light" ? pastelColorsLight : pastelColorsDark
-        setThemeState({ mode: mode, mainColors: mainColors, pastelColors: pastelColors })
+        if(themeState.mode === 'light' )
+            setThemeState(themeDark);
+        else
+            setThemeState(themeLight);
     }
 
     return (
             <ThemeUpdateContext.Provider value={{ toggle: toggle }}>
-                <ThemeProvider theme={
-                    { 
-                        mode: themeState.mode, 
-                        mainColors: themeState.mainColors,
-                        pastelColors: themeState.pastelColors
-                    }
-                }>
+                <ThemeProvider theme={themeState}>
                         {children}
                 </ThemeProvider>
             </ThemeUpdateContext.Provider>

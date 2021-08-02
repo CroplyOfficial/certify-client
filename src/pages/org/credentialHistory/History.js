@@ -111,7 +111,7 @@ const History = ({theme}) => {
                                 <td>Created</td>
                                 <td>Name</td>
                                 <td>Tangle ID</td>
-                                <td><EditColHeading><Filters width="1.5rem" fill="#666666" /></EditColHeading></td>
+                                <td><EditColHeading><Filters width="1.5rem" fill={theme.table.filters} /></EditColHeading></td>
                             </tr>
                            {rows}
                         </tbody>

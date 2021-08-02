@@ -26,13 +26,13 @@ const BlurredBg = styled.div`
 `;
 
 const Popup = styled.div`
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.popup.bg};
     border-radius: 30px;
     height: fit-content;
     width: 60%;
     box-sizing: border-box;
     font-family: 'Open Sans';
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
     hr {
         width: 100%;
         margin: 0.5rem 0;
@@ -94,20 +94,20 @@ const CredentialData = styled.div`
 const DataContainer = styled.div`
     grid-row-end: span 1;
     grid-column-end: span 1;
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
     span {
         font-size: 1rem;
         font-weight: 600;
     }
     a {
         text-decoration: none;
-        color: ${props => props.theme.mainColors.black};
+        color: ${props => props.theme.popup.colorPri};
     }
     span:nth-of-type(2) {
         font-weight: bold;
         a {
             text-decoration: none;
-            color: ${props => props.shareData ? props.theme.mainColors.black : props.theme.mainColors.grey};
+            color: ${props => props.theme.colorPri};
         }
     }
     hr {

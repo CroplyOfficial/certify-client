@@ -5,10 +5,11 @@ import styled, { withTheme } from "styled-components"
 const Table = styled.table`
     border-spacing: 0;
     border-radius: 30px 30px 30px 30px;
-    border: 1px solid ${props => props.theme.pastelColors.grey};
+    border: ${props => props.theme.table.border};
     font-family: "Open Sans";
     font-weight: normal;
     font-size: 1.1rem;
+    color: ${props => props.theme.table.otherRowsColor};
 
     & td {
         padding: 0.5rem 2rem 0.5rem 1rem;
@@ -18,20 +19,20 @@ const Table = styled.table`
         height: 3.5rem;
     }
     & tr:nth-child(odd) {
-        background-color: #F2F4F5;
+        background-color: ${props => props.theme.table.oddRowBg};
     }
     & tr:nth-child(even) {
-        background-color: #FFFFFF;
+        background-color: ${props => props.theme.table.evenRowBg};
     }
     & tr:first-of-type {
-        background-color: #DFE3E7;
+        background-color: ${props => props.theme.table.firstRowBg};
         font-family: "Poppins";
-        color: #666666;
+        color: ${props => props.theme.table.firstRowColor};
         @-moz-document url-prefix() {
             & {
                 background: none;
                 td {
-                    background-color: #DFE3E7;
+                    background-color: ${props => props.theme.table.firstRowBg};
                 }
             }
         }

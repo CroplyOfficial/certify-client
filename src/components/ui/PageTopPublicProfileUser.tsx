@@ -1,17 +1,19 @@
-import styled, {withTheme} from "styled-components"
+import styled from "styled-components"
 import {LongInput} from "."
 import {ReactComponent as CertifyLogo} from "../assets/logo.svg"
 import {
     BellHollow,
     BellFilled
 } from "../assets/icons"
+import { mainColors } from "../assets/theme"
+import { hexToRgb } from "../functions/componentFunctions"
 
 const Container = styled.div`
     padding: 0.75rem 0;
     width: 100%;
     float: right;
     height: calc(6vh + 20px);
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${mainColors.white};
     display: flex;
     position: relative;
     box-shadow: 10px 12px 33px -22px rgb(0 0 0 / 24%);
@@ -21,7 +23,7 @@ const Container = styled.div`
 const LogoDiv = styled.div`
     font-family: 'Poppins';
     font-size: 1.4rem;
-    color: ${props => props.theme.mainColors.darkBlue};
+    color: ${mainColors.darkBlue};
     margin: 0 2vw;
     height: 3.5rem;
     display: flex;
@@ -46,6 +48,17 @@ const SearchBar = styled(LongInput)`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    input{
+        color: ${mainColors.black};
+    }
+    button {
+        color: ${mainColors.darkBlue};
+        background-color: white;
+        border: 3px solid ${mainColors.darkBlue};
+        &:hover {
+            background-color: ${"rgba("+hexToRgb(mainColors.darkBlue)+",0.2)"};
+        }
+    }
 `;
 
 const NotifBell = styled.div`
@@ -96,7 +109,7 @@ const PageTopPublicProfileUser = () => {
                 <CertifyLogo />
                 <div>CERTIFY</div>
             </LogoDiv>
-            <SearchBar placeholder="Search for a Credential or Application" btnText="SEARCH" />
+            <SearchBar lightTheme placeholder="Search for a Credential or Application" btnText="SEARCH" />
             <NotifBell>
                 {
                     notifExists ?
@@ -109,4 +122,4 @@ const PageTopPublicProfileUser = () => {
     )
 }
 
-export default withTheme(PageTopPublicProfileUser)
+export default PageTopPublicProfileUser

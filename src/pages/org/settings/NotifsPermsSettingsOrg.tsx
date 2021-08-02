@@ -129,7 +129,7 @@ const NotifsPermsSettingsOrg = ({theme}) => {
     
 
     const saveSettingsBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue}>SAVE SETTINGS</Button>
+        <Button primary btnColor={theme.btnPriBg}>SAVE SETTINGS</Button>
     );
     return (
         <>

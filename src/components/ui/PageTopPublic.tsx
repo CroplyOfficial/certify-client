@@ -1,18 +1,20 @@
-import styled from "styled-components"
-import {LongInput} from "."
-import {ReactComponent as CertifyLogo} from "../assets/logo.svg"
+import styled from "styled-components";
+import { mainColors } from "../assets/theme";
+import { hexToRgb } from "../functions/componentFunctions";
+import {LongInput} from ".";
+import {ReactComponent as CertifyLogo} from "../assets/logo.svg";
 import {
     HamburgerMenuLines,
     Cross
-} from "../assets/icons"
-import Button from "./Button"
+} from "../assets/icons";
+import Button from "./Button";
 
 const Container = styled.div`
     padding: 0.75rem 0;
     width: 100%;
     float: right;
     height: calc(6vh + 20px);
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${mainColors.white};
     display: flex;
     position: relative;
     box-shadow: 10px 12px 33px -22px rgb(0 0 0 / 24%);
@@ -26,7 +28,7 @@ const Container = styled.div`
 const LogoDiv = styled.div`
     font-family: 'Poppins';
     font-size: 1.4rem;
-    color: ${props => props.theme.mainColors.darkBlue};
+    color: ${mainColors.darkBlue};
     margin: 0 2vw;
     height: 3.5rem;
     display: flex;
@@ -46,6 +48,18 @@ const SearchBar = styled(LongInput)`
     justify-self: center;
     align-self: center;
     width: 100%;
+    input{
+        color: ${mainColors.black};
+
+    }
+    button {
+        color: ${mainColors.darkBlue};
+        background-color: white;
+        border: 3px solid ${mainColors.darkBlue};
+        &:hover {
+            background-color: ${"rgba("+hexToRgb(mainColors.darkBlue)+",0.2)"};
+        }
+    }
 `;
 
 const LoginBtn = styled(Button)`

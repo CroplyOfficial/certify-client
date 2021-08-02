@@ -34,7 +34,7 @@ const Left = styled.div`
         font-family: 'Open Sans';
         font-weight: bold;
         font-size: 1rem;
-        color: ${props => props.theme.mainColors.black};
+        color: ${props => props.theme.settings.lastBackupDateColor};
     }
 `;
 
@@ -104,7 +104,7 @@ const BackupRestoreSettingsOrg = ({theme}) => {
     }
 
     const saveSettingsBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue} onClick={toggleSelectBackupFilePopupVisible}>SAVE SETTINGS</Button>
+        <Button primary btnColor={theme.btnPriBg} onClick={toggleSelectBackupFilePopupVisible}>SAVE SETTINGS</Button>
     );
 
     return (
@@ -154,7 +154,7 @@ const BackupRestoreSettingsOrg = ({theme}) => {
                         <H6>
                             Export Backup
                         </H6>
-                        <Button primary btnColor={theme.mainColors.darkBlue}>SAVE BACKUP FILE</Button>
+                        <Button primary btnColor={theme.btnPriBg}>SAVE BACKUP FILE</Button>
                         <Hr />
                         <H6>
                             Last Backup Date
@@ -169,7 +169,7 @@ const BackupRestoreSettingsOrg = ({theme}) => {
                         <H6>
                            Restore From Backup
                         </H6>
-                        <Button btnColor={theme.mainColors.darkBlue} onClick={toggleSelectBackupFilePopupVisible}>UPLOAD BACKUP FILE</Button>
+                        <Button btnColor={theme.btnSecBg} onClick={toggleSelectBackupFilePopupVisible}>UPLOAD BACKUP FILE</Button>
                         <Hr />
                         <H6>
                             Auto Backup

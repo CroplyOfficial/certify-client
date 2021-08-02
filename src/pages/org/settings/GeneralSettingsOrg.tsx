@@ -47,7 +47,7 @@ const Right = styled.div`
         font-family: 'Open Sans';
         font-size: 1rem;
         font-weight: 600;
-        color: ${props => props.theme.mainColors.black};
+        color: ${props => props.theme.settings.moreTextColor};
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -108,7 +108,7 @@ const GeneralSettingsOrg = ({theme}) => {
     };
 
     const saveSettingsBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue}>SAVE SETTINGS</Button>
+        <Button primary btnColor={theme.btnPriBg}>SAVE SETTINGS</Button>
     );
 
     return (
@@ -175,7 +175,7 @@ const GeneralSettingsOrg = ({theme}) => {
                             <div>
                                 <ChevronRight 
                                     width="1.3rem" 
-                                    fill={theme.mainColors.darkBlue}
+                                    fill={theme.settings.moreChevron}
                                     onClick={() => window.location.href = "/org/settings/notifsPerms"}
                                 />
                             </div>                            

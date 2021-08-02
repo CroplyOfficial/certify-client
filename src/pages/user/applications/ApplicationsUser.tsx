@@ -46,7 +46,7 @@ const ApplicationsUser = ({theme}) => {
     ])
 
     const newAppBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue} onClick={() => window.location.href='/user/applications/new'}>+ NEW APPLICATION</Button>
+        <Button primary btnColor={theme.btnPriBg} onClick={() => window.location.href='/user/applications/new'}>+ NEW APPLICATION</Button>
     );
     return (
         <>

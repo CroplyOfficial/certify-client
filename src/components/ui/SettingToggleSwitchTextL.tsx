@@ -11,7 +11,7 @@ const Container = styled.div`
         place-items: center;
         font-family: 'Open Sans';
         font-weight: 600;
-        color: ${props => props.isOn ? props.theme.mainColors.black : props.theme.mainColors.grey};
+        color: ${props => props.isOn ? props.theme.settingToggleSwitchL.textOn : props.theme.settingToggleSwitchL.textOff};
         font-size: 1rem;
         margin-right: 1rem;
     }

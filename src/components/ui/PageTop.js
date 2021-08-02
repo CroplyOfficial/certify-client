@@ -12,7 +12,7 @@ const Container = styled.div`
     width: 85%;
     float: right;
     height: calc(6vh + 20px);
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.pageTopAuth.bg};
     display: flex;
     position: relative;
     box-shadow: 10px 12px 33px -22px rgb(0 0 0 / 24%);

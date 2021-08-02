@@ -1,9 +1,8 @@
 import {useRef, useState} from 'react'
-import styled, { withTheme } from 'styled-components';
+import styled from 'styled-components';
 import {Link} from "react-router-dom"
 
 import {colorLightLevel} from "../../components/functions/componentFunctions"
-
 import backgroundLight from "../../components/assets/Background-light.svg"
 import {ReactComponent as CertifyLogo} from "../../components/assets/logo.svg"
 import {
@@ -124,8 +123,8 @@ const LoginUser = () => {
                 </LogoDiv>
                 <form>
                     <div className="inputFields">
-                        <InputText inputRef={usernameRef} err={usernameErr} placeholder="Username" />
-                        <InputConfidInfo inputRef={passwordRef} err={passwordErr} placeholder="Password" inputUnderlineColor="#C4C4C4" maskColor="#89C7F3" showHideColor="#CCCCCC" />
+                        <InputText lightTheme inputRef={usernameRef} err={usernameErr} placeholder="Username" />
+                        <InputConfidInfo lightTheme inputRef={passwordRef} err={passwordErr} placeholder="Password" />
                     </div>
                     <div className="buttons">
                         <Button type="button" primary onClick={inputValidation} btnColor="#5D7586">LOGIN</Button>
@@ -140,4 +139,4 @@ const LoginUser = () => {
     )
 }
 
-export default withTheme(LoginUser)
+export default LoginUser

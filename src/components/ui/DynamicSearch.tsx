@@ -19,7 +19,7 @@ const SearchResultsContainer = styled.div`
 `;
 
 const SearchResults = styled.div`
-  background-color: ${props => props.theme.mainColors.white};
+  background-color: ${props => props.theme.dynamicSearch.bg};
   margin: 0 2%;
   border-radius: 0 0 10px 10px;
   padding: 1rem 0;
@@ -60,7 +60,7 @@ const SearchItem = styled.div`
   font-size: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  color: ${props => props.theme.mainColors.black};
+  color: ${props => props.theme.dynamicSearch.color};
   &:hover {
     background-color: ${props => props.theme.mainColors.blue};
     color: ${props => props.theme.mainColors.white};

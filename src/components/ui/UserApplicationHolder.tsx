@@ -1,6 +1,4 @@
 import styled, {withTheme} from 'styled-components';
-import PropTypes from 'prop-types'
-import { colorLightLevel } from '../functions/componentFunctions';
 
 import {
     ShowOptions
@@ -17,7 +15,7 @@ const Container = styled.div`
     width: 100%;
     height: 6rem;
     padding: 1rem;
-    background-color: ${props => colorLightLevel(props.theme.pastelColors.grey, 9)};
+    background-color: ${props => props.theme.userAppHolder.bg};
 `;
 
 const Div1 = styled.div`
@@ -37,11 +35,11 @@ const Div2 = styled.div`
         flex-direction: column;
     }
     div:nth-of-type(1) {
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.theme.userAppHolder.headingColor};
         font-size: 0.8rem;
     }
     div:nth-of-type(2) {
-        color: #666666;
+        color: ${props => props.theme.userAppHolder.contentColor};
         font-size: 1rem;
     }
 `;
@@ -55,11 +53,11 @@ const Div3 = styled.div`
         flex-direction: column;
     }
     div:nth-of-type(1) {
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.theme.userAppHolder.headingColor};
         font-size: 0.8rem;
     }
     div:nth-of-type(2) {
-        color: #666666;
+        color: ${props => props.theme.userAppHolder.contentColor};
         font-size: 1rem;
     }
 `;
@@ -119,15 +117,11 @@ const UserApplicationHolder = ({theme, appData}) => {
                 }
             </Div4>
             <Div5>
-                <ShowOptions options={{'View': () => console.log('View App')}} />
+                <ShowOptions options={{'View': () => console.log('View App')}} optionListStyling="margin-left: -5rem;" />
             </Div5>
         </Container>
     );
 }
-
-UserApplicationHolder.propTypes = {
-    appData: PropTypes.object
-};
 
 export default withTheme(UserApplicationHolder);
 

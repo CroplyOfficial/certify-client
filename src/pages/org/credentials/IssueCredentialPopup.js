@@ -28,7 +28,7 @@ const Popup = styled.div`
     display: grid;
     grid-template-rows: repeat(3, auto);
     grid-row-gap: 1rem;
-    background-color: ${props => props.theme.mainColors.white};
+    background-color: ${props => props.theme.popup.bg};
     border-radius: 30px;
     height: fit-content;
     width: 60%;
@@ -58,7 +58,7 @@ const Note = styled.div`
     padding: 0 1rem;
     font-family: "Open Sans";
     font-size: 1rem;
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.theme.popup.colorPri};
 `;
 
 const InputDiv = styled.div`
@@ -120,7 +120,7 @@ const IssueCredentialPopup = ({theme, closePopupFunc, credentialNames}) => {
                     <DynamicSearch credentialNames={credentialNames} />
                 </InputDiv>
                 <BtnDiv>
-                    <Button primary btnColor={theme.mainColors.darkBlue}>SELECT CREDENTIAL</Button>
+                    <Button primary btnColor={theme.btnPriBg}>SELECT CREDENTIAL</Button>
                 </BtnDiv>
             </Popup>
         </BlurredBg>

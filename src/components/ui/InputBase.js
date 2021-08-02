@@ -4,6 +4,7 @@ import styled, {withTheme} from 'styled-components'
 import {View, Hide} from "../assets/icons"
 import {PWStrengthMeter} from "./"
 import InputError from "./InputError"
+import { themeLight, themeDark, mainColors } from '../assets/theme'
 
 const Fieldset = styled.fieldset`
     margin: 0;
@@ -23,33 +24,68 @@ const Input = styled.input`
     font-size: 1rem;
     font-family: "Open Sans";
     font-weight: normal;
-    color: ${props => props.theme.mainColors.black};
+    color: ${props => props.lightTheme ? 
+            themeLight.input.color :          
+            (
+                props.darkTheme ?
+                themeDark.input.color :
+                props.theme.input.color
+            )
+        };
     width: 100%;
     height: 3rem;
     padding: ${props => props.confidInfo ? "0rem 2.5rem 0rem 1rem" : "0rem 1rem 0rem 1rem"};
     border-radius: 30px;
     box-shadow: none;
-    border: 1px solid ${props => props.theme.pastelColors.grey};
+    border: 1px solid ${props => props.lightTheme ? 
+            themeLight.input.borderColor :          
+            (
+                props.darkTheme ?
+                themeDark.input.borderColor :
+                props.theme.input.borderColor
+            )
+        };
     cursor: text;
     position: relative;
     outline: none;
     background: none;
     &:hover { 
-        border-color: ${props => props.theme.mainColors.darkBlue};
+        border-color: ${props => props.lightTheme ? 
+            themeLight.input.borderColorHover :          
+            (
+                props.darkTheme ?
+                themeDark.input.borderColorHover :
+                props.theme.input.borderColorHover
+            )
+        };
         border-width:2px;
     }
 
     &:focus { 
-        border-color: ${props => props.theme.mainColors.blue};
+        border-color: ${mainColors.blue};
         border-width:2px;
     }
     &:focus ~ label {
         transform: scale(0.5);
-        background-color: white;
+        background: ${props => props.lightTheme ? 
+            themeLight.input.labelBgFloating :          
+            (
+                props.darkTheme ?
+                themeDark.input.labelBgFloating :
+                props.theme.input.labelBgFloating
+            )
+        };        
         padding: 0 0.5rem;
         top: ${props => props.strengthMeter ? "3rem" : "1rem"};
         font-size: 1.7rem;
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.lightTheme ? 
+            themeLight.input.labelColorFloating :          
+            (
+                props.darkTheme ?
+                themeDark.input.labelColorFloating :
+                props.theme.input.labelColorFloating
+            )
+        };
         width: max-content;
     }
 `;
@@ -60,17 +96,38 @@ const Label = styled.label`
     font-size: 1rem;
     top: ${props => props.strengthMeter ? "2.7rem" : "0.7rem"};
     left: 1rem;
-    color: ${props => props.theme.mainColors.grey};
+    color: ${props => props.lightTheme ? 
+            themeLight.input.labelColor :          
+            (
+                props.darkTheme ?
+                themeDark.input.labelColor :
+                props.theme.input.labelColor
+            )
+        };
     transform-origin: 7% -130%;
     transition: transform 300ms ease;
     pointer-events: none;
     &.inputFilled {
         transform: scale(0.5);
-        background-color: white;
+        background: ${props => props.lightTheme ? 
+            themeLight.input.labelBgFloating :          
+            (
+                props.darkTheme ?
+                themeDark.input.labelBgFloating :
+                props.theme.input.labelBgFloating
+            )
+        };
         padding: 0 0.5rem;
         top: ${props => props.strengthMeter ? "3rem" : "1rem"};
         font-size: 1.7rem;
-        color: ${props => props.theme.mainColors.darkBlue};
+        color: ${props => props.lightTheme ? 
+            themeLight.input.labelColorFloating :          
+            (
+                props.darkTheme ?
+                themeDark.input.labelColorFloating :
+                props.theme.input.labelColorFloating
+            )
+        };
         width: max-content;
     }
 
@@ -83,7 +140,14 @@ const ToggleShow = styled.div`
     top: ${props => props.strengthMeter ? "2.7rem" : "0.7rem"};
     height: fit-content;
     width: fit-content;
-    background-color: ${props => props.theme.mainColors.white};
+    background: ${props => props.lightTheme ? 
+            themeLight.input.toggleShowBg :          
+            (
+                props.darkTheme ?
+                themeDark.input.toggleShowBg :
+                props.theme.input.toggleShowBg
+            )
+        };
 `;
 
 const Error = styled(InputError)`
@@ -95,6 +159,8 @@ const Error = styled(InputError)`
 /**
  * Returns the InputBase component. This is the parent component of the InputText and InputConfidInfo component.
  * @param {Object} theme - To receive the theme from the parent component.
+ * @param {boolean} [darkTheme] - To specify if the component should use the light theme.
+ * @param {boolean} [lightTheme] - To specify if the component should use the dark theme.
  * @param {string} [value] - The value of the input element (uneditable textarea).
  * @param {string} [defaultValue] - The default value of the input element (editable textarea).
  * @param {Function} [onChange] - The function to be executed when the value in the input element changes.
@@ -106,12 +172,11 @@ const Error = styled(InputError)`
  * @param {string} [placeholder] - Specifies the placeholder for the input element.
  * @param {boolean} [strengthMeter] - Specifies whether there should be a password strentgh meter shown. Apply this prop if the password strentgh meter should be shown.
  * @param {boolean} [confidInfo] - Specifies whether the value in the input element should be masked or not. Apply this prop if the value in the input element should be masked.
- * @param {string} [showHideColor] - Specifies the stroke color of the svg to toggle the masked input (in hexadecimal). 
  * @param {string} [err] - Specifies the error to be shown according to input received. This should be a state ideally.
  * @param {Ref} [inputRef] - Specifies the reference of the input element.
  * @returns {ReactElement} - The InputBase component.
  */
-const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, className, strengthMeter, maxLength, confidInfo, placeholder, autoComplete, err, inputRef, showHideColor}) => {
+const InputBase = ({theme, lightTheme, darkTheme, value, defaultValue, onFocus, onBlur, onChange, className, strengthMeter, maxLength, confidInfo, placeholder, autoComplete, err, inputRef}) => {
 
     const [isInputFilled, setIsInputFilled] = useState(defaultValue || value ? true : false); // State to determine whether the input field has a value in it or not
     const [isConfidInfoVisible, setIsConfidInfoVisible] = useState(false); // State to determine whether the text in the input field is masked or not. This is needed for the Show/Hide Password functionality
@@ -147,6 +212,8 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
                 ""
             }
             <Input
+                lightTheme={lightTheme}
+                darkTheme={darkTheme}
                 maxLength={maxLength} 
                 type={(confidInfo ? (isConfidInfoVisible ? "text" : "password") : "text")}
                 ref={inputRef}
@@ -165,7 +232,9 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
                 autoComplete={autoComplete}
                 value={value ? value : undefined}
             />
-            <Label 
+            <Label
+                lightTheme={lightTheme}
+                darkTheme={darkTheme}
                 strengthMeter={strengthMeter}
                 className={isInputFilled ? 'inputFilled' : ''}
             >
@@ -173,11 +242,32 @@ const InputBase = ({theme, value, defaultValue, onFocus, onBlur, onChange, class
             </Label>
             {
                 confidInfo ?
-                <ToggleShow strengthMeter={strengthMeter} onClick={toggleShowConfidInfo} >
-                    {
+                <ToggleShow 
+                    strengthMeter={strengthMeter} 
+                    onClick={toggleShowConfidInfo} 
+                    lightTheme={lightTheme}
+                    darkTheme={darkTheme}
+                >
+                        {
                         isConfidInfoVisible ? 
-                        <View width="1.5rem" stroke={showHideColor} /> : 
-                        <Hide width="1.5rem" stroke={showHideColor} />
+                        <View width="1.5rem" stroke={
+                            lightTheme ? 
+                            themeLight.input.toggleShowIcon :
+                            (
+                                darkTheme ? 
+                                themeDark.input.toggleShowIcon :
+                                theme.input.toggleShowIcon 
+                            )
+                        } /> : 
+                        <Hide width="1.5rem" stroke={
+                            lightTheme ? 
+                            themeLight.input.toggleShowIcon :
+                            (
+                                darkTheme ? 
+                                themeDark.input.toggleShowIcon :
+                                theme.input.toggleShowIcon 
+                            )
+                        } />
                     }
                 </ToggleShow> : 
                 ""

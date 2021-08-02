@@ -127,8 +127,8 @@ const LoginOrg = () => {
                 </LogoDiv>
                 <form>
                     <div className="inputFields">
-                        <InputText inputRef={usernameRef} err={usernameErr} placeholder="Username" />
-                        <InputPIN inputRef={pinRef} err={pinErr} placeholder="PIN" inputUnderlineColor="#C4C4C4" maskColor="#89C7F3" deleteDigitColor="#000000" />
+                        <InputText lightTheme inputRef={usernameRef} err={usernameErr} placeholder="Username" />
+                        <InputPIN lightTheme inputRef={pinRef} err={pinErr} placeholder="PIN" />
                     </div>
                     <div className="buttons">
                         <Button type="button" primary onClick={inputValidation} btnColor="#5D7586">LOGIN</Button>

@@ -40,7 +40,7 @@ const Step5 = ({userInput, confirmPinRef, nextStepFunc}) => {
                 <p>
                     Re-Enter your PIN to continue
                 </p>
-                <InputPIN id="pinConfirm" inputRef={confirmPinRef} err={confirmPinErr} placeholder="Confirm PIN" maskColor="#89C7F3" inputUnderlineColor="#A1A1A1" deleteDigitColor="#FFFFFF" />
+                <InputPIN darkTheme inputRef={confirmPinRef} err={confirmPinErr} placeholder="Confirm PIN" />
             </div>
             <div className="div3">
                 <Button primary btnColor="#6D97B5" onClick={inputValidation}>CONFIRM PIN CODE</Button>

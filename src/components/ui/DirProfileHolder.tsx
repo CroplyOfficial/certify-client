@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
+import { themeLight } from '../assets/theme';
+
 import ProfilePic from './ProfilePic';
 import { ChevronRight } from '../assets/icons';
 import { ReactElement } from 'react';
@@ -61,6 +63,8 @@ const ProfileImg = styled(ProfilePic)`
     place-self: center;
     width: 13vw;
     height: 13vw;
+    background: ${themeLight.profilePic.bg};
+    border: ${themeLight.profilePic.border};
 `;
 /**
  * Returns the DirProfileHolder component which displays the data of a specified profile on the public directory page.

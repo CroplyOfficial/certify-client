@@ -91,7 +91,7 @@ const SecuritySettingsOrg = ({theme}) => {
     )
 
     const saveSettingsBtn = (
-        <Button primary btnColor={theme.mainColors.darkBlue}>SAVE SETTINGS</Button>
+        <Button primary btnColor={theme.btnPriBg}>SAVE SETTINGS</Button>
     );
     return (
         <>
@@ -112,7 +112,7 @@ const SecuritySettingsOrg = ({theme}) => {
                     <InputConfidInfo inputRef={confirmNewPasswordRef} err={confirmNewPasswordErr} placeholder="Confirm Password" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} showHideColor={theme.pastelColors.grey} />
                     <Button
                         primary
-                        btnColor={theme.mainColors.darkBlue}
+                        btnColor={theme.btnPriBg}
                     >
                         SAVE NEW PASSWORD
                     </Button>
@@ -125,7 +125,7 @@ const SecuritySettingsOrg = ({theme}) => {
                     <InputPIN inputRef={confirmNewPinRef} err={confirmNewPinErr} placeholder="Confirm New PIN" inputUnderlineColor="#C4C4C4" maskColor={theme.mainColors.blue} deleteDigitColor={theme.mainColors.black} />
                     <Button
                         primary
-                        btnColor={theme.mainColors.darkBlue}
+                        btnColor={theme.btnPriBg}
                     >
                         SAVE NEW PIN CODE
                     </Button>
