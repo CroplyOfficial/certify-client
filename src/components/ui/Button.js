@@ -66,7 +66,7 @@ const ButtonBase = styled.button`
 
 /**
  * Returns the Button Component.
- * @param {object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the parent component. 
  * @param {ReactElement} [children] - Specifies the children of this component.
  * @param {string} [type] - Specifies the type of the button.
  * @param {boolean} [primary] - Specifies whether it is a primary button or not. Apply this prop to make the button a primary button.

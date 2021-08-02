@@ -216,7 +216,7 @@ const LogoutDiv = styled.div`
 
 /**
  * Returns the MenuUser component which appears on all user pages.
- * @param {object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the parent component. 
  * @param {string} [active] - Specifies the menu item to be highlighted. Example usage <MenuUser active="Applications" /> 
  * @returns {ReactElement} - The MenuUser component.
  */

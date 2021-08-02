@@ -72,8 +72,8 @@ const Div4 = styled.div`
 
 /**
  * Returns the IdentityProfileHolder component which displays the data of a specified Identity profile.
- * @param {object} theme - To receive the theme from the parent component. 
- * @param {object} profileData - Contains the data of the profile to be displayed. 
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} profileData - Contains the data of the profile to be displayed. 
  * @returns {ReactElement} - The IdentityProfileHolder component.
  */
 const IdentityProfileHolder = ({theme, profileData}) => {

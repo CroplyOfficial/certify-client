@@ -119,11 +119,22 @@ const BtnDiv = styled.div`
 
 `;
 
+/**
+ * Returns the ConfirmDenyAppPopup component which is the modal used to
+ * confirm/deny an application.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Function} closePopupFunc - The function to close the popup. 
+ * @returns {ReactElement} - The ConfirmDenyAppPopup component.
+ */
 const ConfirmDenyAppPopup = ({theme, closePopupFunc, userData}) => {
 
     const popupRef = useRef(null);
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();

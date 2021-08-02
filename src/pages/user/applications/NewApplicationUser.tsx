@@ -44,6 +44,12 @@ const Div2 = styled.div`
     }
 `;
 
+/**
+* Returns the NewApplicationUser component which is the page that 
+* contains the form to create a new application for the user.
+* @param {Object} theme - To receive the theme from the parent component. 
+* @returns {ReactElement} - The NewApplicationUser component
+*/
 const NewApplicationUser = ({theme}) => {
     const userInputRefs = useRef({})
     userInputRefs.current = {

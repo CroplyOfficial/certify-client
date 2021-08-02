@@ -122,16 +122,37 @@ const BtnDiv = styled.div`
     }
 `;
 
+/**
+ * Returns the ShareCredentialPopup component which is the modal that enables the sharing
+ * of a specified credential.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Function} closePopupFunc - The function to close this popup.
+ * @param {Function} goBackFunc - The function to hide this component
+ * and show the ViewVerifiedCredentialPopup component.
+ * @param {Object} credential - The credential to be shared.
+ * @param {Function} showShareQrPopupFunc - The function to
+ * hide this component and show the ShareQrPopup component.
+ * @param {Function} showShareNfcPopupFunc - The function to
+ * hide this component and show the ShareNfcPopup component.
+ * @returns {ReactElement} - The ShareCredentialPopup component.
+ */
 const ShareCredentialPopup = ({theme, closePopupFunc, goBackFunc, credential, showShareQrPopupFunc, showShareNfcPopupFunc}) => {
     const popupRef = useRef(null);
     const [shareMethod, setShareMethod] = useState('QR')
+    /**
+     * Function to set the credential sharing method.
+     */
     const toggleShareMethod = () => {
         if(shareMethod === "QR")
             setShareMethod("NFC");
         else
             setShareMethod("QR");
     }
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();

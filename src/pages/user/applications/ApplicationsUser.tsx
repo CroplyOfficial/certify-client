@@ -16,6 +16,12 @@ const DataHolder = styled.div`
     margin-bottom: 1rem;
 `;
 
+/**
+ * Returns the ApplicationsUser component which is the page that
+ * displays the applications of the user.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The ApplicationsUser component.
+ */
 const ApplicationsUser = ({theme}) => {
 
     const [apps] = useState([

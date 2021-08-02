@@ -82,12 +82,20 @@ const ContentContainer = styled.div`
     }
 `;
 
+/**
+ * Returns the LoginOrg component which is the page that contains
+ * the organisation login form.
+ * @returns {ReactElement} - The LoginOrg component.
+ */
 const LoginOrg = () => {
     const usernameRef = useRef(null)
     const pinRef = useRef(null)
     const [usernameErr, setUsernameErr] = useState("")
     const [pinErr, setPinErr] = useState("")
 
+    /**
+     * Function to validate the input values.
+     */
     const inputValidation = () => {
         if(usernameRef.current.value === "") {
             setUsernameErr("Please enter your username.") 

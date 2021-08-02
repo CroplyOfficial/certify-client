@@ -57,6 +57,12 @@ const CustomMainContent = styled(MainContent)`
     }
 `;
 
+/**
+ * Returns the PublicProfile component which is the page to edit the user's
+ * public profile.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The PublicProfile component.
+ */
 const PublicProfile = ({theme}) => {
 
     const userInputRefs = useRef({});
@@ -82,7 +88,10 @@ const PublicProfile = ({theme}) => {
         userProfileURL: "/breconmountainfarm"
     })
     
-    const allFieldsFilledCheck = (): any => {
+    /**
+     * Function to check if all fields are filled.
+     */
+    const allFieldsFilledCheck = (): void => {
         const fields = ["userProfileDesc", "licenseHolderID", "userBusinessName", "userBusinessType", "userCity", "userCountry", "userProfileURL"];
         const allFieldsExist = fields.every((p)=>userInputRefs.current[p]);
         if(allFieldsExist) {
@@ -99,8 +108,8 @@ const PublicProfile = ({theme}) => {
         }
     }
 
-    useEffect((): any => {
-        window.onload = (): any => {
+    useEffect((): void => {
+        window.onload = (): void => {
             allFieldsFilledCheck();
         }
     }, [])

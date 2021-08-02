@@ -76,11 +76,25 @@ const BtnDiv = styled.div`
     }
 `;
 
-
+/**
+ * Returns the RestoreWarningPopup component which is the modal used to
+ * show the warning regarding restoring the account data.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Function} closePopupFunc - The function to close the popup.
+ * @param {Object} goBackFunc - The function to hide this component and 
+ * show the SelectBackupFilePopup component.
+ * @param {Function} showConfirmPinForRestorePopupFunc - The function 
+ * to hide this component and show the ConfirmPinForRestorePopup component.
+ * @returns {ReactElement} - The RestoreWarningPopup component.
+ */
 const RestoreWarningPopup = ({theme, goBackFunc, closePopupFunc, showConfirmPinForRestorePopupFunc}) => {
     const popupRef = useRef(null);
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
         if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();

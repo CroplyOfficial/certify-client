@@ -35,7 +35,13 @@ const IDSearch = styled(LongInput)`
     grid-column: 1 / span 7;
 `;
 
-const NewCredential = ({theme}) => {
+/**
+ * Returns the IssueCredential component which is the page that 
+ * contains the form to issue a particular credential of the organization.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The IssueCredential component.
+ */
+const IssueCredential = ({theme}) => {
 
     const userInputRefs = useRef({})
     userInputRefs.current = {
@@ -88,4 +94,4 @@ const NewCredential = ({theme}) => {
     )
 }
 
-export default withTheme(NewCredential)
+export default withTheme(IssueCredential)

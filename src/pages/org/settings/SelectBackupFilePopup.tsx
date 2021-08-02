@@ -84,13 +84,25 @@ const BtnDiv = styled.div`
     }
 `;
 
-
+/**
+ * Returns the SelectBackupFilePopup component which is the modal used to
+ * select the backup file for restoring the account data.
+ * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Function} closePopupFunc - The function to close the popup.
+ * @param {Function} showRestoreWarningPopupFunc - The function 
+ * to hide this component and show the RestoreWarningPopup component.
+ * @returns {ReactElement} - The SelectBackupFilePopup component.
+ */
 const SelectBackupFilePopup = ({theme, closePopupFunc, showRestoreWarningPopupFunc}) => {
     const popupRef = useRef(null);
     const chooseFileRef = useRef(null);
     const [chosenFile, setChosenFile] = useState('');
 
-    /* close modal when clicked outside of it */
+    /**
+     * Closes the popup when clicked outside of it.
+     * @param {Event} e - The click event which is fired when the user clicks
+     * outside the popup.  
+     */    
     const handleClickOutside = e => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
             closePopupFunc();

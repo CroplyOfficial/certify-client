@@ -37,6 +37,12 @@ const IDSearch = styled(LongInput)`
     grid-column: 1 / span 7;
 `;
 
+/**
+ * Returns the ViewApplicationOrg component which is the page that 
+ * contains the form to view/edit an application of the organization.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The ViewApplicationOrg component
+ */
 const ViewApplicationOrg = ({theme}) => {
 
     const userInputRefs = useRef({})

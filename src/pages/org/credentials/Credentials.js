@@ -43,9 +43,19 @@ const EditColHeading = styled.div`
     margin-top: 0.5rem;
 `;
 
+/**
+ * Returns the Credentials component which is the page that 
+ * displays the credentials of the organization.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The Credentials component.
+ */
 const Credentials = ({theme}) => {
 
     const [checkboxState, setCheckboxState] = useState([entries.map((a) => false)]) // sets initial value of all elements of the state to false
+    /**
+     * Handles what happens when a checkbox is clicked.
+     * @param {Event} e - The onClick event which is fired when a checkbox is clicked.
+     */
     const handleCheckboxChange = (e) => {
         let parentTrTag = e.target.parentElement.parentElement
         let index = parentTrTag.key
@@ -62,12 +72,20 @@ const Credentials = ({theme}) => {
     const [credentialToDuplicate, setCredentialToDuplicate] = useState({})
 
     const [duplicateCredentialPopupVisible, setDuplicateCredentialPopupVisible] = useState(false)
+    /**
+     * Causes the DuplicateCredentialPopup component to become visible
+     * and specifies the credential that is to be duplicated. 
+     * @param {Object} credential - The credential that is to be duplicated. 
+     */
     const toggleDuplicateCredentialPopup = (credential) => {
         setDuplicateCredentialPopupVisible(!duplicateCredentialPopupVisible)
         setCredentialToDuplicate(credential)
     }
 
     const [issueCredentialPopupVisible, setIssueCredentialPopupVisible] = useState(false)
+    /**
+     * Causes the IssueCredentialPopup component to become visible.
+     */
     const toggleIssueCredentialPopup = () => {
         setIssueCredentialPopupVisible(!issueCredentialPopupVisible)
     }

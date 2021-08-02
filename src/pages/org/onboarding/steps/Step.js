@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { colorLightLevel } from '../../../../components/functions/componentFunctions'
 
-
 const Step = styled.div`
 display: grid;
 grid-gap: 1rem;

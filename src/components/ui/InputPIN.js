@@ -118,7 +118,7 @@ const Error = styled(InputError)`
 
 /**
  * Returns the InputPIN component.
- * @param {object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the parent component.
  * @param {string} [value] - The value of the textarea (uneditable textarea).
  * @param {string} [defaultValue] - The default value of the textarea (editable textarea).
  * @param {Function} [onChange] - The function to be executed when the value in the swd-pin-field element changes.

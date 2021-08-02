@@ -41,10 +41,19 @@ const EditColHeading = styled.div`
     margin-top: 0.5rem;
 `;
 
+/**
+ * Returns the Users component which is the page that contains info about the
+ * users in the organization.
+ * @param {Object} theme - To receive the theme from the parent component. 
+ * @returns {ReactElement} - The Users component.
+ */
 const Users = ({theme}) => {
     const [checkboxState, setCheckboxState] = useState([entries.map((a) => false)]) // sets initial value of all elements of the state to false
     
-
+    /**
+     * Handles what happens when a checkbox is clicked.
+     * @param {Event} e - The onClick event which is fired when a checkbox is clicked.
+     */
     const handleCheckboxChange = (e) => {
         let parentTrTag = e.target.parentElement.parentElement
         let index = parentTrTag.key

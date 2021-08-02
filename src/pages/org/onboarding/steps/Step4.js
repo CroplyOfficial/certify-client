@@ -1,13 +1,22 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {Step} from "./"
 import {
     InputPIN,
     Button,
 } from "../../../../components/ui" 
 
+/**
+ * Returns the Step4 component which is the onboarding step to enter the PIN.
+ * @param {Reference} pinRef - The reference to the PIN input field.
+ * @param {Function} nextStepFunc - The function to proceed to the next step.
+ * @returns {ReactElement} - The Step4 component.
+ */
 const Step4 = ({pinRef, nextStepFunc}) => {
     const [pinErr, setPinErr] = useState("")
 
+    /**
+     * Function to validate the input values.
+     */
     const inputValidation = () => {
         if(pinRef.current.value === "") {
             setPinErr("Please enter a valid PIN.")

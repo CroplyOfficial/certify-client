@@ -77,7 +77,7 @@ const NoCredentialsFound = styled.div`
 /**
  * Returns the DynamicSearch component which is a search bar which helps search for a credential while the user is typing its name.
  * @param {string[]} credentialNames - The array containing the names of the credentials.
- * @returns {ReactElement} The DynamicSearch component.
+ * @returns {ReactElement} - The DynamicSearch component.
  */
 const DynamicSearch = ({credentialNames}) => {
   const [filtered, setFiltered] = useState(credentialNames);

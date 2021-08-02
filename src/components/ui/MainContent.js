@@ -104,7 +104,7 @@ const ContentWithNavbar = styled(ContentWithoutNavbar)`
 
 /**
  * Returns the MainContent component. It contains the page title, components to the right of the page title and the important content of the page and, if specified, the SettingsNavbar and IdentityNavbar components.
- * @param {object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the parent component.
  * @param {string} [identityActive] - Specifies whether or not to render the IdentityNavbar component in this component. Apply this prop to render the IdentityNavbar component in this component and set it equal to the navbar item you wish to highlight. e.g. <MainContent identityActive="Dashboard" />
  *  * @param {string} [settingsActive] - Specifies whether or not to render the SettingsNavbar component in this component. Apply this prop to render the SettingsNavbar component in this component and set it equal to the navbar item you wish to highlight. e.g. <MainContent settingsActive="General" /> 
  * @param {string} [settingsActive] - Specifies whether or not to render the SettingsNavbar component in this component. Apply this prop to render the IdentityNavbar component in this component.
