@@ -16,8 +16,11 @@ const hexToRgb = (hex) => {
     return resultStr
 }
 
+// Credits: https://stackoverflow.com/a/13532993/14323287
 /**
  * Creates a ripple effect of a particular color on a button on execution of an event.
+ * @param {Event} e - The click event.
+ * @param {string} color - The color of the ripple in hexadecimal code as a string, e.g. #FFFFFF
  */ 
 const btnRippleEffect = (e, color) => {
     let target = e.target;
@@ -37,8 +40,6 @@ const btnRippleEffect = (e, color) => {
     ripple.style.top = top + 'px';
     ripple.style.left = left + 'px';
     ripple.classList.add('show');
-    return false;
-
 }
 
 /**
