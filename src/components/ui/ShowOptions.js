@@ -82,7 +82,7 @@ const ShowOptions = ({theme, options, optionListStyling=""}) => {
     }
     return (
         <Container>
-            <Ellipsis optionListStyling={optionListStyling}>
+            <Ellipsis>
                 <MenuDots fill={theme.showOptions.ellipsisColor} width="1.2rem" />
             </Ellipsis>
             <OptionList optionListStyling={optionListStyling}>
