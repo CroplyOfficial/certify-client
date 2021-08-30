@@ -81,7 +81,7 @@ const BtnDiv = styled.div`
 /**
  * Returns the ConfirmPinForRestorePopup component which is the modal used to
  * confirm the PIN for restoring account data.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {Function} closePopupFunc - The function to close the popup.
  * @param {Object} goBackFunc - The function to hide this component and 
  * show the RestoreWarningPopup component.

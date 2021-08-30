@@ -49,7 +49,7 @@ const CredentialsHolder = styled.div`
 /**
  * Returns the AddCredentials component which is the page to add
  * Identity credentials to a user.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The AddCredentials component.
  */
 const AddCredentials = ({theme}) => {

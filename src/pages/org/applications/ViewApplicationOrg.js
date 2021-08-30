@@ -40,7 +40,7 @@ const IDSearch = styled(LongInput)`
 /**
  * Returns the ViewApplicationOrg component which is the page that 
  * contains the form to view/edit an application of the organization.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The ViewApplicationOrg component
  */
 const ViewApplicationOrg = ({theme}) => {

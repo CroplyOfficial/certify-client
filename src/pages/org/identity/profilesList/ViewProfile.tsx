@@ -57,7 +57,7 @@ const CredentialsHolder = styled.div`
 /**
  * Returns the ViewProfile component which is the page to view/edit
  * a user profile.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The ViewProfile component.
  */
 const ViewProfile = ({theme}) => {

@@ -89,7 +89,7 @@ const CustomMainContent = styled(MainContent)`
 /**
  * Returns the NewCredential component which is the page that 
  * contains the form to make a new credential for the organization.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The NewCredential component.
  */
 const NewCredential = ({theme}) => {

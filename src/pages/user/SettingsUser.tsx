@@ -61,7 +61,7 @@ const Right = styled.div`
 /**
  * Returns the SettingsUser component which is the page to
  * manage user settings.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The SettingsUser component.
  */
 const SettingsUser = ({theme}) => {

@@ -218,7 +218,7 @@ const LogoutDiv = styled.div`
 
 /**
  * Returns the MenuOrg component which appears on all organization pages.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @param {string} [active] - Specifies the menu item to be highlighted. Example usage <MenuOrg active="Dashboard" /> 
  * @returns {ReactElement} - The MenuOrg component.
  */
