@@ -23,7 +23,7 @@ const DataHolder = styled.div`
 /**
  * Returns the IdentityDashboard component which is the page that displays info of
  * Identity credentials of the organization.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The IdentityDashboard component
  */
 const IdentityDashboard = ({theme}) => {

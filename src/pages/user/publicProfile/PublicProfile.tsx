@@ -62,7 +62,7 @@ const CustomMainContent = styled(MainContent)`
 /**
  * Returns the PublicProfile component which is the page to edit the user's
  * public profile.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The PublicProfile component.
  */
 const PublicProfile = ({theme}) => {

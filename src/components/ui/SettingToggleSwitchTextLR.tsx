@@ -29,7 +29,7 @@ const TextRight = styled.div`
 
 /**
  * Returns the SettingToggleSwitchTextLR component. This component has text on either side of a ToggleSwitch component which is in the center.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {Object} settingsObj - The object containing the settings.
  * @param {Function} changeHandlerFunc - The function to be executed when a particular setting is changed.
  * @param {string} settingKey - The key of the setting in the settingsObj object.

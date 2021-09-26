@@ -154,7 +154,7 @@ const Label = styled.label`
 
 /**
  * Returns the Select component.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {boolean} [darkTheme] - To specify if the component should use the light theme.
  * @param {boolean} [lightTheme] - To specify if the component should use the dark theme.
  * @param {string} [defaultValue] - The default value of the input element (editable textarea).

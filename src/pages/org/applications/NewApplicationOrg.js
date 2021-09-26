@@ -38,7 +38,7 @@ const IDScan = styled(LongInput)`
 /**
  * Returns the NewApplicationOrg component which is the page that 
  * contains the form to make a new application for the organization.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The NewApplicationOrg component
  */
 const NewApplicationOrg = ({theme}) => {

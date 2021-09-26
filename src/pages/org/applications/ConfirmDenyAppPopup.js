@@ -122,7 +122,7 @@ const BtnDiv = styled.div`
 /**
  * Returns the ConfirmDenyAppPopup component which is the modal used to
  * confirm/deny an application.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {Function} closePopupFunc - The function to close the popup. 
  * @returns {ReactElement} - The ConfirmDenyAppPopup component.
  */

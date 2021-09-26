@@ -58,7 +58,7 @@ const SearchButton = styled(Button)`
 
 /**
  * Returns the LongInput component. It consists of an input field and button to the right of the field.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {string} [placeholder] - Placeholder for the input element.
  * @param {string} [btnText] - Text for the button.
  * @param {string} [defaultValue] - Default value for the input element (editable value).

@@ -102,7 +102,7 @@ const BtnDiv = styled.div`
 /**
  * Returns the NewProfilePopup component which is the modal used to
  * create a new profile.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {Function} closePopupFunc - The function to close the popup. 
  * @returns {ReactElement} - The NewProfilePopup component.
  */
