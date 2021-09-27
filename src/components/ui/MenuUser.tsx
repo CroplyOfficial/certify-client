@@ -14,7 +14,7 @@ import {
     UserHollow,
     Logout
 } from "../assets/icons"
-import { RootState } from '../../reducers'
+import { RootState } from '../../store'
 
 const MenuBase = styled.div`
     position: fixed;
