@@ -118,6 +118,7 @@ const Onboarding = () => {
           },
         }
       );
+      localStorage.setItem("userInfo", JSON.stringify(userData.data));
       const didData = await axios.post(
         "/api/admin/onboarding",
         {
@@ -130,6 +131,9 @@ const Onboarding = () => {
         }
       );
       setMnemonic(didData.data.mnemonic);
+    }
+    if (activeStep === 7) {
+      window.location.href = "/org/dashboard";
     }
     setActiveStep((activeStep) => activeStep + 1);
   };
