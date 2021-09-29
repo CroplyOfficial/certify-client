@@ -1,12 +1,18 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { menuReducer } from "./reducers/menu";
-import { userLoginReducer, userRegisterReducer } from './reducers/userReducers'
+import { userLoginReducer } from "./reducers/userReducers";
+import {
+  credentialTemplateReducer,
+  newCredentialTemplateReducer,
+} from "./reducers/credTemplateReducers";
+import thunk from "redux-thunk";
 
 const reducer = combineReducers({
   menuCollapsed: menuReducer,
-  userLogin: userLoginReducer, 
+  userLogin: userLoginReducer,
+  credentialTemplates: credentialTemplateReducer,
+  newCredential: newCredentialTemplateReducer,
 });
 
 export type RootState = ReturnType<typeof reducer>;
