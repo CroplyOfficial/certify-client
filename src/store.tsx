@@ -8,7 +8,7 @@ import thunk from "redux-thunk";
 const reducer = combineReducers({
   menuCollapsed: menuReducer,
   userLogin: userLoginReducer,
-  credentialTemplate: credentialTemplateReducer,
+  credentialTemplates: credentialTemplateReducer,
 });
 
 export type RootState = ReturnType<typeof reducer>;
