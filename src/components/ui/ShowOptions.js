@@ -62,7 +62,7 @@ const Option = styled.div`
 
 /**
  * Returns the ShowOptions component. A menu appears when you hover over the Ellipsis component which is a child of this component.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {object.<string, Function>} options - An object whose keys are strings and the corresponding values are functions to be executed when an option with that particular string is selected. 
  * @param {string} [optionListStyling] - styled-components styling to be applied in special cases for the options menu/list.
  * @returns {ReactElement} - The ShowOptions component.

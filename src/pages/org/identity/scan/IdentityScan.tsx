@@ -51,7 +51,7 @@ const Instructions = styled.div`
 /**
  * Returns the IdentityScan component which is the page used to scan
  * credentials.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The IdentityScan component.
  */
 const IdentityScan = ({theme}) => {

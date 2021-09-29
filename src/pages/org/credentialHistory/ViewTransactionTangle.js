@@ -49,7 +49,7 @@ const DataFieldContent = styled.div`
 /**
  * Returns the DataField component which contains the a piece of information 
  * about a particular credential.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {ReactElement} [children] - Specifies the content of the DataFieldContent
  * component inside this component.
  * @param {ReactElement} [title] - Specifies the content of the DataFieldTitle
@@ -68,7 +68,7 @@ const DataField = ({theme, children, title}) => {
 /**
  * Returns the ViewTransactionTangle component which is the page that 
  * contains information about a particular credential.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The ViewTransactionTangle component.
  */
 const ViewTransactionTangle = ({theme}) => {

@@ -129,7 +129,7 @@ const CredentialInfoHolder = styled.div`
 /**
  * Returns the ViewPublicProfile component which is the page to view the user's
  * public profile as it would appear in the public domain.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The ViewPublicProfile component.
  */
 const ViewPublicProfile = () => {

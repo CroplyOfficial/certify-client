@@ -41,7 +41,7 @@ const Right = styled.div`
 /**
  * Returns the NotifsPermsSettingsOrg component which is the page to
  * manage the notification and permission settings for the organization.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The NotifsPermsSettingsOrg component.
  */
 const NotifsPermsSettingsOrg = ({theme}) => {

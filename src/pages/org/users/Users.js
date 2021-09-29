@@ -44,7 +44,7 @@ const EditColHeading = styled.div`
 /**
  * Returns the Users component which is the page that contains info about the
  * users in the organization.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The Users component.
  */
 const Users = ({theme}) => {

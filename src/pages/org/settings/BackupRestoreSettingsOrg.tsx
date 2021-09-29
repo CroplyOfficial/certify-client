@@ -54,7 +54,7 @@ const Right = styled.div`
 /**
  * Returns the BackupRestoreSettingsOrg component which is the page to
  * manage the backup/restore settings for the organization.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The BackupRestoreSettingsOrg component.
  */
 const BackupRestoreSettingsOrg = ({theme}) => {
