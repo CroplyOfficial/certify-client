@@ -7,7 +7,7 @@ import {
 } from "../constants/userConstants";
 
 export const register =
-  (username: string, pin: number, password: string) =>
+  (username: string, password: string, pin?: string) =>
   async (dispatch: any) => {
     try {
       dispatch({
