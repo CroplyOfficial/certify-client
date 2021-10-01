@@ -4,6 +4,7 @@ import styled, { withTheme } from "styled-components";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { ICredentialTemplate } from "../../../interfaces/credTemplate.interface";
+import { useHistory } from "react-router-dom";
 import {
   CommonElementsUser,
   PageContentContainer,
@@ -11,7 +12,6 @@ import {
   MainContent,
   Button,
   Select,
-  InputBase,
   Hr,
 } from "../../../components/ui";
 
@@ -55,6 +55,7 @@ const Div2 = styled.div`
  */
 const NewApplicationUser = ({ theme }) => {
   const userInputRefs = useRef({});
+  const history = useHistory();
 
   const [templates, setTemplates] = useState<any[]>();
   const [applicationNames, setApplicationNames] = useState<any[]>();
@@ -117,7 +118,20 @@ const NewApplicationUser = ({ theme }) => {
         data[elem.placeholder] = elem.value;
       }
     }
-    console.log(data);
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const newApplication = await axios.post(
+      "/api/applications",
+      { template: template._id, data },
+      config
+    );
+    if (newApplication.data) {
+      history.push("/user/applications");
+    }
   };
 
   useEffect(() => {
@@ -164,6 +178,7 @@ const NewApplicationUser = ({ theme }) => {
                       name={String(field.label)}
                       type={field.type}
                       placeholder={String(field.label)}
+                      required
                       style={{
                         width: "100%",
                         height: "3rem",
