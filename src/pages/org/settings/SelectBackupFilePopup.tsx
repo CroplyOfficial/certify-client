@@ -87,7 +87,7 @@ const BtnDiv = styled.div`
 /**
  * Returns the SelectBackupFilePopup component which is the modal used to
  * select the backup file for restoring the account data.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {Function} closePopupFunc - The function to close the popup.
  * @param {Function} showRestoreWarningPopupFunc - The function 
  * to hide this component and show the RestoreWarningPopup component.

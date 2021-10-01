@@ -50,7 +50,7 @@ const DomainsHolder = styled.div`
 /**
  * Returns the ProfileDomainSettings component which is the page to manage
  * a user profile's domain settings.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The ProfileDomainSettings component.
  */
 const ProfileDomainSettings = ({theme}) => {

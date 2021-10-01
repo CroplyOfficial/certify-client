@@ -90,7 +90,7 @@ const Instructions = styled.div`
 /**
  * Returns the ShareQrPopup component which is the modal that enables the sharing
  * of the QR code of a specified credential.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {Function} closePopupFunc - The function to close the popup.
  * @param {Function} goBackFunc - The function to hide this component
  * and show the ShareCredentialPopup. * @param {Object} credential - The credential to be shared.  

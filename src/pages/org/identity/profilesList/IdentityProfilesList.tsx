@@ -21,7 +21,7 @@ const ProfilesHolder = styled.div`
 /**
  * Returns the IdentityProfilesList component which is the page that displays
  * the list of Identity profiles.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The IdentityProfilesList component.
  */
 const IdentityProfilesList = ({theme}) => {

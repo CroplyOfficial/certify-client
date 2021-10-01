@@ -89,7 +89,7 @@ const Instructions = styled.div`
 /**
  * Returns the ShareNfcPopup component which is the modal that enables the sharing
  * of the NFC code of a specified credential.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {Function} closePopupFunc - The function to close this popup.
  * @param {Function} goBackFunc - The function to hide this component
  * and show the ShareCredentialPopup.

@@ -135,7 +135,7 @@ const Verification = styled.div`
 
 /**
  * Returns the Data component which displays a piece of information about the credential.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {string} dataName - The name of the field.
  * @param {string} dataValue - The value in the field.
  * @param {boolean} [link=false] - Specifies whether dataValue is a URL or not. 
@@ -161,7 +161,7 @@ const Data = ({theme, dataName, dataValue, link=false}) => {
 /**
  * Returns the ConfirmationPopup component which is the modal used to
  * show info about a scanned credential.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {Function} closePopupFunc - The function to close the popup.
  * @param {Object} credential - The scanned credential.
  * @returns {ReactElement} - The ConfirmationPopup component.
