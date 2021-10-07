@@ -27,29 +27,8 @@ const DataHolder = styled.div`
  */
 const ApplicationsUser = ({ theme }) => {
   const dispatch = useDispatch();
-  const [apps] = useState([
-    {
-      appName: "Animal Agriculture License",
-      appDate: "12/03/2021",
-      appStatus: "PENDING",
-      regAuthority: "WELSH DEPT. OF AGRICULTURE",
-    },
-    {
-      appName: "Animal Agriculture License",
-      appDate: "12/03/2021",
-      appStatus: "APPROVED",
-      regAuthority: "WELSH DEPT. OF AGRICULTURE",
-    },
-    {
-      appName: "Animal Agriculture License",
-      appDate: "12/03/2021",
-      appStatus: "DECLINED",
-      regAuthority: "WELSH DEPT. OF AGRICULTURE",
-    },
-  ]);
-
   const myApplicationsMeta = useSelector(
-    (state: RootState) => state.getApplications
+    (state: RootState) => state.getMyApplications
   );
   const { myApplications, loading, error }: any = myApplicationsMeta;
   useEffect(() => {
