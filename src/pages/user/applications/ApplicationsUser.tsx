@@ -1,19 +1,22 @@
-import {useState} from 'react'
-import styled, { withTheme } from 'styled-components'
+import { useState, useEffect } from "react";
+import styled, { withTheme } from "styled-components";
 import {
-    CommonElementsUser,
-    PageContentContainer,
-    MainContentContainer,
-    MainContent,
-    Button,
-    UserApplicationHolder
-} from "../../../components/ui"
+  CommonElementsUser,
+  PageContentContainer,
+  MainContentContainer,
+  MainContent,
+  Button,
+  UserApplicationHolder,
+} from "../../../components/ui";
+import { RootState } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { getMyApplications } from "../../../actions/applicationActions";
 
 const DataHolder = styled.div`
-    display: grid;
-    grid-template-rows: repeat(3, auto);
-    grid-row-gap: 2rem;
-    margin-bottom: 1rem;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-row-gap: 2rem;
+  margin-bottom: 1rem;
 `;
 
 /**
@@ -22,51 +25,69 @@ const DataHolder = styled.div`
  * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The ApplicationsUser component.
  */
-const ApplicationsUser = ({theme}) => {
+const ApplicationsUser = ({ theme }) => {
+  const dispatch = useDispatch();
+  const [apps] = useState([
+    {
+      appName: "Animal Agriculture License",
+      appDate: "12/03/2021",
+      appStatus: "PENDING",
+      regAuthority: "WELSH DEPT. OF AGRICULTURE",
+    },
+    {
+      appName: "Animal Agriculture License",
+      appDate: "12/03/2021",
+      appStatus: "APPROVED",
+      regAuthority: "WELSH DEPT. OF AGRICULTURE",
+    },
+    {
+      appName: "Animal Agriculture License",
+      appDate: "12/03/2021",
+      appStatus: "DECLINED",
+      regAuthority: "WELSH DEPT. OF AGRICULTURE",
+    },
+  ]);
 
-    const [apps] = useState([
-        {
-            appName: 'Animal Agriculture License',
-            appDate: '12/03/2021',
-            appStatus: 'PENDING',
-            regAuthority: 'WELSH DEPT. OF AGRICULTURE'
-        },
-        {
-            appName: 'Animal Agriculture License',
-            appDate: '12/03/2021',
-            appStatus: 'APPROVED',
-            regAuthority: 'WELSH DEPT. OF AGRICULTURE'
-        },
-        {
-            appName: 'Animal Agriculture License',
-            appDate: '12/03/2021',
-            appStatus: 'DECLINED',
-            regAuthority: 'WELSH DEPT. OF AGRICULTURE'
-        }
-    ])
+  const myApplicationsMeta = useSelector(
+    (state: RootState) => state.getApplications
+  );
+  const { myApplications, loading, error }: any = myApplicationsMeta;
+  useEffect(() => {
+    dispatch(getMyApplications());
+  }, []);
 
-    const newAppBtn = (
-        <Button primary btnColor={theme.btnPriBg} onClick={() => window.location.href='/user/applications/new'}>+ NEW APPLICATION</Button>
-    );
-    return (
-        <>
-        <CommonElementsUser menuActive="Applications" />
-        <PageContentContainer>
-            <MainContentContainer>
-                <MainContent contentTitle="Applications" componentRight={newAppBtn}>
-                    <DataHolder>
-                        {
-                            apps.map(appData => (
-                                    <UserApplicationHolder appData={appData} />
-                                )
-                            )
-                        }
-                    </DataHolder>                    
-                </MainContent>
-            </MainContentContainer>
-        </PageContentContainer>
-        </>
-    );
-}
+  const newAppBtn = (
+    <Button
+      primary
+      btnColor={theme.btnPriBg}
+      onClick={() => (window.location.href = "/user/applications/new")}
+    >
+      + NEW APPLICATION
+    </Button>
+  );
+  return (
+    <>
+      <CommonElementsUser menuActive="Applications" />
+      <PageContentContainer>
+        <MainContentContainer>
+          <MainContent contentTitle="Applications" componentRight={newAppBtn}>
+            <DataHolder>
+              {loading ? (
+                <div>loading</div>
+              ) : error ? (
+                <div>{error}</div>
+              ) : (
+                myApplications &&
+                myApplications.map((appData) => (
+                  <UserApplicationHolder appData={appData} />
+                ))
+              )}
+            </DataHolder>
+          </MainContent>
+        </MainContentContainer>
+      </PageContentContainer>
+    </>
+  );
+};
 
-export default withTheme(ApplicationsUser)
+export default withTheme(ApplicationsUser);

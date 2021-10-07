@@ -14,6 +14,8 @@ import {
   Step6,
   Step7,
   Step8,
+  Step9,
+  Step10,
 } from "./steps";
 
 const OnboardingDesignContainer = styled.div`
@@ -75,7 +77,8 @@ const Onboarding = () => {
 
   const [mnemonic, setMnemonic] = useState("");
   const [activeStep, setActiveStep] = useState(0);
-  const [did, setDID] = useState();
+  const [domain, setDomain] = useState();
+  const [key, setKey] = useState();
   const profileNameRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
@@ -103,7 +106,7 @@ const Onboarding = () => {
       newUserInput["pin"] = pinRef.current.value;
       setUserInput(newUserInput);
     }
-    if (activeStep === 5) {
+    if (activeStep === 6) {
       const { profileName, password, pin } = userInput;
       const userData = await axios.post(
         "/api/users",
@@ -123,6 +126,7 @@ const Onboarding = () => {
         "/api/admin/onboarding",
         {
           id: userData.data.id,
+          domain,
         },
         {
           headers: {
@@ -131,8 +135,10 @@ const Onboarding = () => {
         }
       );
       setMnemonic(didData.data.mnemonic);
+      setKey(didData.data.DVIDKey);
+      console.log(didData.data.DVIDKey);
     }
-    if (activeStep === 7) {
+    if (activeStep === 9) {
       window.location.href = "/org/dashboard";
     }
     setActiveStep((activeStep) => activeStep + 1);
@@ -159,9 +165,11 @@ const Onboarding = () => {
       confirmPinRef={confirmPinRef}
       nextStepFunc={nextStep}
     />,
-    <Step6 nextStepFunc={nextStep} />,
+    <Step6 nextStepFunc={nextStep} domain={domain} setDomain={setDomain} />,
     <Step7 nextStepFunc={nextStep} />,
     <Step8 nextStepFunc={nextStep} />,
+    <Step9 nextStepFunc={nextStep} publickey={key} domain={domain} />,
+    <Step10 nextStepFunc={nextStep} />,
   ];
   return (
     <OnboardingDesignContainer>
@@ -179,7 +187,7 @@ const Onboarding = () => {
           {steps[activeStep]}
         </ContentLeft>
         <ContentRight>
-          {activeStep === 6 ? (
+          {activeStep === 7 ? (
             <RecoveryPhraseElement mnemonic={mnemonic} />
           ) : null}
         </ContentRight>
