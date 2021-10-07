@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styled, { withTheme } from "styled-components";
+import { ViewApplicationModal } from "./modal/viewapplication.modal";
 import {
   CommonElementsOrg,
   TangleHistory,
@@ -26,6 +27,9 @@ const EditColHeading = styled.div`
  * @returns {ReactElement} - The ApplicationsOrg component.
  */
 const ApplicationsOrg = ({ theme }) => {
+  const [visible, setVisible] = useState(false);
+  const [appId, setAppId] = useState();
+
   const sidebarCollapsed = useSelector((state) => state.sidebarCollapsed);
 
   const applicationsMeta = useSelector((state) => state.getApplications);
@@ -50,8 +54,9 @@ const ApplicationsOrg = ({ theme }) => {
     setCheckboxState((newState) => newState);
   };
 
-  const handleCheckApplication = () => {
-    console.log("handle handle lol lol");
+  const handleCheckApplication = (id) => {
+    setAppId(id);
+    setVisible(true);
   };
 
   useEffect(() => {
@@ -59,7 +64,6 @@ const ApplicationsOrg = ({ theme }) => {
   }, []);
 
   useEffect(() => {
-    console.log(applications);
     if (!error && applications) {
       const appRows = applications.map((application, rowIndex) => {
         const appDate = new Date(application.createdAt).toLocaleDateString();
@@ -76,11 +80,11 @@ const ApplicationsOrg = ({ theme }) => {
             <td>{appDate}</td>
             <td>{application.template.credentialType}</td>
             <td>
-              {application.status === "ACTIVE" ? (
+              {application.status === "APPROVED" ? (
                 <span style={{ color: theme.mainColors.green }}>
                   {application.status}
                 </span>
-              ) : application.status === "INACTIVE" ? (
+              ) : application.status === "DECLINED" ? (
                 <span style={{ color: theme.mainColors.red }}>
                   {application.status}
                 </span>
@@ -92,21 +96,20 @@ const ApplicationsOrg = ({ theme }) => {
             </td>
             <td>
               <ShowOptions
-                options={{ View: handleCheckApplication }}
+                options={{
+                  View: () => {
+                    handleCheckApplication(application._id);
+                  },
+                }}
                 optionListStyling={`margin-left: -4rem`}
               />
             </td>
           </tr>
         );
       });
-      console.log(appRows);
       setRows(appRows);
     }
   }, [applications]);
-
-  const hello = () => {
-    console.log("hello");
-  };
 
   const newAppBtn = (
     <Button
@@ -119,6 +122,11 @@ const ApplicationsOrg = ({ theme }) => {
   );
   return (
     <>
+      <ViewApplicationModal
+        visible={visible}
+        setVisible={setVisible}
+        applicationId={appId}
+      />
       <CommonElementsOrg menuActive="Applications" />
       <PageContentContainer>
         <MainContentContainer>
