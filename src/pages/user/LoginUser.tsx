@@ -1,6 +1,7 @@
 import {useRef, useState} from 'react'
 import styled from 'styled-components';
 import {Link} from "react-router-dom"
+import axios from 'axios'
 
 import {colorLightLevel} from "../../components/functions/componentFunctions"
 import backgroundLight from "../../components/assets/Background-light.svg"
@@ -95,7 +96,7 @@ const LoginUser = () => {
     /**
      * Function to validate the input values.
      */
-    const inputValidation = () => {
+    const inputValidation = async () => {
         if(usernameRef.current.value === "") {
             setUsernameErr("Please enter your username.") 
         }
@@ -108,7 +109,18 @@ const LoginUser = () => {
         else {
             setPasswordErr("")
         }
+
+        const { data } = await axios.post('/api/users/login_with_password', { username: usernameRef.current.value, password: passwordRef.current.value }, { headers: {
+          'Content-Type': 'application/json'
+        } })
+        if (data) {
+          localStorage.setItem('userInfo', JSON.stringify(data))
+          window.location.href = '/user/applications'
+        } else {
+          setPasswordErr('Invalid Credentials')
+        }
     }
+
     return (
         <LoginPageContainer>
             <ContentContainer>

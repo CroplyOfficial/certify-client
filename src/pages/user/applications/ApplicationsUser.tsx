@@ -11,6 +11,7 @@ import {
 import { RootState } from "../../../store";
 import { useDispatch, useSelector } from "react-redux";
 import { getMyApplications } from "../../../actions/applicationActions";
+import { ViewApplicationModal } from './viewApplication.modal'
 
 const DataHolder = styled.div`
   display: grid;
@@ -27,30 +28,11 @@ const DataHolder = styled.div`
  */
 const ApplicationsUser = ({ theme }) => {
   const dispatch = useDispatch();
-  const [apps] = useState([
-    {
-      appName: "Animal Agriculture License",
-      appDate: "12/03/2021",
-      appStatus: "PENDING",
-      regAuthority: "WELSH DEPT. OF AGRICULTURE",
-    },
-    {
-      appName: "Animal Agriculture License",
-      appDate: "12/03/2021",
-      appStatus: "APPROVED",
-      regAuthority: "WELSH DEPT. OF AGRICULTURE",
-    },
-    {
-      appName: "Animal Agriculture License",
-      appDate: "12/03/2021",
-      appStatus: "DECLINED",
-      regAuthority: "WELSH DEPT. OF AGRICULTURE",
-    },
-  ]);
-
   const myApplicationsMeta = useSelector(
-    (state: RootState) => state.getApplications
+    (state: RootState) => state.getMyApplications
   );
+  const [visible, setVisible] = useState<boolean>(false);
+  const [appId, setAppId] = useState<string>();
   const { myApplications, loading, error }: any = myApplicationsMeta;
   useEffect(() => {
     dispatch(getMyApplications());
@@ -68,6 +50,7 @@ const ApplicationsUser = ({ theme }) => {
   return (
     <>
       <CommonElementsUser menuActive="Applications" />
+      <ViewApplicationModal visible={visible} setVisible={setVisible} applicationId={appId} />
       <PageContentContainer>
         <MainContentContainer>
           <MainContent contentTitle="Applications" componentRight={newAppBtn}>
@@ -79,7 +62,7 @@ const ApplicationsUser = ({ theme }) => {
               ) : (
                 myApplications &&
                 myApplications.map((appData) => (
-                  <UserApplicationHolder appData={appData} />
+                  <UserApplicationHolder appData={appData} handleView={() => setVisible(true)} setAppId={setAppId} />
                 ))
               )}
             </DataHolder>

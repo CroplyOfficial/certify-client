@@ -83,7 +83,13 @@ const Div5 = styled.div`
  * @param {Object} appData - Contains the data of the application to be displayed. 
  * @returns {ReactElement} - The UserApplicationHolder component.
  */
-const UserApplicationHolder = ({ theme, appData }) => {
+interface IProps {
+  theme: any;
+  appData: any;
+  handleView: Function;
+  setAppId: (id: string) => void;
+}
+const UserApplicationHolder = ({ theme, appData, handleView, setAppId }: IProps) => {
   return (
     <Container>
       <Div1>{placeholderImg}</Div1>
@@ -93,7 +99,7 @@ const UserApplicationHolder = ({ theme, appData }) => {
       </Div2>
       <Div3>
         <div>APPLICATION DATE</div>
-        <div>{appData.createdAt}</div>
+        <div>{new Date(appData.createdAt).toLocaleDateString()}</div>
       </Div3>
       <Div4>
         {appData.status === "APPROVED" ? (
@@ -110,7 +116,10 @@ const UserApplicationHolder = ({ theme, appData }) => {
       </Div4>
       <Div5>
         <ShowOptions
-          options={{ View: () => console.log("View App") }}
+          options={{ View: () => { 
+            setAppId(appData._id); 
+            handleView(); 
+          }}}
           optionListStyling="margin-left: -5rem;"
         />
       </Div5>

@@ -2,7 +2,10 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { menuReducer } from "./reducers/menu";
 import { userLoginReducer } from "./reducers/userReducers";
-import { getApplicationsReducer } from "./reducers/applicationReducers";
+import {
+  getMyApplicationsReducer,
+  getApplicationsReducer,
+} from "./reducers/applicationReducers";
 import {
   credentialTemplateReducer,
   newCredentialTemplateReducer,
@@ -14,6 +17,7 @@ const reducer = combineReducers({
   userLogin: userLoginReducer,
   credentialTemplates: credentialTemplateReducer,
   newCredential: newCredentialTemplateReducer,
+  getMyApplications: getMyApplicationsReducer,
   getApplications: getApplicationsReducer,
 });
 
