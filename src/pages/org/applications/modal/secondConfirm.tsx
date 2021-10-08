@@ -23,7 +23,6 @@ const ConfirmActionPopup = ({ visible, setVisible, action, text }: IProps) => {
               <button
                 className="confirm"
                 onClick={() => {
-                  console.log("test???");
                   action();
                   setVisible(false);
                 }}
