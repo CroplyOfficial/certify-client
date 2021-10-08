@@ -56,7 +56,7 @@ const CustomMainContent = styled(MainContent)`
 /**
  * Returns the NewUser component which is the page that contains the form
  * to add a new user to the organization.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The NewUser component.
  */
 const NewUser = ({theme}) => {

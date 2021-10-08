@@ -81,7 +81,7 @@ const BtnDiv = styled.div`
 /**
  * Returns the AddDomainPopup component which is the modal used to edit the domain 
  * of a profile. 
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @param {selectedDomain} - The domain to be edited.
  * @param {Function} closePopupFunc - The function to close this popup.
  * @returns {ReactElement} - The AddDomainPopup component.

@@ -47,7 +47,7 @@ const Div2 = styled.div`
 /**
  * Returns the ViewApplicationUser component which is the page that 
  * contains the form to view/edit an application of the user.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The ViewApplicationUser component
  */
 const ViewApplicationUser = ({theme}) => {

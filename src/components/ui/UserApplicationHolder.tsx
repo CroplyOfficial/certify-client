@@ -78,8 +78,9 @@ const Div5 = styled.div`
 
 /**
  * Returns the UserApplicationHolder component which displays the data of a specified applications and shows options for it.
- * @param {Object} theme - To receive the theme from the parent component.
- * @param {Object} appData - Contains the data of the application to be displayed.
+
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
+ * @param {Object} appData - Contains the data of the application to be displayed. 
  * @returns {ReactElement} - The UserApplicationHolder component.
  */
 interface IProps {

@@ -68,7 +68,7 @@ const ProfileImg = styled(ProfilePic)`
 `;
 /**
  * Returns the DirProfileHolder component which displays the data of a specified profile on the public directory page.
- * @param {Object} theme - To receive the theme from the parent component. 
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @param {Object} profileData - Contains the data of the profile to be displayed. 
  * @returns {ReactElement} - The DirProfileHolder component.
  */

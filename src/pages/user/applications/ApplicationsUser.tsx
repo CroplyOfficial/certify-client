@@ -23,7 +23,7 @@ const DataHolder = styled.div`
 /**
  * Returns the ApplicationsUser component which is the page that
  * displays the applications of the user.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component. 
  * @returns {ReactElement} - The ApplicationsUser component.
  */
 const ApplicationsUser = ({ theme }) => {

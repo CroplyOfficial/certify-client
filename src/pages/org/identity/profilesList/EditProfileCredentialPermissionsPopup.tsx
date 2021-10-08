@@ -132,7 +132,7 @@ const BtnDiv = styled.div`
 
 /**
  * Returns the Data component which displays a piece of information about the credential.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {string} dataName - The name of the field.
  * @param {string} dataValue - The value in the field.
  * @param {boolean} [link=false] - Specifies whether dataValue is a URL or not. 
@@ -167,7 +167,7 @@ const Data = ({theme, dataName, dataValue, link=false}) => {
 /**
  * Returns the EditProfileCredentialPermsPopup component which is the modal used to
  * duplicate a credential.
- * @param {Object} theme - To receive the theme from the parent component.
+ * @param {Object} theme - To receive the theme from the CustomThemeProvider component.
  * @param {Function} closePopupFunc - The function to close the popup. 
  * @param {Object} credential - The credential whose permissions are to be edited.
  * @returns {ReactElement} - The EditProfileCredentialPermsPopup component.
