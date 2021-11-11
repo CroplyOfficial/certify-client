@@ -1,0 +1,107 @@
+* {
+  font-family: "Open Sans";
+}
+
+.role,
+.save {
+  font-size: 0.9rem;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 0;
+  background: #e5e5e5;
+  border-radius: 7.5px;
+  color: #3d3d3d;
+  font-weight: 700;
+  transition: ease-in-out 0.6s;
+  margin-bottom: 10px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #f5f5f5;
+  }
+}
+
+.active-role {
+  background: #7e97a8;
+  color: white;
+
+  &:hover {
+    background-color: #7e97a8;
+  }
+}
+
+.newRole,
+.save {
+  margin-top: 40px;
+  font-size: 1.2rem;
+  background-color: #3b5566;
+  color: white;
+  border-radius: 30px;
+
+  &:hover {
+    background: #5d7b8f;
+  }
+}
+
+.nameInput,
+.role-select,
+.modal input {
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 2px solid #e5e5e5;
+  outline: none;
+  color: #4d4d4d;
+  margin-bottom: 10px;
+}
+
+.save {
+  padding: 10px 40px;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 10;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.roleContainer {
+  h2 {
+    margin-top: 0;
+    color: #3d3d3d;
+  }
+
+  .roleInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      font-weight: 600;
+      color: #5d5d5d;
+    }
+  }
+
+  .deleteButton {
+    padding: 10px 50px;
+    color: white;
+    margin-top: 44px;
+    transition: ease-in-out 0.6s;
+    background: #ff8080;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    &:hover {
+      cursor: pointer;
+      background: #ff9999;
+    }
+  }
+}
