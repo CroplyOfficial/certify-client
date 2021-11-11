@@ -231,7 +231,7 @@ const App = () => {
           />
 
           {/* routing public pages */}
-          <Route component={Home} exact path="/public" title="Home" />
+          <Route component={Home} exact path="/" title="Home" />
           <Route
             component={Directory}
             path="/public/directory"

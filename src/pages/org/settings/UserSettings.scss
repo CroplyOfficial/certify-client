@@ -2,7 +2,8 @@
   font-family: "Open Sans";
 }
 
-.role {
+.role,
+.save {
   font-size: 0.9rem;
   padding: 10px;
   box-sizing: border-box;
@@ -29,7 +30,8 @@
   }
 }
 
-.newRole {
+.newRole,
+.save {
   margin-top: 40px;
   font-size: 1.2rem;
   background-color: #3b5566;
@@ -41,21 +43,39 @@
   }
 }
 
+.nameInput,
+.role-select,
+.modal input {
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 2px solid #e5e5e5;
+  outline: none;
+  color: #4d4d4d;
+  margin-bottom: 10px;
+}
+
+.save {
+  padding: 10px 40px;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 10;
+  padding: 40px;
+  border-radius: 20px;
+}
+
 .roleContainer {
   h2 {
     margin-top: 0;
     color: #3d3d3d;
-  }
-
-  .nameInput {
-    width: 100%;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    font-size: 1rem;
-    border-radius: 30px;
-    border: 2px solid #e5e5e5;
-    outline: none;
-    color: #4d4d4d;
   }
 
   .roleInfo {

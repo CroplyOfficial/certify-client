@@ -211,6 +211,7 @@ const RoleSettings = ({ theme }) => {
       });
       await getRoles();
       setRole(newRole.data);
+      setRoleId(newRole.data._id);
     }
   };
 

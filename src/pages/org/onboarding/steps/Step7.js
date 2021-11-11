@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Step } from "./";
 import { Button } from "../../../../components/ui";
 
@@ -8,6 +9,7 @@ import { Button } from "../../../../components/ui";
  * @returns {ReactElement} - The Step6 component.
  */
 const Step7 = ({ nextStepFunc }) => {
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <Step>
       <div className="div1">
@@ -26,9 +28,17 @@ const Step7 = ({ nextStepFunc }) => {
           IF YOU LOSE YOUR RECOVERY PHRASE YOU WILL NEED TO CREATE A NEW
           IDENTITY PROFILE FROM SCRATCH.
         </p>
+        {isLoading && <h1>Creating your Identity...</h1>}
       </div>
       <div className="div3">
-        <Button primary btnColor="#6D97B5" onClick={nextStepFunc}>
+        <Button
+          primary
+          btnColor="#6D97B5"
+          onClick={() => {
+            setIsLoading(true);
+            nextStepFunc();
+          }}
+        >
           CONTINUE
         </Button>
       </div>
