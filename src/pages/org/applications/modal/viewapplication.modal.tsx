@@ -53,6 +53,21 @@ const ViewApplicationModal = ({
     window.location.href = "/org/applications";
   };
 
+  const handleRevokeApplication = async () => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.post(
+      `/api/applications/revoke/${applicationId}`,
+      {},
+      config
+    );
+    window.location.href = "/org/applications";
+  };
+
   const handleDecline = () => {
     setConfirmVisible(true);
     setAction(declineApplication);
@@ -101,7 +116,7 @@ const ViewApplicationModal = ({
           <div className="backdrop" onClick={() => setVisible(false)}></div>
           <div className="view-app-modal">
             {application && (
-              <>
+              <React.Fragment>
                 <h2>Confirm Application</h2>
                 <p className="info">
                   You are about to confirm the application status for the
@@ -133,20 +148,33 @@ const ViewApplicationModal = ({
                     ))}
                   </div>
                 </div>
-                <p className="info">
-                  By confirming the application you would be issuing a signed
-                  verifiable credential to the applicant, if you do not wish to
-                  issue the credential click decline application
-                </p>
-                <div className="buttons">
-                  <button className="deny" onClick={handleDecline}>
-                    DECLINE APPLICATION
-                  </button>
-                  <button className="confirm" onClick={handleApprove}>
-                    CONFIRM APPLICATION
-                  </button>
-                </div>
-              </>
+                {application.status !== "REVOKED" && (
+                  <React.Fragment>
+                    <p className="info">
+                      By confirming the application you would be issuing a
+                      signed verifiable credential to the applicant, if you do
+                      not wish to issue the credential click decline application
+                    </p>
+                    <div className="buttons">
+                      <button className="deny" onClick={handleDecline}>
+                        DECLINE APPLICATION
+                      </button>
+                      {application && application.status === "APPROVED" ? (
+                        <button
+                          className="confirm"
+                          onClick={handleRevokeApplication}
+                        >
+                          REVOKE APPLICATION
+                        </button>
+                      ) : (
+                        <button className="confirm" onClick={handleApprove}>
+                          CONFIRM APPLICATION
+                        </button>
+                      )}
+                    </div>
+                  </React.Fragment>
+                )}
+              </React.Fragment>
             )}
           </div>
         </React.Fragment>
