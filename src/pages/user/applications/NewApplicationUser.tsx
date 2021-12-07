@@ -1,10 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import styled, { withTheme } from "styled-components";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { ICredentialTemplate } from "../../../interfaces/credTemplate.interface";
 import { useHistory } from "react-router-dom";
+import { ViraScanModal } from "./ViraScanModal";
 import {
   CommonElementsUser,
   PageContentContainer,
@@ -54,6 +55,8 @@ const NewApplicationUser = ({ theme }) => {
   const [templates, setTemplates] = useState<any[]>();
   const [applicationNames, setApplicationNames] = useState<any[]>();
   const [template, setTemplate] = useState<ICredentialTemplate>();
+  const [did, setDid] = useState<string>();
+  const [visible, setVisible] = useState<boolean>(false);
 
   userInputRefs.current = {
     appType: null,
@@ -105,7 +108,7 @@ const NewApplicationUser = ({ theme }) => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const data = {};
+    const data: Record<string, unknown> = {};
     for (let i = 0; i < e.target.children.length; i++) {
       const elem = e.target.children[i];
       if (elem.placeholder && elem.value) {
@@ -120,7 +123,7 @@ const NewApplicationUser = ({ theme }) => {
     };
     const newApplication = await axios.post(
       "/api/applications",
-      { template: template._id, data },
+      { template: template._id, data, did },
       config
     );
     if (newApplication.data) {
@@ -141,6 +144,11 @@ const NewApplicationUser = ({ theme }) => {
   );
   return (
     <>
+      <ViraScanModal
+        visible={visible}
+        setVisible={setVisible}
+        setDid={setDid}
+      />
       <CommonElementsUser menuActive="Applications" />
       <PageContentContainer>
         <MainContentContainer>
@@ -166,6 +174,53 @@ const NewApplicationUser = ({ theme }) => {
             <Hr />
             <Div2>
               <form onSubmit={handleFormSubmit} id="application-form">
+                {template && (
+                  <div className="scan">
+                    <input
+                      type="text"
+                      name="did"
+                      placeholder="did:iota:123"
+                      id="did"
+                      required={true}
+                      value={did}
+                      onChange={(e) => setDid(e.target.value)}
+                      style={{
+                        width: "80%",
+                        height: "3rem",
+                        padding: "0 2.5rem 0.2rem 1rem",
+                        borderRadius: "30px",
+                        boxShadow: "none",
+                        border: "1px solid #E0E0E0",
+                        boxSizing: "border-box",
+                        fontSize: "1rem",
+                        outline: "none",
+                        color: "#353535",
+                        margin: "10px 0",
+                        borderTopRightRadius: "0px",
+                        borderBottomRightRadius: "0px",
+                      }}
+                    />
+                    <button
+                      type="button"
+                      className="scan-did"
+                      onClick={() => setVisible(() => true)}
+                      style={{
+                        height: "3rem",
+                        width: "20%",
+                        border: "none",
+                        borderRadius: "3rem",
+                        borderTopLeftRadius: "0",
+                        borderBottomLeftRadius: "0",
+                        background: "#5D7586",
+                        color: "white",
+                        fontWeight: 900,
+                        cursor: "pointer",
+                      }}
+                    >
+                      SCAN
+                    </button>{" "}
+                  </div>
+                )}
                 {template &&
                   template.fields.map((field, index) => (
                     <input
